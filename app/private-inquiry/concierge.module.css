@@ -1,0 +1,412 @@
+/* ── Page base ── */
+.page {
+  background: #0e0618;
+  min-height: 100vh;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Nav ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(14, 6, 24, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.navInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLogo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #d4b896;
+  letter-spacing: 0.06em;
+}
+
+.navBack {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navBack:hover {
+  color: var(--gold);
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 40px;
+  background: radial-gradient(ellipse at 20% 30%, rgba(61, 26, 110, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(201, 169, 110, 0.08) 0%, transparent 50%);
+}
+
+.heroInner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 36px;
+  opacity: 0.85;
+}
+
+.heroH1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(60px, 10vw, 120px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.0;
+  margin-bottom: 32px;
+}
+
+.heroItalic {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.heroRule {
+  width: 80px;
+  height: 1px;
+  background: rgba(201, 169, 110, 0.4);
+  margin-bottom: 32px;
+}
+
+.heroIntro {
+  font-size: clamp(16px, 2vw, 20px);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.heroNote {
+  font-size: 14px;
+  color: rgba(201, 169, 110, 0.65);
+  font-style: italic;
+}
+
+/* ── Shared section ── */
+.sectionTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* ── What This Is ── */
+.whatSection {
+  padding: 88px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.whatInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.whatGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .whatGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .whatSection {
+    padding: 64px 24px;
+  }
+}
+
+.whatItem p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+}
+
+/* ── Pillars ── */
+.pillarsSection {
+  padding: 0 40px 88px;
+}
+
+.pillarsInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 900px) {
+  .pillarsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .pillarsSection {
+    padding: 0 24px 64px;
+  }
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillar {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 32px 24px;
+}
+
+.pillarIcon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.pillarTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.pillarText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+}
+
+/* ── Discretion ── */
+.discretionSection {
+  padding: 0 40px 88px;
+}
+
+.discretionInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.discretionBox {
+  background: rgba(201, 169, 110, 0.06);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 16px;
+  padding: 40px 48px;
+}
+
+@media (max-width: 640px) {
+  .discretionSection {
+    padding: 0 24px 64px;
+  }
+  .discretionBox {
+    padding: 28px 24px;
+  }
+}
+
+.discretionTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.discretionText {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+}
+
+/* ── Form Section ── */
+.formSection {
+  padding: 0 40px 100px;
+}
+
+.formInner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.formIntro {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  .formSection {
+    padding: 0 24px 72px;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(201, 169, 110, 0.7);
+}
+
+.input,
+.select,
+.textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: rgba(201, 169, 110, 0.5);
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.07);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.select option {
+  background: #1a0a3e;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.formError {
+  font-size: 14px;
+  color: #e07070;
+}
+
+.submitBtn {
+  padding: 16px 32px;
+  background: var(--gold);
+  color: #0e0618;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  align-self: flex-start;
+}
+
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.formLegal {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 4px;
+}
+
+/* ── Form Success ── */
+.formSuccess {
+  background: rgba(201, 169, 110, 0.06);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 16px;
+  padding: 48px 40px;
+  text-align: center;
+}
+
+.formSuccessIcon {
+  font-size: 32px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.formSuccessTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.formSuccessText {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+}
+
+/* ── Footer Note ── */
+.footerNote {
+  padding: 32px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.footerNote p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.2);
+}

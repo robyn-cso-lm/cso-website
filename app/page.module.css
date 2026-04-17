@@ -1,0 +1,428 @@
+/* ── Hero ── */
+.hero {
+  background: var(--deep-purple);
+  background-image: radial-gradient(ellipse at 70% 50%, rgba(107, 63, 160, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 80%, rgba(155, 127, 199, 0.15) 0%, transparent 50%);
+  padding: 100px 40px 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroInner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 6px 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 28px;
+}
+
+.heroH1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.heroSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(16px, 2vw, 19px);
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 620px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.heroCTAs {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+.heroCTAPrimary {
+  display: inline-block;
+  padding: 16px 36px;
+  background: var(--lavender-light);
+  color: var(--deep-purple);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.heroCTAPrimary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.heroCTASecondary {
+  display: inline-block;
+  padding: 16px 36px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 100px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.heroCTASecondary:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+}
+
+.heroMetrics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.metricNum {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.metricLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.metricDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 72px 24px 80px;
+  }
+  .metric {
+    padding: 0 24px;
+  }
+  .metricNum {
+    font-size: 22px;
+  }
+  .metricDivider {
+    height: 28px;
+  }
+}
+
+/* ── Two Paths ── */
+.paths {
+  background: var(--cream);
+  padding: 96px 40px;
+}
+
+.pathsInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--deep-purple);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.pathCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+@media (max-width: 768px) {
+  .paths {
+    padding: 64px 24px;
+  }
+  .pathCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pathCard {
+  background: #fff;
+  border: 1.5px solid rgba(155, 127, 199, 0.2);
+  border-radius: 20px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.pathCard:hover {
+  box-shadow: 0 16px 48px rgba(61, 26, 110, 0.12);
+  transform: translateY(-4px);
+}
+
+.pathCardAlt {
+  background: var(--lavender-light);
+  border-color: rgba(107, 63, 160, 0.2);
+}
+
+.pathIcon {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.pathTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  margin-bottom: 14px;
+}
+
+.pathText {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.pathFeatures {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex: 1;
+}
+
+.pathFeatures li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding-left: 20px;
+  position: relative;
+}
+
+.pathFeatures li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--mid-purple);
+  font-weight: 600;
+}
+
+.pathCTA {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--deep-purple);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 100px;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.pathCTA:hover {
+  background: var(--mid-purple);
+  transform: translateY(-1px);
+}
+
+.pathCTAOutline {
+  background: transparent;
+  color: var(--deep-purple);
+  border: 2px solid var(--deep-purple);
+}
+
+.pathCTAOutline:hover {
+  background: var(--deep-purple);
+  color: #fff;
+}
+
+/* ── Quote ── */
+.quote {
+  background: var(--deep-purple);
+  background-image: radial-gradient(ellipse at 30% 50%, rgba(107, 63, 160, 0.35) 0%, transparent 60%);
+  padding: 96px 40px;
+}
+
+.quoteInner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quoteContent {
+  position: relative;
+}
+
+.quoteMarks {
+  color: var(--lavender);
+  margin-bottom: 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quoteText {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+.quoteCite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-style: normal;
+}
+
+.quoteCite strong {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--lavender-light);
+}
+
+.quoteCite span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 640px) {
+  .quote {
+    padding: 64px 24px;
+  }
+}
+
+/* ── Contact Strip ── */
+.contact {
+  background: var(--lavender-light);
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.contactInner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contactTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  color: var(--deep-purple);
+  margin-bottom: 12px;
+}
+
+.contactSub {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+}
+
+.contactOptions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 64px 24px;
+  }
+  .contactOptions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .contactOptions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contactOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1.5px solid rgba(155, 127, 199, 0.2);
+}
+
+.contactOption:hover {
+  box-shadow: 0 8px 24px rgba(61, 26, 110, 0.1);
+  transform: translateY(-2px);
+}
+
+.contactOptionIcon {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.contactOptionLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mid-purple);
+}
+
+.contactOptionValue {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: center;
+}
