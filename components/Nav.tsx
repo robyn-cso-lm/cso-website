@@ -40,6 +40,14 @@ export default function Nav() {
           </li>
           <li>
             <Link
+              href="/surrogates"
+              className={`${styles.link} ${isActive('/surrogates') ? styles.active : ''}`}
+            >
+              Become a Surrogate
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/blog"
               className={`${styles.link} ${isActive('/blog') ? styles.active : ''}`}
             >
@@ -83,6 +91,7 @@ export default function Nav() {
       <div id="mobile-menu" className={styles.mobileMenu}>
         <Link href="/about" className={styles.mobileLink}>About</Link>
         <Link href="/programs" className={styles.mobileLink}>Programs</Link>
+        <Link href="/surrogates" className={styles.mobileLink}>Become a Surrogate</Link>
         <Link href="/blog" className={styles.mobileLink}>Blog</Link>
         <Link href="/contact" className={styles.mobileLink}>Contact</Link>
         <a

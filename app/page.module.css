@@ -3,10 +3,21 @@
   background: var(--deep-purple);
   background-image: radial-gradient(ellipse at 70% 50%, rgba(107, 63, 160, 0.4) 0%, transparent 60%),
     radial-gradient(ellipse at 10% 80%, rgba(155, 127, 199, 0.15) 0%, transparent 50%);
-  padding: 100px 40px 120px;
+  padding: 100px 40px 140px;
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+/* Family silhouettes */
+.silhouettes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  opacity: 0.09;
+  pointer-events: none;
 }
 
 .heroInner {
@@ -425,4 +436,108 @@
   font-size: 13px;
   color: var(--text-secondary);
   text-align: center;
+}
+
+/* ── Our Story ── */
+.story {
+  background: #fff;
+  padding: 100px 40px;
+}
+
+.storyInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .story {
+    padding: 72px 24px;
+  }
+  .storyInner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.storyEyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid-purple);
+  margin-bottom: 12px;
+}
+
+.storyTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 400;
+  color: var(--deep-purple);
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.storyBody {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.storyCTA {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 30px;
+  background: var(--deep-purple);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.storyCTA:hover {
+  background: var(--mid-purple);
+  transform: translateY(-2px);
+}
+
+.storyStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.storyStat {
+  background: var(--lavender-light);
+  border-radius: 16px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.storyStatNum {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--deep-purple);
+  line-height: 1;
+}
+
+.storyStatLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--mid-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 500;
 }

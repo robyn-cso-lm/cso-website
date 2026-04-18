@@ -66,11 +66,7 @@ export default function Footer() {
             <div className={styles.column}>
               <h4 className={styles.columnTitle}>For Surrogates</h4>
               <ul className={styles.columnLinks}>
-                <li>
-                  <a href="https://becomeasurrogate.ca" target="_blank" rel="noopener noreferrer">
-                    Apply to Be a Surrogate
-                  </a>
-                </li>
+                <li><Link href="/surrogates">Apply to Be a Surrogate</Link></li>
                 <li><Link href="/blog?category=Surrogates">Surrogate Resources</Link></li>
                 <li><Link href="/programs#digital">Surrogate Readiness Guide</Link></li>
               </ul>
@@ -80,23 +76,19 @@ export default function Footer() {
               <h4 className={styles.columnTitle}>Contact</h4>
               <ul className={styles.columnLinks}>
                 <li>
-                  <a href="tel:+16045551234">
-                    (604) 555-1234
+                  <a href="tel:+18774014175">
+                    1-877-401-4175
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@canadiansurrogacyoptions.com">
-                    info@canadiansurrogacyoptions.com
+                  <a href="mailto:robyn@canadiansurrogacyoptions.com">
+                    robyn@canadiansurrogacyoptions.com
                   </a>
                 </li>
+                <li>Cambridge, Ontario</li>
                 <li>
                   <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener noreferrer">
                     Schedule a Call
-                  </a>
-                </li>
-                <li>
-                  <a href="sms:+16045551234">
-                    Send a Text
                   </a>
                 </li>
               </ul>
