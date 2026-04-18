@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surrogate Readiness Guide — Canadian Surrogacy Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-purple: #3D1A6E;
+    --mid-purple: #6B3FA0;
+    --lavender: #9B7FC7;
+    --lavender-light: #E8E0F5;
+    --cream: #FDFAF7;
+    --text: #2E1A4A;
+    --text-secondary: #6B5A85;
+    --rule: rgba(155,127,199,0.25);
+  }
+
+  @page { size: letter; margin: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e5e2de;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── Page Wrapper ── */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    background: var(--cream);
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 32px;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; }
+  }
+
+  .page-inner {
+    padding: 0.75in 0.85in 1in;
+    flex: 1;
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    margin: 0 0.85in;
+    border-top: 1px solid var(--rule);
+    padding: 0.18in 0 0.35in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+  }
+
+  .page-footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  /* ── Cover ── */
+  .cover {
+    width: 8.5in;
+    min-height: 11in;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.6in 0.85in 0.5in;
+    page-break-after: always;
+    position: relative;
+    margin: 0 auto 32px;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3.2in;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(155,127,199,0.06) 0%, rgba(107,63,160,0.09) 100%);
+    pointer-events: none;
+  }
+
+  .cover-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-wordmark {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid-purple);
+  }
+
+  .cover-wordmark-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--lavender);
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: middle;
+  }
+
+  .cover-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.4in 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px;
+    font-weight: 400;
+    color: var(--deep-purple);
+    line-height: 1.03;
+    margin-bottom: 10px;
+  }
+
+  .cover-title em {
+    font-style: italic;
+  }
+
+  .cover-rule {
+    width: 64px;
+    height: 2px;
+    background: var(--lavender);
+    margin: 30px 0;
+  }
+
+  .cover-subtitle {
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.65;
+    max-width: 500px;
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+
+  .cover-sub2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 500px;
+  }
+
+  .cover-author {
+    margin-top: 44px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .cover-author-line {
+    width: 32px;
+    height: 1px;
+    background: var(--lavender);
+    margin-top: 10px;
+    flex-shrink: 0;
+  }
+
+  .cover-author-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .cover-author-name {
+    font-weight: 500;
+    color: var(--deep-purple);
+    font-size: 13px;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-bottom-contact {
+    font-size: 10.5px;
+    color: var(--text-secondary);
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+  }
+
+  .cover-bottom-contact a {
+    color: var(--mid-purple);
+    text-decoration: none;
+  }
+
+  .cover-ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    color: rgba(155,127,199,0.1);
+    line-height: 1;
+    font-style: italic;
+    user-select: none;
+  }
+
+  /* ── Section Headers ── */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--deep-purple);
+    line-height: 1.15;
+    margin-bottom: 28px;
+  }
+
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--rule);
+    margin: 28px 0;
+  }
+
+  /* ── Welcome Page ── */
+  .welcome-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--deep-purple);
+    margin-bottom: 28px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.2;
+  }
+
+  /* ── Callout Boxes ── */
+  .callout {
+    background: white;
+    border-left: 3px solid var(--lavender);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .callout.priority {
+    border-left-color: var(--deep-purple);
+    background: #fdf8ff;
+  }
+
+  .callout-label {
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    font-weight: 500;
+    margin-bottom: 7px;
+    display: block;
+  }
+
+  .callout.priority .callout-label {
+    color: var(--mid-purple);
+  }
+
+  /* ── Key Term ── */
+  .key-term {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--lavender-light);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+
+  .key-term-badge {
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid-purple);
+    font-weight: 500;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .key-term-text {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── Bullet Lists ── */
+  ul.cso-list {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0;
+  }
+
+  ul.cso-list li {
+    padding: 8px 0 8px 22px;
+    position: relative;
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  ul.cso-list li:last-child { border-bottom: none; }
+
+  ul.cso-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 17px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--lavender);
+  }
+
+  /* ── Tables ── */
+  table.cso-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+
+  table.cso-table thead tr {
+    background: var(--lavender-light);
+  }
+
+  table.cso-table th {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid-purple);
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    padding: 11px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--lavender);
+  }
+
+  table.cso-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--text);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  table.cso-table tbody tr:nth-child(even) td {
+    background: rgba(232,224,245,0.25);
+  }
+
+  table.cso-table tr:last-child td { border-bottom: none; }
+
+  /* ── Two-Column Compare ── */
+  .two-col-compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+
+  .two-col-compare thead tr {
+    background: var(--lavender-light);
+  }
+
+  .two-col-compare th {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--lavender);
+    width: 50%;
+  }
+
+  .two-col-compare th:first-child {
+    color: var(--mid-purple);
+    border-right: 1px solid rgba(155,127,199,0.3);
+  }
+
+  .two-col-compare th:last-child {
+    color: #8a6060;
+  }
+
+  .two-col-compare td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.6;
+    vertical-align: top;
+    width: 50%;
+  }
+
+  .two-col-compare td:first-child {
+    color: var(--text);
+    border-right: 1px solid rgba(155,127,199,0.3);
+  }
+
+  .two-col-compare td:last-child {
+    color: #7a5a5a;
+  }
+
+  .two-col-compare tbody tr:nth-child(even) td {
+    background: rgba(232,224,245,0.2);
+  }
+
+  .two-col-compare tr:last-child td { border-bottom: none; }
+
+  /* ── Checklist ── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .check-box {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--lavender);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .checklist li strong {
+    color: var(--deep-purple);
+    font-weight: 500;
+  }
+
+  /* ── Numbered Steps ── */
+  .step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid var(--lavender);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--mid-purple);
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .step-content { flex: 1; }
+
+  .step-label {
+    font-weight: 500;
+    color: var(--deep-purple);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .step-body {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ── Pull Quote ── */
+  .pull-quote {
+    text-align: center;
+    padding: 32px 40px;
+    margin: 28px 0;
+    position: relative;
+  }
+
+  .pull-quote-rule-top {
+    width: 40px;
+    height: 1px;
+    background: var(--lavender);
+    margin: 0 auto 20px;
+  }
+
+  .pull-quote-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--deep-purple);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .pull-quote-rule-bottom {
+    width: 40px;
+    height: 1px;
+    background: var(--lavender);
+    margin: 0 auto 14px;
+  }
+
+  .pull-quote-source {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lavender);
+  }
+
+  /* ── Question Block ── */
+  .question-block {
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+  }
+
+  .question-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--deep-purple);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .question-body {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.75;
+    padding-left: 0;
+  }
+
+  /* ── Closing Page ── */
+  .closing {
+    width: 8.5in;
+    min-height: 11in;
+    background: var(--deep-purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0.85in;
+    page-break-before: always;
+    margin: 0 auto;
+  }
+
+  .closing-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .closing-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 56px;
+    font-weight: 400;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .closing-sub {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 56px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--lavender-light);
+    line-height: 1.1;
+    margin-bottom: 36px;
+  }
+
+  .closing-rule {
+    width: 50px;
+    height: 1px;
+    background: rgba(155,127,199,0.4);
+    margin: 0 auto 32px;
+  }
+
+  .closing-body {
+    font-size: 15px;
+    color: rgba(253,250,247,0.82);
+    line-height: 1.85;
+    max-width: 460px;
+    margin-bottom: 40px;
+  }
+
+  .closing-cta {
+    display: inline-block;
+    background: white;
+    color: var(--deep-purple);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 15px 34px;
+    border-radius: 100px;
+    text-decoration: none;
+    margin-bottom: 52px;
+  }
+
+  .closing-footer {
+    font-size: 11px;
+    color: rgba(155,127,199,0.65);
+    line-height: 2;
+  }
+
+  .closing-footer strong {
+    color: rgba(253,250,247,0.55);
+    font-weight: 400;
+  }
+
+  .closing-disclaimer {
+    margin-top: 28px;
+    font-size: 10px;
+    color: rgba(155,127,199,0.45);
+    line-height: 1.8;
+    max-width: 480px;
+  }
+
+  /* ── Intro Cards ── */
+  .intro-card {
+    background: white;
+    border-left: 3px solid var(--lavender);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+    page-break-inside: avoid;
+  }
+
+  .intro-card-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--deep-purple);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+
+  .intro-card p {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* ── Sub-section header ── */
+  .sub-section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--deep-purple);
+    margin: 28px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── Talking-to section ── */
+  .talk-section {
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+  }
+
+  .talk-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--deep-purple);
+    margin-bottom: 8px;
+  }
+
+  .talk-body {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  /* ── Print utilities ── */
+  @media print {
+    .page, .cover, .closing {
+      page-break-after: always;
+      box-shadow: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COVER PAGE
+═══════════════════════════════════════════════════════════════ -->
+<div class="cover">
+
+  <div class="cover-top">
+    <div class="cover-wordmark">
+      Canadian Surrogacy Options
+      <span class="cover-wordmark-dot"></span>
+      Est. 1992
+    </div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-eyebrow">For Potential Surrogates</div>
+
+    <div class="cover-title">
+      <em>Surrogate<br>Readiness Guide</em>
+    </div>
+
+    <div class="cover-rule"></div>
+
+    <div class="cover-subtitle">
+      Everything you need to know before you decide to become a surrogate.
+    </div>
+
+    <div class="cover-sub2">
+      Eligibility, process, reimbursements, choosing an agency, and real answers<br>
+      to the questions nobody else will ask.
+    </div>
+
+    <div class="cover-author">
+      <div class="cover-author-line"></div>
+      <div class="cover-author-text">
+        <span class="cover-author-name">Robyn Price</span>
+        Executive Director, Canadian Surrogacy Options<br>
+        Egg donor 5 times. In this field since age four.
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-bottom-contact">
+      <a href="https://canadiansurrogacyoptions.com">canadiansurrogacyoptions.com</a>
+      &nbsp;&middot;&nbsp; 519-220-0555
+    </div>
+    <div class="cover-ornament">cso</div>
+  </div>
+
+</div><!-- /cover -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     WELCOME PAGE
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">A note from Robyn</span>
+    <div class="welcome-title">So you're thinking about surrogacy.</div>
+
+    <p>First &mdash; thank you. The fact that you are even considering this says something meaningful about who you are.</p>
+
+    <p>I have been in the surrogacy field since I was four years old. My mother founded Canadian Surrogacy Options in 1992. I was an egg donor five times myself. I have worked with hundreds of surrogates over the years &mdash; women who changed the lives of families in ways that are impossible to fully describe.</p>
+
+    <p>This guide is written for you with complete honesty. Not a recruitment pitch. Not a glossy brochure. Real information about what surrogacy involves, what is required, what you will experience, and what questions you should be asking before you decide.</p>
+
+    <div class="pull-quote">
+      <div class="pull-quote-rule-top"></div>
+      <div class="pull-quote-text">&ldquo;Surrogacy is one of the most generous things a person can do. It is also one of the most significant. This guide will help you decide whether it is right for you &mdash; with clear eyes.&rdquo;</div>
+      <div class="pull-quote-rule-bottom"></div>
+      <div class="pull-quote-source">Robyn Price &nbsp;&middot;&nbsp; Executive Director, Canadian Surrogacy Options</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>519-220-0555 &nbsp;&middot;&nbsp; robyn@canadiansurrogacyoptions.com</span>
+  </div>
+</div><!-- /welcome page -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 1 — What is surrogacy in Canada?
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">Section 1</span>
+    <div class="section-title">What is surrogacy in Canada?</div>
+
+    <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:24px;">In Canada, surrogacy is legal and governed by the Assisted Human Reproduction Act. Here is what that means for you as a surrogate.</p>
+
+    <div class="intro-card">
+      <div class="intro-card-title">You are a gestational carrier.</div>
+      <p>In almost all Canadian surrogacy arrangements, you carry a baby that was created from the intended parents&rsquo; embryo &mdash; or from donor material. You have no genetic connection to the baby. The embryo is transferred to your uterus at a fertility clinic after you complete medical screening.</p>
+    </div>
+
+    <div class="intro-card">
+      <div class="intro-card-title">You are not paid &mdash; you are reimbursed.</div>
+      <p>This is the part most people are surprised by. Canadian law prohibits paying a surrogate a fee or wage. What you receive are reimbursements for documented, pregnancy-related expenses &mdash; things like travel to appointments, lost wages for mandatory medical visits, maternity clothing, and medications.</p>
+    </div>
+
+    <div class="callout priority">
+      <span class="callout-label">Important &mdash; Legal Notice</span>
+      If anyone &mdash; an agency, a family, or anyone else &mdash; suggests paying you a fee beyond documented expense reimbursements, that is illegal in Canada. A reputable agency will never suggest this.
+    </div>
+
+    <div class="intro-card" style="margin-top:18px;">
+      <div class="intro-card-title">You choose your family.</div>
+      <p>You are never required to accept a match with a family you are not comfortable with. Matching is a mutual process. You review the intended parents&rsquo; profile, they review yours, and both parties agree before the match is confirmed. You have the right to say no.</p>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>Surrogate Readiness Guide</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 2 — Do you qualify?
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">Section 2</span>
+    <div class="section-title">Do you qualify to be a surrogate?</div>
+
+    <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:22px;">Here are the eligibility requirements that most Canadian clinics and agencies use. These are not arbitrary &mdash; each one exists for medical, legal, or ethical reasons.</p>
+
+    <div class="sub-section-title">Medical Eligibility</div>
+
+    <ul class="checklist">
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You have had at least one previous successful pregnancy and birth</strong> &mdash; This is non-negotiable at virtually every Canadian clinic. You must have carried and delivered before.</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You are between 21 and 45 years of age</strong></span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You have a healthy BMI (generally 18.5 to 33)</strong> &mdash; Some clinics have slightly different ranges. Your screening will confirm this.</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You do not smoke or use recreational drugs</strong></span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You do not have uncontrolled chronic health conditions</strong> &mdash; Some conditions are manageable and do not disqualify you. Your screening doctor will assess.</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>Your previous pregnancies and births were uncomplicated</strong> &mdash; Complications are reviewed case by case. One caesarean section is usually fine. Multiple C-sections may be reviewed more carefully.</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You are not currently pregnant or breastfeeding</strong></span>
+      </li>
+    </ul>
+
+    <div class="sub-section-title">Financial &amp; Lifestyle Eligibility</div>
+
+    <ul class="checklist">
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You are a Canadian citizen or permanent resident</strong></span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You are not currently receiving social assistance or government benefits</strong> &mdash; Note: Receiving surrogacy reimbursements while on benefits can create legal complications for you. This is an important conversation to have before you proceed.</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You have stable housing</strong></span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You have a support system &mdash; a partner, family member, or close friend</strong> &mdash; Surrogacy is a significant undertaking. Having people around you who support your decision matters.</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span><strong>You are not doing this primarily out of financial need</strong> &mdash; This is not a disqualifier &mdash; but it is something agencies and clinics look at carefully during screening. Surrogacy should be a choice, not a necessity.</span>
+      </li>
+    </ul>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>Surrogate Readiness Guide</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 3 — What the process looks like
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">Section 3</span>
+    <div class="section-title">What the process actually looks like</div>
+
+    <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:26px;">Here is what you can expect from application through to post-birth &mdash; in plain language, without the glossy version.</p>
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-label">Application</div>
+        <div class="step-body">You complete an application with your agency or directly with a family. This covers your medical history, previous pregnancies, lifestyle, and motivation.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-label">Initial Screening Call</div>
+        <div class="step-body">A conversation with the agency or family to get to know each other. No commitment at this stage &mdash; just a conversation.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-label">Psychological Evaluation</div>
+        <div class="step-body">A session with a registered psychologist who specialises in reproductive matters. This is required by most clinics. It is not a test you pass or fail &mdash; it is an assessment of your readiness and understanding.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-label">Medical Screening</div>
+        <div class="step-body">Full medical screening at the intended parents&rsquo; fertility clinic. Bloodwork, uterine assessment, infectious disease testing. Your partner will also need to be tested if applicable.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <div class="step-label">Matching</div>
+        <div class="step-body">Once you are medically and psychologically cleared, you are presented to families whose profiles you have reviewed. You can say no to any match.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">06</div>
+      <div class="step-content">
+        <div class="step-label">Legal Agreements</div>
+        <div class="step-body">Once matched, you retain an independent lawyer (paid for by the intended parents) who reviews and advises you on the surrogacy agreement. Nothing medical happens until this is signed.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">07</div>
+      <div class="step-content">
+        <div class="step-label">Embryo Transfer</div>
+        <div class="step-body">You complete a medicated cycle to prepare your uterus. The embryo transfer itself takes about 15&ndash;30 minutes and is not painful. A blood test 10&ndash;12 days later confirms whether it worked.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">08</div>
+      <div class="step-content">
+        <div class="step-label">Pregnancy</div>
+        <div class="step-body">If the transfer is successful, you are pregnant. You continue with your own OB/GYN for the pregnancy. Your expenses are reimbursed throughout.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">09</div>
+      <div class="step-content">
+        <div class="step-label">Birth</div>
+        <div class="step-body">The intended parents are present for the birth if you agree. What happens in the delivery room &mdash; who is present, who holds the baby &mdash; is agreed in advance. You have a say in all of it.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">10</div>
+      <div class="step-content">
+        <div class="step-label">Post-Birth</div>
+        <div class="step-body">Final reimbursements are processed. The intended parents handle the legal parentage process. Your role is complete. Most surrogates describe the post-birth period as a mix of joy, relief, and deep satisfaction.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>Surrogate Readiness Guide</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 4 — Reimbursements
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">Section 4</span>
+    <div class="section-title">What you will be reimbursed for</div>
+
+    <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:22px;">Here is a clear breakdown of what is and is not reimbursable under Canadian law. Everything must be documented with receipts.</p>
+
+    <table class="two-col-compare">
+      <thead>
+        <tr>
+          <th>Reimbursable</th>
+          <th>Not Reimbursable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Maternity clothing allowance</td>
+          <td>A base salary or monthly wage</td>
+        </tr>
+        <tr>
+          <td>Travel to all medical appointments</td>
+          <td>Payment for carrying the baby</td>
+        </tr>
+        <tr>
+          <td>Childcare during appointments</td>
+          <td>Bonuses for successful transfer or birth</td>
+        </tr>
+        <tr>
+          <td>Lost wages for mandatory appointments</td>
+          <td>Cash payments without receipts</td>
+        </tr>
+        <tr>
+          <td>Medications and supplements</td>
+          <td>Compensation for pain or discomfort</td>
+        </tr>
+        <tr>
+          <td>Life and disability insurance premiums</td>
+          <td>Any amount that could be called commercial</td>
+        </tr>
+        <tr>
+          <td>Psychological counselling during journey</td>
+          <td>Payments exceeding actual documented expenses</td>
+        </tr>
+        <tr>
+          <td>Independent legal fees</td>
+          <td>&mdash;</td>
+        </tr>
+        <tr>
+          <td>Housekeeping if medically required</td>
+          <td>&mdash;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:24px;">
+      <span class="callout-label">What does total reimbursement typically look like?</span>
+      Every journey is different &mdash; but most Canadian surrogates receive somewhere between <strong>$20,000 and $35,000 CAD</strong> in total reimbursements over the course of the journey, covering all the categories above. This is not income. It is reimbursement for real costs you incur.
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>Surrogate Readiness Guide</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 5 — The emotional reality
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">Section 5</span>
+    <div class="section-title">The emotional reality &mdash; what nobody tells you</div>
+
+    <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:28px;">The clinical information about surrogacy is easy to find. What is harder to find is an honest account of what it actually feels like. Here is mine, based on 30+ years in this field.</p>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;The bond is real &mdash; and it is also different.&rdquo;</div>
+      <div class="question-body">You will feel connected to this pregnancy. You will care about this baby. And when you hand that baby to its parents, most surrogates describe the feeling not as loss but as completion. You knew all along whose baby this was. That does not make the feelings small &mdash; it makes them profound.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;Not everyone in your life will understand.&rdquo;</div>
+      <div class="question-body">Some people will ask questions that feel intrusive. Some will project feelings onto you that are not yours. Your partner, your children, your parents &mdash; their reactions will vary. Prepare for this. Talk to them before you apply.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;Failed transfers are hard.&rdquo;</div>
+      <div class="question-body">Not every transfer results in a pregnancy. If a transfer fails, you will likely feel it more than you expected &mdash; even knowing the baby was never genetically yours. This is normal. Give yourself permission to grieve it.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;The relationship with the intended parents matters.&rdquo;</div>
+      <div class="question-body">Some surrogates become close friends with their IPs. Others maintain warm but boundaried relationships. Both are valid. What matters is that the relationship is respectful, communicative, and built on mutual appreciation.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;Most surrogates say they would do it again.&rdquo;</div>
+      <div class="question-body">Across all the surrogates I have worked with, the most consistent thing I hear years later is gratitude. Not just from the families &mdash; from the surrogates themselves. It changes you, in the best way.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>Surrogate Readiness Guide</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 6 — How to choose the right agency
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">Section 6</span>
+    <div class="section-title">How to choose the right agency</div>
+
+    <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:26px;">Your agency is your advocate throughout this journey. Here are the questions you should ask &mdash; and what good answers sound like.</p>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;How long have you been working with surrogates?&rdquo;</div>
+      <div class="question-body">Experience matters. An agency that has been through complications, difficult matches, and unexpected situations is better equipped to support you.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;Who is my primary point of contact and how do I reach them?&rdquo;</div>
+      <div class="question-body">You should have a named person, not a general inbox. And that person should be reachable when things are hard, not just during business hours.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;How are my reimbursements handled?&rdquo;</div>
+      <div class="question-body">All reimbursements should flow through a trust account managed by a lawyer &mdash; not directly from the intended parents to you. This protects everyone.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;What happens if I or the intended parents need to withdraw?&rdquo;</div>
+      <div class="question-body">A good agency has a clear, fair policy for this. Ask what it is and get it in writing.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;Can I speak with surrogates who have worked with you before?&rdquo;</div>
+      <div class="question-body">Any reputable agency should be able to connect you with past surrogates who are willing to share their experience.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="question-block">
+      <div class="question-title">&ldquo;What support do you offer me during the pregnancy &mdash; not just the IPs?&rdquo;</div>
+      <div class="question-body">Your wellbeing matters. A good agency checks in on you, advocates for you, and makes sure you never feel like the least important person in the process.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>Surrogate Readiness Guide</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 7 — Talking to the people in your life
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">Section 7</span>
+    <div class="section-title">Talking to the people in your life</div>
+
+    <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:28px;">This is often the hardest part of the decision &mdash; not the medical screening, not the legal agreement, but the conversation at your kitchen table.</p>
+
+    <div class="talk-section">
+      <div class="talk-title">Your partner</div>
+      <div class="talk-body">Your partner&rsquo;s support is not optional &mdash; it is a requirement. Most clinics and agencies require your partner to participate in psychological screening and sign the surrogacy agreement. Beyond the legal requirement, carrying a pregnancy affects your relationship, your household, and your family&rsquo;s life. They need to be genuinely on board.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="talk-section">
+      <div class="talk-title">Your children</div>
+      <div class="talk-body">Children are more adaptable than we sometimes give them credit for. Age-appropriate honesty works best. Most children, when told simply that &ldquo;mummy is growing a baby for another family who can&rsquo;t grow one themselves,&rdquo; understand and accept this beautifully. What creates confusion is secrecy.</div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="talk-section">
+      <div class="talk-title">Your parents and extended family</div>
+      <div class="talk-body">Their reactions will vary. Some will be proud. Some will worry. Some will not understand at all. You do not need everyone&rsquo;s approval &mdash; but having honest conversations early, before you are pregnant, is far easier than managing reactions mid-journey.</div>
+    </div>
+
+    <div class="callout" style="margin-top:30px;">
+      <span class="callout-label">A reminder</span>
+      You are allowed to set limits on the questions you answer. &ldquo;This is my decision and I have thought about it carefully&rdquo; is a complete sentence.
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>Surrogate Readiness Guide</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 8 — Questions to ask yourself
+═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-inner">
+
+    <span class="section-label">Section 8</span>
+    <div class="section-title">Questions to ask yourself before you apply</div>
+
+    <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:22px;">Sit with these. There are no wrong answers &mdash; just honest ones.</p>
+
+    <ul class="checklist">
+      <li>
+        <div class="check-box"></div>
+        <span>Why do I want to do this? Is my motivation something I feel good about?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Does my partner fully support this decision?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Have I talked to my children about what surrogacy means?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Am I in a stable place financially, emotionally, and physically?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Do I understand that I will not be paid &mdash; only reimbursed for real expenses?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Am I comfortable carrying a baby I have no genetic connection to?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Can I handle a failed transfer &mdash; and would I be willing to try again?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Do I have people around me who will support me through this?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Have I thought about what post-birth will feel like?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Am I ready to share this pregnancy experience with another family?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Do I understand that this will take 12 to 24 months of my life?</span>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <span>Do I feel ready &mdash; not pressured, not financially desperate, but genuinely ready?</span>
+      </li>
+    </ul>
+
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options &nbsp;&middot;&nbsp; canadiansurrogacyoptions.com</span>
+    <span>Surrogate Readiness Guide</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CLOSING PAGE
+═══════════════════════════════════════════════════════════════ -->
+<div class="closing">
+
+  <div class="closing-eyebrow">You&rsquo;re Ready.</div>
+
+  <div class="closing-title">What comes</div>
+  <div class="closing-sub">next.</div>
+
+  <div class="closing-rule"></div>
+
+  <div class="closing-body">
+    If you have read this guide, answered those questions honestly, and still feel the pull &mdash; then you might be ready. The next step is a conversation. Not a commitment. Just a chance to ask your questions, share your story, and get a feel for whether CSO is the right fit for your journey.
+  </div>
+
+  <a class="closing-cta" href="https://calendly.com/cso-robyn">Book a free call with Robyn &nbsp;&mdash;&nbsp; calendly.com/cso-robyn</a>
+
+  <div class="closing-footer">
+    <strong>Canadian Surrogacy Options</strong><br>
+    Cambridge &amp; Guelph, Ontario &nbsp;&middot;&nbsp; 519-220-0555<br>
+    canadiansurrogacyoptions.com &nbsp;&middot;&nbsp; robyn@canadiansurrogacyoptions.com<br>
+    <br>
+    <strong>Little Miracles Egg Donation Services</strong> &nbsp;&middot;&nbsp; little-miracles.ca
+  </div>
+
+  <div class="closing-disclaimer">
+    This guide is provided for informational purposes only and does not constitute legal or medical advice. Eligibility requirements vary by clinic. Always consult with your agency and medical team.
+  </div>
+
+</div><!-- /closing -->
+
+</body>
+</html>

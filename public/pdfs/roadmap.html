@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Canadian Surrogacy Roadmap — Canadian Surrogacy Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FDFAF7;
+    color: #4A3560;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* PAGE STRUCTURE */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    background: #FDFAF7;
+    position: relative;
+    padding: 0.85in 0.85in 1in 0.85in;
+    page-break-after: always;
+    overflow: hidden;
+  }
+
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  /* FOOTER */
+  .page-footer {
+    position: absolute;
+    bottom: 0.45in;
+    left: 0.85in;
+    right: 0.85in;
+    border-top: 0.5px solid #9B7FC7;
+    padding-top: 0.12in;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    color: #9B7FC7;
+    letter-spacing: 0.04em;
+    text-align: right;
+  }
+
+  /* COVER PAGE */
+  .cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 11in;
+    padding: 0.9in 1in;
+    background: #FDFAF7;
+  }
+
+  .cover-wordmark {
+    position: absolute;
+    top: 0.6in;
+    left: 1in;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6B3FA0;
+  }
+
+  .cover-content {
+    margin-top: 1.2in;
+    max-width: 5.5in;
+  }
+
+  .cover-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.3in;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #3D1A6E;
+    margin-bottom: 0.25in;
+  }
+
+  .cover-rule {
+    width: 2in;
+    height: 2px;
+    background: linear-gradient(to right, #9B7FC7, #E8E0F5);
+    margin-bottom: 0.3in;
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: #6B3FA0;
+    line-height: 1.5;
+    margin-bottom: 0.2in;
+    max-width: 5in;
+  }
+
+  .cover-subsubtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #6B3FA0;
+    line-height: 1.7;
+    max-width: 4.8in;
+    margin-bottom: 0.5in;
+  }
+
+  .cover-byline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #9B7FC7;
+    letter-spacing: 0.05em;
+  }
+
+  .cover-byline strong {
+    color: #6B3FA0;
+    font-weight: 500;
+  }
+
+  .cover-bottom-decoration {
+    position: absolute;
+    bottom: 0.9in;
+    right: 1in;
+    text-align: right;
+  }
+
+  .cover-bottom-decoration .deco-line {
+    width: 1.2in;
+    height: 1px;
+    background: #E8E0F5;
+    margin-left: auto;
+    margin-bottom: 0.1in;
+  }
+
+  .cover-bottom-decoration span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C4B3E0;
+  }
+
+  /* TABLE OF CONTENTS */
+  .toc-page {
+    padding-top: 0.9in;
+  }
+
+  .page-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.18in;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #3D1A6E;
+    line-height: 1.15;
+    margin-bottom: 0.35in;
+  }
+
+  .toc-rule {
+    width: 100%;
+    height: 1px;
+    background: #E8E0F5;
+    margin-bottom: 0.3in;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: baseline;
+    padding: 0.1in 0;
+    border-bottom: 0.5px solid #F0EBF8;
+  }
+
+  .toc-part {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    min-width: 0.7in;
+    flex-shrink: 0;
+  }
+
+  .toc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #3D1A6E;
+    flex: 1;
+  }
+
+  .toc-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: #9B7FC7;
+    font-weight: 300;
+  }
+
+  /* PART HEADER */
+  .part-header-block {
+    margin-bottom: 0.35in;
+    padding-bottom: 0.2in;
+    border-bottom: 1px solid #E8E0F5;
+  }
+
+  .part-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.1in;
+  }
+
+  .part-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: #3D1A6E;
+    line-height: 1.15;
+  }
+
+  /* BODY TEXT */
+  p {
+    margin-bottom: 0.18in;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4A3560;
+  }
+
+  /* CALLOUT BOXES */
+  .callout {
+    background: #FDFAF7;
+    border-left: 3px solid #9B7FC7;
+    padding: 0.18in 0.25in;
+    margin: 0.25in 0;
+    margin-left: 0.1in;
+  }
+
+  .callout p {
+    margin-bottom: 0;
+    font-size: 13.5px;
+    color: #4A3560;
+  }
+
+  .callout .callout-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.08in;
+    display: block;
+  }
+
+  .callout-priority {
+    background: #FDFAF7;
+    border-left: 3px solid #3D1A6E;
+    padding: 0.18in 0.25in;
+    margin: 0.25in 0;
+    margin-left: 0.1in;
+  }
+
+  .callout-priority p {
+    margin-bottom: 0;
+    font-size: 13.5px;
+    color: #4A3560;
+  }
+
+  .callout-warning {
+    background: #F9F5FF;
+    border-left: 3px solid #3D1A6E;
+    padding: 0.18in 0.25in;
+    margin: 0.25in 0;
+    margin-left: 0.1in;
+  }
+
+  .callout-warning .warning-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #3D1A6E;
+    margin-bottom: 0.07in;
+    display: block;
+  }
+
+  .callout-warning p {
+    margin-bottom: 0;
+    font-size: 13.5px;
+    color: #4A3560;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    text-align: center;
+    padding: 0.4in 0.5in;
+    margin: 0.35in 0;
+  }
+
+  .pull-quote-rule {
+    width: 1.5in;
+    height: 1px;
+    background: #9B7FC7;
+    margin: 0 auto 0.2in;
+  }
+
+  .pull-quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: #3D1A6E;
+    line-height: 1.5;
+    margin-bottom: 0.15in;
+  }
+
+  .pull-quote-attribution {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.2in 0;
+    font-size: 13.5px;
+  }
+
+  thead tr {
+    background: #E8E0F5;
+  }
+
+  thead th {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #3D1A6E;
+    padding: 0.1in 0.15in;
+    text-align: left;
+    border: 1px solid #D4C8EE;
+  }
+
+  tbody tr:nth-child(odd) {
+    background: #FDFAF7;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #F7F3FC;
+  }
+
+  tbody td {
+    padding: 0.09in 0.15in;
+    border: 1px solid #E8E0F5;
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #4A3560;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    margin: 0.2in 0;
+  }
+
+  .timeline-step {
+    display: flex;
+    gap: 0.2in;
+    margin-bottom: 0.22in;
+    align-items: flex-start;
+  }
+
+  .timeline-number {
+    width: 0.38in;
+    height: 0.38in;
+    border-radius: 50%;
+    background: #E8E0F5;
+    border: 2px solid #9B7FC7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3D1A6E;
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding-top: 0.03in;
+  }
+
+  .timeline-step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #3D1A6E;
+    line-height: 1.2;
+  }
+
+  .timeline-timeframe {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.04in;
+  }
+
+  .timeline-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #4A3560;
+    margin-top: 0.04in;
+  }
+
+  /* TEAM CARDS */
+  .team-grid {
+    margin: 0.15in 0;
+  }
+
+  .team-card {
+    display: flex;
+    gap: 0.18in;
+    padding: 0.15in 0;
+    border-bottom: 0.5px solid #E8E0F5;
+    align-items: flex-start;
+  }
+
+  .team-card:last-child {
+    border-bottom: none;
+  }
+
+  .team-role {
+    min-width: 1.8in;
+    flex-shrink: 0;
+  }
+
+  .team-role-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #3D1A6E;
+    line-height: 1.3;
+  }
+
+  .team-role-timing {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    color: #9B7FC7;
+    letter-spacing: 0.05em;
+  }
+
+  .team-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #4A3560;
+  }
+
+  /* MATCH CARDS */
+  .match-card {
+    border-left: 2px solid #E8E0F5;
+    padding: 0.1in 0.18in;
+    margin-bottom: 0.15in;
+  }
+
+  .match-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #3D1A6E;
+    margin-bottom: 0.04in;
+  }
+
+  .match-card-body {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #4A3560;
+  }
+
+  /* QUESTIONS */
+  .question-section {
+    margin-bottom: 0.25in;
+  }
+
+  .question-section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.1in;
+    padding-bottom: 0.05in;
+    border-bottom: 1px solid #E8E0F5;
+  }
+
+  .question-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .question-list li {
+    padding: 0.06in 0 0.06in 0.2in;
+    position: relative;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #4A3560;
+  }
+
+  .question-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #9B7FC7;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* BUDGET SECTION */
+  .budget-section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #6B3FA0;
+    margin: 0.25in 0 0.1in;
+    padding-bottom: 0.07in;
+    border-bottom: 2px solid #E8E0F5;
+  }
+
+  .budget-total-row td {
+    background: #E8E0F5 !important;
+    font-weight: 500;
+    color: #3D1A6E;
+    font-size: 13px;
+  }
+
+  /* CHECKLIST (worksheets) */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0.15in 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.12in;
+    padding: 0.07in 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #4A3560;
+  }
+
+  .checkbox {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #9B7FC7;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* WORKSHEETS */
+  .worksheet-field {
+    margin-bottom: 0.25in;
+  }
+
+  .worksheet-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6B3FA0;
+    margin-bottom: 0.08in;
+    display: block;
+  }
+
+  .worksheet-lines {
+    border-bottom: 0.5px solid #9B7FC7;
+    min-height: 0.3in;
+    margin-bottom: 0.08in;
+  }
+
+  .worksheet-lines-lg {
+    min-height: 1.1in;
+  }
+
+  .worksheet-lines-xl {
+    min-height: 1.6in;
+  }
+
+  .worksheet-line {
+    border-bottom: 0.5px solid #D4C8EE;
+    height: 0.28in;
+    width: 100%;
+  }
+
+  /* SECTION H3 */
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #3D1A6E;
+    margin: 0.25in 0 0.1in;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #6B3FA0;
+    margin: 0.2in 0 0.1in;
+  }
+
+  /* CLOSING PAGE */
+  .closing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 11in;
+    padding: 0.9in 1in;
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.2in;
+  }
+
+  .closing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: #3D1A6E;
+    line-height: 1.15;
+    margin-bottom: 0.2in;
+    max-width: 5in;
+  }
+
+  .closing-rule {
+    width: 1.5in;
+    height: 2px;
+    background: linear-gradient(to right, #9B7FC7, #E8E0F5);
+    margin-bottom: 0.3in;
+  }
+
+  .closing-body {
+    max-width: 5in;
+    margin-bottom: 0.35in;
+  }
+
+  .cta-box {
+    background: #F2EDF9;
+    border: 1px solid #D4C8EE;
+    padding: 0.25in 0.35in;
+    display: inline-block;
+    margin-bottom: 0.4in;
+  }
+
+  .cta-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.07in;
+  }
+
+  .cta-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: #3D1A6E;
+  }
+
+  .closing-footer-info {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    line-height: 1.9;
+    color: #6B3FA0;
+  }
+
+  .disclaimer {
+    margin-top: 0.3in;
+    padding-top: 0.15in;
+    border-top: 0.5px solid #E8E0F5;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    line-height: 1.7;
+    color: #9B7FC7;
+    max-width: 5.5in;
+  }
+
+  /* PRINT */
+  @media print {
+    body {
+      background: #FDFAF7;
+    }
+    .page {
+      page-break-after: always;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  /* SPACERS */
+  .spacer-sm { height: 0.12in; display: block; }
+  .spacer-md { height: 0.25in; display: block; }
+  .spacer-lg { height: 0.4in; display: block; }
+
+  ul.body-list {
+    padding-left: 0.25in;
+    margin: 0.1in 0 0.18in;
+  }
+
+  ul.body-list li {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #4A3560;
+    margin-bottom: 0.04in;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25in;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="page" style="padding: 0;">
+  <div class="cover-page">
+    <div class="cover-wordmark">Canadian Surrogacy Options</div>
+    <div class="cover-content">
+      <div class="cover-label">Complete Reference Guide</div>
+      <h1 class="cover-title">The Canadian<br>Surrogacy<br>Roadmap</h1>
+      <div class="cover-rule"></div>
+      <p class="cover-subtitle">Your complete step-by-step guide from first question to bringing baby home.</p>
+      <p class="cover-subsubtitle">Includes: journey timeline, budget tracker, surrogate questions guide, legal prep, clinic checklist, and fillable worksheets.</p>
+      <div class="cover-byline">
+        <strong>Robyn Price</strong><br>
+        Executive Director, Canadian Surrogacy Options<br>
+        <span style="font-style: italic; color: #9B7FC7;">In this field since I was four years old.</span>
+      </div>
+    </div>
+    <div class="cover-bottom-decoration">
+      <div class="deco-line"></div>
+      <span>canadiansurrogacyoptions.com</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="page toc-page">
+  <div class="page-eyebrow">Contents</div>
+  <h2 class="page-title">What's inside this guide</h2>
+  <div class="toc-rule"></div>
+
+  <div class="toc-item">
+    <span class="toc-part">Part 1</span>
+    <div>
+      <div class="toc-title">Welcome &amp; How to Use This Guide</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 2</span>
+    <div>
+      <div class="toc-title">Is Surrogacy Right For You?</div>
+      <div class="toc-sub">The honest questions to ask yourself</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 3</span>
+    <div>
+      <div class="toc-title">Understanding the Canadian Framework</div>
+      <div class="toc-sub">Legal overview, provincial differences, altruistic model explained</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 4</span>
+    <div>
+      <div class="toc-title">Your Complete Journey Timeline</div>
+      <div class="toc-sub">All 8 phases mapped with timeframes — 12 steps</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 5</span>
+    <div>
+      <div class="toc-title">Building Your Professional Team</div>
+      <div class="toc-sub">Who you need and what they do</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 6</span>
+    <div>
+      <div class="toc-title">Finding and Matching With a Surrogate</div>
+      <div class="toc-sub">What to look for, questions to ask your match</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 7</span>
+    <div>
+      <div class="toc-title">The Legal Agreement Deep-Dive</div>
+      <div class="toc-sub">What must be in your agreement</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 8</span>
+    <div>
+      <div class="toc-title">The Complete Budget Tracker</div>
+      <div class="toc-sub">Full fillable cost planner</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 9</span>
+    <div>
+      <div class="toc-title">Clinic and Medical Guide</div>
+      <div class="toc-sub">Screening, transfers, what to expect</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 10</span>
+    <div>
+      <div class="toc-title">The Pregnancy and Birth</div>
+      <div class="toc-sub">Staying connected, birth preparation</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Part 11</span>
+    <div>
+      <div class="toc-title">After the Birth</div>
+      <div class="toc-sub">Parentage, passports, closing the journey</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <span class="toc-part">Worksheets</span>
+    <div>
+      <div class="toc-title">Fillable Worksheets</div>
+      <div class="toc-sub">Surrogate interview, agency comparison, journey goals, budget planner</div>
+    </div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 1 - WELCOME -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part One</div>
+    <h2 class="part-title">Welcome &amp; How to Use This Guide</h2>
+  </div>
+
+  <p>You are holding the most comprehensive guide to Canadian surrogacy that exists outside of a lawyer's office. I know that's a big claim. But I have been in this field since I was four years old, and I built this guide because I was tired of watching families navigate one of the most important journeys of their lives with incomplete, confusing, or commercially biased information.</p>
+
+  <p>This roadmap covers everything. From the first honest questions you should ask yourself, through matching, legal agreements, the pregnancy, the birth, and the weeks after. Every phase has a detailed guide and the worksheet section at the back gives you fillable tools to use throughout.</p>
+
+  <div class="callout">
+    <span class="callout-label">How to use this guide</span>
+    <p>Read it in order the first time. Then use individual sections as reference as you move through your journey. The worksheets are designed to be printed and filled in by hand, or typed into directly.</p>
+  </div>
+
+  <p>A note on independence: This guide is written to be useful whether you are working with a full-service agency, doing an independent journey, or somewhere in between. Where steps differ based on your situation, I will call that out clearly.</p>
+
+  <div class="pull-quote">
+    <div class="pull-quote-rule"></div>
+    <p class="pull-quote-text">"Every family deserves to move forward with clarity, confidence, and the right information by their side — not the version filtered through someone else's commercial interest."</p>
+    <div class="pull-quote-rule"></div>
+    <span class="pull-quote-attribution">— Robyn Price, Executive Director</span>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 2 - IS SURROGACY RIGHT FOR YOU -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Two</div>
+    <h2 class="part-title">Is Surrogacy Right For You?</h2>
+  </div>
+
+  <p>Before anything else, these are the honest questions worth sitting with. There are no wrong answers — just important ones.</p>
+
+  <div class="match-card">
+    <div class="match-card-title">Do you have a clear medical or personal reason?</div>
+    <div class="match-card-body">Surrogacy is pursued for many valid reasons — medical necessity, same-sex family building, single parenthood, and more. You do not need to justify your reason to anyone. But clarity about your <em>why</em> will carry you through the harder moments.</div>
+  </div>
+
+  <div class="match-card">
+    <div class="match-card-title">Are you financially prepared?</div>
+    <div class="match-card-body">Canadian surrogacy typically costs $60,000 to $150,000 CAD. Not having the full amount upfront is common — but going in significantly under-resourced creates serious risk. Understand your financial picture before you begin.</div>
+  </div>
+
+  <div class="match-card">
+    <div class="match-card-title">Are you emotionally ready to share this journey?</div>
+    <div class="match-card-body">Your surrogate will be deeply involved in one of the most intimate experiences of your life. The families who do best approach this as a relationship, not a transaction.</div>
+  </div>
+
+  <div class="match-card">
+    <div class="match-card-title">Do you have support around you?</div>
+    <div class="match-card-body">A partner, trusted friends, a therapist, or a community. Surrogacy journeys have high points and hard points. You should not face either alone.</div>
+  </div>
+
+  <div class="match-card">
+    <div class="match-card-title">Can you handle uncertainty and longer timelines?</div>
+    <div class="match-card-body">Matching can take months. Transfers sometimes fail. Timelines slip. The families who navigate this most gracefully are those who went in knowing it could be long.</div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 3 - LEGAL FRAMEWORK -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Three</div>
+    <h2 class="part-title">Understanding the Canadian Framework</h2>
+  </div>
+
+  <p>Canada has one of the clearest legal frameworks for surrogacy in the world. Here is what you need to understand before you start.</p>
+
+  <h3>The Assisted Human Reproduction Act (AHRA)</h3>
+
+  <ul class="body-list">
+    <li>Altruistic surrogacy is legal across Canada.</li>
+    <li>Commercial surrogacy — paying a surrogate a fee or wage — is prohibited.</li>
+    <li>Surrogates can be reimbursed for documented, pregnancy-related expenses.</li>
+    <li>A surrogacy agreement must be in place before any embryo transfer.</li>
+    <li>Both parties must have independent legal counsel.</li>
+    <li>The agreement is not automatically legally enforceable in all provinces — a parentage order from the court is what legally establishes parenthood.</li>
+  </ul>
+
+  <h3>Provincial Differences</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Province / Region</th>
+        <th>Surrogacy Recognised?</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Ontario</td><td>Yes</td><td>Strong framework. Most IPs from other provinces use ON surrogates.</td></tr>
+      <tr><td>British Columbia</td><td>Yes</td><td>Clear Parentage Act. Straightforward process.</td></tr>
+      <tr><td>Alberta</td><td>Yes</td><td>Generally smooth. Consult a local surrogacy lawyer.</td></tr>
+      <tr><td>Manitoba / Saskatchewan</td><td>Possible</td><td>Varies. Independent legal advice essential.</td></tr>
+      <tr><td>Quebec</td><td>No</td><td>Civil Code does not recognise surrogacy agreements. Use a surrogate in another province.</td></tr>
+      <tr><td>Atlantic provinces</td><td>Varies</td><td>Check with a surrogacy lawyer licensed in the relevant province.</td></tr>
+      <tr><td>International IPs in Canada</td><td>Varies</td><td>Additional steps for citizenship / passport. Your lawyer guides this.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The Altruistic Model — What Is Allowed</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Allowed</th>
+        <th>Not Allowed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Reimbursement for pregnancy-related medications</td><td>A base salary or monthly wage for being a surrogate</td></tr>
+      <tr><td>Travel costs to medical appointments (mileage, parking, transit)</td><td>Payment in exchange for the surrogacy itself</td></tr>
+      <tr><td>Lost wages for mandatory medical appointments</td><td>Bonuses tied to successful transfer or birth</td></tr>
+      <tr><td>Maternity clothing allowance</td><td>Paying surrogacy expenses directly in cash without receipts</td></tr>
+      <tr><td>Life and disability insurance premiums</td><td>Compensation for pain, discomfort, or emotional labour</td></tr>
+      <tr><td>Childcare during appointments</td><td>Anything that could be characterised as commercial surrogacy</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 4 - JOURNEY TIMELINE -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Four</div>
+    <h2 class="part-title">Your Complete Journey Timeline</h2>
+  </div>
+
+  <p>Here is the full surrogacy journey mapped from start to finish. Timeframes are realistic averages — your journey may be faster or slower. Use this as a planning reference, not a guarantee.</p>
+
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-number">01</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Weeks 1–4</div>
+        <div class="timeline-step-title">Choose your agency or independent path</div>
+        <div class="timeline-desc">Research agencies, check references, ask hard questions. If going independent, confirm your surrogate is genuinely ready and meets eligibility criteria.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">02</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Weeks 3–8</div>
+        <div class="timeline-step-title">Complete intake and build your IP profile</div>
+        <div class="timeline-desc">Your agency or your own process: complete intake forms, gather medical history, write your IP profile. This is what surrogates will review when considering a match.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">03</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Months 1–24</div>
+        <div class="timeline-step-title">Surrogate matching</div>
+        <div class="timeline-desc">The most variable phase. With a priority program: 4–9 months average. With a standard program: 12–24 months. Independent journey with known surrogate: parallel to intake.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">04</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Weeks 1–4 after match</div>
+        <div class="timeline-step-title">Psychological screening</div>
+        <div class="timeline-desc">Both surrogate and IPs complete psychological evaluation with a registered professional. Required by most clinics. Surrogates must pass this before medical screening begins.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">05</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Weeks 2–8 after match</div>
+        <div class="timeline-step-title">Medical screening</div>
+        <div class="timeline-desc">Surrogate completes full medical screening at your fertility clinic. Uterine assessment, bloodwork, infectious disease screening. Do not move to legal until clearance is confirmed.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">06</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Weeks 4–10 after clearance</div>
+        <div class="timeline-step-title">Legal agreements</div>
+        <div class="timeline-desc">Both parties retain independent lawyers. Agreement is drafted, reviewed, and signed. Allow at least 4–6 weeks. Do not rush. No transfer until this is signed.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">07</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Month 1 after agreement</div>
+        <div class="timeline-step-title">Embryo transfer</div>
+        <div class="timeline-desc">Surrogate completes a mock or medicated transfer cycle. Embryo transfer takes place. Most families do 1–3 transfer cycles before a positive result.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">08</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Month 2 after transfer</div>
+        <div class="timeline-step-title">Confirmed pregnancy</div>
+        <div class="timeline-desc">Positive beta HCG confirmed, then first ultrasound at 6–8 weeks. Transition to OB/GYN care after 10–12 weeks.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">09</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Months 3–11</div>
+        <div class="timeline-step-title">Pregnancy</div>
+        <div class="timeline-desc">Regular OB appointments, anatomy scan at 18–20 weeks, third trimester check-ins. Communication and relationship maintenance throughout.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">10</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Weeks 34–40</div>
+        <div class="timeline-step-title">Birth preparation</div>
+        <div class="timeline-desc">Hospital notified, birth plan filed, pre-birth order filed (6–8 weeks before due date in applicable provinces), IPs arrange travel and accommodation.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">11</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Weeks 38–42</div>
+        <div class="timeline-step-title">Birth</div>
+        <div class="timeline-desc">IPs present at birth. Hospital staff briefed. Post-birth paperwork begins immediately. Celebrate.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-number">12</div>
+      <div class="timeline-content">
+        <div class="timeline-timeframe">Weeks 1–8 post-birth</div>
+        <div class="timeline-step-title">Legal parentage and homecoming</div>
+        <div class="timeline-desc">Birth certificate, parentage order, passport if needed. Final expense reimbursements processed. Journey complete.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 5 - PROFESSIONAL TEAM -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Five</div>
+    <h2 class="part-title">Building Your Professional Team</h2>
+  </div>
+
+  <p>These are the professionals you will need, what they do, and when to engage them. Building the right team early is one of the highest-leverage things you can do.</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-role">
+        <div class="team-role-name">Surrogacy Agency</div>
+        <div class="team-role-timing">Engage at the start</div>
+      </div>
+      <div class="team-desc">Coordinates matching, supports both parties, manages process. Optional but significantly reduces stress and improves outcomes.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">
+        <div class="team-role-name">Reproductive Lawyer (IPs)</div>
+        <div class="team-role-timing">Before medical screening</div>
+      </div>
+      <div class="team-desc">Drafts and negotiates surrogacy agreement, obtains parentage order. Must be licensed in the province where the surrogate lives.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">
+        <div class="team-role-name">Independent Lawyer (Surrogate)</div>
+        <div class="team-role-timing">Before medical screening</div>
+      </div>
+      <div class="team-desc">Reviews and advises on the surrogacy agreement independently. You pay for this. Do not use the same lawyer as the IPs.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">
+        <div class="team-role-name">Fertility Clinic</div>
+        <div class="team-role-timing">Confirm before matching</div>
+      </div>
+      <div class="team-desc">Medically screens surrogate, manages embryo transfer, handles all clinical coordination. You need this confirmed before matching begins.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">
+        <div class="team-role-name">Registered Psychologist</div>
+        <div class="team-role-timing">After match</div>
+      </div>
+      <div class="team-desc">Performs psychological evaluation of surrogate and IPs. Required by most clinics. Must have reproductive medicine experience.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">
+        <div class="team-role-name">OB/GYN</div>
+        <div class="team-role-timing">Engage month 3</div>
+      </div>
+      <div class="team-desc">Manages the pregnancy after the first trimester. Your surrogate may have her own or you find one together.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">
+        <div class="team-role-name">Life Insurance Broker</div>
+        <div class="team-role-timing">During legal phase</div>
+      </div>
+      <div class="team-desc">Secures life and disability insurance for the surrogate. Confirm surrogacy is covered before transfer.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">
+        <div class="team-role-name">Financial Advisor / Accountant</div>
+        <div class="team-role-timing">During financial setup</div>
+      </div>
+      <div class="team-desc">Optional but useful for managing trust accounts, cross-border payments, and tax implications.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 6 - MATCHING -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Six</div>
+    <h2 class="part-title">Finding and Matching With a Surrogate</h2>
+  </div>
+
+  <p>The match is the heart of your journey. Here is what to look for and what to ask.</p>
+
+  <h3>What Makes a Strong Surrogate Match</h3>
+
+  <div class="match-card">
+    <div class="match-card-title">Medical eligibility</div>
+    <div class="match-card-body">At least one previous successful pregnancy and birth. Age 21–45. Healthy BMI. No current significant medical conditions.</div>
+  </div>
+  <div class="match-card">
+    <div class="match-card-title">Lifestyle alignment</div>
+    <div class="match-card-body">Non-smoker, no recreational drug use, low-risk lifestyle. Willingness to follow medical protocols during the pregnancy.</div>
+  </div>
+  <div class="match-card">
+    <div class="match-card-title">Values compatibility</div>
+    <div class="match-card-body">Aligned views on selective reduction, termination in case of medical necessity, and multi-fetal pregnancies. This conversation must happen before matching.</div>
+  </div>
+  <div class="match-card">
+    <div class="match-card-title">Communication style</div>
+    <div class="match-card-body">Your surrogate does not need to be your best friend. But you need to be able to communicate openly and honestly throughout the pregnancy.</div>
+  </div>
+  <div class="match-card">
+    <div class="match-card-title">Support system</div>
+    <div class="match-card-body">A stable home environment, a supportive partner or family, and access to emotional support. Her wellbeing during the pregnancy matters.</div>
+  </div>
+  <div class="match-card">
+    <div class="match-card-title">Motivation</div>
+    <div class="match-card-body">The best surrogates are motivated by genuine desire to help a family — not primarily by financial need. Ask her why she wants to do this.</div>
+  </div>
+
+  <h3>Questions to Ask Your Surrogate Match</h3>
+
+  <div class="question-section">
+    <div class="question-section-label">About her motivation and readiness</div>
+    <ul class="question-list">
+      <li>Why do you want to be a surrogate?</li>
+      <li>What does your partner / support person think about this?</li>
+      <li>Have you talked to your children about what surrogacy means?</li>
+      <li>Have you been a surrogate before? If so, how was that experience?</li>
+    </ul>
+  </div>
+
+  <div class="question-section">
+    <div class="question-section-label">About values and hard decisions</div>
+    <ul class="question-list">
+      <li>How do you feel about selective reduction if multiple embryos implant?</li>
+      <li>What are your views on termination if a serious medical issue is discovered?</li>
+      <li>Are you comfortable with the number of embryos we plan to transfer?</li>
+      <li>What would you do if you developed a serious health complication?</li>
+    </ul>
+  </div>
+
+  <div class="question-section">
+    <div class="question-section-label">About the pregnancy relationship</div>
+    <ul class="question-list">
+      <li>How much contact would you like during the pregnancy?</li>
+      <li>Are you comfortable with us attending appointments?</li>
+      <li>How do you feel about being present or having us present at the birth?</li>
+      <li>What does post-birth contact look like for you?</li>
+    </ul>
+  </div>
+
+  <div class="question-section">
+    <div class="question-section-label">About practical matters</div>
+    <ul class="question-list">
+      <li>Are you comfortable with the reimbursement model and how expenses are managed?</li>
+      <li>Are there any lifestyle restrictions that would be difficult for you to follow?</li>
+      <li>Do you have reliable childcare during medical appointments?</li>
+      <li>What does your support system look like during the pregnancy?</li>
+    </ul>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 7 - LEGAL AGREEMENT -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Seven</div>
+    <h2 class="part-title">The Legal Agreement Deep-Dive</h2>
+  </div>
+
+  <p>Your surrogacy agreement is the legal foundation of your journey. Every significant decision about the pregnancy should be addressed in it — before anything medical happens. Here is what must be covered.</p>
+
+  <div class="callout-warning">
+    <span class="warning-label">Important Notice</span>
+    <p>The agreement must be signed by all parties <strong>before</strong> any embryo transfer or medical procedure. This is non-negotiable. Any clinic operating with reputable practices will require confirmation that the agreement is in place before proceeding.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Clause</th>
+        <th>What It Covers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Identity of all parties</td><td>Full legal names, addresses, relationship status.</td></tr>
+      <tr><td>Roles and intentions</td><td>Clear statement that the IPs are the intended parents and the surrogate has no parental claim.</td></tr>
+      <tr><td>Medical decisions</td><td>Who makes medical decisions during the pregnancy. What happens in a medical emergency.</td></tr>
+      <tr><td>Selective reduction</td><td>Both parties' positions clearly documented.</td></tr>
+      <tr><td>Termination</td><td>Under what circumstances, if any, termination would be considered. Whose decision it is. What happens if parties disagree.</td></tr>
+      <tr><td>Number of embryos transferred</td><td>Agreed number per transfer.</td></tr>
+      <tr><td>Contact during pregnancy</td><td>Frequency, type, and boundaries of communication.</td></tr>
+      <tr><td>Appointment attendance</td><td>Which appointments IPs may attend.</td></tr>
+      <tr><td>Lifestyle expectations</td><td>Diet, travel, activities, substances.</td></tr>
+      <tr><td>Reimbursement schedule</td><td>All categories, amounts, submission process, payment timeline.</td></tr>
+      <tr><td>Insurance</td><td>Confirmation that life and disability insurance is in place.</td></tr>
+      <tr><td>Media and social media</td><td>Any restrictions on sharing information publicly.</td></tr>
+      <tr><td>Post-birth contact</td><td>Whether the parties intend to stay in touch, and in what way.</td></tr>
+      <tr><td>If the surrogate withdraws</td><td>Process, financial implications.</td></tr>
+      <tr><td>If the IPs withdraw</td><td>Process, financial implications.</td></tr>
+      <tr><td>Dispute resolution</td><td>How disagreements will be handled.</td></tr>
+      <tr><td>Governing jurisdiction</td><td>Which province's laws apply.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 8 - BUDGET TRACKER -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Eight</div>
+    <h2 class="part-title">The Complete Budget Tracker</h2>
+  </div>
+
+  <p>Use this section to build your actual budget. Fill in the "Your Budget" column as you confirm costs with each provider. The low and high estimates are realistic Canadian averages.</p>
+
+  <div class="budget-section-label">Agency and Program Fees</div>
+  <table>
+    <thead>
+      <tr><th>Cost Category</th><th>Low Est.</th><th>High Est.</th><th>Your Budget</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Agency fee (Foundation / standard program)</td><td>$9,500</td><td>$21,500</td><td></td></tr>
+      <tr><td>Agency fee (Priority / Fast Track program)</td><td>$21,500</td><td>$40,000</td><td></td></tr>
+      <tr><td>Agency fee (Concierge / full service)</td><td>$40,000</td><td>$50,000+</td><td></td></tr>
+      <tr><td>Independent journey admin and consultation</td><td>$500</td><td>$3,000</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="budget-section-label">Surrogate Reimbursements</div>
+  <table>
+    <thead>
+      <tr><th>Cost Category</th><th>Low Est.</th><th>High Est.</th><th>Your Budget</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Base monthly allowance (if applicable)</td><td>$0</td><td>$2,500/mo</td><td></td></tr>
+      <tr><td>Maternity clothing</td><td>$500</td><td>$1,500</td><td></td></tr>
+      <tr><td>Travel to appointments (mileage / transit)</td><td>$1,500</td><td>$5,000</td><td></td></tr>
+      <tr><td>Lost wages for mandatory appointments</td><td>$0</td><td>$8,000</td><td></td></tr>
+      <tr><td>Childcare during appointments</td><td>$500</td><td>$3,000</td><td></td></tr>
+      <tr><td>Medications and supplements</td><td>$1,000</td><td>$4,000</td><td></td></tr>
+      <tr><td>Psychological counselling</td><td>$800</td><td>$2,500</td><td></td></tr>
+      <tr><td>Comfort items as agreed</td><td>$500</td><td>$1,500</td><td></td></tr>
+      <tr><td>Miscellaneous approved expenses</td><td>$1,000</td><td>$3,000</td><td></td></tr>
+      <tr class="budget-total-row"><td><strong>Surrogate Expenses Subtotal</strong></td><td><strong>~$5,800</strong></td><td><strong>~$30,500</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="budget-section-label">Legal Fees</div>
+  <table>
+    <thead>
+      <tr><th>Cost Category</th><th>Low Est.</th><th>High Est.</th><th>Your Budget</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>IPs' surrogacy lawyer (agreement + parentage order)</td><td>$5,000</td><td>$12,000</td><td></td></tr>
+      <tr><td>Surrogate's independent legal counsel (IPs pay)</td><td>$1,500</td><td>$4,000</td><td></td></tr>
+      <tr><td>Additional legal fees (amendments, complications)</td><td>$500</td><td>$3,000</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="budget-section-label">Medical and Fertility Costs</div>
+  <table>
+    <thead>
+      <tr><th>Cost Category</th><th>Low Est.</th><th>High Est.</th><th>Your Budget</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Fertility clinic fees (IVF / embryo creation)</td><td>$8,000</td><td>$20,000</td><td></td></tr>
+      <tr><td>Embryo storage (annual)</td><td>$500</td><td>$1,500</td><td></td></tr>
+      <tr><td>Surrogate medical screening</td><td>$1,500</td><td>$4,000</td><td></td></tr>
+      <tr><td>Embryo transfer (per cycle)</td><td>$3,000</td><td>$8,000</td><td></td></tr>
+      <tr><td>Psychological screening (both parties)</td><td>$1,500</td><td>$3,500</td><td></td></tr>
+      <tr><td>OB/GYN care (if not fully covered by OHIP)</td><td>$0</td><td>$3,000</td><td></td></tr>
+      <tr><td>Hospital delivery (if any costs not covered)</td><td>$0</td><td>$5,000</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="budget-section-label">Insurance and Miscellaneous</div>
+  <table>
+    <thead>
+      <tr><th>Cost Category</th><th>Low Est.</th><th>High Est.</th><th>Your Budget</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Surrogate life insurance (pregnancy term policy)</td><td>$800</td><td>$2,500</td><td></td></tr>
+      <tr><td>Surrogate disability insurance</td><td>$500</td><td>$2,000</td><td></td></tr>
+      <tr><td>Travel and accommodation (IPs to birth location)</td><td>$500</td><td>$5,000</td><td></td></tr>
+      <tr><td>Post-birth legal (birth certificate, passport)</td><td>$300</td><td>$2,000</td><td></td></tr>
+      <tr><td>Contingency / emergency fund (strongly recommended)</td><td>$5,000</td><td>$15,000</td><td></td></tr>
+      <tr class="budget-total-row"><td><strong>Total Estimated Range (Canadian pathway)</strong></td><td><strong>~$40,000 CAD</strong></td><td><strong>~$140,000 CAD</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 0.2in;">
+    <span class="callout-label">Note — US Pathway</span>
+    <p>If you pursue a U.S.-based surrogate through Camica or a U.S. agency, total costs typically run $130,000 to $200,000+ CAD due to surrogate compensation, U.S. medical costs, and legal fees in both countries.</p>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 9 - CLINIC AND MEDICAL -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Nine</div>
+    <h2 class="part-title">Clinic and Medical Guide</h2>
+  </div>
+
+  <h3>Choosing Your Fertility Clinic</h3>
+  <p>Questions to ask before you commit:</p>
+
+  <ul class="body-list">
+    <li>Do you work with surrogates? How many surrogate transfers do you do per year?</li>
+    <li>What is your clinical pregnancy rate per transfer with gestational carriers?</li>
+    <li>What does your surrogate screening process include?</li>
+    <li>Can you receive embryos transferred from another clinic?</li>
+    <li>What is your protocol for embryo transfer — medicated cycle, natural cycle?</li>
+    <li>How many embryos do you recommend transferring?</li>
+    <li>What are your fees for surrogate screening versus a standard IVF cycle?</li>
+    <li>Do you require a psychological evaluation? Who do you recommend?</li>
+  </ul>
+
+  <h3>Medical Screening Process</h3>
+  <table>
+    <thead>
+      <tr><th>Screening Step</th><th>What It Involves</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Initial consultation</td><td>Review of medical history, previous pregnancies, current health.</td></tr>
+      <tr><td>Physical examination</td><td>General physical and gynaecological exam.</td></tr>
+      <tr><td>Bloodwork panel</td><td>Full CBC, metabolic panel, hormone levels, genetic carrier screening.</td></tr>
+      <tr><td>Infectious disease screening</td><td>HIV, hepatitis B and C, syphilis, CMV, and others. Partner must also be tested.</td></tr>
+      <tr><td>Uterine assessment</td><td>Sonohysterogram or hysteroscopy to assess uterine cavity.</td></tr>
+      <tr><td>Psychological evaluation</td><td>With a registered psychologist. Covers motivation, understanding, and mental health history.</td></tr>
+      <tr><td>Medical clearance letter</td><td>Formal written clearance from the clinic before legal agreements are signed.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The Embryo Transfer Process</h3>
+  <table>
+    <thead>
+      <tr><th>Phase</th><th>What Happens</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cycle preparation (2–4 weeks)</td><td>Surrogate takes estrogen to prepare the uterine lining. Monitored by ultrasound and bloodwork.</td></tr>
+      <tr><td>Lining check (Day 12–14)</td><td>Ultrasound confirms uterine lining is at target thickness. Transfer date confirmed.</td></tr>
+      <tr><td>Progesterone start (5–6 days before transfer)</td><td>Progesterone supplementation begins to prepare for implantation.</td></tr>
+      <tr><td>Transfer day</td><td>Embryo is thawed and transferred via thin catheter. Usually takes 15–30 minutes. No anaesthesia required.</td></tr>
+      <tr><td>Beta HCG test (10–12 days post-transfer)</td><td>Blood test confirms whether implantation occurred.</td></tr>
+      <tr><td>Second beta HCG (2 days later)</td><td>Confirms the number is rising appropriately.</td></tr>
+      <tr><td>First ultrasound (6–7 weeks)</td><td>Heartbeat confirmed. Transition to OB care begins.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 10 - PREGNANCY AND BIRTH -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Ten</div>
+    <h2 class="part-title">The Pregnancy and Birth</h2>
+  </div>
+
+  <h3>First Trimester — Weeks 1 to 13</h3>
+  <ul class="body-list">
+    <li><strong>Weeks 1–4:</strong> Beta HCG tests confirm pregnancy and rising levels.</li>
+    <li><strong>Weeks 6–7:</strong> First ultrasound. Heartbeat confirmed. This is a milestone to celebrate together.</li>
+    <li><strong>Weeks 8–10:</strong> Transition to OB/GYN care. Ensure IPs are added to the approved contact list.</li>
+    <li><strong>Weeks 11–13:</strong> First trimester screening (NIPT if desired, nuchal translucency ultrasound).</li>
+  </ul>
+
+  <h3>Second Trimester — Weeks 14 to 27</h3>
+  <ul class="body-list">
+    <li><strong>Weeks 14–16:</strong> Second trimester begins. Miscarriage risk drops significantly.</li>
+    <li><strong>Weeks 18–20:</strong> Anatomy scan. IPs invited to attend if surrogate agrees.</li>
+    <li><strong>Weeks 24–27:</strong> Glucose tolerance test. Regular OB appointments continue.</li>
+  </ul>
+
+  <h3>Third Trimester and Birth Preparation — Weeks 28 to 40</h3>
+  <ul class="body-list">
+    <li><strong>Weeks 28–32:</strong> Growth ultrasound. Group B strep test. Monthly appointments become bi-weekly.</li>
+    <li><strong>Weeks 32–34:</strong> IPs begin making travel arrangements. Pre-birth order filed with court (6–8 weeks before due date in applicable provinces).</li>
+    <li><strong>Weeks 34–36:</strong> Hospital notified of surrogacy arrangement. Birth plan filed. IPs confirmed on hospital access list.</li>
+    <li><strong>Weeks 36–40:</strong> Weekly appointments. IPs on standby near birth location.</li>
+    <li><strong>Birth:</strong> IPs present. Celebrate. Take photos. Cry. It is worth everything.</li>
+  </ul>
+
+  <div class="pull-quote">
+    <div class="pull-quote-rule"></div>
+    <p class="pull-quote-text">"To grieve is to know love. To hope is to begin again. And to hold your baby — however long the road took — is to know it was worth every step."</p>
+    <div class="pull-quote-rule"></div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- PART 11 - AFTER THE BIRTH -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Part Eleven</div>
+    <h2 class="part-title">After the Birth</h2>
+  </div>
+
+  <p>The baby is here. But the journey is not quite over. Here is what needs to happen in the weeks and months after birth.</p>
+
+  <table>
+    <thead>
+      <tr><th>Step</th><th>Timing</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Register the birth</td><td>Within 30 days</td><td>Province-specific process.</td></tr>
+      <tr><td>Obtain parentage order (if not pre-birth)</td><td>Weeks 1–8 post-birth</td><td>Your lawyer files with the court.</td></tr>
+      <tr><td>Apply for birth certificate</td><td>After parentage confirmed</td><td>Usually 2–4 weeks.</td></tr>
+      <tr><td>Apply for Social Insurance Number</td><td>After birth certificate</td><td>At Service Canada.</td></tr>
+      <tr><td>Apply for passport (if travel required)</td><td>After birth certificate</td><td>Allow 6–8 weeks for standard processing.</td></tr>
+      <tr><td>Final expense reimbursements</td><td>Immediately post-birth</td><td>Process all outstanding receipts. Close the trust account.</td></tr>
+      <tr><td>Life insurance termination</td><td>After closing</td><td>Cancel surrogate's policy with her confirmation.</td></tr>
+      <tr><td>Post-journey check-in with surrogate</td><td>4–6 weeks post-birth</td><td>A call or note to acknowledge her contribution.</td></tr>
+      <tr><td>Legal file closure</td><td>Final step</td><td>Confirm with both lawyers that all matters are closed.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 0.3in;">
+    <span class="callout-label">A note on the relationship</span>
+    <p>How you close the journey with your surrogate matters. A handwritten note, a small gift, or simply a heartfelt phone call acknowledging what she gave your family — these things are remembered. The families who maintain a gracious and grateful relationship at this stage consistently describe their surrogacy experience as one of the most meaningful of their lives.</p>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- WORKSHEET 1 -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Worksheet One</div>
+    <h2 class="part-title">Surrogate Match Interview Notes</h2>
+  </div>
+
+  <p style="font-size: 13px; color: #6B3FA0; margin-bottom: 0.25in;">Use this worksheet after each match meeting to record your observations and gut reactions. Fill in by hand or type directly.</p>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Surrogate's Name</span>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.25in;">
+    <div class="worksheet-field">
+      <span class="worksheet-label">Date of Meeting</span>
+      <div class="worksheet-line"></div>
+    </div>
+    <div class="worksheet-field">
+      <span class="worksheet-label">Location / Format</span>
+      <div class="worksheet-line"></div>
+    </div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Her motivation — why does she want to be a surrogate?</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Her previous pregnancy history</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Her support system</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Her views on selective reduction and termination</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Her communication preferences and expectations</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Questions she asked us</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">How did we feel after the meeting? (gut check)</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Do we want to move forward? Why or why not?</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- WORKSHEET 2 -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Worksheet Two</div>
+    <h2 class="part-title">Agency Comparison Tool</h2>
+  </div>
+
+  <p style="font-size: 13px; color: #6B3FA0; margin-bottom: 0.2in;">Compare up to three agencies side by side. Fill in after your consultation calls.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 38%;">Question</th>
+        <th>Agency A</th>
+        <th>Agency B</th>
+        <th>Agency C</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>How long have they been operating?</td><td></td><td></td><td></td></tr>
+      <tr><td>How many surrogates apply monthly?</td><td></td><td></td><td></td></tr>
+      <tr><td>Current average wait time to match?</td><td></td><td></td><td></td></tr>
+      <tr><td>What is included in the agency fee?</td><td></td><td></td><td></td></tr>
+      <tr><td>What is NOT included?</td><td></td><td></td><td></td></tr>
+      <tr><td>How are surrogate expenses managed?</td><td></td><td></td><td></td></tr>
+      <tr><td>Can they provide references?</td><td></td><td></td><td></td></tr>
+      <tr><td>What happens if surrogate withdraws?</td><td></td><td></td><td></td></tr>
+      <tr><td>Do they have surrogacy lawyers they recommend?</td><td></td><td></td><td></td></tr>
+      <tr><td>Gut feeling about the team?</td><td></td><td></td><td></td></tr>
+      <tr><td>Agency fee (total)</td><td></td><td></td><td></td></tr>
+      <tr><td>Would we recommend them to a friend?</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- WORKSHEET 3 -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Worksheet Three</div>
+    <h2 class="part-title">Our Journey Goals and Intentions</h2>
+  </div>
+
+  <p style="font-size: 13px; color: #6B3FA0; margin-bottom: 0.25in;">Take your time with this one. Return to it throughout your journey.</p>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">Why do we want to become parents?</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">What kind of relationship do we want with our surrogate?</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">What does success look like — beyond just a healthy baby?</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">What are we most afraid of? (Be honest)</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">What will we do to support each other when it gets hard?</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">What do we want to tell our child about how they came to be?</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="worksheet-field">
+    <span class="worksheet-label">One thing we want to remember about this journey, no matter how it goes</span>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+    <div class="worksheet-line"></div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- WORKSHEET 4 -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Worksheet Four</div>
+    <h2 class="part-title">Our Journey Budget Planner</h2>
+  </div>
+
+  <p style="font-size: 13px; color: #6B3FA0; margin-bottom: 0.2in;">Fill in your estimates before you begin, then track actuals as you go. Revisit this sheet at each phase of your journey.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 55%;">Cost Item</th>
+        <th>Estimated ($)</th>
+        <th>Actual ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Agency fee</td><td></td><td></td></tr>
+      <tr><td>Surrogate monthly reimbursements (est. total)</td><td></td><td></td></tr>
+      <tr><td>Surrogate travel and childcare (est.)</td><td></td><td></td></tr>
+      <tr><td>Surrogate lost wages (est.)</td><td></td><td></td></tr>
+      <tr><td>Surrogate life insurance</td><td></td><td></td></tr>
+      <tr><td>Surrogate legal fees (your cost)</td><td></td><td></td></tr>
+      <tr><td>Our surrogacy lawyer</td><td></td><td></td></tr>
+      <tr><td>Fertility clinic (IVF / embryo creation)</td><td></td><td></td></tr>
+      <tr><td>Surrogate medical screening</td><td></td><td></td></tr>
+      <tr><td>Transfer cycle 1</td><td></td><td></td></tr>
+      <tr><td>Transfer cycle 2 (if needed)</td><td></td><td></td></tr>
+      <tr><td>Transfer cycle 3 (if needed)</td><td></td><td></td></tr>
+      <tr><td>Psychological screening</td><td></td><td></td></tr>
+      <tr><td>Our travel to birth location</td><td></td><td></td></tr>
+      <tr><td>Post-birth legal (parentage, birth cert, passport)</td><td></td><td></td></tr>
+      <tr><td>Contingency fund</td><td></td><td></td></tr>
+      <tr><td>Other:</td><td></td><td></td></tr>
+      <tr class="budget-total-row"><td><strong>Total</strong></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 0.25in;">
+    <span class="callout-label">Reminder</span>
+    <p>$60,000 CAD is the floor, not the ceiling. Build a contingency of at least $10,000 to $15,000 into your plan. Additional transfer cycles, complications, or provincial legal differences can add costs that are not always foreseeable at the outset.</p>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 519-220-0555</div>
+</div>
+
+<!-- CLOSING PAGE -->
+<div class="page" style="padding: 0;">
+  <div class="closing-page">
+    <div class="closing-eyebrow">What comes next</div>
+    <h2 class="closing-title">You're Ready.</h2>
+    <div class="closing-rule"></div>
+
+    <div class="closing-body">
+      <p>You have everything you need to move forward with clarity and confidence. This roadmap is yours to keep — come back to it at every phase of your journey.</p>
+      <p>If you would like support beyond what a guide can offer, Canadian Surrogacy Options is here. Whether that is a single consultation call, receipt management, or a full agency program — we meet you where you are.</p>
+    </div>
+
+    <div class="cta-box">
+      <div class="cta-label">Book your free call</div>
+      <div class="cta-link">calendly.com/cso-robyn</div>
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 11px; color: #9B7FC7; margin-top: 0.05in;">30 minutes with Robyn — no obligation, no pressure.</div>
+    </div>
+
+    <div class="closing-footer-info">
+      Canadian Surrogacy Options<br>
+      Cambridge &amp; Guelph, Ontario<br>
+      519-220-0555 &nbsp;|&nbsp; canadiansurrogacyoptions.com<br>
+      robyn@canadiansurrogacyoptions.com<br>
+      <br>
+      Little Miracles Egg Donation Services<br>
+      little-miracles.ca
+    </div>
+
+    <div class="disclaimer">
+      This guide is provided for informational purposes only and does not constitute legal or medical advice. Always obtain independent legal counsel before entering into any surrogacy arrangement. Laws vary by province — consult a surrogacy lawyer licensed in the relevant jurisdiction.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
