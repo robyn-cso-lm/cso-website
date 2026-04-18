@@ -11,7 +11,7 @@ export default function Footer() {
             <p className={styles.tagline}>From hope to heartbeat to home.</p>
             <div className={styles.socials}>
               <a
-                href="https://facebook.com/canadiansurrogacyoptions"
+                href="https://www.facebook.com/CanadianSurrogacyOptionsInc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
@@ -22,7 +22,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com/canadiansurrogacyoptions"
+                href="https://www.instagram.com/csofamily/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
@@ -35,7 +35,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://tiktok.com/@canadiansurrogacyoptions"
+                href="https://www.tiktok.com/@surrogacyca"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
