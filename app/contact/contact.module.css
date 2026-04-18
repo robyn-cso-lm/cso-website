@@ -1,0 +1,207 @@
+/* ── Hero ── */
+.hero {
+  background: var(--deep-purple);
+  background-image: radial-gradient(ellipse at 40% 60%, rgba(107, 63, 160, 0.5) 0%, transparent 65%);
+  padding: 100px 40px 110px;
+  text-align: center;
+}
+
+.heroInner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--lavender);
+  margin-bottom: 16px;
+}
+
+.heroTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.heroSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 72px 24px 80px; }
+}
+
+/* ── Contact Options ── */
+.options {
+  background: var(--cream);
+  padding: 96px 40px;
+}
+
+.optionsInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 900px) {
+  .options { padding: 64px 24px; }
+  .optionsInner { grid-template-columns: 1fr; }
+}
+
+.optionCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 44px 36px;
+  border: 1.5px solid rgba(155, 127, 199, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.optionCard:hover {
+  box-shadow: 0 16px 48px rgba(61, 26, 110, 0.1);
+  transform: translateY(-4px);
+}
+
+.optionIcon {
+  font-size: 36px;
+  margin-bottom: 18px;
+}
+
+.optionTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  margin-bottom: 12px;
+}
+
+.optionDesc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.optionLink {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--deep-purple);
+  text-decoration: none;
+  border-bottom: 2px solid var(--lavender);
+  padding-bottom: 2px;
+  margin-bottom: 12px;
+  transition: color 0.2s, border-color 0.2s;
+  word-break: break-word;
+}
+
+.optionLink:hover {
+  color: var(--mid-purple);
+  border-color: var(--mid-purple);
+}
+
+.optionSecondary {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--mid-purple);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.optionSecondary:hover {
+  opacity: 1;
+}
+
+/* ── Details ── */
+.details {
+  background: var(--lavender-light);
+  padding: 80px 40px;
+}
+
+.detailsInner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+@media (max-width: 768px) {
+  .details { padding: 56px 24px; }
+  .detailsInner { grid-template-columns: 1fr; gap: 36px; }
+}
+
+.detailBlock {}
+
+.detailTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  margin-bottom: 8px;
+}
+
+.detailText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--mid-purple);
+  margin-bottom: 10px;
+}
+
+.detailNote {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Reassurance ── */
+.reassure {
+  background: var(--deep-purple);
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.reassureInner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.reassureQuote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.reassureSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 640px) {
+  .reassure { padding: 56px 24px; }
+}
