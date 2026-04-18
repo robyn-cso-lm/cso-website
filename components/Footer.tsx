@@ -52,8 +52,8 @@ export default function Footer() {
             <div className={styles.column}>
               <h4 className={styles.columnTitle}>For Parents</h4>
               <ul className={styles.columnLinks}>
+                <li><Link href="/about">About Us</Link></li>
                 <li><Link href="/programs">Our Programs</Link></li>
-                <li><Link href="/programs#concierge">Concierge Experience</Link></li>
                 <li><Link href="/blog?category=Intended+Parents">Parent Stories</Link></li>
                 <li>
                   <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener noreferrer">
@@ -77,7 +77,7 @@ export default function Footer() {
               <ul className={styles.columnLinks}>
                 <li>
                   <a href="tel:+18774014175">
-                    1-877-401-4175
+                    1-877-401-4175 (call or text)
                   </a>
                 </li>
                 <li>
