@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import SurrogateLeadForm from '@/components/SurrogateLeadForm';
 
 export const metadata: Metadata = {
   title: 'Become a Surrogate | Canadian Surrogacy Options',
@@ -195,6 +196,11 @@ export default function SurrogatesPage() {
               <div className="step"><div className="step-num">03</div><h3>Get Matched</h3><p>Once approved, we&apos;ll introduce you to intended parents who are the right fit for you. You&apos;ll always have a say.</p></div>
             </div>
           </div>
+        </div>
+
+        {/* FREE GUIDE — LEAD MAGNET */}
+        <div className="section" style={{ background: 'var(--lavender-light, #E8E0F5)', padding: '80px 40px' }}>
+          <SurrogateLeadForm />
         </div>
 
         {/* APPLICATION FORM */}
