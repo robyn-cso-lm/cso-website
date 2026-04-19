@@ -231,7 +231,7 @@ export default function ProgramsPage() {
               <div className={styles.productIcon}>🧭</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Independent Journey Checklist&rdquo;</h3>
-                <p className={styles.productPrice}>$67</p>
+                <p className={styles.productPrice}>$87</p>
               </div>
               <ul className={styles.productFeatures}>
                 <li>Full independent journey checklist</li>
