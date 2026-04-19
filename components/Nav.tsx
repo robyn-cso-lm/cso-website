@@ -64,6 +64,16 @@ export default function Nav() {
           </li>
           <li>
             <a
+              href="https://portal.canadiansurrogacyoptions.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.clientLogin}
+            >
+              Client Login
+            </a>
+          </li>
+          <li>
+            <a
               href="https://calendly.com/cso-robyn"
               target="_blank"
               rel="noopener noreferrer"
@@ -94,6 +104,14 @@ export default function Nav() {
         <Link href="/surrogates" className={styles.mobileLink}>Become a Surrogate</Link>
         <Link href="/blog" className={styles.mobileLink}>Blog</Link>
         <Link href="/contact" className={styles.mobileLink}>Contact</Link>
+        <a
+          href="https://portal.canadiansurrogacyoptions.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.mobileLink}
+        >
+          Client Login
+        </a>
         <a
           href="https://calendly.com/cso-robyn"
           target="_blank"
