@@ -117,6 +117,7 @@ export default function ProgramsPage() {
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnFilled}>
                   Book a Free Call
                 </a>
+                <p className={styles.priceNote}>From $29,500 + HST</p>
               </div>
             </div>
 
@@ -137,7 +138,7 @@ export default function ProgramsPage() {
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
                 </a>
-                <p className={styles.priceNote}>Contact for pricing</p>
+                <p className={styles.priceNote}>From $1,500 + HST</p>
               </div>
             </div>
 
