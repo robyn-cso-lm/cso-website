@@ -95,7 +95,7 @@ export default function ProgramsPage() {
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
                 </a>
-                <p className={styles.priceNote}>From $18,500 + HST</p>
+                <p className={styles.priceNote}>From $19,500 + HST</p>
               </div>
             </div>
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Intended Parents | Canadian Surrogacy Options',
-  description: 'CSO has helped build families since 1992. If you\'re ready to become a parent through surrogacy, we have active surrogates waiting and matches being made right now.',
+  description: 'CSO has helped build families since 1992. If you\'re ready to become a parent through surrogacy, we\'re here to guide you every step of the way.',
 };
 
 export default function IntendedParentsPage() {
@@ -94,8 +94,8 @@ export default function IntendedParentsPage() {
         {/* URGENCY */}
         <div style={{ padding: '0 24px' }}>
           <div className="urgency">
-            <p>CSO has active surrogates right now. Matches are being made.</p>
-            <small>Every week you wait is a week someone else&apos;s journey begins. Yours deserves to start too.</small>
+            <p>Families are building right now. Yours can too.</p>
+            <small>A free consultation takes 30 minutes. It could change everything.</small>
             <div style={{ marginTop: 24 }}>
               <a href="/contact" className="btn btn-white">Book a Free Consultation</a>
             </div>
@@ -207,20 +207,30 @@ export default function IntendedParentsPage() {
               {[
                 {
                   name: 'Foundation',
-                  tagline: 'For families who want expert guidance with more independence.',
-                  items: ['Surrogate matching & screening', 'Legal referrals', 'Self-directed case management', 'Community access'],
+                  price: 'From $9,500 + HST',
+                  tagline: 'For families who are informed and ready.',
+                  items: ['Surrogate matching coordination', 'Legal & clinic referrals', 'Journey milestone support', 'Access to CSO\'s screened surrogate pool'],
                   featured: false,
                 },
                 {
-                  name: 'Full-Service',
-                  tagline: 'Our most popular program — complete end-to-end support.',
-                  items: ['Everything in Foundation', 'Dedicated case manager', 'Full expense coordination', 'Conflict support', 'Birth attendance option'],
+                  name: 'Guided Journey',
+                  price: 'From $19,500 + HST',
+                  tagline: 'For families who want a trusted partner.',
+                  items: ['Everything in Foundation', 'Dedicated case management', 'Regular journey check-ins', 'IP profile creation & presentation', 'Matching advocacy & introductions'],
+                  featured: false,
+                },
+                {
+                  name: 'Priority Match',
+                  price: 'From $29,500 + HST',
+                  tagline: 'For families who are ready now.',
+                  items: ['Everything in Guided Journey', 'Priority matching', 'Doubled surrogate recruitment', 'Faster average match timeline', 'Split payment structure available'],
                   featured: true,
                 },
                 {
-                  name: 'Camica Concierge',
-                  tagline: 'White-glove coordination for international and complex journeys.',
-                  items: ['Everything in Full-Service', 'Travel & clinic coordination', 'Concierge logistics', 'Priority access', 'Custom support plan'],
+                  name: 'Independent Journey',
+                  price: 'From $1,500 + HST',
+                  tagline: 'For families navigating their own path.',
+                  items: ['Comprehensive journey checklist', 'Legal & clinic referrals', 'CSO document templates', 'Consultation calls as needed', 'Optional receipt management add-on'],
                   featured: false,
                 },
               ].map(p => (
@@ -228,10 +238,11 @@ export default function IntendedParentsPage() {
                   {p.featured && <span className="package-badge">Most Popular</span>}
                   <h3>{p.name}</h3>
                   <p className="tagline">{p.tagline}</p>
+                  <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#3D1A6E', marginBottom: 16 }}>{p.price}</p>
                   <ul>
                     {p.items.map(i => <li key={i}>{i}</li>)}
                   </ul>
-                  <a href="/programs" className="btn" style={{ width: '100%', textAlign: 'center', boxSizing: 'border-box', display: 'block' }}>See Pricing</a>
+                  <a href="/programs" className="btn" style={{ width: '100%', textAlign: 'center', boxSizing: 'border-box', display: 'block' }}>See Full Details</a>
                 </div>
               ))}
             </div>
