@@ -129,6 +129,42 @@
   opacity: 1;
 }
 
+/* ── Contact Form Section ── */
+.formSection {
+  background: #fff;
+  padding: 96px 40px;
+  border-top: 1px solid rgba(155, 127, 199, 0.15);
+}
+
+.formInner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.formIntro {
+  margin-bottom: 40px;
+}
+
+.formTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 300;
+  color: var(--deep-purple);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.formSub {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+@media (max-width: 640px) {
+  .formSection { padding: 64px 24px; }
+}
+
 /* ── Details ── */
 .details {
   background: var(--lavender-light);

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import styles from './contact.module.css';
+import ContactForm from '../../components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Canadian Surrogacy Options',
@@ -67,6 +68,21 @@ export default function ContactPage() {
               Choose a time on Calendly
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section className={styles.formSection}>
+        <div className={styles.formInner}>
+          <div className={styles.formIntro}>
+            <p className={styles.eyebrow}>Send a Message</p>
+            <h2 className={styles.formTitle}>Not ready to call? That&rsquo;s okay.</h2>
+            <p className={styles.formSub}>
+              Fill in a few details and Robyn will reach out personally. No pressure,
+              no sales pitch — just a real reply from a real person.
+            </p>
+          </div>
+          <ContactForm />
         </div>
       </section>
 
