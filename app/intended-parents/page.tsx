@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import IPLeadForm from '../../components/IPLeadForm';
 
 export const metadata: Metadata = {
   title: 'Intended Parents | Canadian Surrogacy Options',
@@ -100,6 +101,11 @@ export default function IntendedParentsPage() {
               <a href="/contact" className="btn btn-white">Book a Free Consultation</a>
             </div>
           </div>
+        </div>
+
+        {/* IP LEAD MAGNET */}
+        <div style={{ padding: '60px 24px', background: '#3D1A6E' }}>
+          <IPLeadForm />
         </div>
 
         {/* WHO COMES TO CSO */}
