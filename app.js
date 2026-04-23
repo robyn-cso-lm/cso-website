@@ -426,4 +426,17 @@ async function exportVideo() {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 applyRatio();
-addTextCard({ text: 'Your hook goes here', bold: true, size: 9, position: 'middle', style: 'shadow' });
+
+const savedCards = sessionStorage.getItem('cso_text_cards');
+if (savedCards) {
+  try {
+    const lines = JSON.parse(savedCards);
+    const positions = ['top', 'middle', 'bottom'];
+    lines.forEach((text, i) => {
+      addTextCard({ text, bold: true, size: 9, position: positions[i % 3] || 'middle', style: 'shadow' });
+    });
+  } catch { /* malformed data — fall through to default */ }
+  sessionStorage.removeItem('cso_text_cards');
+} else {
+  addTextCard({ text: 'Your hook goes here', bold: true, size: 9, position: 'middle', style: 'shadow' });
+}
