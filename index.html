@@ -19,26 +19,43 @@
       </div>
     </header>
 
-    <!-- API Key setup -->
+    <!-- Claude API Key setup -->
     <div class="api-banner" id="apiBanner">
-      <!-- Step 1: prompt -->
       <div class="api-banner-inner" id="bannerPrompt">
         <span>Add your Claude API key to unlock AI script generation</span>
         <button id="apiSetupBtn">Set API Key</button>
       </div>
-      <!-- Step 2: input -->
       <div class="api-setup" id="apiSetup" style="display:none">
         <input type="password" id="apiKeyInput" placeholder="Paste your sk-ant-... key here" autocomplete="off" />
         <button id="saveKeyBtn">Save Key</button>
         <button id="cancelKeyBtn" class="btn-cancel">Cancel</button>
         <small>Stays in your browser only — never sent anywhere except api.anthropic.com</small>
       </div>
-      <!-- Step 3: saved confirmation -->
       <div class="api-saved" id="apiSaved" style="display:none">
         <span class="saved-tick">✓</span>
-        <span>API key saved — AI features unlocked</span>
+        <span>Claude API key saved</span>
         <button id="testKeyBtn">Test connection</button>
         <button id="changeKeyBtn" class="btn-cancel">Change key</button>
+      </div>
+    </div>
+
+    <!-- D-ID Avatar setup -->
+    <div class="api-banner did-banner" id="didBanner">
+      <div class="api-banner-inner" id="didBannerPrompt">
+        <span>Connect D-ID to generate founder avatar videos of you speaking your scripts</span>
+        <button id="didSetupBtn">Set Up Avatar</button>
+      </div>
+      <div class="api-setup" id="didSetup" style="display:none">
+        <input type="password" id="didKeyInput" placeholder="D-ID API key (from d-id.com/settings)" autocomplete="off" />
+        <input type="url" id="didPhotoInput" placeholder="Your photo URL — a public link to your headshot" />
+        <button id="saveDidBtn">Save</button>
+        <button id="cancelDidBtn" class="btn-cancel">Cancel</button>
+        <small>Stored in your browser only — never saved to code or GitHub</small>
+      </div>
+      <div class="api-saved" id="didSaved" style="display:none">
+        <span class="saved-tick">✓</span>
+        <span>Avatar ready — D-ID connected</span>
+        <button id="changeDidBtn" class="btn-cancel">Change</button>
       </div>
     </div>
 
@@ -131,7 +148,8 @@
             <h2 id="outputTitle">Output</h2>
             <div class="output-actions">
               <button class="btn-sm" id="copyBtn" style="display:none">Copy</button>
-              <button class="btn-sm accent" id="useInVideoBtn" style="display:none">Use in Video Maker →</button>
+              <button class="btn-sm accent" id="avatarBtn" style="display:none">Generate Avatar Video</button>
+              <button class="btn-sm" id="useInVideoBtn" style="display:none">Text Overlay Only →</button>
             </div>
           </div>
 
@@ -142,6 +160,13 @@
           <div id="outputArea" class="output-area">
             <div class="output-empty">Generate a script or plan to see output here.</div>
           </div>
+        </section>
+
+        <!-- Avatar video result -->
+        <section class="panel" id="avatarPanel" style="display:none">
+          <h2>Avatar Video</h2>
+          <div id="avatarStatus" class="avatar-status"></div>
+          <div id="avatarResult"></div>
         </section>
 
         <!-- Content calendar -->

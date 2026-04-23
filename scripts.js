@@ -1,20 +1,15 @@
-// ─── API Key ──────────────────────────────────────────────────────────────────
+// ─── Claude API Key ───────────────────────────────────────────────────────────
 let apiKey = localStorage.getItem('cso_api_key') || '';
 
 function showBannerStep(step) {
-  // step: 'prompt' | 'input' | 'saved'
-  document.getElementById('bannerPrompt').style.display = step === 'prompt' ? 'flex'  : 'none';
-  document.getElementById('apiSetup').style.display     = step === 'input'  ? 'flex'  : 'none';
-  document.getElementById('apiSaved').style.display     = step === 'saved'  ? 'flex'  : 'none';
+  document.getElementById('bannerPrompt').style.display = step === 'prompt' ? 'flex' : 'none';
+  document.getElementById('apiSetup').style.display     = step === 'input'  ? 'flex' : 'none';
+  document.getElementById('apiSaved').style.display     = step === 'saved'  ? 'flex' : 'none';
 }
 
 function updateApiBanner() {
   document.getElementById('apiBanner').style.display = 'block';
-  if (apiKey) {
-    showBannerStep('saved');
-  } else {
-    showBannerStep('prompt');
-  }
+  showBannerStep(apiKey ? 'saved' : 'prompt');
 }
 updateApiBanner();
 
@@ -25,29 +20,24 @@ document.getElementById('changeKeyBtn').onclick = () => {
   showBannerStep('input');
   document.getElementById('apiKeyInput').focus();
 };
-
 document.getElementById('saveKeyBtn').onclick = () => {
   const v = document.getElementById('apiKeyInput').value.trim();
   if (!v) return;
-  // Accept any non-empty key — let the API call tell us if it's invalid
   apiKey = v;
   localStorage.setItem('cso_api_key', v);
   showBannerStep('saved');
-  toast('API key saved ✓');
+  toast('Claude API key saved ✓');
 };
-
-// Enter key in API input triggers save
 document.getElementById('apiKeyInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') document.getElementById('saveKeyBtn').click();
 });
-
 document.getElementById('testKeyBtn').onclick = async () => {
   const btn = document.getElementById('testKeyBtn');
   btn.textContent = 'Testing…';
   btn.disabled = true;
   try {
-    await callClaude('You are a helpful assistant.', 'Reply with exactly: "Connected"');
-    toast('✓ Connection works — you\'re ready to generate!');
+    await callClaude('Reply with exactly: Connected');
+    toast('✓ Claude connected — ready to generate!');
   } catch (e) {
     toast('✗ ' + e.message, true);
   } finally {
@@ -56,11 +46,47 @@ document.getElementById('testKeyBtn').onclick = async () => {
   }
 };
 
+// ─── D-ID Key & Photo ─────────────────────────────────────────────────────────
+let didKey   = localStorage.getItem('cso_did_key')   || '';
+let didPhoto = localStorage.getItem('cso_did_photo') || '';
+
+function showDidStep(step) {
+  document.getElementById('didBannerPrompt').style.display = step === 'prompt' ? 'flex' : 'none';
+  document.getElementById('didSetup').style.display        = step === 'input'  ? 'flex' : 'none';
+  document.getElementById('didSaved').style.display        = step === 'saved'  ? 'flex' : 'none';
+}
+
+function updateDidBanner() {
+  showDidStep(didKey && didPhoto ? 'saved' : 'prompt');
+}
+updateDidBanner();
+
+document.getElementById('didSetupBtn').onclick = () => {
+  if (didPhoto) document.getElementById('didPhotoInput').value = didPhoto;
+  showDidStep('input');
+};
+document.getElementById('cancelDidBtn').onclick = () => showDidStep(didKey && didPhoto ? 'saved' : 'prompt');
+document.getElementById('changeDidBtn').onclick = () => {
+  document.getElementById('didPhotoInput').value = didPhoto;
+  showDidStep('input');
+};
+document.getElementById('saveDidBtn').onclick = () => {
+  const k = document.getElementById('didKeyInput').value.trim();
+  const p = document.getElementById('didPhotoInput').value.trim();
+  if (!p) { toast('Please add your photo URL', true); return; }
+  if (k) { didKey = k; localStorage.setItem('cso_did_key', k); }
+  didPhoto = p;
+  localStorage.setItem('cso_did_photo', p);
+  if (!didKey) { toast('Photo saved — add your D-ID API key too', true); return; }
+  showDidStep('saved');
+  toast('Avatar settings saved ✓');
+};
+
 // ─── Toast ────────────────────────────────────────────────────────────────────
 function toast(msg, isError = false) {
   const el = document.getElementById('toast');
   el.textContent = msg;
-  el.className   = 'toast' + (isError ? ' toast-error' : ' toast-ok');
+  el.className = 'toast' + (isError ? ' toast-error' : ' toast-ok');
   el.style.display = 'block';
   clearTimeout(el._t);
   el._t = setTimeout(() => { el.style.display = 'none'; }, 3500);
@@ -79,7 +105,6 @@ function wireToggleGroup(containerId, onChange) {
     onChange(btn.dataset.val);
   });
 }
-
 wireToggleGroup('audienceBtns', v => { selectedAudience = v; });
 wireToggleGroup('toneBtns',     v => { selectedTone     = v; });
 
@@ -141,7 +166,7 @@ function renderTemplates() {
   const list = document.getElementById('templateList');
   list.innerHTML = '';
   TEMPLATES.forEach(t => {
-    const el = document.createElement('div');
+    const el    = document.createElement('div');
     el.className = 'template-item';
     const tag   = document.createElement('div');
     tag.className = `tmpl-tag ${t.aud}`;
@@ -155,12 +180,10 @@ function renderTemplates() {
     el.append(tag, title, hook);
     el.onclick = () => {
       document.getElementById('topicInput').value = t.topic;
-      // Sync audience button
       document.querySelectorAll('#audienceBtns .tog-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.val === t.aud);
       });
       selectedAudience = t.aud;
-      // Scroll to script builder
       document.getElementById('scriptBtn').scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
     list.appendChild(el);
@@ -169,10 +192,15 @@ function renderTemplates() {
 renderTemplates();
 
 // ─── Claude API ───────────────────────────────────────────────────────────────
-async function callClaude(systemPrompt, userPrompt) {
-  if (!apiKey) {
-    throw new Error('No API key set — click "Set API Key" at the top of the page.');
-  }
+const SYSTEM = `You are a content strategist for a surrogacy and egg donation consultancy.
+Brand voice: educated, direct, slightly cheeky — like the most knowledgeable friend in the room who says what agencies won't.
+The audience trusts you because you speak plainly, use real numbers, and never talk down to them.
+You write short-form TikTok scripts: strong hook, tight body, clear CTA.
+Never use filler like "In today's video" or "Don't forget to like and subscribe".
+Be specific. Use real figures where helpful. Own the expertise.`;
+
+async function callClaude(userPrompt) {
+  if (!apiKey) throw new Error('No API key — click "Set API Key" at the top.');
   let res;
   try {
     res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -186,38 +214,30 @@ async function callClaude(systemPrompt, userPrompt) {
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 1024,
-        messages: [
-          { role: 'user', content: `${systemPrompt}\n\n${userPrompt}` }
-        ],
+        messages: [{ role: 'user', content: userPrompt }],
       }),
     });
-  } catch (e) {
-    throw new Error('Network error — could not reach the API. Check your internet connection and that your API key is valid.');
+  } catch {
+    throw new Error('Could not reach the API. Check your internet connection or try a different browser.');
   }
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     throw new Error(err.error?.message || `API error ${res.status}`);
   }
-  const data = await res.json();
-  return data.content[0].text;
+  return (await res.json()).content[0].text;
 }
-
-const SYSTEM = `You are a content strategist for a surrogacy and egg donation consultancy.
-Brand voice: educated, direct, slightly cheeky — like the most knowledgeable friend in the room who says what agencies won't.
-The audience trusts you because you speak plainly, use real numbers, and never talk down to them.
-You write short-form TikTok scripts: strong hook, tight body, clear CTA.
-Never use filler like "In today's video" or "Don't forget to like and subscribe".
-Be specific. Use real figures where helpful. Own the expertise.`;
 
 const AUDIENCE_LABELS = { surrogate: 'surrogates', donor: 'egg donors', ip: 'intended parents' };
 const TONE_PROMPTS = {
-  'cheeky-edu': 'Tone: educational but playful — light sarcasm, rhetorical questions, conversational asides. Smart friend spilling receipts.',
+  'cheeky-edu': 'Tone: educational but playful — light sarcasm, rhetorical questions, conversational asides.',
   'myth-bust':  'Tone: myth-busting — name the myth head-on, dismantle it with facts. Confident, slightly exasperated.',
   'story':      'Tone: story hook — open with a real-feeling scenario. Make it emotional before making it educational.',
   'hot-take':   'Tone: hot take — provocative opening statement that stops the scroll, then back it up with substance.',
 };
 
 // ─── Script generator ─────────────────────────────────────────────────────────
+let lastRawScript = '';
+
 document.getElementById('scriptBtn').onclick = async () => {
   const topic  = document.getElementById('topicInput').value.trim();
   const length = document.getElementById('lengthSelect').value;
@@ -225,8 +245,8 @@ document.getElementById('scriptBtn').onclick = async () => {
 
   setLoading(true, 'Writing your script…');
   try {
-    const result = await callClaude(SYSTEM, `
-Write a TikTok video script for ${AUDIENCE_LABELS[selectedAudience]}.
+    const result = await callClaude(
+      `${SYSTEM}\n\nWrite a TikTok video script for ${AUDIENCE_LABELS[selectedAudience]}.
 ${TONE_PROMPTS[selectedTone]}
 Hook style: ${hook}
 Target length: ~${length} seconds spoken aloud (~${Math.round(length * 2.5)} words).
@@ -237,8 +257,9 @@ HOOK:
 BODY:
 CTA:
 ON-SCREEN TEXT:
-DIRECTORS NOTE:
-`);
+DIRECTORS NOTE:`
+    );
+    lastRawScript = result;
     renderScript(result);
   } catch (e) {
     showError(e.message);
@@ -248,7 +269,7 @@ DIRECTORS NOTE:
 };
 
 function parseSection(raw, label, nextLabel) {
-  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const escaped   = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const lookahead = nextLabel
     ? `(?=${nextLabel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:)`
     : '$';
@@ -260,9 +281,7 @@ function parseSection(raw, label, nextLabel) {
 function renderScript(raw) {
   const sections = ['HOOK', 'BODY', 'CTA', 'ON-SCREEN TEXT', 'DIRECTORS NOTE'];
   const vals = {};
-  sections.forEach((s, i) => {
-    vals[s] = parseSection(raw, s, sections[i + 1]);
-  });
+  sections.forEach((s, i) => { vals[s] = parseSection(raw, s, sections[i + 1]); });
 
   const clsMap = { HOOK: 'script-hook', CTA: 'script-cta', 'DIRECTORS NOTE': 'script-note' };
   let html = '';
@@ -281,8 +300,8 @@ function renderScript(raw) {
 document.getElementById('planBtn').onclick = async () => {
   setLoading(true, 'Planning your day…');
   try {
-    const result = await callClaude(SYSTEM, `
-Generate 2 TikTok video ideas for today for a surrogacy/egg donation consultancy.
+    const result = await callClaude(
+      `${SYSTEM}\n\nGenerate 2 TikTok video ideas for today for a surrogacy/egg donation consultancy.
 Mix the audiences — one targeting surrogates or donors, one for intended parents.
 For each:
 VIDEO 1:
@@ -295,8 +314,8 @@ VIDEO 2:
 TITLE:
 AUDIENCE:
 HOOK:
-WHY:
-`);
+WHY:`
+    );
     renderPlan(result);
   } catch (e) {
     showError(e.message);
@@ -308,8 +327,7 @@ WHY:
 function renderPlan(raw) {
   [1, 2].forEach(n => {
     const re = new RegExp(
-      `VIDEO ${n}:[\\s\\S]*?TITLE:\\s*(.*?)\\n[\\s\\S]*?AUDIENCE:\\s*(.*?)\\n[\\s\\S]*?HOOK:\\s*(.*?)\\n`,
-      'i'
+      `VIDEO ${n}:[\\s\\S]*?TITLE:\\s*(.*?)\\n[\\s\\S]*?AUDIENCE:\\s*(.*?)\\n[\\s\\S]*?HOOK:\\s*(.*?)\\n`, 'i'
     );
     const m  = raw.match(re);
     const el = document.getElementById(`slot${n}`);
@@ -331,16 +349,16 @@ const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 document.getElementById('calendarBtn').onclick = async () => {
   setLoading(true, 'Building your week…');
   try {
-    const result = await callClaude(SYSTEM, `
-Create a 7-day TikTok content calendar for a surrogacy/egg donation consultancy.
+    const result = await callClaude(
+      `${SYSTEM}\n\nCreate a 7-day TikTok content calendar for a surrogacy/egg donation consultancy.
 2 videos per day. Rotate audiences: surrogates, donors, intended parents.
 Vary tones: educational, myth-bust, story, hot take.
 
 Return ONLY valid JSON — no extra text, no markdown fences:
 [{"day":"Mon","aud":"surrogate","title":"Short title"},{"day":"Mon","aud":"ip","title":"Short title"},...]
 
-Include exactly 14 objects, 2 per day for Mon–Sun.
-`);
+Include exactly 14 objects, 2 per day for Mon–Sun.`
+    );
     const match = result.match(/\[[\s\S]*\]/);
     if (!match) throw new Error('Could not parse calendar — try again');
     renderCalendar(JSON.parse(match[0]));
@@ -369,15 +387,115 @@ function renderCalendar(items) {
   });
 }
 
+// ─── D-ID Avatar Video ────────────────────────────────────────────────────────
+document.getElementById('avatarBtn').onclick = async () => {
+  if (!didKey || !didPhoto) {
+    toast('Set up your avatar first — click "Set Up Avatar" at the top', true);
+    document.getElementById('didBanner').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+  if (!lastRawScript) return;
+
+  const spokenScript = buildSpokenScript(lastRawScript);
+  if (!spokenScript) { toast('No script text found to speak', true); return; }
+
+  const panel  = document.getElementById('avatarPanel');
+  const status = document.getElementById('avatarStatus');
+  const result = document.getElementById('avatarResult');
+  panel.style.display = 'block';
+  result.innerHTML = '';
+  status.innerHTML = '<span class="avatar-spinner"></span> Submitting to D-ID…';
+  panel.scrollIntoView({ behavior: 'smooth' });
+
+  document.getElementById('avatarBtn').disabled = true;
+
+  try {
+    const id = await didCreateTalk(spokenScript);
+    status.innerHTML = '<span class="avatar-spinner"></span> Generating your video — this takes 1–2 minutes…';
+    const videoUrl = await didPollTalk(id, pct => {
+      status.innerHTML = `<span class="avatar-spinner"></span> Generating… ${pct}`;
+    });
+    status.innerHTML = '✓ Video ready!';
+    result.innerHTML = `
+      <video src="${videoUrl}" controls playsinline style="width:100%;border-radius:8px;margin-top:10px"></video>
+      <a href="${videoUrl}" download="avatar-video.mp4" class="btn-generate" style="display:block;text-align:center;margin-top:10px;text-decoration:none">Download Video</a>
+    `;
+  } catch (e) {
+    status.innerHTML = '';
+    result.innerHTML = `<div class="error-msg">${e.message}</div>`;
+  } finally {
+    document.getElementById('avatarBtn').disabled = false;
+  }
+};
+
+function buildSpokenScript(raw) {
+  const hook = parseSection(raw, 'HOOK', 'BODY');
+  const body = parseSection(raw, 'BODY', 'CTA');
+  const cta  = parseSection(raw, 'CTA',  'ON-SCREEN TEXT');
+  return [hook, body, cta].filter(Boolean).join(' ').replace(/<br>/g, ' ').trim();
+}
+
+async function didCreateTalk(text) {
+  let res;
+  try {
+    res = await fetch('https://api.d-id.com/talks', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${btoa(didKey)}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        source_url: didPhoto,
+        script: {
+          type: 'text',
+          input: text,
+          provider: { type: 'microsoft', voice_id: 'en-US-JennyNeural' },
+        },
+        config: { fluent: true, pad_audio: 0 },
+      }),
+    });
+  } catch {
+    throw new Error('Could not reach D-ID API. Check your internet connection.');
+  }
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.message || err.error || `D-ID error ${res.status}`);
+  }
+  const data = await res.json();
+  return data.id;
+}
+
+async function didPollTalk(id, onProgress) {
+  for (let i = 0; i < 60; i++) {
+    await new Promise(r => setTimeout(r, 3000));
+    let res;
+    try {
+      res = await fetch(`https://api.d-id.com/talks/${id}`, {
+        headers: { 'Authorization': `Basic ${btoa(didKey)}` },
+      });
+    } catch {
+      continue;
+    }
+    const data = await res.json().catch(() => ({}));
+    if (data.status === 'done')  return data.result_url;
+    if (data.status === 'error') throw new Error(data.error?.description || 'Video generation failed');
+    onProgress(data.status || '…');
+  }
+  throw new Error('Video generation timed out — check your D-ID dashboard');
+}
+
 // ─── Output helpers ───────────────────────────────────────────────────────────
-function showOutput(title, html, rawText, showUseBtn) {
+function showOutput(title, html, rawText, showScriptBtns) {
   document.getElementById('outputTitle').textContent = title;
   document.getElementById('outputArea').innerHTML = html;
 
-  const copyBtn  = document.getElementById('copyBtn');
-  const useBtn   = document.getElementById('useInVideoBtn');
-  copyBtn.style.display  = 'inline-block';
-  useBtn.style.display   = showUseBtn ? 'inline-block' : 'none';
+  const copyBtn   = document.getElementById('copyBtn');
+  const avatarBtn = document.getElementById('avatarBtn');
+  const useBtn    = document.getElementById('useInVideoBtn');
+
+  copyBtn.style.display   = 'inline-block';
+  avatarBtn.style.display = showScriptBtns ? 'inline-block' : 'none';
+  useBtn.style.display    = showScriptBtns ? 'inline-block' : 'none';
 
   copyBtn.onclick = () => {
     navigator.clipboard.writeText(rawText).catch(() => {});
@@ -385,7 +503,7 @@ function showOutput(title, html, rawText, showUseBtn) {
     setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1800);
   };
 
-  if (showUseBtn) {
+  if (showScriptBtns) {
     useBtn.onclick = () => {
       const m = rawText.match(/ON-SCREEN TEXT:\s*([\s\S]*?)(?:DIRECTORS NOTE:|$)/i);
       if (m) {
@@ -403,16 +521,19 @@ function setLoading(on, msg = '') {
     document.getElementById(id).disabled = on;
   });
   if (on) {
+    lastRawScript = '';
     document.getElementById('outputArea').innerHTML = `<div class="output-empty">${msg}</div>`;
-    document.getElementById('copyBtn').style.display  = 'none';
+    document.getElementById('copyBtn').style.display    = 'none';
+    document.getElementById('avatarBtn').style.display  = 'none';
     document.getElementById('useInVideoBtn').style.display = 'none';
+    document.getElementById('avatarPanel').style.display = 'none';
   }
 }
 
 function showError(msg) {
   document.getElementById('outputTitle').textContent = 'Error';
-  document.getElementById('outputArea').innerHTML =
-    `<div class="error-msg">${msg}</div>`;
-  document.getElementById('copyBtn').style.display  = 'none';
+  document.getElementById('outputArea').innerHTML = `<div class="error-msg">${msg}</div>`;
+  document.getElementById('copyBtn').style.display    = 'none';
+  document.getElementById('avatarBtn').style.display  = 'none';
   document.getElementById('useInVideoBtn').style.display = 'none';
 }

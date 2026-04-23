@@ -221,6 +221,35 @@
 .cal-entry.donor     { background: #065f46; }
 .cal-entry.ip        { background: #1e3a5f; }
 
+/* D-ID banner */
+.did-banner {
+  background: rgba(16,185,129,0.08);
+  border-color: #10b981;
+  margin-top: -8px;
+}
+.did-banner .saved-tick { color: #10b981; }
+.did-banner .api-saved span:not(.saved-tick) { color: #10b981; }
+#didSetup { display: none; flex-wrap: wrap; align-items: center; gap: 8px; }
+#didSetup input[type="url"] {
+  flex: 2; min-width: 240px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text); padding: 8px 10px; font-size: 13px;
+}
+#didSetup input[type="url"]:focus { outline: none; border-color: #10b981; }
+#saveDidBtn { background: #10b981 !important; }
+
+/* Avatar panel */
+.avatar-status {
+  font-size: 13px; color: var(--muted); display: flex;
+  align-items: center; gap: 8px; margin-bottom: 10px;
+}
+.avatar-spinner {
+  display: inline-block; width: 12px; height: 12px;
+  border: 2px solid #10b981; border-top-color: transparent;
+  border-radius: 50%; animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
 @media (max-width: 860px) {
   .agent-workspace { grid-template-columns: 1fr; }
   .calendar-grid   { grid-template-columns: repeat(4, 1fr); }
