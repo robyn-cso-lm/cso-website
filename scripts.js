@@ -1,41 +1,70 @@
 // ─── API Key ──────────────────────────────────────────────────────────────────
 let apiKey = localStorage.getItem('cso_api_key') || '';
 
+function showBannerStep(step) {
+  // step: 'prompt' | 'input' | 'saved'
+  document.getElementById('bannerPrompt').style.display = step === 'prompt' ? 'flex'  : 'none';
+  document.getElementById('apiSetup').style.display     = step === 'input'  ? 'flex'  : 'none';
+  document.getElementById('apiSaved').style.display     = step === 'saved'  ? 'flex'  : 'none';
+}
+
 function updateApiBanner() {
-  const banner   = document.getElementById('apiBanner');
-  const inner    = document.getElementById('apiBanner').querySelector('.api-banner-inner');
-  const setup    = document.getElementById('apiSetup');
+  document.getElementById('apiBanner').style.display = 'block';
   if (apiKey) {
-    banner.style.display = 'none';
+    showBannerStep('saved');
   } else {
-    banner.style.display = 'block';
-    inner.style.display  = 'flex';
-    setup.style.display  = 'none';
+    showBannerStep('prompt');
   }
 }
 updateApiBanner();
 
-document.getElementById('apiSetupBtn').onclick = () => {
-  document.getElementById('apiBanner').querySelector('.api-banner-inner').style.display = 'none';
-  document.getElementById('apiSetup').style.display = 'flex';
+document.getElementById('apiSetupBtn').onclick = () => showBannerStep('input');
+document.getElementById('cancelKeyBtn').onclick = () => showBannerStep(apiKey ? 'saved' : 'prompt');
+document.getElementById('changeKeyBtn').onclick = () => {
+  document.getElementById('apiKeyInput').value = '';
+  showBannerStep('input');
   document.getElementById('apiKeyInput').focus();
 };
 
 document.getElementById('saveKeyBtn').onclick = () => {
   const v = document.getElementById('apiKeyInput').value.trim();
-  if (v.startsWith('sk-ant-')) {
-    apiKey = v;
-    localStorage.setItem('cso_api_key', v);
-    updateApiBanner();
-  } else {
-    alert('Key should start with sk-ant-  — get one at console.anthropic.com');
+  if (!v) return;
+  // Accept any non-empty key — let the API call tell us if it's invalid
+  apiKey = v;
+  localStorage.setItem('cso_api_key', v);
+  showBannerStep('saved');
+  toast('API key saved ✓');
+};
+
+// Enter key in API input triggers save
+document.getElementById('apiKeyInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('saveKeyBtn').click();
+});
+
+document.getElementById('testKeyBtn').onclick = async () => {
+  const btn = document.getElementById('testKeyBtn');
+  btn.textContent = 'Testing…';
+  btn.disabled = true;
+  try {
+    await callClaude('You are a helpful assistant.', 'Reply with exactly: "Connected"');
+    toast('✓ Connection works — you\'re ready to generate!');
+  } catch (e) {
+    toast('✗ ' + e.message, true);
+  } finally {
+    btn.textContent = 'Test connection';
+    btn.disabled = false;
   }
 };
 
-document.getElementById('cancelKeyBtn').onclick = () => {
-  document.getElementById('apiSetup').style.display = 'none';
-  document.getElementById('apiBanner').querySelector('.api-banner-inner').style.display = 'flex';
-};
+// ─── Toast ────────────────────────────────────────────────────────────────────
+function toast(msg, isError = false) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className   = 'toast' + (isError ? ' toast-error' : ' toast-ok');
+  el.style.display = 'block';
+  clearTimeout(el._t);
+  el._t = setTimeout(() => { el.style.display = 'none'; }, 3500);
+}
 
 // ─── Toggle groups ────────────────────────────────────────────────────────────
 let selectedAudience = 'surrogate';

@@ -21,17 +21,29 @@
 
     <!-- API Key setup -->
     <div class="api-banner" id="apiBanner">
-      <div class="api-banner-inner">
+      <!-- Step 1: prompt -->
+      <div class="api-banner-inner" id="bannerPrompt">
         <span>Add your Claude API key to unlock AI script generation</span>
         <button id="apiSetupBtn">Set API Key</button>
       </div>
+      <!-- Step 2: input -->
       <div class="api-setup" id="apiSetup" style="display:none">
-        <input type="password" id="apiKeyInput" placeholder="sk-ant-..." autocomplete="off" />
-        <button id="saveKeyBtn">Save</button>
+        <input type="password" id="apiKeyInput" placeholder="Paste your sk-ant-... key here" autocomplete="off" />
+        <button id="saveKeyBtn">Save Key</button>
         <button id="cancelKeyBtn" class="btn-cancel">Cancel</button>
-        <small>Stored in your browser only. Never sent anywhere except api.anthropic.com.</small>
+        <small>Stays in your browser only — never sent anywhere except api.anthropic.com</small>
+      </div>
+      <!-- Step 3: saved confirmation -->
+      <div class="api-saved" id="apiSaved" style="display:none">
+        <span class="saved-tick">✓</span>
+        <span>API key saved — AI features unlocked</span>
+        <button id="testKeyBtn">Test connection</button>
+        <button id="changeKeyBtn" class="btn-cancel">Change key</button>
       </div>
     </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
 
     <div class="agent-workspace">
       <!-- Left: Controls -->
