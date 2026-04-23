@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Agent · CSO</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="scripts.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="header-row">
+        <div>
+          <h1>Content Agent</h1>
+          <p class="subtitle">2 viral videos a day · Donors · Surrogates · Intended Parents</p>
+        </div>
+        <a href="index.html" class="nav-link">← Video Maker</a>
+      </div>
+    </header>
+
+    <!-- API Key setup -->
+    <div class="api-banner" id="apiBanner">
+      <span>🔑 Add your Claude API key to unlock AI script generation</span>
+      <button id="apiSetupBtn">Set API Key</button>
+    </div>
+    <div class="api-setup" id="apiSetup" hidden>
+      <input type="password" id="apiKeyInput" placeholder="sk-ant-..." />
+      <button id="saveKeyBtn">Save</button>
+      <button id="cancelKeyBtn">Cancel</button>
+      <small>Stored in browser only. Never sent anywhere except api.anthropic.com.</small>
+    </div>
+
+    <div class="agent-workspace">
+      <!-- Left: Generator -->
+      <div class="gen-col">
+
+        <!-- Daily plan -->
+        <section class="panel">
+          <h2>Today's 2-Video Plan</h2>
+          <div class="plan-grid" id="planGrid">
+            <div class="plan-slot" data-slot="1">
+              <div class="slot-label">Video 1 · AM</div>
+              <div class="slot-content" id="slot1">Click "Generate Plan" to fill</div>
+            </div>
+            <div class="plan-slot" data-slot="2">
+              <div class="slot-label">Video 2 · PM</div>
+              <div class="slot-content" id="slot2">—</div>
+            </div>
+          </div>
+          <button class="btn-generate" id="planBtn">Generate Today's Plan</button>
+        </section>
+
+        <!-- Script builder -->
+        <section class="panel">
+          <h2>Script Builder</h2>
+
+          <div class="field-row">
+            <label>Audience
+              <div class="audience-btns">
+                <button class="aud-btn active" data-aud="surrogate">Surrogates</button>
+                <button class="aud-btn" data-aud="donor">Donors</button>
+                <button class="aud-btn" data-aud="ip">Intended Parents</button>
+              </div>
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label>Tone
+              <div class="tone-btns">
+                <button class="tone-btn active" data-tone="cheeky-edu">Cheeky + Educational</button>
+                <button class="tone-btn" data-tone="myth-bust">Myth Buster</button>
+                <button class="tone-btn" data-tone="story">Story Hook</button>
+                <button class="tone-btn" data-tone="hot-take">Hot Take</button>
+              </div>
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label>Topic / Prompt <small>(or leave blank to let AI choose)</small>
+              <textarea id="topicInput" rows="2" placeholder="e.g. 'what compensation actually looks like', 'the matching process', 'what IPs wish they knew before starting'…"></textarea>
+            </label>
+          </div>
+
+          <div class="field-row two-col">
+            <label>Video length
+              <select id="lengthSelect">
+                <option value="15">~15 sec (hook only)</option>
+                <option value="30" selected>~30 sec</option>
+                <option value="60">~60 sec</option>
+              </select>
+            </label>
+            <label>Hook style
+              <select id="hookSelect">
+                <option value="question">Question hook</option>
+                <option value="stat">Stat / number hook</option>
+                <option value="story">Story hook</option>
+                <option value="controversial">Controversial statement</option>
+              </select>
+            </label>
+          </div>
+
+          <button class="btn-generate" id="scriptBtn">Write Script</button>
+        </section>
+
+        <!-- Template bank -->
+        <section class="panel">
+          <h2>Proven Template Bank</h2>
+          <p class="panel-desc">Click any template to load it into the script builder.</p>
+          <div id="templateList"></div>
+        </section>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="output-col">
+        <section class="panel output-panel">
+          <div class="output-header">
+            <h2 id="outputTitle">Output</h2>
+            <div class="output-actions">
+              <button class="btn-sm" id="copyBtn" hidden>Copy</button>
+              <button class="btn-sm accent" id="useInVideoBtn" hidden>Use in Video Maker →</button>
+            </div>
+          </div>
+
+          <div id="outputArea" class="output-area">
+            <div class="output-empty">Generate a script or plan to see output here.</div>
+          </div>
+
+          <div class="spinner" id="spinner" hidden>
+            <div class="spinner-dot"></div><div class="spinner-dot"></div><div class="spinner-dot"></div>
+          </div>
+        </section>
+
+        <!-- Content calendar preview -->
+        <section class="panel">
+          <h2>7-Day Content Calendar</h2>
+          <div id="calendarGrid" class="calendar-grid"></div>
+          <button class="btn-generate secondary" id="calendarBtn">Generate Week</button>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
