@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
           email_address: email,
           status: 'subscribed',
           merge_fields: { FNAME: firstName },
-          tags: ['Surrogate Lead'],
+          tags: ['Surrogate Lead', 'Surrogate Guide Download'],
         }),
       }
     );
@@ -54,7 +54,10 @@ export async function POST(req: NextRequest) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            tags: [{ name: 'Surrogate Lead', status: 'active' }],
+            tags: [
+              { name: 'Surrogate Lead', status: 'active' },
+              { name: 'Surrogate Guide Download', status: 'active' },
+            ],
           }),
         }
       );

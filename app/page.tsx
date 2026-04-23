@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './page.module.css';
-import LeadCapture from '@/components/LeadCapture';
+import LeadMagnets from '@/components/LeadMagnets';
 
 export const metadata: Metadata = {
   title: 'Canadian Surrogacy Options | Canada\'s First Surrogacy Agency Since 1992',
@@ -146,8 +146,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Lead Capture */}
-      <LeadCapture />
+      {/* Lead Magnets */}
+      <LeadMagnets />
 
       {/* Two Paths */}
       <section className={styles.paths}>
