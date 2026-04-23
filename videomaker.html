@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Maker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div>
+          <h1>Video Maker</h1>
+          <p class="subtitle">Landscape clips + bold text → TikTok-ready</p>
+        </div>
+        <a href="index.html" style="color:var(--accent-light);text-decoration:none;font-size:13px;padding:6px 12px;border:1px solid var(--border);border-radius:7px">Content Agent →</a>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <!-- Left: Controls -->
+      <div class="controls">
+        <section class="panel">
+          <h2>1. Video</h2>
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="videoInput" accept="video/*" hidden />
+            <div class="upload-prompt" id="uploadPrompt">
+              <span class="icon">▶</span>
+              <p>Drop a video or click to upload</p>
+              <small>MP4, MOV, WebM</small>
+            </div>
+            <video id="sourceVideo" preload="metadata" muted loop></video>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>2. Format</h2>
+          <div class="format-btns">
+            <button class="fmt-btn active" data-ratio="9:16">9:16 TikTok</button>
+            <button class="fmt-btn" data-ratio="16:9">16:9 Wide</button>
+            <button class="fmt-btn" data-ratio="1:1">1:1 Square</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>3. Text Cards</h2>
+          <div id="textCardsList"></div>
+          <button class="btn-add" id="addCard">+ Add Text Card</button>
+        </section>
+
+        <section class="panel">
+          <h2>4. Export</h2>
+          <div class="export-row">
+            <label>Quality
+              <select id="qualitySelect">
+                <option value="8000000">High (8 Mbps)</option>
+                <option value="4000000" selected>Medium (4 Mbps)</option>
+                <option value="2000000">Low (2 Mbps)</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn-export" id="exportBtn" disabled>Export Video</button>
+          <div class="progress-wrap" id="progressWrap" hidden>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            <span id="progressLabel">0%</span>
+          </div>
+          <a id="downloadLink" hidden></a>
+        </section>
+      </div>
+
+      <!-- Right: Preview canvas -->
+      <div class="preview-wrap">
+        <div class="preview-container" id="previewContainer">
+          <canvas id="previewCanvas"></canvas>
+          <div class="canvas-overlay" id="canvasOverlay">
+            <span>Upload a video to preview</span>
+          </div>
+        </div>
+        <div class="playback-bar">
+          <button id="playBtn" disabled>▶ Play Preview</button>
+          <input type="range" id="scrubber" min="0" max="100" value="0" step="0.1" disabled />
+          <span id="timeDisplay">0:00 / 0:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

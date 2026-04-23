@@ -3,89 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Maker</title>
+  <title>Content Agent · CSO</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="scripts.css" />
 </head>
 <body>
   <div class="app">
     <header>
-      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="header-row">
         <div>
-          <h1>Video Maker</h1>
-          <p class="subtitle">Landscape clips + bold text → TikTok-ready</p>
+          <h1>Content Agent</h1>
+          <p class="subtitle">2 viral videos a day · Donors · Surrogates · Intended Parents</p>
         </div>
-        <a href="scripts.html" style="color:var(--accent-light);text-decoration:none;font-size:13px;padding:6px 12px;border:1px solid var(--border);border-radius:7px">Content Agent →</a>
+        <a href="videomaker.html" class="nav-link">← Video Maker</a>
       </div>
     </header>
 
-    <div class="workspace">
+    <!-- API Key setup -->
+    <div class="api-banner" id="apiBanner">
+      <!-- Step 1: prompt -->
+      <div class="api-banner-inner" id="bannerPrompt">
+        <span>Add your Claude API key to unlock AI script generation</span>
+        <button id="apiSetupBtn">Set API Key</button>
+      </div>
+      <!-- Step 2: input -->
+      <div class="api-setup" id="apiSetup" style="display:none">
+        <input type="password" id="apiKeyInput" placeholder="Paste your sk-ant-... key here" autocomplete="off" />
+        <button id="saveKeyBtn">Save Key</button>
+        <button id="cancelKeyBtn" class="btn-cancel">Cancel</button>
+        <small>Stays in your browser only — never sent anywhere except api.anthropic.com</small>
+      </div>
+      <!-- Step 3: saved confirmation -->
+      <div class="api-saved" id="apiSaved" style="display:none">
+        <span class="saved-tick">✓</span>
+        <span>API key saved — AI features unlocked</span>
+        <button id="testKeyBtn">Test connection</button>
+        <button id="changeKeyBtn" class="btn-cancel">Change key</button>
+      </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <div class="agent-workspace">
       <!-- Left: Controls -->
-      <div class="controls">
+      <div class="gen-col">
+
+        <!-- Daily plan -->
         <section class="panel">
-          <h2>1. Video</h2>
-          <div class="upload-zone" id="uploadZone">
-            <input type="file" id="videoInput" accept="video/*" hidden />
-            <div class="upload-prompt" id="uploadPrompt">
-              <span class="icon">▶</span>
-              <p>Drop a video or click to upload</p>
-              <small>MP4, MOV, WebM</small>
+          <h2>Today's 2-Video Plan</h2>
+          <div class="plan-grid">
+            <div class="plan-slot">
+              <div class="slot-label">Video 1 · AM</div>
+              <div class="slot-content" id="slot1">Click "Generate Plan" to fill</div>
             </div>
-            <video id="sourceVideo" preload="metadata" muted loop></video>
+            <div class="plan-slot">
+              <div class="slot-label">Video 2 · PM</div>
+              <div class="slot-content" id="slot2">—</div>
+            </div>
           </div>
+          <button class="btn-generate" id="planBtn">Generate Today's Plan</button>
         </section>
 
+        <!-- Script builder -->
         <section class="panel">
-          <h2>2. Format</h2>
-          <div class="format-btns">
-            <button class="fmt-btn active" data-ratio="9:16">9:16 TikTok</button>
-            <button class="fmt-btn" data-ratio="16:9">16:9 Wide</button>
-            <button class="fmt-btn" data-ratio="1:1">1:1 Square</button>
+          <h2>Script Builder</h2>
+
+          <div class="field-row">
+            <div class="field-label">Audience</div>
+            <div class="toggle-group" id="audienceBtns">
+              <button class="tog-btn active" data-val="surrogate">Surrogates</button>
+              <button class="tog-btn" data-val="donor">Donors</button>
+              <button class="tog-btn" data-val="ip">Intended Parents</button>
+            </div>
           </div>
-        </section>
 
-        <section class="panel">
-          <h2>3. Text Cards</h2>
-          <div id="textCardsList"></div>
-          <button class="btn-add" id="addCard">+ Add Text Card</button>
-        </section>
+          <div class="field-row">
+            <div class="field-label">Tone</div>
+            <div class="toggle-group" id="toneBtns">
+              <button class="tog-btn active" data-val="cheeky-edu">Cheeky + Edu</button>
+              <button class="tog-btn" data-val="myth-bust">Myth Buster</button>
+              <button class="tog-btn" data-val="story">Story Hook</button>
+              <button class="tog-btn" data-val="hot-take">Hot Take</button>
+            </div>
+          </div>
 
-        <section class="panel">
-          <h2>4. Export</h2>
-          <div class="export-row">
-            <label>Quality
-              <select id="qualitySelect">
-                <option value="8000000">High (8 Mbps)</option>
-                <option value="4000000" selected>Medium (4 Mbps)</option>
-                <option value="2000000">Low (2 Mbps)</option>
+          <div class="field-row">
+            <div class="field-label">Topic / Prompt <span class="field-hint">(leave blank to let AI choose)</span></div>
+            <textarea id="topicInput" rows="2" placeholder="e.g. 'what compensation actually looks like', 'the matching process'…"></textarea>
+          </div>
+
+          <div class="field-row two-col">
+            <div>
+              <div class="field-label">Video length</div>
+              <select id="lengthSelect">
+                <option value="15">~15 sec (hook only)</option>
+                <option value="30" selected>~30 sec</option>
+                <option value="60">~60 sec</option>
               </select>
-            </label>
+            </div>
+            <div>
+              <div class="field-label">Hook style</div>
+              <select id="hookSelect">
+                <option value="question">Question hook</option>
+                <option value="stat">Stat / number hook</option>
+                <option value="story">Story hook</option>
+                <option value="controversial">Controversial statement</option>
+              </select>
+            </div>
           </div>
-          <button class="btn-export" id="exportBtn" disabled>Export Video</button>
-          <div class="progress-wrap" id="progressWrap" hidden>
-            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-            <span id="progressLabel">0%</span>
-          </div>
-          <a id="downloadLink" hidden></a>
+
+          <button class="btn-generate" id="scriptBtn">Write Script</button>
+        </section>
+
+        <!-- Template bank -->
+        <section class="panel">
+          <h2>Proven Template Bank</h2>
+          <p class="panel-desc">Click any template to load it into the script builder.</p>
+          <div id="templateList"></div>
         </section>
       </div>
 
-      <!-- Right: Preview canvas -->
-      <div class="preview-wrap">
-        <div class="preview-container" id="previewContainer">
-          <canvas id="previewCanvas"></canvas>
-          <div class="canvas-overlay" id="canvasOverlay">
-            <span>Upload a video to preview</span>
+      <!-- Right: Output -->
+      <div class="output-col">
+        <section class="panel output-panel">
+          <div class="output-header">
+            <h2 id="outputTitle">Output</h2>
+            <div class="output-actions">
+              <button class="btn-sm" id="copyBtn" style="display:none">Copy</button>
+              <button class="btn-sm accent" id="useInVideoBtn" style="display:none">Use in Video Maker →</button>
+            </div>
           </div>
-        </div>
-        <div class="playback-bar">
-          <button id="playBtn" disabled>▶ Play Preview</button>
-          <input type="range" id="scrubber" min="0" max="100" value="0" step="0.1" disabled />
-          <span id="timeDisplay">0:00 / 0:00</span>
-        </div>
+
+          <div class="spinner" id="spinner" style="display:none">
+            <div class="spinner-dot"></div><div class="spinner-dot"></div><div class="spinner-dot"></div>
+          </div>
+
+          <div id="outputArea" class="output-area">
+            <div class="output-empty">Generate a script or plan to see output here.</div>
+          </div>
+        </section>
+
+        <!-- Content calendar -->
+        <section class="panel">
+          <h2>7-Day Content Calendar</h2>
+          <div id="calendarGrid" class="calendar-grid"></div>
+          <button class="btn-generate secondary" id="calendarBtn">Generate Week</button>
+        </section>
       </div>
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>

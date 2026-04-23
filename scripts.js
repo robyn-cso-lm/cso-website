@@ -386,7 +386,7 @@ function showOutput(title, html, rawText, showUseBtn) {
         const lines = m[1].trim().split('\n').map(l => l.replace(/^[-•*\d.]+\s*/, '').trim()).filter(Boolean);
         sessionStorage.setItem('cso_text_cards', JSON.stringify(lines));
       }
-      window.location.href = 'index.html?from=scripts';
+      window.location.href = 'videomaker.html?from=scripts';
     };
   }
 }
