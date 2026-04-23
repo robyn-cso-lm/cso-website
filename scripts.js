@@ -1,4 +1,5 @@
-// ─── Claude API Key ───────────────────────────────────────────────────────────
+// ─── Claude Proxy URL ─────────────────────────────────────────────────────────
+// apiKey stores the Cloudflare Worker proxy URL (not a raw API key)
 let apiKey = localStorage.getItem('cso_api_key') || '';
 
 function showBannerStep(step) {
@@ -200,17 +201,12 @@ Never use filler like "In today's video" or "Don't forget to like and subscribe"
 Be specific. Use real figures where helpful. Own the expertise.`;
 
 async function callClaude(userPrompt) {
-  if (!apiKey) throw new Error('No API key — click "Set API Key" at the top.');
+  if (!apiKey) throw new Error('No proxy URL set — click "Connect" at the top.');
   let res;
   try {
-    res = await fetch('https://api.anthropic.com/v1/messages', {
+    res = await fetch(apiKey, {
       method: 'POST',
-      headers: {
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json',
-        'anthropic-dangerous-direct-browser-calls': 'true',
-      },
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 1024,
@@ -218,11 +214,11 @@ async function callClaude(userPrompt) {
       }),
     });
   } catch {
-    throw new Error('Could not reach the API. Check your internet connection or try a different browser.');
+    throw new Error('Could not reach your proxy. Double-check the Worker URL is correct and deployed.');
   }
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    throw new Error(err.error?.message || `API error ${res.status}`);
+    throw new Error(err.error?.message || `Proxy error ${res.status}`);
   }
   return (await res.json()).content[0].text;
 }

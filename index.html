@@ -19,23 +19,23 @@
       </div>
     </header>
 
-    <!-- Claude API Key setup -->
+    <!-- Claude API proxy setup -->
     <div class="api-banner" id="apiBanner">
       <div class="api-banner-inner" id="bannerPrompt">
-        <span>Add your Claude API key to unlock AI script generation</span>
-        <button id="apiSetupBtn">Set API Key</button>
+        <span>Connect your Claude proxy to unlock AI script generation</span>
+        <button id="apiSetupBtn">Connect</button>
       </div>
       <div class="api-setup" id="apiSetup" style="display:none">
-        <input type="password" id="apiKeyInput" placeholder="Paste your sk-ant-... key here" autocomplete="off" />
-        <button id="saveKeyBtn">Save Key</button>
+        <input type="url" id="apiKeyInput" placeholder="Your Cloudflare Worker URL — e.g. https://cso-proxy.yourname.workers.dev" autocomplete="off" />
+        <button id="saveKeyBtn">Save</button>
         <button id="cancelKeyBtn" class="btn-cancel">Cancel</button>
-        <small>Stays in your browser only — never sent anywhere except api.anthropic.com</small>
+        <small>Paste your Worker URL — API key stays secure in Cloudflare, never in the browser</small>
       </div>
       <div class="api-saved" id="apiSaved" style="display:none">
         <span class="saved-tick">✓</span>
-        <span>Claude API key saved</span>
+        <span>Claude proxy connected</span>
         <button id="testKeyBtn">Test connection</button>
-        <button id="changeKeyBtn" class="btn-cancel">Change key</button>
+        <button id="changeKeyBtn" class="btn-cancel">Change</button>
       </div>
     </div>
 
