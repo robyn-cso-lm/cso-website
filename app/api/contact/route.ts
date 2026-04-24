@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/graphMail';
 import crypto from 'crypto';
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_MSG_LEN = 5000;
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { firstName, email, phone, role, message } = await req.json();
@@ -9,6 +21,20 @@ export async function POST(req: NextRequest) {
     if (!firstName || !email || !message || !role) {
       return NextResponse.json({ error: 'Required fields missing.' }, { status: 400 });
     }
+
+    if (!EMAIL_RE.test(email)) {
+      return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
+    }
+
+    if (message.length > MAX_MSG_LEN) {
+      return NextResponse.json({ error: 'Message is too long.' }, { status: 400 });
+    }
+
+    const safeName    = escapeHtml(String(firstName));
+    const safeEmail   = escapeHtml(String(email));
+    const safePhone   = phone ? escapeHtml(String(phone)) : '';
+    const safeRole    = escapeHtml(String(role));
+    const safeMessage = escapeHtml(String(message)).replace(/\n/g, '<br/>');
 
     // Add to Mailchimp with "Contact Form" tag
     const API_KEY = process.env.MAILCHIMP_API_KEY;
@@ -33,7 +59,9 @@ export async function POST(req: NextRequest) {
       );
 
       if (!memberRes.ok) {
-        const memberData = await memberRes.json();
+        let memberData: Record<string, unknown> = {};
+        try { memberData = await memberRes.json(); } catch { /* non-JSON response, ignore */ }
+
         if (memberData.title === 'Member Exists') {
           const hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
           await fetch(
@@ -49,6 +77,8 @@ export async function POST(req: NextRequest) {
               }),
             }
           );
+        } else {
+          console.error('[contact] Mailchimp error:', memberData);
         }
       }
     }
@@ -80,28 +110,28 @@ export async function POST(req: NextRequest) {
   <div class="wrapper">
     <div class="header">
       <p class="header-label">Website Contact Form</p>
-      <h1 class="header-title">New message from ${firstName}</h1>
-      <span class="badge">${role}</span>
+      <h1 class="header-title">New message from ${safeName}</h1>
+      <span class="badge">${safeRole}</span>
     </div>
     <div class="body">
       <div class="field">
         <p class="field-label">Name</p>
-        <p class="field-value">${firstName}</p>
+        <p class="field-value">${safeName}</p>
       </div>
       <div class="field">
         <p class="field-label">Email</p>
-        <p class="field-value"><a href="mailto:${email}" style="color:#6B3FA0;">${email}</a></p>
+        <p class="field-value"><a href="mailto:${safeEmail}" style="color:#6B3FA0;">${safeEmail}</a></p>
       </div>
-      ${phone ? `
+      ${safePhone ? `
       <div class="field">
         <p class="field-label">Phone</p>
-        <p class="field-value">${phone}</p>
+        <p class="field-value">${safePhone}</p>
       </div>` : ''}
       <div class="divider"></div>
       <div class="field">
         <p class="field-label">Their Message</p>
         <div class="message-box">
-          <p class="field-value">${message.replace(/\n/g, '<br/>')}</p>
+          <p class="field-value">${safeMessage}</p>
         </div>
       </div>
     </div>

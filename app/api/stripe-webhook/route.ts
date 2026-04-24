@@ -8,6 +8,20 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
   apiVersion: '2023-10-16',
 });
 
+// Warn at module load time if any price env vars are missing
+const REQUIRED_PRICE_VARS = [
+  'STRIPE_PRICE_STARTER',
+  'STRIPE_PRICE_ROADMAP',
+  'STRIPE_PRICE_INDIE',
+  'STRIPE_PRICE_SURROGATE',
+  'STRIPE_PRICE_PROFILE',
+];
+for (const v of REQUIRED_PRICE_VARS) {
+  if (!process.env[v]) {
+    console.warn(`[stripe-webhook] Missing env var ${v} — webhook PDF delivery will fail for this product`);
+  }
+}
+
 // Map Stripe price IDs to product info + PDF URLs
 function getProductInfo(priceId: string): { name: string; pdfUrl: string } | null {
   const map: Record<string, { name: string; pdfUrl: string }> = {
@@ -17,25 +31,25 @@ function getProductInfo(priceId: string): { name: string; pdfUrl: string } | nul
     },
     [process.env.STRIPE_PRICE_ROADMAP || '__missing2__']: {
       name: 'The Canadian Surrogacy Roadmap',
-      pdfUrl: process.env.PDF_ROADMAP_URL || '#',
+      pdfUrl: process.env.PDF_ROADMAP_URL || '/pdfs/roadmap.pdf',
     },
     [process.env.STRIPE_PRICE_INDIE || '__missing3__']: {
       name: 'Independent Journey Checklist',
-      pdfUrl: process.env.PDF_INDIE_URL || '#',
+      pdfUrl: process.env.PDF_INDIE_URL || '/pdfs/indie-checklist.pdf',
     },
     [process.env.STRIPE_PRICE_SURROGATE || '__missing4__']: {
       name: 'Surrogate Readiness Guide',
-      pdfUrl: process.env.PDF_SURROGATE_URL || '#',
+      pdfUrl: process.env.PDF_SURROGATE_URL || '/pdfs/surrogate-readiness.pdf',
     },
     [process.env.STRIPE_PRICE_PROFILE || '__missing5__']: {
       name: 'IP Profile Template Pack',
-      pdfUrl: process.env.PDF_PROFILE_URL || '#',
+      pdfUrl: process.env.PDF_PROFILE_URL || '/pdfs/ip-profile-template.pdf',
     },
   };
   return map[priceId] || null;
 }
 
-function buildDeliveryEmail(customerName: string, productName: string, pdfUrl: string, email: string): string {
+function buildDeliveryEmail(customerName: string, productName: string, pdfUrl: string): string {
   const isAbsolute = pdfUrl.startsWith('http');
   const fullPdfUrl = isAbsolute ? pdfUrl : `https://canadiansurrogacyoptions.com${pdfUrl}`;
 
@@ -127,7 +141,7 @@ export async function POST(req: NextRequest) {
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
     const customerEmail = session.customer_details?.email || session.customer_email;
-    const customerName = session.customer_details?.name || 'there';
+    const customerName = session.customer_details?.name || 'Friend';
 
     if (!customerEmail) {
       console.warn('[stripe-webhook] No customer email found in session:', session.id);
@@ -148,16 +162,25 @@ export async function POST(req: NextRequest) {
 
         const product = getProductInfo(priceId);
         if (!product) {
-          console.warn('[stripe-webhook] Unknown price ID:', priceId);
+          console.error('[stripe-webhook] Unknown price ID — PDF not delivered:', priceId, 'session:', session.id);
+          // Notify admin so no customer is left without their PDF
+          try {
+            await sendMail(
+              'robyn@canadiansurrogacyoptions.com',
+              `[ACTION REQUIRED] Stripe: unrecognised price ID — customer did not receive PDF`,
+              `<p>A customer completed checkout but their PDF could not be delivered because the price ID is not mapped.</p>
+               <p><strong>Price ID:</strong> ${priceId}</p>
+               <p><strong>Session ID:</strong> ${session.id}</p>
+               <p><strong>Customer email:</strong> ${customerEmail}</p>
+               <p>Please update STRIPE_PRICE_* environment variables or manually send the customer their file.</p>`
+            );
+          } catch (mailErr) {
+            console.error('[stripe-webhook] Failed to send admin alert:', mailErr);
+          }
           continue;
         }
 
-        const html = buildDeliveryEmail(
-          customerName,
-          product.name,
-          product.pdfUrl,
-          customerEmail
-        );
+        const html = buildDeliveryEmail(customerName, product.name, product.pdfUrl);
 
         await sendMail(
           customerEmail,
@@ -169,7 +192,7 @@ export async function POST(req: NextRequest) {
       }
     } catch (err: unknown) {
       console.error('[stripe-webhook] Error processing session:', err);
-      // Return 200 so Stripe doesn't retry — log the error for investigation
+      // Return 200 so Stripe doesn't retry — error logged for investigation
     }
   }
 

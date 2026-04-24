@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Staff auth ───────────────────────────────────────────────────────────────
+
+model StaffUser {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  displayName  String
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ─── Profile status ───────────────────────────────────────────────────────────
+
+enum ProfileStatus {
+  PENDING_REVIEW
+  ACTIVE
+  MATCHED
+  ON_HOLD
+  INACTIVE
+  ARCHIVED
+}
+
+// ─── Surrogate profiles ───────────────────────────────────────────────────────
+
+model SurrogateProfile {
+  id               String        @id @default(cuid())
+  displayId        String?
+  firstName        String
+  lastName         String
+  dateOfBirth      DateTime?
+  age              Int?
+  city             String?
+  province         String?
+  country          String        @default("Canada")
+  status           ProfileStatus @default(PENDING_REVIEW)
+  hasCarriedBefore Boolean?
+  numberOfChildren Int?
+  bmi              Float?
+  smokingStatus    String?
+  notes            String?
+  internalNotes    String?
+  pdfSource        String?
+  rawText          String?
+  importedFromId   String?
+  importedFrom     ImportedDocument? @relation("SurrogateImport", fields: [importedFromId], references: [id])
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  @@index([status])
+  @@index([province])
+}
+
+// ─── Donor profiles ───────────────────────────────────────────────────────────
+
+model DonorProfile {
+  id             String        @id @default(cuid())
+  displayId      String?
+  firstName      String
+  lastName       String
+  donorId        String?       @unique
+  dateOfBirth    DateTime?
+  age            Int?
+  city           String?
+  province       String?
+  country        String        @default("Canada")
+  status         ProfileStatus @default(PENDING_REVIEW)
+  bloodType      String?
+  hairColor      String?
+  eyeColor       String?
+  ethnicity      String?
+  education      String?
+  hasKids        Boolean?
+  notes          String?
+  internalNotes  String?
+  pdfSource      String?
+  rawText        String?
+  importedFromId String?
+  importedFrom   ImportedDocument? @relation("DonorImport", fields: [importedFromId], references: [id])
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@index([status])
+  @@index([province])
+}
+
+// ─── Intended parent profiles ─────────────────────────────────────────────────
+
+model IntendedParentProfile {
+  id               String        @id @default(cuid())
+  displayId        String?
+  primaryFirstName String
+  primaryLastName  String
+  partnerFirstName String?
+  partnerLastName  String?
+  familyStructure  String?
+  city             String?
+  province         String?
+  country          String        @default("Canada")
+  status           ProfileStatus @default(PENDING_REVIEW)
+  needsEggDonor    Boolean?
+  needsSurrogate   Boolean?
+  previousAttempts Int?
+  budget           String?
+  notes            String?
+  internalNotes    String?
+  pdfSource        String?
+  rawText          String?
+  importedFromId   String?
+  importedFrom     ImportedDocument? @relation("IPImport", fields: [importedFromId], references: [id])
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  @@index([status])
+  @@index([province])
+}
+
+// ─── Imported documents ───────────────────────────────────────────────────────
+
+model ImportedDocument {
+  id               String    @id @default(cuid())
+  originalFilename String
+  fileSize         Int
+  mimeType         String    @default("application/pdf")
+  extractedText    String?
+  aiExtractedJson  Json?
+  profileType      String
+  importStatus     String    @default("pending")
+  importedById     String
+  errorMessage     String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  surrogateProfiles      SurrogateProfile[]      @relation("SurrogateImport")
+  donorProfiles          DonorProfile[]           @relation("DonorImport")
+  intendedParentProfiles IntendedParentProfile[]  @relation("IPImport")
+}
