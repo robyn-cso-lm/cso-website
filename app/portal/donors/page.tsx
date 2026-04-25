@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { getDonors } from '@/lib/portal/profiles';
 import ProfileTable from '@/components/portal/ProfileTable';
 import SearchBar from '@/components/portal/SearchBar';

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { getDonorById } from '@/lib/portal/profiles';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';

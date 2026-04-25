@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { getDashboardCounts } from '@/lib/portal/profiles';
 import Link from 'next/link';
 

@@ -7,54 +7,55 @@
 
 Open your browser and go to:
 
-```
-https://canadiansurrogacyoptions.com/portal/login
-```
+**`https://portal.canadiansurrogacyoptions.com/portal/login`**
 
-Bookmark this URL so you can get back to it quickly. The portal is staff-only — the public cannot see it.
+Bookmark this. It's staff-only — the public cannot access it.
 
 ---
 
-## 2. Logging In
+## 2. Logging In (Magic Link — No Password Needed)
 
-1. Enter your **username** (lowercase: `rana`, `shondra`, or `cameron`)
-2. Enter your **password** (Robyn will give you your initial password)
-3. Click **Sign In**
+1. Enter your **CSO email address** (e.g. `rana@canadiansurrogacyoptions.com`)
+2. Click **Send Sign-In Link**
+3. Check your inbox — you'll receive an email from CSO with a sign-in button
+4. Click **Sign In to Portal** in that email
+5. You're in — no password required
 
-If login fails, double-check your username is lowercase and caps lock is off. Contact Robyn to reset your password.
+**Notes:**
+- The link expires in **24 hours** and can only be used once
+- Check your spam/junk folder if you don't see the email within a minute or two
+- You must use your `@canadiansurrogacyoptions.com` address — personal emails won't work
+- If you need to sign in again, just go back to the login page and request a new link
 
 ---
 
 ## 3. The Dashboard
 
-After logging in you'll see the **Dashboard**, which shows:
-- Total count of **Surrogates**, **Donors**, and **Intended Parents** in the system
+Once signed in you'll land on the **Dashboard**, which shows:
+- Total counts of **Surrogates**, **Donors**, and **Intended Parents** in the system
 - A breakdown by status (Active, Pending Review, Matched, etc.)
-- The 5 most recent PDF imports
+- Your 5 most recent PDF imports
 
-Click any card to go directly to that profile list.
+Click any tile to jump directly to that profile list.
 
 ---
 
 ## 4. Viewing Surrogate Profiles
 
 1. Click **Surrogates** in the left sidebar
-2. You'll see a table of all surrogate profiles
+2. You'll see a searchable table of all surrogate profiles
 3. **Search** by name using the search box at the top
-4. **Filter** by Status (Active, Matched, etc.) or Province using the dropdowns
+4. **Filter** by Status or Province using the dropdowns
 5. Click **View** on any row to open the full profile
 
-On the profile detail page you can see:
-- Personal details (name, age, city, province)
-- Screening info (carried before, number of children, BMI, smoking)
-- Notes and Internal Notes fields (see section 7)
+Each surrogate profile shows: name, age, city, province, whether they've carried before, number of children, BMI, smoking status, and your team's notes.
 
 ---
 
 ## 5. Viewing Donor Profiles
 
 1. Click **Donors** in the left sidebar
-2. Same search, filter, and view workflow as Surrogates
+2. Same layout — search, filter, click View
 3. Donor profiles show: name, age, location, blood type, hair/eye colour, ethnicity, education
 
 ---
@@ -62,8 +63,8 @@ On the profile detail page you can see:
 ## 6. Viewing Intended Parent Profiles
 
 1. Click **Intended Parents** in the left sidebar
-2. Same search, filter, and view workflow
-3. IP profiles show: primary contact, partner (if applicable), family structure, location, whether they need a surrogate/egg donor, budget tier, prior attempts
+2. Same workflow
+3. IP profiles show: primary contact, partner (if applicable), family structure, location, whether they need a surrogate and/or egg donor
 
 ---
 
@@ -71,75 +72,82 @@ On the profile detail page you can see:
 
 Every profile has two note fields:
 
-- **Notes** — general notes visible to anyone with portal access
+- **Notes** — general notes, visible to all staff
 - **Internal Notes** — coordinator-only notes, not shared with clients
 
 To add or update a note:
 1. Open any profile
-2. Scroll to the Notes or Internal Notes section
-3. Type your note in the text box
+2. Click into the Notes or Internal Notes text box
+3. Type your note
 4. Click **Save**
 
-You'll see a green "Saved" confirmation. Notes save immediately — no page reload needed.
+You'll see "Saved" in green. Updates happen instantly — no page refresh needed.
 
 ---
 
-## 8. Importing a PDF Profile from the LM Database
+## 8. Profile Statuses
 
-This is how you bring profiles from your existing database into the portal.
+| Status | What it means |
+|---|---|
+| Pending Review | Newly added — not yet reviewed by the team |
+| Active | Approved and available for matching |
+| Matched | Currently matched with a family or surrogate |
+| On Hold | Temporarily unavailable |
+| Inactive | No longer active in the program |
+| Archived | Permanently closed/historical record |
 
-1. Export/download the profile PDF from the LM system (or have it ready on your computer)
-2. In the portal sidebar, click **Import PDF**
-3. Select the **Profile Type** from the dropdown:
+---
+
+## 9. Importing a Profile from the LM Database
+
+This is how you bring profiles from the existing database into the portal.
+
+1. Export or download the profile PDF from the LM system
+2. Click **Import PDF** in the left sidebar
+3. Select the **Profile Type**:
    - `Surrogate` for gestational carriers
    - `Donor` for egg donors
-   - `Intended Parent` for families/IPs
-4. Click the upload area and select the PDF file (max 10 MB)
+   - `Intended Parent` for IPs/families
+4. Click the upload area and select the PDF (max 10 MB)
 5. Click **Upload & Extract →**
-6. The system will read the PDF and use AI to fill in the profile fields automatically
-7. **Review every field carefully** — AI extraction is good but not perfect
-8. Correct any errors (e.g., wrong age, missing province)
+6. The system reads the PDF and fills in profile fields automatically using AI
+7. **Review every field carefully** — check for any errors before saving
+8. Correct anything that looks wrong
 9. Click **Save Profile →**
 
-The profile will appear immediately in the relevant list (Surrogates, Donors, or Intended Parents).
+The profile appears immediately in the correct list.
 
-**Tips:**
-- PDFs with selectable text extract much better than scanned images
-- If a field is blank after extraction, just type it in manually
-- The raw extracted text is always saved — you can view it at the bottom of the profile page by clicking "View raw imported text"
+> **Tip:** PDFs with selectable/copyable text work much better than scanned images. If a field is blank after extraction, type it in manually — the raw extracted text is always saved at the bottom of the profile page.
 
 ---
 
-## 9. Changing a Profile's Status
+## 10. What You Can (and Cannot) See
 
-On any profile detail page:
-- The current status is shown as a coloured badge next to the name
-- To change it, use the Notes editor or ask Robyn to update it directly (status editing will be added in a future update)
+As a coordinator, you have access to:
+- All surrogate, donor, and intended parent profiles
+- All notes and internal notes
+- Import history
 
-Statuses available:
-| Status | Meaning |
-|--------|---------|
-| Pending Review | Newly imported, not yet reviewed |
-| Active | Approved and available for matching |
-| Matched | Currently matched with a family/surrogate |
-| On Hold | Temporarily not available |
-| Inactive | No longer active in the program |
-| Archived | Permanently closed |
+The **total escrow balance** held for each client is managed separately and is not displayed in this portal. If you have questions about escrow, contact Robyn directly.
 
 ---
 
-## 10. Signing Out
+## 11. Signing Out
 
-Always sign out when you're done, especially on a shared computer:
-- Click **Sign Out** at the bottom of the left sidebar
+Always sign out when you're done — especially on a shared or office computer.
+
+Click **Sign Out** at the bottom of the left sidebar.
 
 ---
 
-## 11. Getting Help
+## 12. Getting Help
 
-- **Technical issues** (can't log in, page not loading): contact your developer
-- **Password reset**: contact Robyn Price at robyn@canadiansurrogacyoptions.com
-- **Profile questions**: ask Robyn or your coordinator lead
+| Problem | Who to contact |
+|---|---|
+| Didn't receive the sign-in email | Check spam; contact Robyn to resend |
+| Page won't load / technical error | Contact your developer |
+| Question about a profile or client | Ask Robyn or your coordinator lead |
+| Email: | robyn@canadiansurrogacyoptions.com |
 
 ---
 
