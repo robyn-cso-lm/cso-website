@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getPostBySlug, getAllPosts, getRelatedPosts } from '@/lib/mdx';
+import LeadCapture from '@/components/LeadCapture';
 import styles from './post.module.css';
 
 interface Props {
@@ -113,6 +114,9 @@ export default function BlogPostPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Email capture */}
+      <LeadCapture />
 
       {/* Related Posts */}
       {related.length > 0 && (
