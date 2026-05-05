@@ -508,6 +508,28 @@
   transform: translateY(-2px);
 }
 
+.storyCTAs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.storyCTASecondary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--mid-purple);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.storyCTASecondary:hover {
+  color: var(--deep-purple);
+}
+
 .storyStats {
   display: grid;
   grid-template-columns: 1fr 1fr;

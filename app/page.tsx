@@ -118,14 +118,9 @@ export default function HomePage() {
             <Link href="/programs" className={styles.heroCTAPrimary}>
               Start Your Journey
             </Link>
-            <a
-              href="https://calendly.com/cso-robyn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.heroCTASecondary}
-            >
-              Book a Free Consultation
-            </a>
+            <Link href="/contact" className={styles.heroCTASecondary}>
+              Get in Touch
+            </Link>
           </div>
           <div className={styles.heroMetrics}>
             <div className={styles.metric}>
@@ -239,9 +234,14 @@ export default function HomePage() {
               We guide you with experience you can trust, support you can feel, and a community
               that will hold you through every moment of the journey.
             </p>
-            <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener noreferrer" className={styles.storyCTA}>
-              Book a Free Call with Robyn
-            </a>
+            <div className={styles.storyCTAs}>
+              <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener noreferrer" className={styles.storyCTA}>
+                Book a Free Call
+              </a>
+              <a href="mailto:robyn@canadiansurrogacyoptions.com" className={styles.storyCTASecondary}>
+                Or email Robyn directly
+              </a>
+            </div>
           </div>
           <div className={styles.storyStats}>
             <div className={styles.storyStat}>

@@ -303,8 +303,11 @@ export default function IntendedParentsPage() {
         {/* FINAL CTA */}
         <section className="final-cta">
           <h2>Let&apos;s Talk About Your Family</h2>
-          <p>A free, no-pressure consultation call with me or one of our senior coordinators. Just a real conversation about where you are and what&apos;s possible.</p>
-          <a href="/contact" className="btn btn-white">Book Your Free Call</a>
+          <p>A free, no-pressure conversation about where you are and what&apos;s possible. Reach out however feels right for you.</p>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener noreferrer" className="btn btn-white">Book a Free Call</a>
+            <a href="mailto:robyn@canadiansurrogacyoptions.com" className="btn btn-white" style={{ background: 'transparent', border: '2px solid white' }}>Email Robyn Instead</a>
+          </div>
         </section>
 
       </div>
