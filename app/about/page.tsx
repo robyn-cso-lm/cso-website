@@ -31,8 +31,8 @@ export default function AboutPage() {
             <h2 className={styles.sectionTitle}>Where it began.</h2>
             <p className={styles.body}>
               In 1992, a woman named Joanne Wright started something remarkable in Cambridge, Ontario.
-              At a time when surrogacy was barely spoken about in Canada &mdash; when most people didn&rsquo;t
-              understand it, let alone support it &mdash; Joanne believed deeply that every person who
+              At a time when surrogacy was barely spoken about in Canada, when most people didn&rsquo;t
+              understand it, let alone support it, Joanne believed deeply that every person who
               wanted to become a parent deserved a path to get there.
             </p>
             <p className={styles.body}>
@@ -49,7 +49,7 @@ export default function AboutPage() {
             <div className={styles.foundingLabel}>Year Founded</div>
             <div className={styles.foundingDivider} />
             <p className={styles.foundingNote}>
-              Canada&rsquo;s very first surrogacy agency &mdash; established in Cambridge, Ontario
+              Canada&rsquo;s very first surrogacy agency, established in Cambridge, Ontario
               before surrogacy was widely understood or accepted in this country.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
               built from love.&rdquo;
             </blockquote>
             <p className={styles.body}>
-              Robyn didn&rsquo;t choose surrogacy as a career &mdash; she was born into it. She spent
+              Robyn didn&rsquo;t choose surrogacy as a career. She was born into it. She spent
               her childhood watching her mother change lives, and her adulthood learning every facet
               of what it takes to do this work with grace. When Joanne passed the torch, Robyn
               was ready.
@@ -91,7 +91,7 @@ export default function AboutPage() {
                 robyn@canadiansurrogacyoptions.com
               </a>
               <a href="tel:+18774014175" className={styles.robynPhone}>
-                1-877-401-4175 &mdash; call or text
+                1-877-401-4175 (call or text)
               </a>
             </div>
           </div>
@@ -124,14 +124,14 @@ export default function AboutPage() {
               <h3 className={styles.valueTitle}>Unwavering Support</h3>
               <p className={styles.valueText}>
                 From your first question to the moment you bring your baby home, we&rsquo;re
-                with you. Not just on paper &mdash; actually, genuinely, with you.
+                with you. Not just on paper. Actually, genuinely, with you.
               </p>
             </div>
             <div className={styles.valueCard}>
               <div className={styles.valueIcon}>🌈</div>
               <h3 className={styles.valueTitle}>Every Family Welcome</h3>
               <p className={styles.valueText}>
-                LGBTQ+ families, single parents, couples facing infertility &mdash; we believe
+                LGBTQ+ families, single parents, couples facing infertility: we believe
                 every person who wants to become a parent deserves that chance.
               </p>
             </div>

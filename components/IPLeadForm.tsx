@@ -51,7 +51,7 @@ export default function IPLeadForm() {
       <div className={styles.badge}>Free Download</div>
       <h2 className={styles.title}>Get the Canadian Surrogacy Cost Guide</h2>
       <p className={styles.sub}>
-        What surrogacy actually costs in Canada in 2025 — the full breakdown nobody publishes.
+        What surrogacy actually costs in Canada in 2025. The full breakdown nobody publishes.
         Real numbers. No pressure. No obligation.
       </p>
       <form onSubmit={handleSubmit} className={styles.form}>

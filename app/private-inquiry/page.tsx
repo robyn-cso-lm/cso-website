@@ -4,7 +4,7 @@ import ConciergeForm from './ConciergeForm';
 import styles from './concierge.module.css';
 
 export const metadata: Metadata = {
-  title: 'Private Inquiry — Canadian Surrogacy Options',
+  title: 'Private Inquiry | Canadian Surrogacy Options',
   description: 'Private concierge surrogacy experience with Robyn Price. By invitation only.',
   robots: {
     index: false,
@@ -37,7 +37,7 @@ export default function PrivateInquiryPage() {
           <div className={styles.heroRule} />
           <p className={styles.heroIntro}>
             For families who require something beyond what any standard program can provide.
-            This is a fully bespoke arrangement &mdash; built around your specific circumstances,
+            This is a fully bespoke arrangement built around your specific circumstances,
             timeline, and needs.
           </p>
           <p className={styles.heroNote}>

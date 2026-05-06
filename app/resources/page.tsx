@@ -9,14 +9,14 @@ const guides = [
   {
     title: 'Is Surrogacy Right For Me?',
     price: '$27',
-    desc: 'The honest, no-fluff guide for anyone at the very beginning — still weighing whether surrogacy is the right path for their family.',
+    desc: 'The honest, no-fluff guide for anyone at the very beginning, still weighing whether surrogacy is the right path for their family.',
     forWho: 'For anyone just starting to explore surrogacy, unsure if it\'s for them.',
     icon: '🌱',
   },
   {
     title: 'The Canadian Surrogacy Roadmap',
     price: '$97',
-    desc: 'A complete walkthrough of the Canadian surrogacy journey from match to birth — plus a budget tracker that covers every category of cost.',
+    desc: 'A complete walkthrough of the Canadian surrogacy journey from match to birth, plus a budget tracker that covers every category of cost.',
     forWho: 'For intended parents who are ready to understand what the full journey looks like.',
     icon: '🗺️',
     featured: true,
@@ -24,21 +24,21 @@ const guides = [
   {
     title: 'Independent Journey Checklist',
     price: '$87',
-    desc: 'Everything you need to know if you\'re considering doing surrogacy without an agency — the risks, the requirements, and the real checklist.',
+    desc: 'Everything you need to know if you\'re considering doing surrogacy without an agency: the risks, the requirements, and the real checklist.',
     forWho: 'For intended parents who want to explore the independent route with open eyes.',
     icon: '📋',
   },
   {
     title: 'Surrogate Readiness Guide',
     price: '$47',
-    desc: 'A practical, warm guide for women who are seriously thinking about becoming a surrogate — what to expect, what questions to ask, and how to know if the timing is right.',
+    desc: 'A practical, warm guide for women who are seriously thinking about becoming a surrogate: what to expect, what questions to ask, and how to know if the timing is right.',
     forWho: 'For women considering surrogacy who want a clear picture before they apply.',
     icon: '💜',
   },
   {
     title: 'IP Profile Template Pack',
     price: '$67',
-    desc: 'A fill-in-the-blanks template for intended parents to create a profile that actually resonates with surrogates — with guidance on what surrogates are really looking for.',
+    desc: 'A fill-in-the-blanks template for intended parents to create a profile that actually resonates with surrogates, with guidance on what surrogates are really looking for.',
     forWho: 'For intended parents who want to make the strongest possible first impression.',
     icon: '✍️',
   },
@@ -102,7 +102,7 @@ export default function ResourcesPage() {
         {/* HERO */}
         <section className="res-hero">
           <h1>Know Before You Begin</h1>
-          <p>The knowledge gap in surrogacy is expensive. These guides close it — before you spend a dollar on anything else.</p>
+          <p>The knowledge gap in surrogacy is expensive. These guides close it before you spend a dollar on anything else.</p>
         </section>
 
         {/* ROBYN INTRO */}
@@ -112,9 +112,9 @@ export default function ResourcesPage() {
           <div className="divider" />
           <div className="intro-block">
             <blockquote>
-              &ldquo;After 34 years answering the same questions on calls, I wrote them all down. Not the sanitised version — the real answers. What things actually cost, what most agencies won&apos;t tell you upfront, what it&apos;s really like. If you&apos;re going to spend six figures on a surrogacy journey, you deserve to walk in knowing exactly what you&apos;re doing.&rdquo;
+              &ldquo;After 34 years answering the same questions on calls, I wrote them all down. Not the sanitised version. The real answers. What things actually cost, what most agencies won&apos;t tell you upfront, what it&apos;s really like. If you&apos;re going to spend six figures on a surrogacy journey, you deserve to walk in knowing exactly what you&apos;re doing.&rdquo;
             </blockquote>
-            <cite>— Robyn Price, Executive Director, CSO</cite>
+            <cite>Robyn Price, Executive Director, CSO</cite>
           </div>
         </div>
 
@@ -155,8 +155,8 @@ export default function ResourcesPage() {
           <div className="section">
             <span className="section-label">From a Reader</span>
             <div className="testimonial-block">
-              <p>&ldquo;I bought the Roadmap before our first consultation with CSO. It completely changed the quality of questions I asked. I wasn&apos;t starting from zero — I already understood the process, the costs, and the things to watch out for. It was honestly the best $97 I spent in the whole journey.&rdquo;</p>
-              <cite>— Anonymous IP, Ontario</cite>
+              <p>&ldquo;I bought the Roadmap before our first consultation with CSO. It completely changed the quality of questions I asked. I wasn&apos;t starting from zero. I already understood the process, the costs, and the things to watch out for. It was honestly the best $97 I spent in the whole journey.&rdquo;</p>
+              <cite>Anonymous IP, Ontario</cite>
             </div>
           </div>
         </div>

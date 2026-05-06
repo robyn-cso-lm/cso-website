@@ -69,7 +69,7 @@ export default function LGBTQSurrogacyPage() {
         <section className="lgbtq-hero">
           <div className="lgbtq-hero-inner">
             <h1>Canada Is One of the Best Places in the World for LGBTQ+ Families to Build Through Surrogacy.</h1>
-            <p>Altruistic surrogacy. Inclusive family law. Clear legal protections for all parents. Canada doesn&apos;t just tolerate LGBTQ+ families — it protects them.</p>
+            <p>Altruistic surrogacy. Inclusive family law. Clear legal protections for all parents. Canada doesn&apos;t just tolerate LGBTQ+ families. It protects them.</p>
             <a href="/contact" className="btn btn-white">Book a Free Consultation</a>
             <div className="trust-bar">
               <span>More Than Half Our Families Are LGBTQ+</span>
@@ -84,12 +84,12 @@ export default function LGBTQSurrogacyPage() {
           <span className="section-label">Why Canada</span>
           <h2 className="lgbtq-h2">A Country Built for This</h2>
           <div className="divider divider-left" />
-          <p style={{ maxWidth: 660, marginBottom: 8 }}>Canada isn&apos;t just a safe choice for LGBTQ+ surrogacy — it&apos;s genuinely one of the best in the world. Here&apos;s why.</p>
+          <p style={{ maxWidth: 660, marginBottom: 8 }}>Canada isn&apos;t just a safe choice for LGBTQ+ surrogacy. It&apos;s genuinely one of the best in the world. Here&apos;s why.</p>
           <div className="reasons-grid">
             {[
-              { title: 'Altruistic Surrogacy', text: 'Canada\'s model is altruistic — surrogates are not paid a fee, only reimbursed for expenses. This means surrogates are motivated by genuine desire to help, not financial vulnerability. No exploitation concerns.' },
-              { title: 'Inclusive Family Law', text: 'Canadian law recognises all family structures. Same-sex couples, single parents, non-binary parents — all are protected under provincial family law when it comes to parentage.' },
-              { title: 'Pre-Birth Parentage Orders', text: 'In most provinces, intended parents can obtain a court order before birth, ensuring both parents are on the birth certificate from day one — regardless of genetic connection.' },
+              { title: 'Altruistic Surrogacy', text: 'Canada\'s model is altruistic: surrogates are not paid a fee, only reimbursed for expenses. This means surrogates are motivated by genuine desire to help, not financial vulnerability. No exploitation concerns.' },
+              { title: 'Inclusive Family Law', text: 'Canadian law recognises all family structures. Same-sex couples, single parents, non-binary parents: all are protected under provincial family law when it comes to parentage.' },
+              { title: 'Pre-Birth Parentage Orders', text: 'In most provinces, intended parents can obtain a court order before birth, ensuring both parents are on the birth certificate from day one, regardless of genetic connection.' },
               { title: 'The Assisted Human Reproduction Act', text: 'Federal legislation governs surrogacy in Canada, creating a clear and consistent framework that doesn\'t shift with elections or politics the way it does in other countries.' },
             ].map(r => (
               <div key={r.title} className="reason-card">
@@ -130,7 +130,7 @@ export default function LGBTQSurrogacyPage() {
             <span className="section-label">For Same-Sex Male Couples</span>
             <h2 className="lgbtq-h2">Two Steps, One Journey</h2>
             <div className="divider divider-left" />
-            <p style={{ maxWidth: 660, marginBottom: 8 }}>Same-sex male couples need both an egg donor and a surrogate. CSO coordinates both — so instead of navigating two separate processes with two agencies, you have one team managing everything.</p>
+            <p style={{ maxWidth: 660, marginBottom: 8 }}>Same-sex male couples need both an egg donor and a surrogate. CSO coordinates both, so instead of navigating two separate processes with two agencies, you have one team managing everything.</p>
             <div className="process-steps">
               {[
                 { num: '01', title: 'Egg Donor Selection', text: 'We connect you with reputable egg donor agencies or CSO\'s own donor network. You choose a donor whose profile resonates with you.' },
@@ -180,8 +180,8 @@ export default function LGBTQSurrogacyPage() {
           <div className="section">
             <span className="section-label">From One of Our Families</span>
             <div className="testimonial-block">
-              <p>&ldquo;When we started this process we were terrified about discrimination. We had stories from friends in other countries — long delays, judgmental clinics, agencies that quietly deprioritised gay couples. We never felt it at CSO. Not once. Every person we worked with treated our family like any other family. We have a son now. And we&apos;re already thinking about going back.&rdquo;</p>
-              <cite>— Anonymous Same-Sex Couple, Toronto, Ontario</cite>
+              <p>&ldquo;When we started this process we were terrified about discrimination. We had stories from friends in other countries: long delays, judgmental clinics, agencies that quietly deprioritised gay couples. We never felt it at CSO. Not once. Every person we worked with treated our family like any other family. We have a son now. And we&apos;re already thinking about going back.&rdquo;</p>
+              <cite>Anonymous Same-Sex Couple, Toronto, Ontario</cite>
             </div>
           </div>
         </div>

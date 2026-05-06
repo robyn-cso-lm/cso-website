@@ -4,7 +4,7 @@ import styles from './programs.module.css';
 
 export const metadata: Metadata = {
   title: 'Surrogacy Programs & Services',
-  description: 'Explore Canadian Surrogacy Options\' agency programs — Foundation, Guided Journey, Priority Match, and Independent Journey — plus digital guides and resources for your surrogacy path.',
+  description: 'Explore Canadian Surrogacy Options\' agency programs: Foundation, Guided Journey, Priority Match, and Independent Journey, plus digital guides and resources for your surrogacy path.',
   alternates: {
     canonical: 'https://canadiansurrogacyoptions.com/programs',
   },
@@ -40,11 +40,11 @@ export default function ProgramsPage() {
           <h1 className={styles.heroH1}>Find the path that&rsquo;s right for your family</h1>
           <p className={styles.heroSub}>
             From your first question to the moment you hold your baby, we&rsquo;re here.
-            Every family&rsquo;s journey is different &mdash; our programs are designed to meet you
+            Every family&rsquo;s journey is different, and our programs are designed to meet you
             exactly where you are.
           </p>
           <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.heroCTA}>
-            Talk to Robyn &mdash; it&rsquo;s free
+            Talk to Robyn, it&rsquo;s free
           </a>
         </div>
       </section>
@@ -99,7 +99,7 @@ export default function ProgramsPage() {
               </div>
             </div>
 
-            {/* Priority Match — Featured */}
+            {/* Priority Match - Featured */}
             <div className={`${styles.programCard} ${styles.featured}`}>
               <div className={styles.featuredBadge}>Most Popular</div>
               <div className={styles.cardHeader}>
@@ -152,7 +152,7 @@ export default function ProgramsPage() {
               <p className={styles.conciergeText}>
                 For families who require complete discretion, cross-border expertise, or a fully
                 bespoke journey with Robyn personally involved at every stage. This is not a
-                standard program &mdash; it is a private arrangement.
+                standard program. It is a private arrangement.
               </p>
             </div>
             <div className={styles.conciergeRight}>
@@ -169,7 +169,7 @@ export default function ProgramsPage() {
         <div className={styles.bridgeInner}>
           <blockquote className={styles.bridgeQuote}>
             &ldquo;The timing of your journey matters less than the quality of the support around you.
-            When you&rsquo;re ready &mdash; whether that&rsquo;s today or in six months &mdash; I want to make sure
+            When you&rsquo;re ready, whether that&rsquo;s today or in six months, I want to make sure
             you have the right information to move forward with confidence.&rdquo;
           </blockquote>
           <cite className={styles.bridgeCite}>

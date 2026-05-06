@@ -98,7 +98,7 @@ export default function InternationalPage() {
         {/* HERO */}
         <section className="intl-hero">
           <h1>Canada Welcomes Families From Around the World</h1>
-          <p>Whether you&apos;re in the UK, Australia, the US, or anywhere else surrogacy is complicated at home — Canada offers a clear, ethical, legally sound path to parenthood.</p>
+          <p>Whether you&apos;re in the UK, Australia, the US, or anywhere else surrogacy is complicated at home, Canada offers a clear, ethical, legally sound path to parenthood.</p>
           <a href="/contact" className="btn btn-white">Start with a Free Video Consultation</a>
           <div className="trust-bar">
             <span>Video Consultations Available</span>
@@ -116,11 +116,11 @@ export default function InternationalPage() {
             <div className="divider" />
             <div className="why-grid">
               {[
-                { title: 'Altruistic Surrogacy', text: 'No exploitation concerns. Canadian surrogates are not paid a fee — only reimbursed. This satisfies the ethical requirements most international IPs have.' },
+                { title: 'Altruistic Surrogacy', text: 'No exploitation concerns. Canadian surrogates are not paid a fee, only reimbursed. This satisfies the ethical requirements most international IPs have.' },
                 { title: 'Clear Legal Framework', text: 'The Assisted Human Reproduction Act provides a stable, federal legal foundation. Parentage law is well-established and consistently applied.' },
                 { title: 'English-Speaking', text: 'Communication is easy. Legal documents are in English or French. No translation barriers for most international families.' },
                 { title: 'World-Class Fertility Clinics', text: 'Canada\'s fertility clinics operate to internationally recognised standards. Many already work with international patients.' },
-                { title: 'Proximity to the US', text: 'For US families, Canada is often just a short drive or flight away — making required travel appointments far less disruptive.' },
+                { title: 'Proximity to the US', text: 'For US families, Canada is often just a short drive or flight away, making required travel appointments far less disruptive.' },
                 { title: 'Diverse Surrogate Pool', text: 'CSO has surrogates across all provinces. We\'re not limited to one city or region, which improves match timelines.' },
               ].map(r => (
                 <div key={r.title} className="why-card">
@@ -205,7 +205,7 @@ export default function InternationalPage() {
             <ul className="practical-list">
               {[
                 { title: 'Which Appointments Require Travel?', desc: 'Typically 2–3 trips: embryo transfer (3–5 days), optionally a prenatal visit mid-pregnancy, and the birth (plan for 2–3 weeks to manage post-birth documentation).' },
-                { title: 'Where to Stay', desc: 'We recommend short-term rentals over hotels for the birth trip — you\'ll want a kitchen and laundry. We can suggest options near top clinics in Toronto, Vancouver, and Calgary.' },
+                { title: 'Where to Stay', desc: 'We recommend short-term rentals over hotels for the birth trip; you\'ll want a kitchen and laundry. We can suggest options near top clinics in Toronto, Vancouver, and Calgary.' },
                 { title: 'Approximate Travel Budget', desc: 'Most international families budget $8,000–$15,000 CAD for travel across the full journey, depending on distance and number of trips.' },
                 { title: 'Clinic Coordination', desc: 'We work with fertility clinics across Canada. We\'ll match you with a clinic that has international patient experience and is geographically convenient for your surrogate.' },
               ].map(p => (

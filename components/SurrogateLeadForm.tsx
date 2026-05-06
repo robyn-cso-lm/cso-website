@@ -38,7 +38,7 @@ export default function SurrogateLeadForm() {
         <div className={styles.successIcon}>💜</div>
         <h3 className={styles.successTitle}>Your guide is ready, {firstName}!</h3>
         <p className={styles.successText}>
-          We&rsquo;ve also added you to our surrogate community list — you&rsquo;ll hear from us
+          We&rsquo;ve also added you to our surrogate community list, and you&rsquo;ll hear from us
           with resources and updates.
         </p>
         <a
@@ -57,7 +57,7 @@ export default function SurrogateLeadForm() {
       <div className={styles.badge}>Free Download</div>
       <h2 className={styles.title}>Get the Surrogate Readiness Guide</h2>
       <p className={styles.sub}>
-        Everything you need to know before applying — eligibility, the screening process,
+        Everything you need to know before applying: eligibility, the screening process,
         reimbursement explained, and how to talk to your family about it.
         No cost. No obligation. Just information.
       </p>

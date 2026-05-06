@@ -50,7 +50,7 @@ export default function ConciergeForm() {
         <h3 className={styles.formSuccessTitle}>Inquiry Received</h3>
         <p className={styles.formSuccessText}>
           Thank you. Robyn will review your inquiry personally and respond within 48 hours
-          to the email address you provided. Please check your inbox &mdash; and your spam folder,
+          to the email address you provided. Please check your inbox, and your spam folder,
           just in case.
         </p>
       </div>

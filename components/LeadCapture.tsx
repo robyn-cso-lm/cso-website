@@ -55,7 +55,7 @@ export default function LeadCapture() {
               <h2 className={styles.title}>Stay connected with CSO</h2>
               <p className={styles.sub}>
                 Get resources, real stories, and gentle guidance delivered to your inbox.
-                No pressure, no spam &mdash; just the information you need when you need it.
+                No pressure, no spam. Just the information you need when you need it.
               </p>
             </div>
             <form onSubmit={handleSubmit} className={styles.form}>

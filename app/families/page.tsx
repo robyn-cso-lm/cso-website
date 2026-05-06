@@ -16,7 +16,7 @@ const stories = [
     names: 'André & Sébastien',
     location: 'Québec',
     label: 'Same-Sex Couple',
-    story: 'André and Sébastien had tried to navigate surrogacy independently before finding CSO. The matching process alone had taken them almost two years on their own. Within five months of joining CSO, they were matched. Their son was born healthy — and their surrogate remains a part of their extended family.',
+    story: 'André and Sébastien had tried to navigate surrogacy independently before finding CSO. The matching process alone had taken them almost two years on their own. Within five months of joining CSO, they were matched. Their son was born healthy, and their surrogate remains a part of their extended family.',
   },
   {
     names: 'Caroline & Rajan',
@@ -28,13 +28,13 @@ const stories = [
     names: 'James & Fiona',
     location: 'United Kingdom',
     label: 'International Family',
-    story: 'James and Fiona live in London and spent months researching international surrogacy options. Canada kept coming up. They chose CSO after a video call with Robyn. They flew to Canada three times — for the transfer, for a prenatal visit, and for the birth. They brought their son home on a cold November morning.',
+    story: 'James and Fiona live in London and spent months researching international surrogacy options. Canada kept coming up. They chose CSO after a video call with Robyn. They flew to Canada three times: for the transfer, for a prenatal visit, and for the birth. They brought their son home on a cold November morning.',
   },
   {
     names: 'Simone & Kieran',
     location: 'Nova Scotia',
     label: 'After a Late Loss',
-    story: 'Simone and Kieran lost a pregnancy at 22 weeks. The kind of loss that changes a person. They came to surrogacy after that — not running from grief, but moving through it. Their surrogate, who knew their history, carried the pregnancy with extraordinary care. Their little girl arrived exactly on her due date.',
+    story: 'Simone and Kieran lost a pregnancy at 22 weeks. The kind of loss that changes a person. They came to surrogacy after that, not running from grief, but moving through it. Their surrogate, who knew their history, carried the pregnancy with extraordinary care. Their little girl arrived exactly on her due date.',
   },
   {
     names: 'Patricia & Gordon',
@@ -52,7 +52,7 @@ const stories = [
     names: 'Priya & Daniel',
     location: 'Manitoba',
     label: 'With an Egg Donor',
-    story: 'Priya was born without ovaries — a fact she\'d lived with her whole adult life. Surrogacy wasn\'t the only piece of the puzzle; they also needed an egg donor. CSO coordinated both. Their daughter carries the genetic material of a generous donor and was carried by a warm, dedicated surrogate. She is, by every definition that matters, theirs.',
+    story: 'Priya was born without ovaries, a fact she\'d lived with her whole adult life. Surrogacy wasn\'t the only piece of the puzzle; they also needed an egg donor. CSO coordinated both. Their daughter carries the genetic material of a generous donor and was carried by a warm, dedicated surrogate. She is, by every definition that matters, theirs.',
   },
 ];
 
@@ -119,7 +119,7 @@ export default function FamiliesPage() {
               &ldquo;I have been in delivery rooms. I have watched people become parents for the first time and completely fall apart in the best possible way. I have seen surrogates hand a baby to someone who had given up hope, and I have watched both of them cry. There is nothing else like it. After more than three decades, it still gets me every single time.&rdquo;
             </blockquote>
             <div style={{ flex: 1, minWidth: 220 }}>
-              <p style={{ fontSize: '0.95rem', color: '#444' }}>Every family we work with has a unique story. The common thread isn&apos;t the path — it&apos;s the love that drove them here. These are just a few of the families who have allowed us to share their journeys.</p>
+              <p style={{ fontSize: '0.95rem', color: '#444' }}>Every family we work with has a unique story. The common thread isn&apos;t the path. It&apos;s the love that drove them here. These are just a few of the families who have allowed us to share their journeys.</p>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function FamiliesPage() {
           <blockquote>
             &ldquo;The moment a family walks out of that hospital with their baby, everything we do becomes worth it ten times over. That moment is why CSO exists.&rdquo;
           </blockquote>
-          <cite>— Robyn Price, Executive Director, Canadian Surrogacy Options</cite>
+          <cite>Robyn Price, Executive Director, Canadian Surrogacy Options</cite>
         </section>
 
         {/* STATS */}

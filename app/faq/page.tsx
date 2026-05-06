@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | Canadian Surrogacy Options',
-  description: 'Answers to the most common questions about surrogacy in Canada — for intended parents, surrogates, and anyone just starting to explore.',
+  description: 'Answers to the most common questions about surrogacy in Canada, for intended parents, surrogates, and anyone just starting to explore.',
 };
 
 const sections = [
@@ -12,11 +12,11 @@ const sections = [
     questions: [
       {
         q: 'What is surrogacy?',
-        a: 'Surrogacy is an arrangement where a woman (the surrogate) carries a pregnancy for another person or couple (the intended parents). In Canada, surrogacy is altruistic — surrogates are reimbursed for legitimate expenses but cannot receive a fee for carrying. It\'s a legally protected, well-established path to parenthood.',
+        a: 'Surrogacy is an arrangement where a woman (the surrogate) carries a pregnancy for another person or couple (the intended parents). In Canada, surrogacy is altruistic: surrogates are reimbursed for legitimate expenses but cannot receive a fee for carrying. It\'s a legally protected, well-established path to parenthood.',
       },
       {
         q: 'How does gestational surrogacy work?',
-        a: 'In gestational surrogacy — the only type CSO facilitates — the surrogate has no genetic connection to the baby. An embryo created using the intended parents\' (or donors\') genetic material is transferred to the surrogate\'s uterus via IVF. The surrogate carries the pregnancy to term and the intended parents are the legal parents.',
+        a: 'In gestational surrogacy (the only type CSO facilitates) the surrogate has no genetic connection to the baby. An embryo created using the intended parents\' (or donors\') genetic material is transferred to the surrogate\'s uterus via IVF. The surrogate carries the pregnancy to term and the intended parents are the legal parents.',
       },
       {
         q: 'How long does the surrogacy process take?',
@@ -28,7 +28,7 @@ const sections = [
       },
       {
         q: 'What\'s the difference between using an agency and going independent?',
-        a: 'An agency like CSO handles matching, screening, case management, and legal coordination. An independent journey means you find your own surrogate and manage everything yourself — possible, but complex. We offer a resource for independent journeys too. See our resources page.',
+        a: 'An agency like CSO handles matching, screening, case management, and legal coordination. An independent journey means you find your own surrogate and manage everything yourself. It\'s possible, but complex. We offer a resource for independent journeys too. See our resources page.',
       },
       {
         q: 'Is surrogacy legal in Canada?',
@@ -46,7 +46,7 @@ const sections = [
       },
       {
         q: 'Can LGBTQ+ couples use CSO?',
-        a: 'Yes — and they do, frequently. More than half of CSO\'s intended parent families are LGBTQ+. Same-sex male couples, lesbian couples, non-binary and trans parents are all welcome and fully supported. Canada\'s legal framework protects all family types.',
+        a: 'Yes, and they do, frequently. More than half of CSO\'s intended parent families are LGBTQ+. Same-sex male couples, lesbian couples, non-binary and trans parents are all welcome and fully supported. Canada\'s legal framework protects all family types.',
       },
       {
         q: 'Can international intended parents use CSO?',
@@ -62,7 +62,7 @@ const sections = [
       },
       {
         q: 'Can I be present at the birth?',
-        a: 'Yes — and most families are. Being in the room (or just outside) when your baby is born is a moment most intended parents describe as the most extraordinary of their lives. This is discussed with your surrogate during the matching process so everyone is on the same page.',
+        a: 'Yes, and most families are. Being in the room (or just outside) when your baby is born is a moment most intended parents describe as the most extraordinary of their lives. This is discussed with your surrogate during the matching process so everyone is on the same page.',
       },
     ],
   },
@@ -72,11 +72,11 @@ const sections = [
     questions: [
       {
         q: 'Do I need to have had my own children to become a surrogate?',
-        a: 'Yes. Surrogates must have had at least one successful, uncomplicated pregnancy and delivery. This requirement exists to protect your health — it confirms that your body can carry a pregnancy safely and that you understand what pregnancy involves.',
+        a: 'Yes. Surrogates must have had at least one successful, uncomplicated pregnancy and delivery. This requirement exists to protect your health: it confirms that your body can carry a pregnancy safely and that you understand what pregnancy involves.',
       },
       {
         q: 'How much does a surrogate receive in Canada?',
-        a: 'Surrogates in Canada don\'t receive a fee — surrogacy here is altruistic. However, all pregnancy-related expenses are fully reimbursed: lost wages, medical travel, medications, maternity clothing, childcare, housekeeping, and more. Total reimbursements typically range from $25,000–$30,000.',
+        a: 'Surrogates in Canada don\'t receive a fee; surrogacy here is altruistic. However, all pregnancy-related expenses are fully reimbursed: lost wages, medical travel, medications, maternity clothing, childcare, housekeeping, and more. Total reimbursements typically range from $25,000–$30,000.',
       },
       {
         q: 'Can a surrogate use her own eggs?',
@@ -84,11 +84,11 @@ const sections = [
       },
       {
         q: 'What happens emotionally after birth?',
-        a: 'This is one of the most important conversations we have with surrogates before matching. Most surrogates describe a sense of joy and completion after birth, not loss — because they never saw the baby as theirs. That said, we provide full emotional support and counselling throughout and after the journey.',
+        a: 'This is one of the most important conversations we have with surrogates before matching. Most surrogates describe a sense of joy and completion after birth, not loss, because they never saw the baby as theirs. That said, we provide full emotional support and counselling throughout and after the journey.',
       },
       {
         q: 'How does matching work for surrogates?',
-        a: 'Once your application is approved, we present you with intended parent profiles that we think are a good fit. You review them. We arrange an introduction call. If it feels right on both sides, we move forward. You always have the right to decline a match — no questions asked.',
+        a: 'Once your application is approved, we present you with intended parent profiles that we think are a good fit. You review them. We arrange an introduction call. If it feels right on both sides, we move forward. You always have the right to decline a match. No questions asked.',
       },
       {
         q: 'Is there an age limit for surrogates?',
@@ -102,7 +102,7 @@ const sections = [
     questions: [
       {
         q: 'Is a surrogacy contract legally enforceable in Canada?',
-        a: 'Surrogacy agreements are legal documents, but their enforceability varies by province. What\'s most important is the parentage order — a court order obtained before or after birth that legally names the intended parents as the child\'s parents. This is what matters. CSO coordinates legal counsel for both parties.',
+        a: 'Surrogacy agreements are legal documents, but their enforceability varies by province. What\'s most important is the parentage order: a court order obtained before or after birth that legally names the intended parents as the child\'s parents. This is what matters. CSO coordinates legal counsel for both parties.',
       },
       {
         q: 'Who goes on the birth certificate?',
@@ -118,7 +118,7 @@ const sections = [
       },
       {
         q: 'Do I need my own lawyer as an intended parent?',
-        a: 'Yes. Both the intended parents and the surrogate must have independent legal counsel — this is a requirement, not a suggestion. CSO coordinates your surrogate\'s lawyer (paid for by you). You will need to retain your own family law lawyer separately.',
+        a: 'Yes. Both the intended parents and the surrogate must have independent legal counsel. This is a requirement, not a suggestion. CSO coordinates your surrogate\'s lawyer (paid for by you). You will need to retain your own family law lawyer separately.',
       },
       {
         q: 'What about citizenship for international IPs\' babies?',
@@ -132,11 +132,11 @@ const sections = [
     questions: [
       {
         q: 'How long has CSO been operating?',
-        a: 'Since 1992. CSO was founded by Joanne Price — Canada\'s first surrogate — after her own surrogacy experience. Her daughter Robyn now leads the organization. Over 34 years, we\'ve supported more than 2,500 families.',
+        a: 'Since 1992. CSO was founded by Joanne Price, Canada\'s first surrogate, after her own surrogacy experience. Her daughter Robyn now leads the organization. Over 34 years, we\'ve supported more than 2,500 families.',
       },
       {
         q: 'What does the CSO agency fee cover?',
-        a: 'The agency fee covers surrogate recruitment and screening, background checks, matching, case management throughout the pregnancy, expense coordination, and ongoing support for both parties. It does not cover legal fees, medical costs, or direct surrogate reimbursements — those are separate.',
+        a: 'The agency fee covers surrogate recruitment and screening, background checks, matching, case management throughout the pregnancy, expense coordination, and ongoing support for both parties. It does not cover legal fees, medical costs, or direct surrogate reimbursements; those are separate.',
       },
       {
         q: 'How many active surrogates does CSO have?',
@@ -152,7 +152,7 @@ const sections = [
       },
       {
         q: 'How do I get started with CSO?',
-        a: 'The easiest first step is a free consultation call — with Robyn or one of our senior coordinators. No pressure, no commitment. Just a real conversation about your situation and what surrogacy through CSO looks like. You can book at canadiansurrogacyoptions.com/contact or call us directly.',
+        a: 'The easiest first step is a free consultation call with Robyn or one of our senior coordinators. No pressure, no commitment. Just a real conversation about your situation and what surrogacy through CSO looks like. You can book at canadiansurrogacyoptions.com/contact or call us directly.',
       },
     ],
   },
@@ -197,7 +197,7 @@ export default function FAQPage() {
         {/* HERO */}
         <section className="faq-hero">
           <h1>Frequently Asked Questions</h1>
-          <p>34 years of questions, answered. If something isn&apos;t here, call us — we love talking through the details.</p>
+          <p>34 years of questions, answered. If something isn&apos;t here, call us. We love talking through the details.</p>
         </section>
 
         {/* SECTION NAV */}
@@ -229,7 +229,7 @@ export default function FAQPage() {
         {/* CTA */}
         <section className="faq-cta">
           <h2>Still Have Questions?</h2>
-          <p>The best answers come from a real conversation. Book a free call with our team — no pressure, no sales pitch, just honest information.</p>
+          <p>The best answers come from a real conversation. Book a free call with our team. No pressure, no sales pitch, just honest information.</p>
           <a href="/contact" className="btn btn-white">Book a Free Call</a>
         </section>
 

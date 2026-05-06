@@ -198,7 +198,7 @@ export default function SurrogatesPage() {
           </div>
         </div>
 
-        {/* FREE GUIDE — LEAD MAGNET */}
+        {/* FREE GUIDE - LEAD MAGNET */}
         <div className="section" style={{ background: 'var(--lavender-light, #E8E0F5)', padding: '80px 40px' }}>
           <SurrogateLeadForm />
         </div>

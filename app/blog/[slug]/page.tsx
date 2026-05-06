@@ -100,7 +100,7 @@ export default function BlogPostPage({ params }: Props) {
           <div className={styles.ctaBlock}>
             <h3 className={styles.ctaTitle}>Ready to start your journey?</h3>
             <p className={styles.ctaText}>
-              Book a free 30-minute call with Robyn. No commitment, no pressure &mdash; just
+              Book a free 30-minute call with Robyn. No commitment, no pressure. Just
               the information you need to take your next step with confidence.
             </p>
             <a

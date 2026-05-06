@@ -4,7 +4,7 @@ import { getAllPosts, CATEGORIES } from '@/lib/mdx';
 import styles from './blog.module.css';
 
 export const metadata: Metadata = {
-  title: 'Blog — Surrogacy Insights & Stories',
+  title: 'Blog | Surrogacy Insights & Stories',
   description: 'Expert guidance, real stories, and practical information about surrogacy in Canada. Written by Robyn Price, Executive Director of Canadian Surrogacy Options.',
   alternates: {
     canonical: 'https://canadiansurrogacyoptions.com/blog',

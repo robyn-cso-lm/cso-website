@@ -39,7 +39,7 @@ export default function ContactForm() {
         <div className={styles.successIcon}>💜</div>
         <h3 className={styles.successTitle}>Message received, {firstName}.</h3>
         <p className={styles.successText}>
-          Robyn or a member of the team will be in touch personally — usually the same day.
+          Robyn or a member of the team will be in touch personally, usually the same day.
           No auto-responders. A real reply.
         </p>
       </div>

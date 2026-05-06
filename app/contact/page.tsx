@@ -45,7 +45,7 @@ export default function ContactPage() {
             <h2 className={styles.optionTitle}>Email Robyn</h2>
             <p className={styles.optionDesc}>
               Have questions you&rsquo;d rather put in writing? Email us and expect a
-              personal reply &mdash; not an auto-responder.
+              personal reply, not an auto-responder.
             </p>
             <a href="mailto:robyn@canadiansurrogacyoptions.com" className={styles.optionLink}>
               robyn@canadiansurrogacyoptions.com
@@ -82,7 +82,7 @@ export default function ContactPage() {
             <h2 className={styles.formTitle}>Not ready to call? That&rsquo;s okay.</h2>
             <p className={styles.formSub}>
               Fill in a few details and Robyn will reach out personally. No pressure,
-              no sales pitch — just a real reply from a real person.
+              no sales pitch. Just a real reply from a real person.
             </p>
           </div>
           <ContactForm />
@@ -113,7 +113,7 @@ export default function ContactPage() {
             <h3 className={styles.detailTitle}>No silly questions</h3>
             <p className={styles.detailText}>Seriously. None.</p>
             <p className={styles.detailNote}>
-              Whether you&rsquo;re just curious, early in your research, or ready to start &mdash;
+              Whether you&rsquo;re just curious, early in your research, or ready to start,
               every question is welcome. We&rsquo;ve heard them all and love them all.
             </p>
           </div>
