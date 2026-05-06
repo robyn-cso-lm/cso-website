@@ -74,7 +74,29 @@ export default function IntendedParentsPage() {
         .final-cta { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px; }
         .final-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; margin-bottom: 16px; }
         .final-cta p { font-size: 1.1rem; opacity: 0.9; max-width: 560px; margin: 0 auto 32px; }
-        @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .ip-hero { padding: 56px 20px 44px; } }
+        .refund-section { background: #111; color: #fff; padding: 80px 24px; }
+        .refund-section-inner { max-width: 900px; margin: 0 auto; }
+        .refund-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A84C; margin-bottom: 14px; display: block; }
+        .refund-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+        .refund-h2 em { font-style: italic; color: #C9A84C; }
+        .refund-sub { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 640px; line-height: 1.75; margin-bottom: 48px; }
+        .refund-phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; background: rgba(255,255,255,0.07); border-radius: 12px; overflow: hidden; margin-bottom: 40px; }
+        .refund-phase { background: #1a1a1a; padding: 36px 28px; }
+        .refund-phase-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: rgba(201,168,76,0.25); line-height: 1; margin-bottom: 12px; }
+        .refund-phase-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #C9A84C; margin-bottom: 6px; }
+        .refund-phase-title { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
+        .refund-phase-timing { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
+        .refund-phase-details { list-style: none; padding: 0; margin: 0; }
+        .refund-phase-details li { font-size: 0.88rem; color: rgba(255,255,255,0.6); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.07); line-height: 1.5; }
+        .refund-phase-details li:last-child { border-bottom: none; }
+        .refund-pause { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); border-radius: 12px; padding: 32px; display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
+        .refund-pause-badge { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: #C9A84C; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 14px; }
+        .refund-pause h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: #fff; margin-bottom: 10px; }
+        .refund-pause p { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 440px; }
+        .refund-pause-checks { display: flex; flex-direction: column; gap: 10px; min-width: 200px; }
+        .refund-check { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.75); }
+        .refund-check-icon { width: 20px; height: 20px; border-radius: 50%; background: rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; font-size: 11px; color: #C9A84C; flex-shrink: 0; }
+        @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .ip-hero { padding: 56px 20px 44px; } .refund-pause { flex-direction: column; gap: 24px; } }
       `}</style>
 
       <div className="ip-body">
@@ -273,6 +295,67 @@ export default function IntendedParentsPage() {
             ))}
           </div>
         </div>
+
+        {/* REFUND POLICY */}
+        <section className="refund-section" id="refund-policy">
+          <div className="refund-section-inner">
+            <span className="refund-eyebrow">Our commitment to you</span>
+            <h2 className="refund-h2">We&apos;re confident in our work.<br /><em>So we protect your investment.</em></h2>
+            <p className="refund-sub">This is an 18–24 month journey. Life doesn&apos;t pause. Job changes, health shifts, relationship changes. They happen. Most agencies say &ldquo;too bad.&rdquo; We say we&apos;ll work with you. Here&apos;s exactly what that looks like.</p>
+            <div className="refund-phases">
+              <div className="refund-phase">
+                <div className="refund-phase-num">01</div>
+                <p className="refund-phase-label">Intake &amp; Profile Building</p>
+                <h3 className="refund-phase-title">85% refund or free pause</h3>
+                <p className="refund-phase-timing">Before active matching begins</p>
+                <ul className="refund-phase-details">
+                  <li>Option A: 85% refund of your first payment (15% covers intake and file setup)</li>
+                  <li>Option B: Pause for up to 12 months. Keep your profile and resume with no extra fees.</li>
+                  <li>This phase is about YOU getting ready. If you&apos;re not ready, we want to help, not pressure.</li>
+                </ul>
+              </div>
+              <div className="refund-phase">
+                <div className="refund-phase-num">02</div>
+                <p className="refund-phase-label">Active Matching</p>
+                <h3 className="refund-phase-title">Free pause anytime, or sliding scale refund</h3>
+                <p className="refund-phase-timing">Typically 18–24 months</p>
+                <ul className="refund-phase-details">
+                  <li>Pause free, anytime, for up to 12 months. Keep your spot with no extra fees.</li>
+                  <li>0–6 months in matching: 75% refund · 6–12 months: 50% refund</li>
+                  <li>12–18 months: 25% refund · 18+ months: 10% refund</li>
+                  <li>We&apos;ve invested significantly — but we still help.</li>
+                </ul>
+              </div>
+              <div className="refund-phase">
+                <div className="refund-phase-num">03</div>
+                <p className="refund-phase-label">Post-Match Onward</p>
+                <h3 className="refund-phase-title">Full support with flexibility for real hardship</h3>
+                <p className="refund-phase-timing">Three parties are now committed</p>
+                <ul className="refund-phase-details">
+                  <li>0–30 days post-match: 25% refund of second payment (major life event only)</li>
+                  <li>30+ days: 10% refund goodwill option for genuine hardship</li>
+                  <li>Once pregnant: no refund, but flexible payment plan options available</li>
+                  <li>Pause is always available. Surrogate relationship kept intact.</li>
+                </ul>
+              </div>
+            </div>
+            <div className="refund-pause">
+              <div>
+                <span className="refund-pause-badge">Always available, always free</span>
+                <h3>You can pause your journey at any point.</h3>
+                <p>Up to 12 months. No fees, no restarting, no lost progress. Keep your profile, your surrogate relationship, your spot. Resume whenever you&apos;re ready.</p>
+              </div>
+              <div className="refund-pause-checks">
+                {['Profile stays active', 'Your spot in our surrogate pool', 'Surrogate relationship intact', 'No additional intake fees', 'Same level of support on return'].map(item => (
+                  <div key={item} className="refund-check">
+                    <div className="refund-check-icon">✓</div>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* FAQ */}
         <div className="section-lavender">
