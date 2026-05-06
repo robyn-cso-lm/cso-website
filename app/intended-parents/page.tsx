@@ -53,16 +53,28 @@ export default function IntendedParentsPage() {
         .two-col-item ul { list-style: none; padding: 0; margin: 0; }
         .two-col-item ul li { padding: 8px 0; border-bottom: 1px solid #E8E0F5; font-size: 0.95rem; display: flex; gap: 10px; align-items: flex-start; }
         .two-col-item ul li::before { content: "✓"; color: #6B3FA0; font-weight: 700; flex-shrink: 0; }
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 36px; }
-        .package-card { background: #fff; border-radius: 16px; padding: 36px 28px; box-shadow: 0 4px 20px rgba(61,26,110,0.1); border: 2px solid #E8E0F5; transition: border-color 0.2s; }
-        .package-card:hover { border-color: #9B7FC7; }
-        .package-card.featured { border-color: #3D1A6E; position: relative; }
-        .package-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #3D1A6E; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; white-space: nowrap; }
-        .package-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #3D1A6E; margin-bottom: 12px; }
-        .package-card .tagline { font-size: 0.9rem; color: #777; margin-bottom: 20px; }
-        .package-card ul { list-style: none; padding: 0; margin: 0 0 24px; }
-        .package-card ul li { font-size: 0.9rem; padding: 7px 0; border-bottom: 1px solid #f0ebfa; display: flex; gap: 8px; align-items: flex-start; }
-        .package-card ul li::before { content: "✓"; color: #6B3FA0; font-weight: 700; flex-shrink: 0; }
+        .packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 36px; }
+        .package-card { background: #fff; border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 20px rgba(61,26,110,0.08); border: 2px solid #E8E0F5; transition: box-shadow 0.2s, border-color 0.2s; position: relative; display: flex; flex-direction: column; }
+        .package-card:hover { border-color: #9B7FC7; box-shadow: 0 8px 32px rgba(61,26,110,0.14); }
+        .package-card.featured { border-color: #3D1A6E; }
+        .package-badge { position: absolute; top: -14px; left: 32px; background: #3D1A6E; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
+        .package-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: #3D1A6E; margin-bottom: 6px; }
+        .package-card .tagline { font-size: 0.88rem; color: #888; margin-bottom: 16px; }
+        .package-price { font-size: 1rem; font-weight: 700; color: #3D1A6E; margin-bottom: 20px; letter-spacing: 0.01em; }
+        .package-card ul { list-style: none; padding: 0; margin: 0 0 28px; flex: 1; }
+        .package-card ul li { font-size: 0.9rem; padding: 8px 0; border-bottom: 1px solid #f0ebfa; display: flex; gap: 10px; align-items: flex-start; color: #444; line-height: 1.5; }
+        .package-card ul li::before { content: "✓"; color: #6B3FA0; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+        .package-card .btn { margin-top: auto; }
+        .package-concierge { grid-column: 1 / -1; background: #1C0F2E; border: none; color: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .package-concierge:hover { border-color: transparent; box-shadow: 0 12px 48px rgba(61,26,110,0.3); }
+        .package-concierge h3 { color: #fff; font-size: 2rem; margin-bottom: 8px; }
+        .package-concierge .tagline { color: rgba(255,255,255,0.55); margin-bottom: 0; }
+        .package-concierge .package-price { color: #C9A84C; }
+        .package-concierge ul li { color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.08); }
+        .package-concierge ul li::before { color: #C9A84C; }
+        .concierge-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+        .concierge-note { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+        @media (max-width: 720px) { .packages-grid { grid-template-columns: 1fr; } .package-concierge { grid-template-columns: 1fr; } }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 32px; }
         .testimonial-card { background: linear-gradient(145deg, #f3eeff 0%, #e8e0f5 100%); border-radius: 16px; padding: 36px 32px; border-left: 4px solid #9B7FC7; box-shadow: 0 4px 20px rgba(61,26,110,0.07); }
         .testimonial-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: #3D1A6E; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
@@ -104,7 +116,7 @@ export default function IntendedParentsPage() {
         {/* HERO */}
         <section className="ip-hero">
           <h1>Your Family Is Worth Fighting For</h1>
-          <p>Whatever brought you here, I want you to know: you are not out of options. CSO has been helping families grow through surrogacy since 1992, and we&apos;re still here — for you.</p>
+          <p>Whatever brought you here, I want you to know: you are not out of options. CSO has been helping families grow through surrogacy since 1992, and we&apos;re still here for you.</p>
           <a href="/contact" className="btn btn-white">Start Your Journey</a>
           <div className="trust-bar">
             <span>In Practice Since 1992</span>
@@ -140,7 +152,7 @@ export default function IntendedParentsPage() {
             <div className="who-grid">
               {[
                 { icon: '👨‍👩‍👧', title: 'Couples with Infertility', text: 'Years of IVF. Failed cycles. Loss. You deserve a path that actually works.' },
-                { icon: '🏳️‍🌈', title: 'Same-Sex Couples', text: 'Gay men, lesbian couples, and queer families — you are a huge part of our CSO community.' },
+                { icon: '🏳️‍🌈', title: 'Same-Sex Couples', text: 'Gay men, lesbian couples, and queer families: you are a huge part of our CSO community.' },
                 { icon: '👤', title: 'Single Parents', text: 'Single men and women choosing parenthood on their own terms. We see you and we support you.' },
                 { icon: '🌍', title: 'International Families', text: 'Canada is one of the safest and most welcoming countries in the world for international surrogacy.' },
               ].map(w => (
@@ -162,10 +174,10 @@ export default function IntendedParentsPage() {
           <p style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto 8px' }}>Every journey is unique, but here&apos;s how most of our families move through the process.</p>
           <div className="steps">
             {[
-              { num: '01', title: 'Free Consultation', text: 'We sit down together — by phone, video, or in person — and I learn about you, your history, and what you need.' },
-              { num: '02', title: 'Matching', text: 'We introduce you to surrogate candidates who are a genuine fit. You\'ll have a say in every match. This isn\'t a database — it\'s a relationship.' },
+              { num: '01', title: 'Free Consultation', text: 'We sit down together, by phone, video, or in person, and I learn about you, your history, and what you need.' },
+              { num: '02', title: 'Matching', text: 'We introduce you to surrogate candidates who are a genuine fit. You\'ll have a say in every match. This isn\'t a database; it\'s a relationship.' },
               { num: '03', title: 'Legal & Medical', text: 'Your surrogate\'s legal counsel is arranged. Medical screening, contract signing, and coordination with your fertility clinic all happen here.' },
-              { num: '04', title: 'Pregnancy', text: 'Transfer, confirmation, prenatal care — your case manager keeps you informed and supported at every milestone.' },
+              { num: '04', title: 'Pregnancy', text: 'Transfer, confirmation, prenatal care: your case manager keeps you informed and supported at every milestone.' },
               { num: '05', title: 'Birth & Home', text: 'Your baby is born. We help with the birth certificate, parentage order, and anything you need to bring your family home.' },
             ].map(s => (
               <div key={s.num} className="step">
@@ -262,17 +274,38 @@ export default function IntendedParentsPage() {
                   featured: false,
                 },
               ].map(p => (
-                <div key={p.name} className={`package-card${p.featured ? ' featured' : ''}`} style={{ position: 'relative' }}>
+                <div key={p.name} className={`package-card${p.featured ? ' featured' : ''}`}>
                   {p.featured && <span className="package-badge">Most Popular</span>}
                   <h3>{p.name}</h3>
                   <p className="tagline">{p.tagline}</p>
-                  <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#3D1A6E', marginBottom: 16 }}>{p.price}</p>
+                  <p className="package-price">{p.price}</p>
                   <ul>
                     {p.items.map(i => <li key={i}>{i}</li>)}
                   </ul>
                   <a href="/programs" className="btn" style={{ width: '100%', textAlign: 'center', boxSizing: 'border-box', display: 'block' }}>See Full Details</a>
                 </div>
               ))}
+
+              {/* Concierge - full-width premium card */}
+              <div className="package-card package-concierge">
+                <div>
+                  <span className="package-badge" style={{ position: 'static', background: 'rgba(201,168,76,0.15)', border: '1px solid rgba(201,168,76,0.4)', color: '#C9A84C', display: 'inline-block', marginBottom: 20 }}>Private &amp; By Arrangement</span>
+                  <h3>The Concierge Experience</h3>
+                  <p className="tagline" style={{ marginBottom: 20 }}>For families whose circumstances require something beyond any standard program.</p>
+                  <p className="package-price">Pricing by arrangement</p>
+                  <ul>
+                    <li>Fully bespoke coordination built around your timeline and needs</li>
+                    <li>Direct access to Robyn throughout your entire journey</li>
+                    <li>Complete discretion and privacy at every stage</li>
+                    <li>Custom medical, legal, and surrogate arrangement</li>
+                    <li>No templated process. No shared coordinator.</li>
+                  </ul>
+                </div>
+                <div className="concierge-cta">
+                  <a href="/private-inquiry" className="btn btn-white">Inquire Privately</a>
+                  <p className="concierge-note">This is not a standard application. Submit a private inquiry and Robyn will respond personally within 24 hours.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -284,9 +317,9 @@ export default function IntendedParentsPage() {
           <div className="divider" />
           <div className="testimonials-grid">
             {[
-              { quote: 'After three failed IVF cycles, we didn\'t think we\'d ever be parents. CSO matched us within four months and our daughter was born last spring. I can\'t put into words what that means.', cite: '— Sarah & James, Ontario' },
-              { quote: 'As a single gay man, I was nervous about whether there would be judgment. There wasn\'t. Not once. Robyn and her team treated me like any other parent from day one.', cite: '— David, British Columbia' },
-              { quote: 'We\'d been burned by another agency before coming to CSO. The difference was night and day. Transparent, responsive, genuinely caring. We now have twins.', cite: '— Marcus & Elena, Alberta' },
+              { quote: 'After three failed IVF cycles, we didn\'t think we\'d ever be parents. CSO matched us within four months and our daughter was born last spring. I can\'t put into words what that means.', cite: 'Sarah & James, Ontario' },
+              { quote: 'As a single gay man, I was nervous about whether there would be judgment. There wasn\'t. Not once. Robyn and her team treated me like any other parent from day one.', cite: 'David, British Columbia' },
+              { quote: 'We\'d been burned by another agency before coming to CSO. The difference was night and day. Transparent, responsive, genuinely caring. We now have twins.', cite: 'Marcus & Elena, Alberta' },
             ].map((t, i) => (
               <div key={i} className="testimonial-card">
                 <p>&ldquo;{t.quote}&rdquo;</p>
@@ -323,7 +356,7 @@ export default function IntendedParentsPage() {
                   <li>Pause free, anytime, for up to 12 months. Keep your spot with no extra fees.</li>
                   <li>0–6 months in matching: 75% refund · 6–12 months: 50% refund</li>
                   <li>12–18 months: 25% refund · 18+ months: 10% refund</li>
-                  <li>We&apos;ve invested significantly — but we still help.</li>
+                  <li>We&apos;ve invested significantly, but we still help.</li>
                 </ul>
               </div>
               <div className="refund-phase">
@@ -365,7 +398,7 @@ export default function IntendedParentsPage() {
             <div className="divider divider-left" />
             <div className="faq-list">
               {[
-                { q: 'How long does matching take?', a: 'On average, 3–6 months from the time your profile is active. Some matches happen faster. We don\'t rush it — a good match is worth waiting for.' },
+                { q: 'How long does matching take?', a: 'On average, 3–6 months from the time your profile is active. Some matches happen faster. We don\'t rush it; a good match is worth waiting for.' },
                 { q: 'Do I get to choose my surrogate?', a: 'Yes. We introduce you to candidates who are a good fit, but you always have the final say. This is one of the most important relationships of your life.' },
                 { q: 'What if the match doesn\'t work out?', a: 'It happens, and that\'s okay. We re-match you. Our team works through any challenges with care, and we don\'t leave you without support.' },
                 { q: 'Can same-sex couples use CSO?', a: 'Absolutely. More than half of our intended parent families are LGBTQ+. Canada\'s legal framework protects all family types, and so do we.' },

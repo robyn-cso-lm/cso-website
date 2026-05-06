@@ -37,11 +37,71 @@
   max-width: 640px;
 }
 
+.guideCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.guideCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+  border: 1.5px solid #E2DAF0;
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  text-decoration: none;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.guideCard:hover {
+  border-color: var(--lavender);
+  box-shadow: 0 6px 24px rgba(61, 26, 110, 0.1);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.guideCardLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lavender);
+}
+
+.guideCardTitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  line-height: 1.2;
+}
+
+.guideCardDesc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.guideCardCta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mid-purple);
+  margin-top: 8px;
+}
+
 .links {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 16px;
 }
 
 .guideLink {
@@ -151,4 +211,5 @@
   .strip { padding: 48px 24px; }
   .links { flex-direction: column; }
   .emailForm { flex-direction: column; }
+  .guideCards { grid-template-columns: 1fr; }
 }

@@ -68,7 +68,7 @@ export default function HomePage() {
           </h1>
           <p className={styles.heroSub}>
             We&rsquo;ve been walking families through surrogacy in Canada since 1992. Legal,
-            altruistic, and fully supported &mdash; from the first call to the day you bring
+            altruistic, and fully supported, from the first call to the day you bring
             your baby home.
           </p>
           <div className={styles.heroCTAs}>
@@ -121,7 +121,7 @@ export default function HomePage() {
               <h3 className={styles.pathTitle}>Intended Parents</h3>
               <p className={styles.pathBody}>
                 You want to build a family through surrogacy. We match you with a screened,
-                committed surrogate &mdash; and walk with you through every medical, legal,
+                committed surrogate, and walk with you through every medical, legal,
                 and emotional step of the journey.
               </p>
               <Link href="/intended-parents" className={styles.btnPath}>
@@ -147,6 +147,21 @@ export default function HomePage() {
       {/* Guides Strip */}
       <GuidesStrip />
 
+      {/* Contact nudge */}
+      <section className={styles.contactNudge}>
+        <div className={styles.contactNudgeInner}>
+          <div className={styles.contactNudgeText}>
+            <p className={styles.contactNudgeHeading}>A real conversation. No scripts.</p>
+            <p className={styles.contactNudgeSub}>Robyn or a member of the team replies personally. Usually the same day.</p>
+          </div>
+          <div className={styles.contactNudgeActions}>
+            <a href="tel:+18774014175" className={styles.contactNudgeLink}>📞 1-877-401-4175</a>
+            <a href="mailto:robyn@canadiansurrogacyoptions.com" className={styles.contactNudgeLink}>✉️ robyn@canadiansurrogacyoptions.com</a>
+            <Link href="/contact" className={styles.contactNudgeBtn}>Send a Message &rarr;</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Refund Feature */}
       <section className={styles.refundFeature}>
         <div className={styles.refundFeatureInner}>
@@ -159,7 +174,7 @@ export default function HomePage() {
               We protect your investment<br /><em>at every phase.</em>
             </h2>
             <p className={styles.refundFeatureBody}>
-              Most surrogacy agencies bury their refund policy &mdash; or don&rsquo;t have one.
+              Most surrogacy agencies bury their refund policy, or don&rsquo;t have one.
               We put ours in writing because we believe you deserve to know exactly what happens
               if life gets hard before you sign anything. Job loss. Health changes. Cold feet.
               Real fear. We work with all of it.
@@ -211,7 +226,7 @@ export default function HomePage() {
             I took over after she passed in 2019, and I have continued her work with everything I have.&rdquo;
           </p>
           <p className={styles.robynBody}>
-            If you are here, it is because you want to be parents &mdash; or because you want to help
+            If you are here, it is because you want to be parents, or because you want to help
             someone become one. That is the whole reason we exist. There is no intake team, no junior
             coordinator. You talk to Robyn. You get honest answers.
           </p>

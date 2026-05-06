@@ -38,25 +38,29 @@ export default function GuidesStrip() {
       <div className={styles.inner}>
         <p className={styles.eyebrow}>Free resources</p>
         <h2 className={styles.heading}>
-          Our guides are yours &mdash; no strings attached.
+          From hope to heartbeat to home.
         </h2>
         <p className={styles.sub}>
-          We made these specifically for intended parents and surrogates. They&rsquo;re free
-          to download and free to share. We&rsquo;re happy to put the right information in
-          anyone&rsquo;s hands.
+          Whether you&rsquo;re building a family or helping one grow, we made these guides
+          for you. Free to download, free to share.
         </p>
-        <div className={styles.links}>
-          <Link href="/intended-parents" className={styles.guideLink}>
-            📄 IP Program Overview
+        <div className={styles.guideCards}>
+          <Link href="/intended-parents" className={styles.guideCard}>
+            <span className={styles.guideCardLabel}>For Intended Parents</span>
+            <span className={styles.guideCardTitle}>IP Program Overview</span>
+            <span className={styles.guideCardDesc}>Programs, process, and what to expect from start to finish.</span>
+            <span className={styles.guideCardCta}>Read the guide &rarr;</span>
           </Link>
+          <Link href="/surrogates" className={styles.guideCard}>
+            <span className={styles.guideCardLabel}>For Surrogates</span>
+            <span className={styles.guideCardTitle}>Surrogate Readiness Guide</span>
+            <span className={styles.guideCardDesc}>Everything you need to know before applying, including eligibility and screening.</span>
+            <span className={styles.guideCardCta}>Read the guide &rarr;</span>
+          </Link>
+        </div>
+        <div className={styles.links}>
           <Link href="/intended-parents#refund-policy" className={styles.guideLink}>
             📄 Refund &amp; Protection Policy
-          </Link>
-          <Link href="/surrogates" className={styles.guideLink}>
-            📄 Surrogate Readiness Guide
-          </Link>
-          <Link href="/programs" className={styles.guideLink}>
-            📄 All-Inclusive Packages
           </Link>
         </div>
         <div className={styles.emailCapture}>
@@ -65,7 +69,7 @@ export default function GuidesStrip() {
           </p>
           {success ? (
             <p className={styles.formSuccess}>
-              Sent! Check your inbox &mdash; and feel free to share with anyone who needs it.
+              Sent! Check your inbox, and feel free to share with anyone who needs it.
             </p>
           ) : (
             <form onSubmit={handleSubmit} className={styles.emailForm} noValidate>

@@ -310,6 +310,86 @@
   border-color: #fff;
 }
 
+/* ── Contact Nudge ── */
+.contactNudge {
+  background: var(--deep-purple);
+  padding: 36px 48px;
+}
+
+.contactNudgeInner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.contactNudgeText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactNudgeHeading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.contactNudgeSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+}
+
+.contactNudgeActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contactNudgeLink {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactNudgeLink:hover {
+  color: #fff;
+}
+
+.contactNudgeBtn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--deep-purple);
+  background: #fff;
+  padding: 10px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.contactNudgeBtn:hover {
+  background: var(--lavender-light);
+}
+
+@media (max-width: 768px) {
+  .contactNudge { padding: 32px 24px; }
+  .contactNudgeInner { flex-direction: column; align-items: flex-start; }
+}
+
 /* ── Refund Feature ── */
 .refundFeature {
   background: #111;
