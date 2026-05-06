@@ -93,10 +93,10 @@ export default function LeadMagnets() {
       <div className={styles.inner}>
         <div className={styles.header}>
           <p className={styles.eyebrow}>Free Resources</p>
-          <h2 className={styles.title}>Want to learn more before reaching out?</h2>
+          <h2 className={styles.title}>Our guides are a free download — no strings attached.</h2>
           <p className={styles.sub}>
-            We have put together honest, detailed guides for both families and surrogates.
-            Enter your name and email and we will send yours right away.
+            We made these specifically for intended parents and surrogates, and we&rsquo;re happy to share them.
+            Enter your name and email and we&rsquo;ll send yours right away — completely free, share them with anyone.
           </p>
         </div>
 
