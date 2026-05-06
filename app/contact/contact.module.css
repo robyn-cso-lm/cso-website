@@ -44,26 +44,26 @@
 /* ── Contact Options ── */
 .options {
   background: var(--cream);
-  padding: 96px 40px;
+  padding: 56px 40px;
 }
 
 .optionsInner {
-  max-width: 1100px;
+  max-width: 860px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 20px;
 }
 
 @media (max-width: 900px) {
-  .options { padding: 64px 24px; }
+  .options { padding: 40px 24px; }
   .optionsInner { grid-template-columns: 1fr; }
 }
 
 .optionCard {
   background: #fff;
-  border-radius: 20px;
-  padding: 44px 36px;
+  border-radius: 16px;
+  padding: 32px 28px;
   border: 1.5px solid rgba(155, 127, 199, 0.2);
   display: flex;
   flex-direction: column;
