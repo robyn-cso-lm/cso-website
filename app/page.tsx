@@ -61,6 +61,7 @@ export default function HomePage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.heroEyebrow}>Canadian Surrogacy Options</p>
+          <p className={styles.heroTagline}>From hope to heartbeat to home.</p>
           <h1 className={styles.heroH1}>
             The family you&rsquo;re building<br />
             is <em>already real.</em>

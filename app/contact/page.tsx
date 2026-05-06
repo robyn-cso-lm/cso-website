@@ -50,6 +50,9 @@ export default function ContactPage() {
             <a href="mailto:robyn@canadiansurrogacyoptions.com" className={styles.optionLink}>
               robyn@canadiansurrogacyoptions.com
             </a>
+            <a href="#send-message" className={styles.optionSecondary}>
+              Or use the form below &darr;
+            </a>
           </div>
 
           <div className={styles.optionCard}>
@@ -72,7 +75,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className={styles.formSection}>
+      <section id="send-message" className={styles.formSection}>
         <div className={styles.formInner}>
           <div className={styles.formIntro}>
             <p className={styles.eyebrow}>Send a Message</p>
