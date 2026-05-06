@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendMail } from '@/lib/graphMail';
 import crypto from 'crypto';
 
 export async function POST(req: NextRequest) {
@@ -112,11 +111,20 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
-    await sendMail(
-      'robyn@canadiansurrogacyoptions.com',
-      `[Website Contact] New message from ${firstName} (${role})`,
-      html
-    );
+    await fetch('https://hooks.zapier.com/hooks/catch/14435275/4y2es5o/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName,
+        email,
+        phone: phone || '',
+        role,
+        message,
+        html,
+        source: 'website_contact_form',
+        timestamp: new Date().toISOString(),
+      }),
+    });
 
     return NextResponse.json({ success: true });
   } catch (err) {
