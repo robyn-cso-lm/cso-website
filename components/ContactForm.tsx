@@ -9,6 +9,7 @@ export default function ContactForm() {
   const [phone, setPhone] = useState('');
   const [role, setRole] = useState('');
   const [message, setMessage] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState('');
@@ -21,7 +22,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, email, phone, role, message }),
+        body: JSON.stringify({ firstName, email, phone, role, message, website }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
@@ -49,6 +50,17 @@ export default function ContactForm() {
   return (
     <div className={styles.wrap}>
       <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Honeypot — hidden from humans, bots fill it in */}
+        <input
+          type="text"
+          name="website"
+          value={website}
+          onChange={e => setWebsite(e.target.value)}
+          style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
         <div className={styles.row}>
           <div className={styles.field}>
             <label className={styles.label}>First name <span className={styles.req}>*</span></label>

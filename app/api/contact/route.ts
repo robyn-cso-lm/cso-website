@@ -4,6 +4,34 @@ import crypto from 'crypto';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MSG_LEN = 5000;
 
+// ── Rate limiting (in-memory, resets on redeploy — good enough for serverless) ──
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return false;
+  }
+  if (entry.count >= RATE_LIMIT) return true;
+  entry.count++;
+  return false;
+}
+
+// ── Looks like random gibberish: no spaces, mixed case, >10 chars ──
+function looksLikeGibberish(str: string): boolean {
+  if (str.length < 10) return false;
+  if (/\s/.test(str)) return false; // has spaces = probably real
+  // high ratio of random-looking char transitions
+  const upper = (str.match(/[A-Z]/g) || []).length;
+  const lower = (str.match(/[a-z]/g) || []).length;
+  if (upper > 2 && lower > 2 && Math.abs(upper - lower) < str.length * 0.4) return true;
+  return false;
+}
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, '&amp;')
@@ -15,7 +43,18 @@ function escapeHtml(str: string): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { firstName, email, phone, role, message } = await req.json();
+    const { firstName, email, phone, role, message, website } = await req.json();
+
+    // Honeypot — bots fill this, humans don't see it
+    if (website) {
+      return NextResponse.json({ success: true }); // silent pass to fool bots
+    }
+
+    // Rate limit by IP
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown';
+    if (isRateLimited(ip)) {
+      return NextResponse.json({ error: 'Too many submissions. Please try again later.' }, { status: 429 });
+    }
 
     if (!firstName || !email || !message || !role) {
       return NextResponse.json({ error: 'Required fields missing.' }, { status: 400 });
@@ -27,6 +66,11 @@ export async function POST(req: NextRequest) {
 
     if (message.length > MAX_MSG_LEN) {
       return NextResponse.json({ error: 'Message is too long.' }, { status: 400 });
+    }
+
+    // Reject gibberish names/messages
+    if (looksLikeGibberish(firstName) || looksLikeGibberish(message)) {
+      return NextResponse.json({ success: true }); // silent pass
     }
 
     const safeName    = escapeHtml(String(firstName));
