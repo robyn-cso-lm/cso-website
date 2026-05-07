@@ -1,12 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function POST(req: NextRequest) {
   try {
     const { firstName, email } = await req.json();
 
     if (!firstName || !email) {
       return NextResponse.json({ error: 'Name and email are required.' }, { status: 400 });
+    }
+
+    if (!EMAIL_RE.test(email)) {
+      return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
     const API_KEY = process.env.MAILCHIMP_API_KEY;
@@ -36,7 +42,8 @@ export async function POST(req: NextRequest) {
       }
     );
 
-    const memberData = await memberRes.json();
+    let memberData: Record<string, unknown> = {};
+    try { memberData = await memberRes.json(); } catch { /* non-JSON response from Mailchimp */ }
 
     if (!memberRes.ok && memberData.title === 'Member Exists') {
       const hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');

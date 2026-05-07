@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/private-inquiry', '/api/'],
+        disallow: ['/private-inquiry', '/portal/', '/api/'],
       },
     ],
     sitemap: 'https://canadiansurrogacyoptions.com/sitemap.xml',

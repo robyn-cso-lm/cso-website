@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import crypto from 'crypto';
 
 export async function POST(req: NextRequest) {
   try {
@@ -40,10 +41,7 @@ export async function POST(req: NextRequest) {
 
     // If already subscribed, add the tag to their existing record
     if (!memberRes.ok && memberData.title === 'Member Exists') {
-      const hash = require('crypto')
-        .createHash('md5')
-        .update(email.toLowerCase())
-        .digest('hex');
+      const hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
 
       await fetch(
         `https://${DC}.api.mailchimp.com/3.0/lists/${LIST_ID}/members/${hash}/tags`,
