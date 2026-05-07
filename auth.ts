@@ -3,6 +3,7 @@ import Email from 'next-auth/providers/email';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/lib/prisma';
 import { sendMail } from '@/lib/graphMail';
+import { authConfig } from './auth.config';
 
 const ALLOWED_DOMAIN = 'canadiansurrogacyoptions.com';
 
@@ -46,6 +47,7 @@ function buildMagicLinkEmail(url: string): string {
 }
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  ...authConfig,
   adapter: PrismaAdapter(prisma),
   providers: [
     Email({
@@ -59,8 +61,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   session: { strategy: 'database' },
-  pages: { signIn: '/portal/login' },
   callbacks: {
+    ...authConfig.callbacks,
     async signIn({ user }) {
       const email = user.email ?? '';
       if (!email.endsWith(`@${ALLOWED_DOMAIN}`)) return false;
