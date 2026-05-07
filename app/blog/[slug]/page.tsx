@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getPostBySlug, getAllPosts, getRelatedPosts } from '@/lib/mdx';
 import LeadCapture from '@/components/LeadCapture';
+import ContactForm from '@/components/ContactForm';
 import styles from './post.module.css';
 
 interface Props {
@@ -111,6 +112,15 @@ export default function BlogPostPage({ params }: Props) {
             >
               Book Now &rarr;
             </a>
+          </div>
+
+          {/* Contact Form */}
+          <div className={styles.contactSection}>
+            <h3 className={styles.contactTitle}>Or send a message</h3>
+            <p className={styles.contactSub}>
+              Not ready to book a call? Send Robyn a message directly — she reads every one.
+            </p>
+            <ContactForm />
           </div>
         </div>
       </section>

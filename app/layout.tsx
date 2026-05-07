@@ -44,25 +44,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {GA_ID && process.env.NODE_ENV === 'production' && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
-      </head>
       <body>
+        {GA_ID && process.env.NODE_ENV === 'production' && (<>
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+          <Script id="ga4-init" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}</Script>
+        </>)}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-467681165" strategy="afterInteractive" />
+        <Script id="google-ads-init" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-467681165');`}</Script>
         <Nav />
         <main>{children}</main>
         <Footer />
