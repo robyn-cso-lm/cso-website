@@ -1,6 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/graphMail';
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -9,6 +20,18 @@ export async function POST(req: NextRequest) {
     if (!firstName || !lastName || !email || !message || !country) {
       return NextResponse.json({ error: 'Required fields missing.' }, { status: 400 });
     }
+
+    if (!EMAIL_RE.test(email)) {
+      return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
+    }
+
+    const safeFirst         = escapeHtml(String(firstName));
+    const safeLast          = escapeHtml(String(lastName));
+    const safeEmail         = escapeHtml(String(email));
+    const safePhone         = phone ? escapeHtml(String(phone)) : '';
+    const safeCountry       = escapeHtml(String(country));
+    const safeContactMethod = contactMethod ? escapeHtml(String(contactMethod)) : '';
+    const safeMessage       = escapeHtml(String(message)).replace(/\n/g, '<br/>');
 
     const html = `
 <!DOCTYPE html>
@@ -47,31 +70,31 @@ export async function POST(req: NextRequest) {
       </p>
       <div class="field">
         <p class="field-label">Name</p>
-        <p class="field-value">${firstName} ${lastName}</p>
+        <p class="field-value">${safeFirst} ${safeLast}</p>
       </div>
       <div class="field">
         <p class="field-label">Email</p>
-        <p class="field-value">${email}</p>
+        <p class="field-value"><a href="mailto:${safeEmail}" style="color:#6B3FA0;">${safeEmail}</a></p>
       </div>
-      ${phone ? `
+      ${safePhone ? `
       <div class="field">
         <p class="field-label">Phone</p>
-        <p class="field-value">${phone}</p>
+        <p class="field-value">${safePhone}</p>
       </div>` : ''}
       <div class="field">
         <p class="field-label">Country / Region</p>
-        <p class="field-value">${country}</p>
+        <p class="field-value">${safeCountry}</p>
       </div>
-      ${contactMethod ? `
+      ${safeContactMethod ? `
       <div class="field">
         <p class="field-label">Preferred Contact Method</p>
-        <p class="field-value">${contactMethod}</p>
+        <p class="field-value">${safeContactMethod}</p>
       </div>` : ''}
       <div class="divider"></div>
       <div class="field">
         <p class="field-label">Their Message</p>
         <div class="message-box">
-          <p class="field-value">${message.replace(/\n/g, '<br/>')}</p>
+          <p class="field-value">${safeMessage}</p>
         </div>
       </div>
     </div>
@@ -84,12 +107,11 @@ export async function POST(req: NextRequest) {
     </div>
   </div>
 </body>
-</html>
-    `;
+</html>`;
 
     await sendMail(
       'robyn@canadiansurrogacyoptions.com',
-      `[PRIVATE INQUIRY] Concierge Request from ${firstName} ${lastName}`,
+      `[PRIVATE INQUIRY] Concierge Request from ${safeFirst} ${safeLast}`,
       html
     );
 
