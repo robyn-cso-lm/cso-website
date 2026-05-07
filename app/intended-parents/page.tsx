@@ -38,12 +38,12 @@ export default function IntendedParentsPage() {
         .urgency { background: #3D1A6E; color: #fff; padding: 32px; max-width: 820px; margin: 48px auto; border-radius: 12px; text-align: center; }
         .urgency p { font-size: 1.3rem; font-weight: 600; line-height: 1.5; margin-bottom: 20px; }
         .urgency small { font-size: 0.9rem; opacity: 0.8; display: block; }
-        .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 32px; }
+        .who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 32px; }
         .who-card { background: #fff; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(61,26,110,0.08); border-top: 4px solid #9B7FC7; text-align: center; }
         .who-card .who-icon { font-size: 2.2rem; margin-bottom: 12px; }
         .who-card h3 { font-size: 1rem; color: #3D1A6E; font-weight: 600; margin-bottom: 8px; }
         .who-card p { font-size: 0.9rem; color: #555; }
-        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; margin-top: 36px; }
+        .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 36px; }
         .step { text-align: center; padding: 28px 16px; position: relative; }
         .step-num { font-size: 2.8rem; font-weight: 700; color: #E8E0F5; line-height: 1; margin-bottom: 10px; }
         .step h3 { font-size: 1rem; color: #3D1A6E; margin-bottom: 8px; font-weight: 600; }

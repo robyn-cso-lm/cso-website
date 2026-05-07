@@ -61,11 +61,10 @@ export default function HomePage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.heroEyebrow}>Canadian Surrogacy Options</p>
-          <p className={styles.heroTagline}>From hope to heartbeat to home.</p>
           <h1 className={styles.heroH1}>
-            The family you&rsquo;re building<br />
-            is <em>already real.</em>
+            From hope to heartbeat<br />to home.
           </h1>
+          <p className={styles.heroTagline}>The family you&rsquo;re building is already real.</p>
           <p className={styles.heroSub}>
             We&rsquo;ve been walking families through surrogacy in Canada since 1992. Legal,
             altruistic, and fully supported, from the first call to the day you bring
