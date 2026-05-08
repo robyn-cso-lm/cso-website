@@ -33,7 +33,7 @@ export async function getSurrogates(params: ListParams) {
       select: { id: true, firstName: true, lastName: true, age: true, city: true, province: true, status: true },
     }),
   ]);
-  const profiles: ProfileRow[] = rows.map(r => ({
+  const profiles: ProfileRow[] = rows.map((r: { id: string; firstName: string; lastName: string; age: number | null; city: string | null; province: string | null; status: string }) => ({
     id: r.id, name: `${r.firstName} ${r.lastName}`, age: r.age, city: r.city, province: r.province, status: r.status,
   }));
   return { profiles, total, page, pageSize, totalPages: Math.ceil(total / pageSize) };
@@ -67,7 +67,7 @@ export async function getDonors(params: ListParams) {
       select: { id: true, firstName: true, lastName: true, age: true, city: true, province: true, status: true },
     }),
   ]);
-  const profiles: ProfileRow[] = rows.map(r => ({
+  const profiles: ProfileRow[] = rows.map((r: { id: string; firstName: string; lastName: string; age: number | null; city: string | null; province: string | null; status: string }) => ({
     id: r.id, name: `${r.firstName} ${r.lastName}`, age: r.age, city: r.city, province: r.province, status: r.status,
   }));
   return { profiles, total, page, pageSize, totalPages: Math.ceil(total / pageSize) };
@@ -103,7 +103,7 @@ export async function getIntendedParents(params: ListParams) {
       select: { id: true, primaryFirstName: true, primaryLastName: true, partnerFirstName: true, city: true, province: true, status: true },
     }),
   ]);
-  const profiles: ProfileRow[] = rows.map(r => {
+  const profiles: ProfileRow[] = rows.map((r: { id: string; primaryFirstName: string; primaryLastName: string; partnerFirstName: string | null; city: string | null; province: string | null; status: string }) => {
     const partner = r.partnerFirstName ? ` & ${r.partnerFirstName}` : '';
     return { id: r.id, name: `${r.primaryFirstName} ${r.primaryLastName}${partner}`, age: null, city: r.city, province: r.province, status: r.status };
   });

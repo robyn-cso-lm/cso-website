@@ -16,7 +16,7 @@ export default async function PortalDashboard() {
       href:   '/portal/surrogates',
       active: countByStatus(surrogates, 'ACTIVE'),
       pending: countByStatus(surrogates, 'PENDING_REVIEW'),
-      total:  surrogates.reduce((n, g) => n + g._count, 0),
+      total:  surrogates.reduce((n: number, g: { status: string; _count: number }) => n + g._count, 0),
       color:  'bg-pink-50 border-pink-200',
       dot:    'bg-pink-400',
     },
@@ -25,7 +25,7 @@ export default async function PortalDashboard() {
       href:   '/portal/donors',
       active: countByStatus(donors, 'ACTIVE'),
       pending: countByStatus(donors, 'PENDING_REVIEW'),
-      total:  donors.reduce((n, g) => n + g._count, 0),
+      total:  donors.reduce((n: number, g: { status: string; _count: number }) => n + g._count, 0),
       color:  'bg-purple-50 border-purple-200',
       dot:    'bg-purple-400',
     },
@@ -34,7 +34,7 @@ export default async function PortalDashboard() {
       href:   '/portal/intended-parents',
       active: countByStatus(ips, 'ACTIVE'),
       pending: countByStatus(ips, 'PENDING_REVIEW'),
-      total:  ips.reduce((n, g) => n + g._count, 0),
+      total:  ips.reduce((n: number, g: { status: string; _count: number }) => n + g._count, 0),
       color:  'bg-blue-50 border-blue-200',
       dot:    'bg-blue-400',
     },
@@ -72,7 +72,7 @@ export default async function PortalDashboard() {
           <p className="text-sm text-lavender">No imports yet.</p>
         ) : (
           <ul className="space-y-2">
-            {recentImports.map(doc => (
+            {recentImports.map((doc: { id: string; originalFilename: string; importStatus: string }) => (
               <li key={doc.id} className="flex items-center justify-between text-sm">
                 <span className="truncate text-text-secondary">{doc.originalFilename}</span>
                 <span className="ml-4 shrink-0 capitalize text-lavender">{doc.importStatus}</span>
