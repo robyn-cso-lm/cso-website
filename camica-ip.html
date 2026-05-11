@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Florida Surrogacy for Canadian Families | Camica</title>
-  <meta name="description" content="Stop waiting 3 years for a Canadian surrogate. Camica matches Canadian families with Florida carriers — your baby, born in Canada. Match in 60–90 days. Founding Families pricing now open.">
+  <meta name="description" content="Camica connects intended parents with experienced Florida gestational carriers. Canadian birth available. Boutique agency with 34 years of experience. Founding Families spots open this week.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -16,8 +16,6 @@
       --seafoam-lt: #EBF7F6;
       --gold:       #C9A75A;
       --gold-lt:    #EDD99B;
-      --purple:     #3D1A6E;
-      --lavender:   #E8E0F5;
       --text:       #1A2C30;
       --text-soft:  #4A6870;
       --text-muted: #7A9298;
@@ -29,11 +27,11 @@
     h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1; }
     h1 { font-size: clamp(38px, 5.5vw, 72px); }
     h2 { font-size: clamp(28px, 3.5vw, 48px); }
-    h3 { font-size: clamp(20px, 2.5vw, 28px); }
+    h3 { font-size: clamp(18px, 2.5vw, 26px); }
     p  { font-size: 15.5px; color: var(--text-soft); line-height: 1.8; margin-bottom: 16px; }
     p:last-child { margin-bottom: 0; }
     a  { color: inherit; text-decoration: none; }
-    em { font-style: italic; }
+    em { font-style: italic; color: var(--deep-teal); }
     strong { font-weight: 600; }
     .eyebrow { display: block; font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
 
@@ -50,99 +48,103 @@
     .btn-gold:hover { background: #B8943E; }
     .btn-outline { background: transparent; color: var(--deep-teal); border: 1.5px solid var(--deep-teal); }
     .btn-outline:hover { background: var(--deep-teal); color: var(--white); }
-    .btn-outline-light { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.5); }
-    .btn-outline-light:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
     section { padding: 88px 10%; }
 
     /* URGENCY BAR */
-    .urgency-bar { background: var(--gold); padding: 12px 10%; display: flex; align-items: center; justify-content: center; gap: 24px; }
-    .urgency-bar p { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); margin: 0; }
-    .urgency-dot { width: 8px; height: 8px; background: rgba(255,255,255,0.6); border-radius: 50%; flex-shrink: 0; }
+    .urgency-bar { background: var(--deep-teal); padding: 12px 10%; display: flex; align-items: center; justify-content: center; gap: 20px; }
+    .urgency-bar p { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; color: rgba(255,255,255,0.85); margin: 0; }
+    .urgency-bar strong { color: var(--gold-lt); font-weight: 700; }
 
     /* HERO */
-    .hero { background: var(--sand); padding: 88px 10%; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+    .hero { background: var(--sand); padding: 88px 10%; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 80px; align-items: start; }
     .hero-kicker { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; display: block; }
     .hero h1 { color: var(--text); margin-bottom: 28px; }
-    .hero h1 em { font-style: italic; color: var(--deep-teal); }
-    .hero-body { font-size: 17px; color: var(--text-soft); margin-bottom: 36px; line-height: 1.75; }
-    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
-    .hero-stat { padding: 20px; background: var(--white); border-top: 2px solid var(--seafoam); }
-    .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--deep-teal); line-height: 1; }
-    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; margin-top: 6px; }
+    .hero-body { font-size: 17px; color: var(--text-soft); margin-bottom: 36px; line-height: 1.8; }
+    .hero-proof { display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-proof-item { text-align: center; }
+    .hero-proof-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--deep-teal); line-height: 1; }
+    .hero-proof-label { font-size: 10px; color: var(--text-muted); letter-spacing: 1px; margin-top: 4px; }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* HERO SIDE: OFFER CARD */
-    .offer-card { background: var(--deep-teal); padding: 44px 40px; position: sticky; top: 90px; }
-    .oc-kicker { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .oc-sub { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 24px; }
-    .oc-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--white); margin-bottom: 20px; line-height: 1.2; }
-    .oc-price { font-family: 'Cormorant Garamond', serif; font-size: 52px; color: var(--gold-lt); line-height: 1; }
-    .oc-price-label { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; margin-top: 4px; }
-    .oc-credits { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-    .oc-credit { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.65); }
-    .oc-credit::before { content: '✓'; color: var(--seafoam); font-weight: 700; flex-shrink: 0; }
-    .oc-credit strong { color: var(--white); }
-    .oc-refund { padding: 14px 16px; background: rgba(255,255,255,0.06); border-left: 2px solid var(--gold); font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 24px; }
-    .oc-refund strong { color: rgba(255,255,255,0.85); }
-    .oc-cta { display: block; width: 100%; padding: 16px; background: var(--gold); color: var(--white); border: none; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; text-align: center; border-radius: 1px; transition: background 0.2s; text-decoration: none; }
-    .oc-cta:hover { background: #B8943E; }
-    .oc-secondary { display: block; text-align: center; font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 12px; letter-spacing: 0.5px; }
-    .oc-spots { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--seafoam); text-align: center; margin-top: 16px; }
+    /* FOUNDING CARD */
+    .founding-card { background: var(--deep-teal); padding: 44px 38px; position: sticky; top: 90px; }
+    .fc-badge { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .fc-sub { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 22px; }
+    .fc-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--white); line-height: 1.3; margin-bottom: 22px; }
+    .fc-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+    .fc-price { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--gold-lt); line-height: 1; }
+    .fc-price-note { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+    .fc-deposit { font-size: 12px; color: var(--seafoam); margin-bottom: 24px; }
+    .fc-items { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .fc-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+    .fc-item::before { content: '✓'; color: var(--seafoam); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .fc-item strong { color: var(--white); }
+    .fc-refund { padding: 13px 16px; background: rgba(255,255,255,0.06); border-left: 2px solid var(--gold); font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 22px; }
+    .fc-refund strong { color: rgba(255,255,255,0.85); }
+    .fc-cta { display: block; width: 100%; padding: 16px; background: var(--gold); color: var(--white); border: none; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; text-align: center; text-decoration: none; transition: background 0.2s; }
+    .fc-cta:hover { background: #B8943E; }
+    .fc-cta-note { font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 10px; line-height: 1.5; }
 
-    /* PROBLEM SECTION */
-    .problem-section { background: var(--white); }
-    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .problem-stat-block { display: flex; flex-direction: column; gap: 2px; }
-    .problem-stat { padding: 28px 32px; background: var(--sand); }
-    .problem-stat.dark { background: var(--deep-teal); }
-    .problem-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 56px; color: var(--deep-teal); line-height: 1; }
-    .problem-stat.dark .problem-stat-num { color: var(--gold-lt); }
-    .problem-stat-text { font-size: 13px; color: var(--text-soft); margin-top: 6px; line-height: 1.5; }
-    .problem-stat.dark .problem-stat-text { color: rgba(255,255,255,0.55); }
+    /* PACKAGES */
+    .pkg-section { background: var(--white); }
+    .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 52px; }
+    .pkg-card { background: var(--sand); padding: 40px 32px; position: relative; }
+    .pkg-card.featured { background: var(--deep-teal); }
+    .pkg-tag { display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
+    .pkg-card.featured .pkg-tag { color: var(--seafoam); }
+    .pkg-price { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--text); line-height: 1; }
+    .pkg-card.featured .pkg-price { color: var(--gold-lt); }
+    .pkg-currency { font-size: 20px; color: var(--gold); }
+    .pkg-period { font-size: 11px; color: var(--text-muted); margin: 6px 0 28px; letter-spacing: 0.5px; }
+    .pkg-card.featured .pkg-period { color: rgba(255,255,255,0.35); }
+    .pkg-features { list-style: none; border-top: 1px solid rgba(28,79,88,0.1); padding-top: 24px; }
+    .pkg-card.featured .pkg-features { border-top-color: rgba(255,255,255,0.12); }
+    .pkg-features li { display: flex; gap: 10px; font-size: 13.5px; color: var(--text-soft); padding: 7px 0; border-bottom: 1px solid rgba(28,79,88,0.05); }
+    .pkg-card.featured .pkg-features li { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.07); }
+    .pkg-features li:last-child { border-bottom: none; }
+    .pkg-features li::before { content: '✓'; color: var(--seafoam); font-size: 12px; margin-top: 2px; flex-shrink: 0; font-weight: 600; }
+    .pkg-cta { display: block; margin-top: 28px; padding: 13px; text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-family: 'Jost', sans-serif; border: 1.5px solid var(--deep-teal); color: var(--deep-teal); transition: all 0.2s; }
+    .pkg-cta:hover { background: var(--deep-teal); color: var(--white); }
+    .pkg-card.featured .pkg-cta { border-color: var(--gold); color: var(--gold); }
+    .pkg-card.featured .pkg-cta:hover { background: var(--gold); color: var(--white); }
+    .concierge-bar { background: #0F1C1F; padding: 40px 44px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; margin-top: 2px; }
+    .concierge-bar h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--white); margin-bottom: 8px; }
+    .concierge-bar p { font-size: 13.5px; color: rgba(255,255,255,0.5); margin: 0; }
+    .concierge-right { text-align: right; white-space: nowrap; }
+    .concierge-price { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold); }
+    .concierge-note { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 4px; margin-bottom: 14px; }
 
-    /* HOW IT WORKS */
-    .how-section { background: linear-gradient(160deg, #1C4F58 0%, #2D7A87 100%); padding: 88px 10%; }
-    .pathway-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 56px; }
-    .ps-step { background: rgba(255,255,255,0.07); padding: 36px 28px; }
-    .ps-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--gold); line-height: 1; margin-bottom: 16px; opacity: 0.6; }
-    .ps-step h3 { font-size: 18px; color: var(--white); margin-bottom: 12px; }
-    .ps-step p { font-size: 13.5px; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.7; }
-    .ps-note { margin-top: 48px; padding: 28px 32px; background: rgba(255,255,255,0.07); border-left: 3px solid var(--gold); }
-    .ps-note p { font-size: 14px; color: rgba(255,255,255,0.65); margin: 0; }
-    .ps-note strong { color: var(--white); }
+    /* HYBRID PATHWAY */
+    .hybrid-section { background: linear-gradient(160deg, #1C4F58 0%, #2D7A87 100%); padding: 88px 10%; }
+    .hybrid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hybrid-steps { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
+    .hs-step { background: rgba(255,255,255,0.07); padding: 20px 24px; display: flex; gap: 20px; align-items: flex-start; }
+    .hs-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold); line-height: 1; flex-shrink: 0; opacity: 0.7; }
+    .hs-step h4 { font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 4px; letter-spacing: 0.5px; }
+    .hs-step p { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.6; }
+    .hybrid-price-card { background: rgba(255,255,255,0.08); padding: 36px 32px; border: 1px solid rgba(255,255,255,0.1); }
+    .hpc-label { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--seafoam); margin-bottom: 12px; }
+    .hpc-price { font-family: 'Cormorant Garamond', serif; font-size: 52px; color: var(--gold-lt); line-height: 1; }
+    .hpc-note { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px; margin-bottom: 20px; }
+    .hpc-features { list-style: none; }
+    .hpc-features li { font-size: 13.5px; color: rgba(255,255,255,0.65); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; gap: 10px; }
+    .hpc-features li:last-child { border-bottom: none; }
+    .hpc-features li::before { content: '✓'; color: var(--seafoam); font-weight: 700; flex-shrink: 0; }
 
-    /* PROOF / ABOUT */
+    /* PROOF */
     .proof-section { background: var(--sand); }
     .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .proof-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .proof-num { padding: 28px; background: var(--white); text-align: center; }
     .proof-num-val { font-family: 'Cormorant Garamond', serif; font-size: 44px; color: var(--deep-teal); line-height: 1; }
-    .proof-num-label { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; margin-top: 6px; }
-    .proof-quote { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--deep-teal); line-height: 1.55; margin-bottom: 20px; }
+    .proof-num-label { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; margin-top: 6px; line-height: 1.4; }
+    .proof-quote { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--deep-teal); line-height: 1.55; margin-bottom: 16px; margin-top: 20px; }
     .proof-attr { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
-    .proof-cso-badge { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; padding: 14px 20px; background: var(--lavender); }
-    .proof-cso-badge p { font-size: 12px; color: var(--purple); margin: 0; letter-spacing: 0.5px; }
-
-    /* OFFER DEEP DIVE */
-    .offer-section { background: var(--white); }
-    .offer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: start; }
-    .fee-table { width: 100%; border-collapse: collapse; margin-top: 28px; }
-    .fee-table th { text-align: left; font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); padding: 10px 16px; border-bottom: 1.5px solid rgba(28,79,88,0.12); }
-    .fee-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid rgba(28,79,88,0.07); color: var(--text-soft); }
-    .fee-table td:last-child { text-align: right; font-weight: 500; color: var(--text); }
-    .fee-table tr.credit td { color: var(--teal); }
-    .fee-table tr.credit td:last-child { color: var(--teal); }
-    .fee-table tr.total td { font-weight: 600; color: var(--deep-teal); font-size: 15px; border-bottom: none; border-top: 1.5px solid rgba(28,79,88,0.15); }
-    .value-stack { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
-    .vs-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px; background: var(--sand); }
-    .vs-check { color: var(--seafoam); font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-    .vs-text { font-size: 13.5px; color: var(--text-soft); line-height: 1.6; }
-    .vs-text strong { color: var(--text); display: block; font-size: 14px; }
 
     /* FAQ */
-    .faq-section { background: var(--sand); }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
-    .faq-item { padding: 28px; background: var(--white); }
+    .faq-section { background: var(--white); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .faq-item { padding: 28px; background: var(--sand); }
     .faq-q { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--deep-teal); margin-bottom: 12px; line-height: 1.3; }
     .faq-a { font-size: 14px; color: var(--text-soft); line-height: 1.75; margin: 0; }
 
@@ -151,17 +153,17 @@
     .final-cta h2 { color: var(--white); margin-bottom: 20px; }
     .final-cta p { color: rgba(255,255,255,0.65); font-size: 16px; line-height: 1.8; }
     .final-form { background: rgba(255,255,255,0.07); padding: 40px 36px; }
-    .final-form .ff-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--white); margin-bottom: 6px; }
-    .final-form .ff-sub { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 28px; }
+    .ff-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--white); margin-bottom: 6px; }
+    .ff-sub { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
     .ff-group { margin-bottom: 14px; }
     .ff-group label { display: block; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
-    .ff-group input, .ff-group select { width: 100%; padding: 12px 14px; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.15); color: var(--white); font-family: 'Jost', sans-serif; font-size: 14px; border-radius: 1px; outline: none; transition: border-color 0.2s; }
-    .ff-group input::placeholder { color: rgba(255,255,255,0.25); }
+    .ff-group input, .ff-group select { width: 100%; padding: 12px 14px; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.14); color: var(--white); font-family: 'Jost', sans-serif; font-size: 14px; border-radius: 1px; outline: none; transition: border-color 0.2s; }
+    .ff-group input::placeholder { color: rgba(255,255,255,0.2); }
     .ff-group input:focus, .ff-group select:focus { border-color: var(--seafoam); }
     .ff-group select option { background: var(--deep-teal); color: var(--white); }
     .ff-submit { width: 100%; padding: 16px; background: var(--gold); color: var(--white); border: none; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; border-radius: 1px; margin-top: 6px; }
     .ff-submit:hover { background: #B8943E; }
-    .ff-note { font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 12px; }
+    .ff-note { font-size: 11px; color: rgba(255,255,255,0.22); text-align: center; margin-top: 12px; }
 
     /* FOOTER */
     footer { background: #0F1C1F; padding: 40px 10%; display: flex; align-items: center; justify-content: space-between; }
@@ -170,16 +172,17 @@
     footer p { font-size: 12px; color: rgba(255,255,255,0.3); margin: 0; }
     footer a { font-size: 12px; color: rgba(255,255,255,0.4); }
     footer a:hover { color: var(--seafoam); }
-    .footer-links { display: flex; gap: 24px; }
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
-      .offer-card { position: static; }
-      .problem-grid, .proof-grid, .offer-grid, .final-cta { grid-template-columns: 1fr; gap: 40px; }
-      .pathway-steps { grid-template-columns: 1fr 1fr; }
+      .founding-card { position: static; }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .hybrid-grid { grid-template-columns: 1fr; gap: 40px; }
+      .proof-grid { grid-template-columns: 1fr; gap: 40px; }
       .faq-grid { grid-template-columns: 1fr; }
-      .hero-stats { grid-template-columns: 1fr 1fr; }
-      .proof-nums { grid-template-columns: 1fr 1fr; }
+      .final-cta { grid-template-columns: 1fr; gap: 48px; }
+      .concierge-bar { grid-template-columns: 1fr; }
+      .concierge-right { text-align: left; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
     }
   </style>
@@ -188,9 +191,7 @@
 
 <!-- URGENCY BAR -->
 <div class="urgency-bar">
-  <div class="urgency-dot"></div>
-  <p>Founding Families spots are open now. Limited to the first 20 families.</p>
-  <div class="urgency-dot"></div>
+  <p><strong>Founding Families spots open this week only.</strong> Lock in your rate. Priority matching ahead of the general waitlist.</p>
 </div>
 
 <!-- NAV -->
@@ -199,129 +200,195 @@
   <div class="nav-right">
     <a href="camica-surrogate.html">Become a Surrogate</a>
     <a href="https://portal.canadiansurrogacyoptions.com/camica/login" style="color:var(--teal);">Client Portal</a>
-    <a href="#secure" class="btn btn-primary">Secure My Spot</a>
+    <a href="#register" class="btn btn-primary">Begin Your Journey</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div>
-    <span class="hero-kicker">Camica Hybrid Pathway — Canada + Florida</span>
-    <h1>You have waited<br>long enough.<br><em>This is the answer.</em></h1>
-    <p class="hero-body">The Canadian surrogate waitlist is 2 to 4 years. Florida's isn't. Camica matches Canadian intended parents with experienced Florida gestational carriers. Your baby is carried in Florida and born in Canada — on a timeline that is actually real.</p>
+    <span class="hero-kicker">Camica — Florida's Boutique Surrogacy Agency</span>
+    <h1>Surrogacy the way it<br>should <em>feel.</em></h1>
+    <p class="hero-body">Camica connects exceptional families with experienced, compassionate surrogates in Florida. Boutique care, real timelines, and 34 years of experience behind every match. Canadian families: a Canadian birth is available through our Hybrid Pathway.</p>
 
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">60–90</div>
-        <div class="hero-stat-label">Days to surrogate match</div>
+    <div class="hero-proof">
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">34</div>
+        <div class="hero-proof-label">Years in surrogacy</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">34</div>
-        <div class="hero-stat-label">Years of experience behind you</div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">60–90</div>
+        <div class="hero-proof-label">Days to surrogate match</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">$0</div>
-        <div class="hero-stat-label">CSO fee wasted — it's fully credited</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">100%</div>
-        <div class="hero-stat-label">Refundable deposit if no match in 12 months</div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">100%</div>
+        <div class="hero-proof-label">Boutique — Robyn personally leads</div>
       </div>
     </div>
 
     <div class="hero-ctas">
-      <a href="#secure" class="btn btn-gold" style="padding:16px 32px;font-size:12px;">Secure My Founding Families Spot &rarr;</a>
-      <a href="#how" class="btn btn-outline">How It Works</a>
+      <a href="#register" class="btn btn-gold" style="padding:16px 32px;font-size:12px;">Secure a Founding Families Spot &rarr;</a>
+      <a href="#packages" class="btn btn-outline">View Packages</a>
     </div>
   </div>
 
-  <!-- STICKY OFFER CARD -->
-  <div class="offer-card" id="secure">
-    <div class="oc-kicker">Founding Families</div>
-    <div class="oc-sub">Limited to 20 families — now open</div>
-    <div class="oc-title">Your existing investment<br>counts. The wait counts.</div>
-    <div class="oc-price">$24,500</div>
-    <div class="oc-price-label">USD — Hybrid Pathway fee</div>
+  <!-- FOUNDING FAMILIES CARD -->
+  <div class="founding-card" id="founding">
+    <div class="fc-badge">Founding Families</div>
+    <div class="fc-sub">This week only — limited spots</div>
+    <div class="fc-title">Lock in your rate.<br>Go to the front of the list.</div>
 
-    <div class="oc-credits">
-      <div class="oc-credit"><strong>Your CSO fee credited in full.</strong> Not lost. Applied directly.</div>
-      <div class="oc-credit"><strong>$2,500 founding deposit</strong> also credited toward your total.</div>
-      <div class="oc-credit">Matching begins within weeks of your deposit.</div>
-      <div class="oc-credit">One team. Both sides. Florida carrier. Canadian birth.</div>
+    <div class="fc-price-row">
+      <div class="fc-price">$2,500</div>
+    </div>
+    <div class="fc-price-note">USD — founding deposit, credited toward your pathway fee</div>
+    <div class="fc-deposit" style="margin-top:8px;">Hybrid Pathway locked at <strong style="color:var(--gold-lt);">$26,500 USD</strong> — or any standard package at today's rate.</div>
+
+    <div class="fc-items">
+      <div class="fc-item"><strong>Priority matching</strong> ahead of the general waitlist opening in June</div>
+      <div class="fc-item"><strong>Rate locked</strong> — as demand grows, pricing increases. Founding Families keep today's rate.</div>
+      <div class="fc-item"><strong>Robyn personally</strong> leads every founding family journey</div>
+      <div class="fc-item">$2,500 deposit <strong>credited in full</strong> toward your package fee</div>
     </div>
 
-    <div class="oc-refund">
-      <strong>100% refundable.</strong> If no surrogate match is made within 12 months, your $2,500 founding deposit is returned in full. No questions.
+    <div class="fc-refund">
+      <strong>100% refundable.</strong> If no surrogate match is made within 12 months, your deposit is returned in full. No questions asked.
     </div>
 
-    <a href="https://portal.canadiansurrogacyoptions.com/camica/register" class="oc-cta">
-      Register Now — Secure My Spot &rarr;
-    </a>
-    <div class="oc-secondary">Pay the $2,500 deposit by e-transfer to robyn@camica.ca<br>or reply for a secure credit card link.</div>
-    <div class="oc-spots">Only 20 founding families spots available.</div>
+    <a href="#register" class="fc-cta">Secure My Founding Families Spot &rarr;</a>
+    <div class="fc-cta-note">E-transfer to robyn@camica.ca or register below and reply for a secure credit card link.</div>
   </div>
 </div>
 
-<!-- THE PROBLEM -->
-<section class="problem-section">
-  <div class="problem-grid">
-    <div>
-      <span class="eyebrow">The Canadian Surrogacy Crisis</span>
-      <h2>The waitlist isn't<br>getting shorter.</h2>
-      <p style="margin-top:20px;">Canada's altruistic-only surrogacy model was always going to produce scarcity. Demand grows every year. Supply doesn't. The families who waited 18 months two years ago are now waiting 3 to 4 years with no clear timeline in sight.</p>
-      <p>Meanwhile, embryos don't last forever. Biological clocks don't pause. And every month on a waitlist is a month you are not moving forward.</p>
-      <p>You did not sign up for this. And you don't have to keep waiting.</p>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--deep-teal);margin-top:24px;">"The Canadian supply problem is real. I have spent the last 34 years in this industry and I have never seen it this constrained. That is why I built Camica."</p>
-      <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-top:8px;">Robyn Price, Founder</p>
+<!-- PACKAGES -->
+<section class="pkg-section" id="packages">
+  <span class="eyebrow">Programs for Intended Parents</span>
+  <h2>Choose the level of<br>support that's right for you.</h2>
+  <p style="max-width:580px;margin-top:16px;">Every Camica family receives full surrogate sourcing, matching, legal coordination, and case management. Packages differ in level of personalization, priority access, and additional services.</p>
+
+  <div class="pkg-grid">
+    <div class="pkg-card">
+      <div class="pkg-tag">Signature</div>
+      <div class="pkg-price"><span class="pkg-currency">$</span>28,000</div>
+      <div class="pkg-period">USD — agency fee</div>
+      <ul class="pkg-features">
+        <li>Full surrogate sourcing and vetting</li>
+        <li>Surrogate matching and introduction</li>
+        <li>Legal coordination — both sides</li>
+        <li>Medical cycle coordination</li>
+        <li>Dedicated case manager</li>
+        <li>Journey support through birth</li>
+      </ul>
+      <a href="#register" class="pkg-cta">Get Started</a>
     </div>
-    <div class="problem-stat-block">
-      <div class="problem-stat">
-        <div class="problem-stat-num">2–4</div>
-        <div class="problem-stat-text">Years: average Canadian surrogate waitlist for new intended parents right now</div>
-      </div>
-      <div class="problem-stat dark">
-        <div class="problem-stat-num">60–90</div>
-        <div class="problem-stat-text" style="color:rgba(255,255,255,0.55);">Days: average surrogate match timeline with Camica's Florida pool</div>
-      </div>
-      <div class="problem-stat">
-        <div class="problem-stat-num">1 in 6</div>
-        <div class="problem-stat-text">Canadian couples face fertility challenges — demand is growing, supply is not</div>
-      </div>
+
+    <div class="pkg-card featured">
+      <div class="pkg-tag">Priority</div>
+      <div class="pkg-price"><span class="pkg-currency" style="color:var(--gold);">$</span>38,000</div>
+      <div class="pkg-period">USD — agency fee</div>
+      <ul class="pkg-features">
+        <li>Everything in Signature</li>
+        <li>Priority access to new surrogate profiles</li>
+        <li>Expedited screening and matching</li>
+        <li>Monthly strategy calls with Robyn</li>
+        <li>Extended post-birth support package</li>
+        <li>Unlimited email and call support</li>
+      </ul>
+      <a href="#register" class="pkg-cta">Get Started</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-tag">Premier</div>
+      <div class="pkg-price"><span class="pkg-currency">$</span>48,000</div>
+      <div class="pkg-period">USD — agency fee</div>
+      <ul class="pkg-features">
+        <li>Everything in Priority</li>
+        <li>Robyn personally leads your journey</li>
+        <li>First access to every new surrogate profile</li>
+        <li>Direct clinic relationships — faster transfers</li>
+        <li>Comprehensive milestone reporting</li>
+        <li>Concierge-level communication throughout</li>
+      </ul>
+      <a href="#register" class="pkg-cta">Get Started</a>
+    </div>
+  </div>
+
+  <div class="concierge-bar">
+    <div>
+      <h3>Concierge</h3>
+      <p>For families where every detail must be handled with precision. International travel, cross-border legal complexity, Robyn personally leads above all active clients. By application only.</p>
+    </div>
+    <div class="concierge-right">
+      <div class="concierge-price">From $65,000</div>
+      <div class="concierge-note">USD — by application only</div>
+      <a href="mailto:robyn@camica.ca" class="btn btn-gold" style="font-size:11px;">Inquire &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <span class="eyebrow" style="color:var(--seafoam);">The Camica Hybrid Pathway</span>
-  <h2 style="color:var(--white);">Florida surrogate.<br>Canadian birth. Real timeline.</h2>
-  <p style="color:rgba(255,255,255,0.65);max-width:600px;margin-top:16px;">Florida has the deepest compensated surrogate pool in North America. Camica connects you with that supply and manages both sides of the journey from match to birth.</p>
+<!-- HYBRID PATHWAY — CANADIAN FAMILIES -->
+<section class="hybrid-section" id="hybrid">
+  <div class="hybrid-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--seafoam);">For Canadian Families</span>
+      <h2 style="color:var(--white);">Florida surrogate.<br>Your baby born in Canada.</h2>
+      <p style="color:rgba(255,255,255,0.65);margin-top:16px;">Canada's surrogate waitlist is 2 to 4 years. Florida's isn't. Through the Camica Hybrid Pathway, your surrogate carries in Florida and travels to Ontario at 36 weeks. Your baby is born in Canada. You never leave home.</p>
+      <p style="color:rgba(255,255,255,0.65);">The legal framework is established on both sides. Canadian reproductive attorneys handle the Ontario birth order. Camica coordinates everything in between.</p>
 
-  <div class="pathway-steps">
-    <div class="ps-step">
-      <div class="ps-num">01</div>
-      <h3>You Secure Your Spot</h3>
-      <p>Register and pay the $2,500 founding deposit. Robyn reviews your profile. Matching begins within weeks — not months.</p>
+      <div class="hybrid-steps">
+        <div class="hs-step">
+          <div class="hs-num">01</div>
+          <div>
+            <h4>You match with a Florida surrogate</h4>
+            <p>Pre-screened, medically cleared, and ready to carry. Match in 60–90 days.</p>
+          </div>
+        </div>
+        <div class="hs-step">
+          <div class="hs-num">02</div>
+          <div>
+            <h4>She carries in Florida</h4>
+            <p>All medical, legal, and support managed by Camica across both sides.</p>
+          </div>
+        </div>
+        <div class="hs-step">
+          <div class="hs-num">03</div>
+          <div>
+            <h4>She travels to Ontario at 36 weeks</h4>
+            <p>Flights, accommodation, and medical transition fully arranged.</p>
+          </div>
+        </div>
+        <div class="hs-step">
+          <div class="hs-num">04</div>
+          <div>
+            <h4>Your baby is born in Canada</h4>
+            <p>Ontario birth order secured. Canadian citizenship. You stayed home.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="ps-step">
-      <div class="ps-num">02</div>
-      <h3>Surrogate Match</h3>
-      <p>You receive profiles of pre-screened Florida gestational carriers. You choose who feels right. Meet before you commit.</p>
-    </div>
-    <div class="ps-step">
-      <div class="ps-num">03</div>
-      <h3>Legal + Medical</h3>
-      <p>Canadian and Florida reproductive attorneys handle both sides of the legal framework. Medical team coordinates the transfer. Camica manages everything in between.</p>
-    </div>
-    <div class="ps-step">
-      <div class="ps-num">04</div>
-      <h3>Your Baby, Born in Canada</h3>
-      <p>Your surrogate travels to Ontario at 36 weeks. Canadian birth order secured. Your child is born a Canadian citizen. You never leave home.</p>
-    </div>
-  </div>
 
-  <div class="ps-note">
-    <p><strong>The legal framework is established.</strong> Canadian reproductive attorneys handle the Ontario birth order. Florida attorneys manage the surrogacy agreement. This pathway has been used successfully by families across both countries. Camica coordinates the full cross-border process.</p>
+    <div>
+      <div class="hybrid-price-card">
+        <div class="hpc-label">Hybrid Pathway</div>
+        <div class="hpc-price">$26,500</div>
+        <div class="hpc-note">USD — agency fee for the full Hybrid Pathway</div>
+        <ul class="hpc-features">
+          <li>Florida surrogate sourcing and matching</li>
+          <li>Florida and Ontario legal coordination</li>
+          <li>Medical coordination — transfer to Ontario at 36 weeks</li>
+          <li>Ontario birth order secured by Canadian attorney</li>
+          <li>Full journey case management, both countries</li>
+          <li>Baby born in Canada — Canadian citizenship</li>
+        </ul>
+        <a href="#register" class="btn btn-gold" style="margin-top:28px;width:100%;justify-content:center;">Start the Hybrid Pathway &rarr;</a>
+      </div>
+
+      <div style="margin-top:16px;padding:16px 20px;background:rgba(255,255,255,0.06);border-left:2px solid var(--gold);">
+        <p style="font-size:12px;color:rgba(255,255,255,0.5);margin:0;line-height:1.65;">
+          <strong style="color:rgba(255,255,255,0.8);">Founding Families this week:</strong> Lock in the $26,500 Hybrid rate with a $2,500 deposit. Priority matching begins immediately. Rate guaranteed regardless of future pricing changes.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -329,109 +396,29 @@
 <section class="proof-section">
   <div class="proof-grid">
     <div>
-      <span class="eyebrow">Why Robyn. Why Camica.</span>
-      <h2>34 years.<br>Not our first journey.</h2>
-      <p style="margin-top:20px;">Camica was founded by Robyn Price, who grew up in Canadian surrogacy and has spent her career building one of the most trusted agencies in the country. Canadian Surrogacy Options has served hundreds of families since 1992.</p>
-      <p>Camica is not a startup. It is an extension of that legacy into a market that Canadian families desperately need access to.</p>
-      <p class="proof-quote">"I built Camica because I watched families I cared about run out of options. That was not acceptable to me."</p>
-      <div class="proof-attr">Robyn Price, Founder — Camica and CSO</div>
-      <div class="proof-cso-badge">
-        <p>Sister agency: <strong>Canadian Surrogacy Options</strong> — founded 1992, serving families across Canada for 34 years.</p>
-      </div>
+      <span class="eyebrow">Why Camica</span>
+      <h2>Founded by someone who has<br>done this for 34 years.</h2>
+      <p style="margin-top:16px;">Camica was founded by Robyn Price, who built Canadian Surrogacy Options in 1992 and has spent her career matching families across North America. Camica is not a startup — it is an extension of that legacy into the Florida market.</p>
+      <p>Boutique means something here. Robyn is not a brand name on a website. She is in your file, answering your calls, and personally involved in every match.</p>
+      <p class="proof-quote">"I did not build Camica to be another agency. I built it to do this right, for the families who deserve it."</p>
+      <div class="proof-attr">Robyn Price, Founder — Camica and Canadian Surrogacy Options</div>
     </div>
     <div class="proof-nums">
       <div class="proof-num">
         <div class="proof-num-val">34</div>
-        <div class="proof-num-label">Years in surrogacy</div>
+        <div class="proof-num-label">Years in surrogacy and egg donation</div>
       </div>
       <div class="proof-num">
         <div class="proof-num-val">100s</div>
-        <div class="proof-num-label">Families matched</div>
+        <div class="proof-num-label">Families matched across North America</div>
       </div>
       <div class="proof-num">
-        <div class="proof-num-val">#1</div>
-        <div class="proof-num-label">Florida surrogate supply pool in North America</div>
+        <div class="proof-num-val">FL</div>
+        <div class="proof-num-label">Deepest compensated surrogate pool in North America</div>
       </div>
       <div class="proof-num">
         <div class="proof-num-val">Both</div>
-        <div class="proof-num-label">Canadian + US legal handled in-house</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OFFER DETAIL -->
-<section class="offer-section">
-  <span class="eyebrow">The Founding Families Offer</span>
-  <h2>What you actually owe.<br>Broken down clearly.</h2>
-
-  <div class="offer-grid">
-    <div>
-      <p style="margin-top:16px;">The families who have already been on this journey with me at CSO get a pathway built specifically for them. Your wait matters. Your investment matters. Neither is wasted.</p>
-
-      <table class="fee-table">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Camica Hybrid Pathway fee</td>
-            <td>$24,500 USD</td>
-          </tr>
-          <tr class="credit">
-            <td>Less: CSO fee (credited in full)</td>
-            <td>- your amount</td>
-          </tr>
-          <tr class="credit">
-            <td>Less: $2,500 founding deposit (also credited)</td>
-            <td>- $2,500</td>
-          </tr>
-          <tr class="total">
-            <td>Remaining balance at surrogate match</td>
-            <td>balance only</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div style="margin-top:20px;padding:16px 20px;background:var(--seafoam-lt);border-left:3px solid var(--seafoam);font-size:13px;color:var(--text-soft);line-height:1.65;">
-        <strong style="color:var(--deep-teal);">Example:</strong> If you paid $10,000 CAD to CSO, that credit is applied in full. Your $2,500 founding deposit is also credited. Your remaining balance at the time of match reflects both deductions applied to the $24,500 fee.
-      </div>
-
-      <div style="margin-top:20px;padding:16px 20px;background:var(--sand);font-size:13px;color:var(--text-soft);line-height:1.65;">
-        <strong style="color:var(--deep-teal);">New to Camica?</strong> No CSO history? The Founding Families spot is still open to you. $24,500 USD. $2,500 founding deposit credited. The same match timeline. Contact <a href="mailto:robyn@camica.ca" style="color:var(--teal);text-decoration:underline;">robyn@camica.ca</a> to discuss.
-      </div>
-    </div>
-
-    <div>
-      <div style="font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;">Everything included</div>
-      <div class="value-stack">
-        <div class="vs-item">
-          <div class="vs-check">✓</div>
-          <div class="vs-text"><strong>Full surrogate sourcing and matching</strong>Pre-screened, medically cleared Florida gestational carriers. You meet before you commit.</div>
-        </div>
-        <div class="vs-item">
-          <div class="vs-check">✓</div>
-          <div class="vs-text"><strong>Cross-border legal coordination</strong>Florida and Ontario reproductive attorneys, coordinated by Camica. Both sides managed.</div>
-        </div>
-        <div class="vs-item">
-          <div class="vs-check">✓</div>
-          <div class="vs-text"><strong>Medical coordination — Florida to Ontario</strong>Fertility clinic, OB, transfer to Ontario hospital at 36 weeks. Camica manages the transition.</div>
-        </div>
-        <div class="vs-item">
-          <div class="vs-check">✓</div>
-          <div class="vs-text"><strong>Dedicated case manager, full journey</strong>One person. Available by phone or text. Not a call centre.</div>
-        </div>
-        <div class="vs-item">
-          <div class="vs-check">✓</div>
-          <div class="vs-text"><strong>Ontario birth order secured</strong>Canadian reproductive attorney handles the provincial parentage order. Your child is Canadian.</div>
-        </div>
-        <div class="vs-item">
-          <div class="vs-check">✓</div>
-          <div class="vs-text"><strong>Robyn personally leads your journey</strong>Boutique means boutique. This is not a file on a desk.</div>
-        </div>
+        <div class="proof-num-label">US and Canadian legal coordinated in-house</div>
       </div>
     </div>
   </div>
@@ -439,50 +426,49 @@
 
 <!-- FAQ -->
 <section class="faq-section">
-  <span class="eyebrow">Questions We Hear Every Time</span>
-  <h2>Answered honestly.<br>No glossing over.</h2>
-
+  <span class="eyebrow">Common Questions</span>
+  <h2>Answered honestly.</h2>
   <div class="faq-grid">
     <div class="faq-item">
-      <div class="faq-q">Is a Florida surrogate legally valid in Canada?</div>
-      <p class="faq-a">Yes. The legal framework for cross-border surrogacy is well-established. A Canadian reproductive attorney handles the Ontario parentage order. Your child is born in Canada and recognized as yours under Canadian law. Camica has reproductive attorneys on both sides coordinating the process.</p>
+      <div class="faq-q">What does Camica's agency fee cover?</div>
+      <p class="faq-a">The agency fee covers surrogate sourcing, screening, matching, legal coordination on both sides, medical cycle coordination, full case management from match through birth, and post-birth support. Surrogate compensation, medical costs, and legal fees are separate and paid directly — Camica coordinates but does not mark them up.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Why is my baby born in Ontario and not Florida?</div>
-      <p class="faq-a">We designed the Hybrid Pathway specifically so that Canadian intended parents do not have to travel. Your surrogate travels to Ontario at 36 weeks for delivery. You are home. Your baby is born in Canada, holds Canadian citizenship, and the Ontario birth order is obtained here.</p>
+      <div class="faq-q">How is Camica different from a large agency?</div>
+      <p class="faq-a">Large agencies process dozens of families at a time. Camica is deliberately small. Robyn personally reviews every match and is reachable by phone. You are not a file number. The founding period specifically limits intake so that every family gets the attention they came for.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What if the surrogate doesn't want to travel to Canada?</div>
-      <p class="faq-a">This is part of the matching criteria and is fully contracted before any transfer occurs. Camica only matches you with surrogates who have agreed to the Ontario delivery arrangement. It is not a surprise — it is part of the original agreement they sign.</p>
+      <div class="faq-q">What does the Founding Families deposit lock in?</div>
+      <p class="faq-a">The $2,500 deposit locks in today's package rate for the life of your journey — rates will increase as Camica grows and demand rises. It also puts you at the front of the matching queue ahead of families who join after the founding period closes. The deposit is credited in full toward your package fee at match.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">How is this different from a US agency?</div>
-      <p class="faq-a">Comparable US boutique agencies charge $38,000–$65,000+ for an agency fee alone, without the Canadian-birth structure. Camica's Founding Families fee is $24,500 USD, includes cross-border coordination, and credits your existing CSO investment. It is built for Canadian families, not American ones.</p>
+      <div class="faq-q">Can I use my own fertility clinic?</div>
+      <p class="faq-a">Yes. Camica coordinates with your existing reproductive endocrinologist. If you are in Canada, your embryos stay at your Canadian clinic and are transported to Florida for the transfer under standard protocols. You do not need to change clinics.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What happens to my embryos — are they safe to move?</div>
-      <p class="faq-a">Your embryos stay where they are. The surrogate's transfer is done at a Florida fertility clinic. Embryo transport protocols are well established. Camica coordinates with your clinic to ensure proper handling. Your reproductive endocrinologist remains your medical team throughout.</p>
+      <div class="faq-q">What if we do not match within 12 months?</div>
+      <p class="faq-a">Your $2,500 founding deposit is refunded in full. We have a deep Florida surrogate pool and have not had difficulty matching families who are reasonably flexible — but the guarantee is there regardless.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What if we don't match in 12 months?</div>
-      <p class="faq-a">Your $2,500 founding deposit is fully refunded. No conditions. We have never had an issue matching families who are reasonably flexible — but we believe you should have that protection regardless.</p>
+      <div class="faq-q">Is the Hybrid Pathway (Canadian birth) available for US families?</div>
+      <p class="faq-a">The Hybrid Pathway is designed specifically for Canadian intended parents who want their child born in Canada. US families typically deliver in Florida with their surrogate. Camica offers full US-based surrogacy programs — your package includes clinic coordination and full legal support in your state.</p>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<div class="final-cta" id="final">
+<div class="final-cta" id="register">
   <div>
-    <span class="eyebrow" style="color:var(--seafoam);">Founding Families — Now Open</span>
-    <h2>20 spots.<br>Your name<br>should be on one.</h2>
-    <p style="margin-top:16px;">The families who register this weekend will be the first matched. The founding deposit is $2,500 USD — fully credited toward your pathway fee, fully refundable if we don't match you within 12 months.</p>
-    <p>Pay by e-transfer to <strong style="color:var(--white);">robyn@camica.ca</strong> or register below and reply for a secure credit card link.</p>
-    <p style="margin-top:28px;font-size:13px;color:rgba(255,255,255,0.4);">Already have a CSO account? <a href="https://portal.canadiansurrogacyoptions.com/camica/login" style="color:var(--seafoam);text-decoration:underline;">Sign in to your portal</a> and you're already in the system.</p>
+    <span class="eyebrow" style="color:var(--seafoam);">Founding Families — This Week Only</span>
+    <h2>The families who start<br>now go first.</h2>
+    <p style="margin-top:12px;">Register below to create your Camica portal account. Robyn will personally reach out within 24 hours to discuss which pathway is right for your family and confirm your founding families spot.</p>
+    <p>Once you are ready, the $2,500 founding deposit can be paid by e-transfer to <strong style="color:var(--white);">robyn@camica.ca</strong> or by credit card — reply and a secure link will be sent.</p>
+    <p style="margin-top:24px;font-size:13px;color:rgba(255,255,255,0.35);">Already have a portal account? <a href="https://portal.canadiansurrogacyoptions.com/camica/login" style="color:var(--seafoam);text-decoration:underline;">Sign in here</a></p>
   </div>
 
   <div class="final-form">
-    <div class="ff-title">Register as a Founding Family</div>
-    <div class="ff-sub">Create your Camica portal account. Robyn will be in touch within 24 hours.</div>
+    <div class="ff-title">Create Your Account</div>
+    <div class="ff-sub">Takes 2 minutes. Robyn personally follows up within 24 hours.</div>
     <form action="https://portal.canadiansurrogacyoptions.com/camica/register" method="get">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
         <div class="ff-group">
@@ -500,32 +486,34 @@
       </div>
       <div class="ff-group">
         <label>Phone Number</label>
-        <input type="tel" name="phone" placeholder="416-555-0100" required>
+        <input type="tel" name="phone" placeholder="416-555-0100 or (555) 000-0000" required>
       </div>
       <div class="ff-group">
-        <label>How long have you been waiting?</label>
-        <select name="wait_time" required>
+        <label>Country</label>
+        <select name="country">
           <option value="">Select...</option>
-          <option value="new">Just starting out</option>
-          <option value="under1">Less than 1 year</option>
-          <option value="1to2">1–2 years</option>
-          <option value="over2">More than 2 years</option>
+          <option value="CA">Canada</option>
+          <option value="US">United States</option>
+          <option value="other">Other</option>
         </select>
       </div>
       <div class="ff-group">
-        <label>Do you have embryos ready?</label>
-        <select name="embryos">
+        <label>Which pathway interests you?</label>
+        <select name="pathway">
           <option value="">Select...</option>
-          <option value="yes">Yes, embryos are ready</option>
-          <option value="in_progress">In progress with a clinic</option>
-          <option value="no">Not yet — still planning</option>
+          <option value="hybrid">Hybrid Pathway — Canadian birth ($26,500)</option>
+          <option value="signature">Signature Package ($28,000)</option>
+          <option value="priority">Priority Package ($38,000)</option>
+          <option value="premier">Premier Package ($48,000)</option>
+          <option value="concierge">Concierge — by application</option>
+          <option value="unsure">Not sure yet — I'd like to talk first</option>
         </select>
       </div>
       <input type="hidden" name="role" value="ip">
       <input type="hidden" name="source" value="camica-ip-page">
-      <button type="submit" class="ff-submit">Secure My Founding Families Spot &rarr;</button>
+      <button type="submit" class="ff-submit">Create My Account &rarr;</button>
     </form>
-    <div class="ff-note">No payment taken here. Robyn will follow up within 24 hours to confirm your spot and send deposit details.</div>
+    <div class="ff-note">No payment is taken here. Robyn will follow up within 24 hours.</div>
   </div>
 </div>
 
@@ -533,11 +521,6 @@
   <div>
     <div class="footer-logo">Cami<span>c</span>a</div>
     <p style="margin-top:6px;">Florida, USA &nbsp;·&nbsp; <a href="mailto:robyn@camica.ca">robyn@camica.ca</a></p>
-  </div>
-  <div class="footer-links">
-    <a href="camica-surrogate.html">Become a Surrogate</a>
-    <a href="camica-homepage.html">About Camica</a>
-    <a href="https://portal.canadiansurrogacyoptions.com/camica/login">Client Portal</a>
   </div>
   <p>Sister agency: <a href="https://canadiansurrogacyoptions.com">Canadian Surrogacy Options</a> — Est. 1992</p>
 </footer>
