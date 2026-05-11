@@ -1,7 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './SurrogateLeadForm.module.css';
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+function loadRecaptcha() {
+  if (!SITE_KEY || document.getElementById('recaptcha-script')) return;
+  const s = document.createElement('script');
+  s.id = 'recaptcha-script';
+  s.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
+  s.async = true;
+  document.head.appendChild(s);
+}
+
+async function getToken(action: string): Promise<string | null> {
+  if (!SITE_KEY || !window.grecaptcha) return null;
+  try { return await window.grecaptcha.execute(SITE_KEY, { action }); } catch { return null; }
+}
 
 export default function SurrogateLeadForm() {
   const [firstName, setFirstName] = useState('');
@@ -9,17 +25,20 @@ export default function SurrogateLeadForm() {
   const [loading, setLoading] = useState(false);
   const [pdfUrl, setPdfUrl] = useState('');
   const [error, setError] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot
+
+  useEffect(() => { loadRecaptcha(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError('');
-
+    const captchaToken = await getToken('surrogate_guide');
     try {
       const res = await fetch('/api/surrogate-guide', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, email }),
+        body: JSON.stringify({ firstName, email, captchaToken, website }),
       });
 
       const data = await res.json();
@@ -62,6 +81,10 @@ export default function SurrogateLeadForm() {
         No cost. No obligation. Just information.
       </p>
       <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Honeypot */}
+        <input type="text" name="website" value={website} onChange={e => setWebsite(e.target.value)}
+          style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+          tabIndex={-1} autoComplete="off" aria-hidden="true" />
         <div className={styles.fields}>
           <input
             type="text"

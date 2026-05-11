@@ -1,7 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './concierge.module.css';
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+function loadRecaptcha() {
+  if (!SITE_KEY || document.getElementById('recaptcha-script')) return;
+  const s = document.createElement('script');
+  s.id = 'recaptcha-script';
+  s.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
+  s.async = true;
+  document.head.appendChild(s);
+}
+
+async function getToken(action: string): Promise<string | null> {
+  if (!SITE_KEY || !window.grecaptcha) return null;
+  try { return await window.grecaptcha.execute(SITE_KEY, { action }); } catch { return null; }
+}
 
 export default function ConciergeForm() {
   const [form, setForm] = useState({
@@ -16,6 +32,9 @@ export default function ConciergeForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot
+
+  useEffect(() => { loadRecaptcha(); }, []);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -25,11 +44,12 @@ export default function ConciergeForm() {
     e.preventDefault();
     setLoading(true);
     setError('');
+    const captchaToken = await getToken('concierge');
     try {
       const res = await fetch('/api/concierge-inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, captchaToken, website }),
       });
       if (!res.ok) {
         const data = await res.json();
@@ -59,6 +79,17 @@ export default function ConciergeForm() {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
+      {/* Honeypot — hidden from humans, bots fill it */}
+      <input
+        type="text"
+        name="website"
+        value={website}
+        onChange={e => setWebsite(e.target.value)}
+        style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       <div className={styles.formRow}>
         <div className={styles.formGroup}>
           <label className={styles.label}>First Name</label>

@@ -1,12 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
+import { verifyRecaptcha } from '@/lib/recaptcha';
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: NextRequest) {
   try {
-    const { firstName, email } = await req.json();
+    const { firstName, email, captchaToken, website } = await req.json();
+
+    // Honeypot
+    if (website) return NextResponse.json({ success: true, pdfUrl: process.env.PDF_SURROGATE_URL || '/pdfs/surrogate-readiness.pdf' });
+
+    // reCAPTCHA v3
+    if (!await verifyRecaptcha(captchaToken)) {
+      return NextResponse.json({ error: 'Security check failed. Please try again.' }, { status: 400 });
+    }
 
     if (!firstName || !email) {
       return NextResponse.json({ error: 'Name and email are required.' }, { status: 400 });
+    }
+
+    if (!EMAIL_RE.test(email)) {
+      return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
     const API_KEY = process.env.MAILCHIMP_API_KEY;

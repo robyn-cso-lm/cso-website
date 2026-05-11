@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
+import { verifyRecaptcha } from '@/lib/recaptcha';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MSG_LEN = 5000;
@@ -43,7 +44,7 @@ function escapeHtml(str: string): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { firstName, email, phone, role, message, website } = await req.json();
+    const { firstName, email, phone, role, message, website, captchaToken } = await req.json();
 
     // Honeypot — bots fill this, humans don't see it
     if (website) {
@@ -54,6 +55,11 @@ export async function POST(req: NextRequest) {
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown';
     if (isRateLimited(ip)) {
       return NextResponse.json({ error: 'Too many submissions. Please try again later.' }, { status: 429 });
+    }
+
+    // reCAPTCHA v3
+    if (!await verifyRecaptcha(captchaToken)) {
+      return NextResponse.json({ error: 'Security check failed. Please try again.' }, { status: 400 });
     }
 
     if (!firstName || !email || !message || !role) {

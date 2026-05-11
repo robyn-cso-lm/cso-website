@@ -1,7 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './ContactForm.module.css';
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+function loadRecaptcha() {
+  if (!SITE_KEY || document.getElementById('recaptcha-script')) return;
+  const s = document.createElement('script');
+  s.id = 'recaptcha-script';
+  s.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
+  s.async = true;
+  document.head.appendChild(s);
+}
+
+async function getToken(action: string): Promise<string | null> {
+  if (!SITE_KEY || !window.grecaptcha) return null;
+  try { return await window.grecaptcha.execute(SITE_KEY, { action }); } catch { return null; }
+}
 
 export default function ContactForm() {
   const [firstName, setFirstName] = useState('');
@@ -14,15 +30,18 @@ export default function ContactForm() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState('');
 
+  useEffect(() => { loadRecaptcha(); }, []);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError('');
+    const captchaToken = await getToken('contact');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, email, phone, role, message, website }),
+        body: JSON.stringify({ firstName, email, phone, role, message, website, captchaToken }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');

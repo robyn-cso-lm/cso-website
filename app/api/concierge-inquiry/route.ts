@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/graphMail';
+import { verifyRecaptcha } from '@/lib/recaptcha';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -15,7 +16,15 @@ function escapeHtml(str: string): string {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { firstName, lastName, email, phone, country, message, contactMethod } = body;
+    const { firstName, lastName, email, phone, country, message, contactMethod, captchaToken, website } = body;
+
+    // Honeypot
+    if (website) return NextResponse.json({ success: true });
+
+    // reCAPTCHA v3
+    if (!await verifyRecaptcha(captchaToken)) {
+      return NextResponse.json({ error: 'Security check failed. Please try again.' }, { status: 400 });
+    }
 
     if (!firstName || !lastName || !email || !message || !country) {
       return NextResponse.json({ error: 'Required fields missing.' }, { status: 400 });
