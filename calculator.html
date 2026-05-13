@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestational Carrier Compensation Calculator | Camica</title>
+  <meta name="description" content="Estimate your compensation as a gestational carrier with Camica — Florida's boutique surrogacy agency. Live, personalised estimate in USD.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cam: {
+              dark:   '#1B3D3D',
+              mid:    '#2D5555',
+              accent: '#5BA8A0',
+              cream:  '#EBE2D5',
+              cream2: '#F5F0E8',
+              border: '#D4C9B8',
+              muted:  '#8A9E9C',
+            }
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans:  ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #EBE2D5; }
+    .toggle-btn { transition: all 0.15s ease; border: 1.5px solid #D4C9B8; }
+    .toggle-btn.active { background: #1B3D3D; color: white; border-color: #1B3D3D; }
+    .bar-fill { transition: width 0.5s ease; }
+    input[type=range] { accent-color: #1B3D3D; }
+    .section-card { background: #F5F0E8; border-radius: 0.5rem; border: 1px solid #D4C9B8; padding: 1.5rem; margin-bottom: 1.25rem; }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="font-sans min-h-screen">
+
+  <!-- Nav -->
+  <nav style="background:#1B3D3D;" class="px-6 py-4 shadow-sm sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="/" class="text-cam-cream font-serif text-xl tracking-widest font-medium hover:text-white transition-colors">
+        CAMICA
+      </a>
+      <a href="/qualify" class="text-cam-muted text-sm hover:text-cam-cream transition-colors hidden sm:block tracking-wide">
+        ← Do I Qualify?
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section style="background:linear-gradient(135deg,#1B3D3D 0%,#2D5555 100%);" class="text-white py-14 px-6 text-center">
+    <p class="text-cam-muted text-xs font-semibold uppercase tracking-widest mb-4">Florida's Boutique Surrogacy Agency</p>
+    <h1 class="font-serif text-4xl md:text-5xl mb-3">
+      Gestational Carrier<br><em style="color:#5BA8A0;">Compensation Calculator</em>
+    </h1>
+    <p class="text-cam-muted text-base max-w-xl mx-auto leading-relaxed">
+      A personalised estimate of what you could receive as a gestational carrier — in US dollars. Adjust the options and watch your estimate update live.
+    </p>
+  </section>
+
+  <div class="max-w-5xl mx-auto px-4 py-12 md:py-16 grid lg:grid-cols-2 gap-8 items-start">
+
+    <!-- ── LEFT: Inputs ── -->
+    <div>
+      <h2 class="font-serif text-2xl text-cam-dark mb-6">Tell us about your situation</h2>
+
+      <!-- Experience -->
+      <div class="section-card">
+        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+          Have you been a gestational carrier before?
+        </label>
+        <div class="flex flex-col sm:flex-row gap-2">
+          <button class="toggle-btn active flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setExperience('first', this)">First time</button>
+          <button class="toggle-btn flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setExperience('one', this)">1 previous journey</button>
+          <button class="toggle-btn flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setExperience('two_plus', this)">2 or more</button>
+        </div>
+      </div>
+
+      <!-- Multiples -->
+      <div class="section-card">
+        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+          Open to carrying twins?
+        </label>
+        <p class="text-xs text-gray-400 mb-3">A multiples allowance applies if a twin pregnancy results.</p>
+        <div class="flex gap-2">
+          <button class="toggle-btn flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setToggle('twins', true, this)">Yes, open to it</button>
+          <button class="toggle-btn active flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setToggle('twins', false, this)">Singleton only</button>
+        </div>
+      </div>
+
+      <!-- C-section -->
+      <div class="section-card">
+        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+          Include C-section allowance?
+        </label>
+        <p class="text-xs text-gray-400 mb-3">A $5,000 allowance applies if a C-section is required. Include in your estimate?</p>
+        <div class="flex gap-2">
+          <button class="toggle-btn flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setToggle('csection', true, this)">Yes, include it</button>
+          <button class="toggle-btn active flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setToggle('csection', false, this)">Not needed</button>
+        </div>
+      </div>
+
+      <!-- Maternity clothing -->
+      <div class="section-card">
+        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+          Maternity clothing allowance
+        </label>
+        <p class="text-xs text-gray-400 mb-3">A clothing allowance is provided once pregnancy is confirmed.</p>
+        <div class="flex gap-2">
+          <button class="toggle-btn active flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setToggle('clothing', true, this)">Include ($750)</button>
+          <button class="toggle-btn flex-1 rounded px-4 py-3 text-sm font-medium text-gray-700"
+            onclick="setToggle('clothing', false, this)">Exclude</button>
+        </div>
+      </div>
+
+      <!-- Lost wages -->
+      <div class="section-card">
+        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+          Estimated weeks of lost wages
+        </label>
+        <p class="text-xs text-gray-400 mb-4">Time off for appointments, recovery, or bed rest. Set to 0 if not needed.</p>
+        <div class="flex items-center gap-4">
+          <input type="range" id="weeks-slider" min="0" max="20" value="0" step="1"
+            class="flex-1" oninput="setWeeks(this.value)">
+          <span class="font-semibold text-cam-dark text-lg w-16 text-right" id="weeks-display">0 wks</span>
+        </div>
+        <div class="flex justify-between text-xs text-gray-400 mt-1">
+          <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+        </div>
+      </div>
+
+      <!-- Bed rest -->
+      <div class="section-card">
+        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+          Weeks of doctor-ordered bed rest
+        </label>
+        <p class="text-xs text-gray-400 mb-4">Only if medically ordered. Set to 0 if not expected.</p>
+        <div class="flex items-center gap-4">
+          <input type="range" id="bedrest-slider" min="0" max="12" value="0" step="1"
+            class="flex-1" oninput="setBedRest(this.value)">
+          <span class="font-semibold text-cam-dark text-lg w-16 text-right" id="bedrest-display">0 wks</span>
+        </div>
+        <div class="flex justify-between text-xs text-gray-400 mt-1">
+          <span>0</span><span>3</span><span>6</span><span>9</span><span>12</span>
+        </div>
+      </div>
+
+      <!-- What's included note -->
+      <details class="section-card cursor-pointer">
+        <summary class="flex items-center justify-between text-xs font-semibold text-gray-500 uppercase tracking-wide list-none">
+          What's included in the base compensation?
+          <svg class="w-4 h-4 text-cam-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <div class="mt-4 space-y-2 text-sm text-gray-600 leading-relaxed">
+          <p>Your base compensation is paid as a monthly allowance throughout the pregnancy. It covers:</p>
+          <ul class="space-y-1.5 mt-2">
+            <li class="flex gap-2"><span style="color:#5BA8A0;">✦</span> Childcare for your own children during appointments and recovery</li>
+            <li class="flex gap-2"><span style="color:#5BA8A0;">✦</span> Household help and general pregnancy-related needs</li>
+            <li class="flex gap-2"><span style="color:#5BA8A0;">✦</span> Food, vitamins, and day-to-day pregnancy expenses</li>
+            <li class="flex gap-2"><span style="color:#5BA8A0;">✦</span> Mileage and local transportation for appointments</li>
+            <li class="flex gap-2"><span style="color:#5BA8A0;">✦</span> Communication and administrative costs</li>
+          </ul>
+          <p class="text-xs text-gray-400 mt-3">Long-distance travel, legal fees, and life insurance are covered separately — not taken from your compensation.</p>
+        </div>
+      </details>
+
+      <p class="text-xs text-gray-400 leading-relaxed mt-2">
+        * All figures are estimates in US dollars. Actual compensation is confirmed in your individual legal agreement with Camica.
+      </p>
+    </div>
+
+    <!-- ── RIGHT: Live Results ── -->
+    <div class="lg:sticky lg:top-24">
+      <div class="bg-cam-cream2 rounded border border-cam-border overflow-hidden shadow-sm">
+
+        <!-- Header -->
+        <div style="background:linear-gradient(135deg,#1B3D3D 0%,#2D5555 100%);" class="p-6 text-white">
+          <p class="text-cam-muted text-xs font-semibold uppercase tracking-wider mb-2">Your estimated total</p>
+          <div class="flex items-baseline gap-2 flex-wrap">
+            <span class="text-4xl md:text-5xl font-bold font-sans" id="result-low">$45,000</span>
+            <span class="text-cam-muted text-xl font-light">–</span>
+            <span class="text-4xl md:text-5xl font-bold font-sans" id="result-high">$63,750</span>
+          </div>
+          <p class="text-cam-muted text-sm mt-2">US dollars &nbsp;·&nbsp; estimates only</p>
+        </div>
+
+        <div class="p-6">
+          <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Breakdown</h3>
+
+          <div id="breakdown-rows" class="space-y-3 mb-6"></div>
+          <div id="bar-chart" class="space-y-2.5 mb-6"></div>
+
+          <!-- Always included -->
+          <div class="border-t border-cam-border pt-5 mb-6">
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Always covered separately</p>
+            <ul class="text-xs text-gray-500 space-y-2">
+              <li class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+                Independent legal counsel (fully covered)
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+                Life insurance for the duration of your pregnancy
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+                Counselling sessions for you and your partner
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+                All screening travel and accommodation
+              </li>
+            </ul>
+          </div>
+
+          <!-- Step flow -->
+          <div class="rounded border border-cam-border p-4 mb-4" style="background:#EBE2D5;">
+            <p class="text-xs font-semibold text-cam-muted uppercase tracking-wider mb-3 text-center">Your journey</p>
+            <div class="flex items-center justify-between gap-1 text-xs">
+              <a href="/qualify" class="flex flex-col items-center gap-1 text-cam-dark font-semibold opacity-60 hover:opacity-100 transition-opacity">
+                <span class="w-7 h-7 rounded-full border border-cam-border flex items-center justify-center font-bold text-cam-dark" style="background:#EBE2D5;">1</span>
+                <span>Qualify</span>
+              </a>
+              <div class="flex-1 h-px mx-1" style="background:#D4C9B8;"></div>
+              <div class="flex flex-col items-center gap-1 text-cam-dark font-bold">
+                <span class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-white text-xs" style="background:#1B3D3D;">2</span>
+                <span>Calculator</span>
+              </div>
+              <div class="flex-1 h-px mx-1" style="background:#D4C9B8;"></div>
+              <a href="https://portal.canadiansurrogacyoptions.com/auth/login" target="_blank"
+                class="flex flex-col items-center gap-1 font-semibold text-gray-400 hover:text-cam-dark transition-colors">
+                <span class="w-7 h-7 rounded-full border border-cam-border flex items-center justify-center font-bold" style="background:#EBE2D5;">3</span>
+                <span>Apply</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="https://portal.canadiansurrogacyoptions.com/auth/login" target="_blank"
+            class="block text-center font-sans font-semibold py-3.5 rounded tracking-wide transition-colors mb-3 text-sm text-white"
+            style="background:#1B3D3D;">
+            Start My Application &rarr;
+          </a>
+          <a href="https://calendly.com/cso-robyn" target="_blank"
+            class="block text-center border border-cam-dark text-cam-dark font-semibold py-3 rounded tracking-wide text-sm hover:bg-cam-cream transition-colors">
+            Book a Free Call with Camica
+          </a>
+        </div>
+      </div>
+
+      <p class="text-xs text-gray-400 text-center mt-4 leading-relaxed px-2">
+        Estimates only. Actual compensation is negotiated and confirmed in your legal surrogacy agreement.
+        Camica has been building families since 1992.
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="max-w-5xl mx-auto px-4 pb-16">
+    <h2 class="font-serif text-2xl text-cam-dark mb-6">Common questions</h2>
+    <div class="space-y-3">
+      <details class="bg-cam-cream2 rounded border border-cam-border p-5">
+        <summary class="font-sans font-semibold text-sm text-gray-800 cursor-pointer list-none flex justify-between items-center">
+          Is gestational carrier compensation taxable in the US?
+          <svg class="w-4 h-4 text-cam-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+          Tax treatment of surrogate compensation in the US is nuanced and varies by state. Many carriers treat base compensation as taxable income, while reimbursed expenses are generally not taxable. We strongly recommend speaking with a tax professional familiar with surrogacy. Camica can refer you to advisors with experience in this area.
+        </p>
+      </details>
+      <details class="bg-cam-cream2 rounded border border-cam-border p-5">
+        <summary class="font-sans font-semibold text-sm text-gray-800 cursor-pointer list-none flex justify-between items-center">
+          When and how are payments made?
+          <svg class="w-4 h-4 text-cam-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+          Base compensation is paid monthly once the heartbeat is confirmed. Out-of-pocket and travel expenses are reimbursed as they occur. All payments flow through an escrow account managed independently — you're never waiting on intended parents directly.
+        </p>
+      </details>
+      <details class="bg-cam-cream2 rounded border border-cam-border p-5">
+        <summary class="font-sans font-semibold text-sm text-gray-800 cursor-pointer list-none flex justify-between items-center">
+          Does experience level affect my compensation?
+          <svg class="w-4 h-4 text-cam-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+          Yes — experienced carriers who have completed a previous surrogacy journey receive higher base compensation, reflecting the proven track record and reduced unknowns for the intended parents.
+        </p>
+      </details>
+      <details class="bg-cam-cream2 rounded border border-cam-border p-5">
+        <summary class="font-sans font-semibold text-sm text-gray-800 cursor-pointer list-none flex justify-between items-center">
+          What does childcare coverage look like?
+          <svg class="w-4 h-4 text-cam-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+          Childcare for your own children during appointments, procedures, and recovery is covered as part of your base monthly compensation. If doctor-ordered bed rest requires extended childcare beyond the norm, that's addressed through your bed rest allowance. We make sure you and your family are supported throughout.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#1B3D3D;" class="text-cam-muted py-8 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+      <div>
+        <p class="font-serif text-cam-cream text-lg tracking-widest">CAMICA</p>
+        <p class="text-xs">Florida's Boutique Surrogacy Agency</p>
+      </div>
+      <div class="flex gap-6 text-xs">
+        <a href="/qualify" class="hover:text-cam-cream transition-colors">Qualify Quiz</a>
+        <a href="https://camica.ca" target="_blank" class="hover:text-cam-cream transition-colors">camica.ca</a>
+        <a href="https://portal.canadiansurrogacyoptions.com/auth/login" target="_blank" class="hover:text-cam-cream transition-colors">Apply Now</a>
+        <a href="https://calendly.com/cso-robyn" target="_blank" class="hover:text-cam-cream transition-colors">Book a Call</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+const RATES = {
+  base: {
+    first:    { low: 45000, high: 55000 },
+    one:      { low: 55000, high: 65000 },
+    two_plus: { low: 60000, high: 70000 },
+  },
+  outOfPocket: { low: 3500,  high: 5000  },
+  travel:      { low: 5000,  high: 8000  },
+  twins:       { low: 5000,  high: 5000  },
+  csection:    { low: 5000,  high: 5000  },
+  clothing:    { low: 750,   high: 750   },
+  lostWages:   { perWeek: 650 },
+  bedRest:     { perWeek: 700 },
+};
+
+const state = {
+  experience: 'first',
+  twins:    false,
+  csection: false,
+  clothing: true,
+  lostWagesWeeks: 0,
+  bedRestWeeks:   0,
+};
+
+function setExperience(val, btn) {
+  state.experience = val;
+  btn.closest('.section-card').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  recalculate();
+}
+
+function setToggle(key, val, btn) {
+  state[key] = val;
+  btn.closest('.section-card').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  recalculate();
+}
+
+function setWeeks(val) {
+  state.lostWagesWeeks = parseInt(val);
+  document.getElementById('weeks-display').textContent = val == 1 ? '1 wk' : val + ' wks';
+  recalculate();
+}
+
+function setBedRest(val) {
+  state.bedRestWeeks = parseInt(val);
+  document.getElementById('bedrest-display').textContent = val == 1 ? '1 wk' : val + ' wks';
+  recalculate();
+}
+
+function recalculate() {
+  const base = RATES.base[state.experience];
+  const rows = [];
+
+  rows.push({ label: 'Base compensation', low: base.low, high: base.high, always: true, note: 'paid monthly throughout pregnancy' });
+  rows.push({ label: 'Out-of-pocket allowance', low: RATES.outOfPocket.low, high: RATES.outOfPocket.high, always: true, note: 'once heartbeat confirmed' });
+  rows.push({ label: 'Travel & accommodation', low: RATES.travel.low, high: RATES.travel.high, always: true, note: 'screening + transfer trips' });
+
+  if (state.clothing) {
+    rows.push({ label: 'Maternity clothing', low: RATES.clothing.low, high: RATES.clothing.high, conditional: true });
+  }
+  if (state.twins) {
+    rows.push({ label: 'Multiples allowance', low: RATES.twins.low, high: RATES.twins.high, conditional: true });
+  }
+  if (state.csection) {
+    rows.push({ label: 'C-section allowance', low: RATES.csection.low, high: RATES.csection.high, conditional: true });
+  }
+  if (state.lostWagesWeeks > 0) {
+    const amt = state.lostWagesWeeks * RATES.lostWages.perWeek;
+    rows.push({ label: `Lost wages (${state.lostWagesWeeks} wk${state.lostWagesWeeks > 1 ? 's' : ''})`, low: amt, high: amt, conditional: true });
+  }
+  if (state.bedRestWeeks > 0) {
+    const amt = state.bedRestWeeks * RATES.bedRest.perWeek;
+    rows.push({ label: `Bed rest (${state.bedRestWeeks} wk${state.bedRestWeeks > 1 ? 's' : ''})`, low: amt, high: amt, conditional: true });
+  }
+
+  const totalLow  = rows.reduce((s, r) => s + r.low,  0);
+  const totalHigh = rows.reduce((s, r) => s + r.high, 0);
+
+  renderResults(rows, totalLow, totalHigh);
+}
+
+function fmt(n) {
+  return '$' + n.toLocaleString('en-US');
+}
+
+function renderResults(rows, totalLow, totalHigh) {
+  document.getElementById('result-low').textContent  = fmt(totalLow);
+  document.getElementById('result-high').textContent = fmt(totalHigh);
+
+  document.getElementById('breakdown-rows').innerHTML = rows.map(row => `
+    <div class="flex items-start justify-between gap-2 text-sm">
+      <div class="flex-1">
+        <span class="font-medium text-gray-700">${row.label}</span>
+        ${row.note ? `<span class="text-gray-400 text-xs block">${row.note}</span>` : ''}
+        ${row.conditional ? `<span class="text-xs px-1.5 py-0.5 rounded font-medium" style="background:#E8E2D8;color:#1B3D3D;">if applicable</span>` : ''}
+      </div>
+      <div class="text-right flex-shrink-0 font-semibold text-cam-dark">
+        ${row.low === row.high ? fmt(row.low) : `${fmt(row.low)} – ${fmt(row.high)}`}
+      </div>
+    </div>
+  `).join('');
+
+  const midTotal = (totalLow + totalHigh) / 2;
+  document.getElementById('bar-chart').innerHTML = rows.map(row => {
+    const mid = (row.low + row.high) / 2;
+    const pct = Math.max(4, Math.round((mid / midTotal) * 100));
+    return `
+      <div>
+        <div class="flex justify-between text-xs text-gray-500 mb-1">
+          <span>${row.label}</span>
+          <span class="font-medium text-cam-dark">${Math.round((mid / midTotal) * 100)}%</span>
+        </div>
+        <div class="rounded-full h-1.5 w-full overflow-hidden" style="background:#D4C9B8;">
+          <div class="bar-fill h-1.5 rounded-full" style="width:${pct}%;background:${row.conditional ? '#5BA8A0' : '#1B3D3D'};"></div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', recalculate);
+</script>
+</body>
+</html>
