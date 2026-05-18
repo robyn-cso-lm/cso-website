@@ -240,15 +240,48 @@ function Results({ answers, onBack }: { answers: Answers; onBack: () => void }) 
     pathways.push({ pathway: 'us_us', title: 'US Surrogate · Deliver in the US', sub: 'Camica Priority · Baby born in United States', color: '#1a4a6e' });
   }
 
-  const variableFactors = [
-    'Number of embryo transfer attempts needed',
-    answers.location === 'international' ? 'Visa and entry documentation for your baby' : null,
-    'Surrogate income (higher income = higher lost-wages reimbursement)',
-    'Surrogate having young children (childcare costs)',
-    'Bed rest during pregnancy — can add significant lost wages + care costs',
-    'NICU stay or premature birth',
-    answers.embryos === 'need_donation' ? 'Number of egg retrieval cycles needed' : null,
-  ].filter(Boolean) as string[];
+  const hasUSPathway = pathways.some(p => p.pathway === 'us_us');
+
+  interface ContingencyItem { label: string; range: string; note: string; }
+  const contingencyItems: ContingencyItem[] = [
+    {
+      label: 'Surrogate bed rest — lost wages',
+      range: '$3,000 – $15,000+',
+      note: 'Doctor-ordered bed rest; reimbursed at surrogate\'s actual income. Varies widely.',
+    },
+    {
+      label: 'Failed embryo transfer (each additional attempt)',
+      range: '$3,000 – $6,000',
+      note: 'Medications, monitoring, and clinic fees per cycle.',
+    },
+    {
+      label: 'Childcare during appointments & recovery',
+      range: '$1,500 – $6,000',
+      note: 'If surrogate has young children at home.',
+    },
+    {
+      label: 'C-section recovery support',
+      range: '$1,000 – $4,000',
+      note: 'Additional home care and extended recovery time.',
+    },
+    {
+      label: 'NICU stay — premature birth',
+      range: hasUSPathway ? '$0 – $100,000+' : '$0 – $20,000',
+      note: hasUSPathway
+        ? 'Ontario OHIP covers most costs for Canadian pathway; US NICU without full coverage can be substantial.'
+        : 'Ontario OHIP covers most costs — this covers gaps, extras, and extended stays.',
+    },
+    ...(answers.location === 'international' ? [{
+      label: 'Visa and travel documentation for your newborn',
+      range: '$2,000 – $8,000',
+      note: 'Varies significantly by country. Budget time as well as money.',
+    }] : []),
+    ...(answers.embryos === 'need_donation' ? [{
+      label: 'Additional egg retrieval cycle',
+      range: '$8,000 – $14,000',
+      note: 'If first cycle doesn\'t yield viable embryos.',
+    }] : []),
+  ];
 
   return (
     <div style={{ padding: '48px 24px 80px', maxWidth: 760, margin: '0 auto' }}>
@@ -259,19 +292,42 @@ function Results({ answers, onBack }: { answers: Answers; onBack: () => void }) 
         Here's what your journey could cost
       </h2>
       <p style={{ textAlign: 'center', color: '#666', marginBottom: 40, fontSize: '0.9375rem', maxWidth: 540, margin: '0 auto 40px' }}>
-        These are realistic ranges based on your situation. Every journey is different — the variables section below explains what can move the needle.
+        These are realistic ranges based on your situation. Scroll down to see contingency costs you should also plan for.
       </p>
 
       {pathways.map(p => (
         <PathwayResult key={p.pathway} answers={answers} {...p} onBack={onBack} />
       ))}
 
-      {/* Variable factors */}
-      <div style={{ background: '#fff8e8', borderRadius: 12, padding: '20px 24px', marginBottom: 32, border: '1px solid #e8d8a0' }}>
-        <div style={{ fontWeight: 700, color: '#7a5c00', marginBottom: 10, fontSize: '0.9rem' }}>⚠️ Factors that can significantly increase costs</div>
-        <ul style={{ margin: 0, paddingLeft: 18, color: '#555', fontSize: '0.875rem', lineHeight: 1.8 }}>
-          {variableFactors.map((f, i) => <li key={i}>{f}</li>)}
-        </ul>
+      {/* Budget for the unexpected */}
+      <div style={{ background: '#fff', borderRadius: 16, border: '2px solid #e8d8a0', overflow: 'hidden', boxShadow: '0 4px 20px rgba(61,26,110,0.08)', marginBottom: 28 }}>
+        <div style={{ background: '#7a5c00', color: '#fff', padding: '18px 24px' }}>
+          <div style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0.85, marginBottom: 4 }}>Plan ahead · all figures CAD</div>
+          <div style={{ fontSize: '1.125rem', fontWeight: 700 }}>Budget for the unexpected</div>
+        </div>
+        <div style={{ padding: '16px 24px 20px' }}>
+          <p style={{ fontSize: '0.875rem', color: '#555', marginBottom: 16, lineHeight: 1.6, marginTop: 0 }}>
+            These situations don't happen in every journey — but they're common enough that we recommend budgeting for at least some of them.
+          </p>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.84375rem' }}>
+            <tbody>
+              {contingencyItems.map((item, i) => (
+                <tr key={i} style={{ borderBottom: '1px solid #f5eedc' }}>
+                  <td style={{ padding: '9px 12px 9px 0', verticalAlign: 'top' }}>
+                    <div style={{ fontWeight: 600, color: '#3d2200', marginBottom: 2 }}>{item.label}</div>
+                    <div style={{ fontSize: '0.78rem', color: '#999', lineHeight: 1.4 }}>{item.note}</div>
+                  </td>
+                  <td style={{ padding: '9px 0', textAlign: 'right', fontWeight: 600, color: '#7a5c00', whiteSpace: 'nowrap', verticalAlign: 'top' }}>
+                    {item.range}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div style={{ marginTop: 16, padding: '12px 16px', background: '#fdf6e3', borderRadius: 8, fontSize: '0.8125rem', color: '#7a5c00', lineHeight: 1.5 }}>
+            💡 <strong>We recommend setting aside a contingency fund of at least $10,000–$20,000 CAD</strong> on top of your base estimate. Most journeys don't hit all of these — but having the buffer means you're never making decisions based on money during a vulnerable moment.
+          </div>
+        </div>
       </div>
 
       {/* Agency fee note */}
