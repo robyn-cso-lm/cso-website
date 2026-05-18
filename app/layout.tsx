@@ -38,6 +38,7 @@ export const metadata: Metadata = {
 // Google Tag IDs — fire unconditionally on every page
 const GA4_ID  = 'G-G9L2PTW3ES';
 const GTAG_ID = 'GT-5D93JGQ2';
+const GADS_ID = 'AW-467681165';
 
 // Meta Pixel ID
 const META_PIXEL_ID = '1533454933710050';
@@ -62,6 +63,7 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', '${GA4_ID}');
             gtag('config', '${GTAG_ID}');
+            gtag('config', '${GADS_ID}');
           `}
         </Script>
 
