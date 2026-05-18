@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Location  = 'ontario' | 'canada_other' | 'us_northeast' | 'us_other' | 'international';
@@ -124,9 +125,8 @@ function buildBreakdown(answers: Answers, pathway: 'canadian'|'us_ontario'|'us_u
 }
 
 function fmt(n: number) {
-  return '$' + Math.round(n / 500) * 500 >= 1000
-    ? '$' + (Math.round(n / 1000) * 1000).toLocaleString()
-    : '$' + n.toLocaleString();
+  const rounded = Math.round(n / 1000) * 1000;
+  return '$' + rounded.toLocaleString();
 }
 
 // ── Shared UI pieces ──────────────────────────────────────────────────────────
@@ -159,7 +159,7 @@ function OptionGrid({ options, onSelect }: { options: OptionCard[]; onSelect: (v
   );
 }
 
-function StepWrapper({ step, total, question, sub, children }: { step: number; total: number; question: string; sub?: string; children: React.ReactNode }) {
+function StepWrapper({ step, total, question, sub, children }: { step: number; total: number; question: string; sub?: string; children: ReactNode }) {
   return (
     <div style={{ padding: '48px 24px', maxWidth: 700, margin: '0 auto' }}>
       <ProgressBar step={step} total={total} />
