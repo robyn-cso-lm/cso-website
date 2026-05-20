@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
+import { sendMail } from '@/lib/graphMail';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -80,6 +81,16 @@ export async function POST(req: NextRequest) {
         { error: 'Could not subscribe. Please try again.' },
         { status: 400 }
       );
+    }
+
+    try {
+      await sendMail(
+        'robyn@canadiansurrogacyoptions.com',
+        `New Surrogate Guide download — ${firstName}`,
+        `<p><strong>${firstName}</strong> (${email}) downloaded the Surrogate Readiness Guide.</p><p>Added to Mailchimp with tags: Surrogate Lead, Surrogate Guide Download.</p>`
+      );
+    } catch (err) {
+      console.error('[surrogate-guide] mail error:', err);
     }
 
     return NextResponse.json({

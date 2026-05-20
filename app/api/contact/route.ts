@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
+import { sendMail } from '@/lib/graphMail';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MSG_LEN = 5000;
@@ -191,20 +192,15 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
-    await fetch('https://hooks.zapier.com/hooks/catch/14435275/4y2es5o/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        firstName,
-        email,
-        phone: phone || '',
-        role,
-        message,
-        html,
-        source: 'website_contact_form',
-        timestamp: new Date().toISOString(),
-      }),
-    });
+    try {
+      await sendMail(
+        'robyn@canadiansurrogacyoptions.com',
+        `New contact from ${safeName} — ${safeRole}`,
+        html
+      );
+    } catch (err) {
+      console.error('[contact] mail error:', err);
+    }
 
     return NextResponse.json({ success: true });
   } catch (err) {

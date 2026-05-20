@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyRecaptcha } from '@/lib/recaptcha';
+import { sendMail } from '@/lib/graphMail';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -62,6 +63,22 @@ export async function POST(req: NextRequest) {
         { error: data.detail || 'Failed to subscribe. Please try again.' },
         { status: 400 }
       );
+    }
+
+    try {
+      await sendMail(
+        'robyn@canadiansurrogacyoptions.com',
+        `New ${role} lead — ${firstName}`,
+        `<p>New lead from the website:</p>
+         <ul>
+           <li><strong>Name:</strong> ${firstName}</li>
+           <li><strong>Email:</strong> ${email}</li>
+           <li><strong>Role:</strong> ${role}</li>
+           <li><strong>Source:</strong> Website lead form</li>
+         </ul>`
+      );
+    } catch (err) {
+      console.error('[leads] mail error:', err);
     }
 
     return NextResponse.json({ success: true });

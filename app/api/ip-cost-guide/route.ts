@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
+import { sendMail } from '@/lib/graphMail';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -75,6 +76,16 @@ export async function POST(req: NextRequest) {
     } else if (!memberRes.ok) {
       console.error('[ip-cost-guide] Mailchimp error:', memberData);
       return NextResponse.json({ error: 'Could not subscribe. Please try again.' }, { status: 400 });
+    }
+
+    try {
+      await sendMail(
+        'robyn@canadiansurrogacyoptions.com',
+        `New IP Cost Guide download — ${firstName}`,
+        `<p><strong>${firstName}</strong> (${email}) downloaded the IP Cost Guide.</p><p>Added to Mailchimp with tags: IP Lead, Cost Guide Download.</p>`
+      );
+    } catch (err) {
+      console.error('[ip-cost-guide] mail error:', err);
     }
 
     return NextResponse.json({
