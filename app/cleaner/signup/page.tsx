@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 export default function CleanerSignupPage() {
-  const [step, setStep] = useState<'personal' | 'availability' | 'photos' | 'bank'>('personal');
+  const [step, setStep] = useState<'personal' | 'references' | 'availability' | 'photos' | 'bank'>('personal');
   const [formData, setFormData] = useState({
     email: '',
     phone: '',
@@ -24,6 +24,11 @@ export default function CleanerSignupPage() {
 
   const [bankAccount, setBankAccount] = useState('');
 
+  const [references, setReferences] = useState([
+    { name: '', phone: '', email: '', relationship: 'previous_client', comment: '' },
+    { name: '', phone: '', email: '', relationship: 'previous_client', comment: '' },
+  ]);
+
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   return (
@@ -34,7 +39,7 @@ export default function CleanerSignupPage() {
 
         {/* Step Indicator */}
         <div className="flex gap-4 mb-8">
-          {['personal', 'availability', 'photos', 'bank'].map((s, i) => (
+          {['personal', 'references', 'availability', 'photos', 'bank'].map((s, i) => (
             <div
               key={s}
               className={`flex-1 h-2 rounded ${
@@ -138,11 +143,106 @@ export default function CleanerSignupPage() {
               </div>
 
               <button
-                onClick={() => setStep('availability')}
+                onClick={() => setStep('references')}
                 className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700"
               >
                 Continue
               </button>
+            </div>
+          )}
+
+          {step === 'references' && (
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-gray-900">Professional References</h2>
+              <p className="text-gray-600 text-sm">Provide 2 references from previous clients or employers</p>
+
+              <div className="space-y-6">
+                {references.map((ref, i) => (
+                  <div key={i} className="border border-gray-200 rounded-lg p-4">
+                    <div className="text-sm font-semibold text-gray-700 mb-4">Reference {i + 1}</div>
+
+                    <div className="space-y-4">
+                      <input
+                        type="text"
+                        placeholder="Full Name"
+                        value={ref.name}
+                        onChange={(e) => {
+                          const newRefs = [...references];
+                          newRefs[i].name = e.target.value;
+                          setReferences(newRefs);
+                        }}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                      />
+
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        value={ref.email}
+                        onChange={(e) => {
+                          const newRefs = [...references];
+                          newRefs[i].email = e.target.value;
+                          setReferences(newRefs);
+                        }}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                      />
+
+                      <input
+                        type="tel"
+                        placeholder="Phone"
+                        value={ref.phone}
+                        onChange={(e) => {
+                          const newRefs = [...references];
+                          newRefs[i].phone = e.target.value;
+                          setReferences(newRefs);
+                        }}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                      />
+
+                      <select
+                        value={ref.relationship}
+                        onChange={(e) => {
+                          const newRefs = [...references];
+                          newRefs[i].relationship = e.target.value;
+                          setReferences(newRefs);
+                        }}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                      >
+                        <option value="previous_client">Previous Client</option>
+                        <option value="employer">Employer</option>
+                        <option value="colleague">Colleague</option>
+                        <option value="other">Other</option>
+                      </select>
+
+                      <textarea
+                        placeholder="Optional: How they can vouch for your work"
+                        value={ref.comment}
+                        onChange={(e) => {
+                          const newRefs = [...references];
+                          newRefs[i].comment = e.target.value;
+                          setReferences(newRefs);
+                        }}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                        rows={2}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex gap-4">
+                <button
+                  onClick={() => setStep('personal')}
+                  className="flex-1 bg-gray-200 text-gray-900 py-2 rounded-lg font-semibold hover:bg-gray-300"
+                >
+                  Back
+                </button>
+                <button
+                  onClick={() => setStep('availability')}
+                  className="flex-1 bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700"
+                >
+                  Continue
+                </button>
+              </div>
             </div>
           )}
 
@@ -184,7 +284,7 @@ export default function CleanerSignupPage() {
 
               <div className="flex gap-4">
                 <button
-                  onClick={() => setStep('personal')}
+                  onClick={() => setStep('references')}
                   className="flex-1 bg-gray-200 text-gray-900 py-2 rounded-lg font-semibold hover:bg-gray-300"
                 >
                   Back

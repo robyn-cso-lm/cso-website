@@ -16,7 +16,7 @@ A white-label cleaning services platform connecting clients and professional cle
 
 ### Cleaner Flow
 1. Sign up at `/cleaner/signup`
-2. Complete onboarding: personal info, availability, photos, bank details
+2. Complete onboarding: personal info, **2 professional references**, availability, photos, bank details
 3. Background check approval (24-48 hours)
 4. View incoming jobs on `/cleaner/dashboard`
 5. Accept/decline jobs (2-3 min window)
@@ -49,47 +49,54 @@ A white-label cleaning services platform connecting clients and professional cle
 - **Backend:** Next.js API Routes
 - **Database:** PostgreSQL + Prisma ORM
 - **Payments:** Stripe (collect from clients, Stripe Connect payouts to cleaners)
+- **Email:** Microsoft Graph (Office 365)
+- **SMS:** Quo API
 - **Authentication:** TODO (implement after MVP)
 
 ## Project Structure
 
 ```
 app/
-├── page.tsx                    # Landing page
+├── page.tsx                         # Landing page
 ├── client/
-│   └── quote/page.tsx         # Client booking flow
+│   └── quote/page.tsx              # Client booking flow
 ├── cleaner/
-│   ├── signup/page.tsx        # Cleaner onboarding
-│   └── dashboard/page.tsx     # Cleaner job management
+│   ├── signup/page.tsx             # Cleaner onboarding (with references)
+│   └── dashboard/page.tsx          # Cleaner job management
 ├── admin/
-│   └── dashboard/page.tsx     # Admin overview
+│   └── dashboard/page.tsx          # Admin overview
 └── api/
     ├── jobs/
-    │   ├── create/route.ts    # Create job from client quote
-    │   ├── assign/route.ts    # Auto-assign to cleaner
-    │   └── respond/route.ts   # Cleaner accepts/declines
+    │   ├── create/route.ts         # Create job from client quote
+    │   ├── assign/route.ts         # Auto-assign to cleaner
+    │   ├── respond/route.ts        # Cleaner accepts/declines
+    │   └── complete/route.ts       # Job completion (triggers payment hold if overrun)
     ├── payments/
-    │   └── create-intent/route.ts  # Stripe payment
+    │   ├── create-intent/route.ts  # Stripe payment
+    │   └── approve-hold/route.ts   # Client approves/denies additional charges
     ├── cleaners/
-    │   └── signup/route.ts    # Cleaner registration
+    │   └── signup/route.ts         # Cleaner registration
     └── webhooks/
-        └── stripe/route.ts    # Payment webhooks
+        └── stripe/route.ts         # Payment webhooks
 
 lib/
-└── quoteCalculator.ts         # Quote logic
+├── quoteCalculator.ts              # Quote logic
+└── notifications.ts                # Email (Microsoft Graph) + SMS (Quo)
 
 prisma/
-└── schema.prisma              # Database models
+└── schema.prisma                   # Database models
 ```
 
 ## Database Models
 
 - **Client** - Customer accounts
 - **Cleaner** - Service provider accounts
+- **CleanerReference** - Professional references for vetting (2 required per cleaner)
 - **Job** - Cleaning bookings
-- **JobAssignment** - Auto-assigned cleaners to jobs
+- **JobAssignment** - Auto-assigned cleaners to jobs (with on-hold flag)
 - **Availability** - Cleaner weekly schedule
 - **Payment** - Stripe transactions
+- **PaymentHold** - Auto-hold when job runs over estimated time (awaiting client approval)
 - **CleanerPayout** - Weekly earnings payouts
 - **Review** - Job ratings/feedback
 - **BeforeAfterPhoto** - Job photos
@@ -98,24 +105,81 @@ prisma/
 
 - ✅ Instant quote generation
 - ✅ Auto-assign jobs to cleaners based on availability
+- ✅ **Cleaner vetting via professional references**
+- ✅ **Auto-hold payments if job runs over estimated time**
+- ✅ **Send approval request to client (email + SMS)**
 - ✅ Stripe webhook handling (payment confirmation)
+- ✅ Email + SMS notifications (Microsoft Graph + Quo)
 - ✅ Weekly automatic payouts
 - ✅ Job status tracking
 - ✅ Rating/review system
 
-## Next Steps (Phase 2)
+## Next Steps (Immediate Priority)
 
-1. Connect database (migrate from mocks to Prisma)
-2. Authentication (clerk/next-auth)
-3. Email notifications (SendGrid/Resend)
-4. SMS notifications (Twilio)
-5. Stripe Connect for cleaner payouts
-6. Background check integration
-7. Maps/geolocation for job assignment
-8. Before/after photo uploads
-9. Job completion workflow
-10. Customer support dashboard
+### Phase 2: Connect Database & Core Logic (Week 1)
+1. **Set up PostgreSQL** and update `DATABASE_URL` in `.env.local`
+2. **Run Prisma migrations:** `npx prisma migrate dev --name init`
+3. **Wire up database calls** in all API routes (uncomment Prisma code)
+4. **Test flows end-to-end:** signup → quote → payment → job assignment
 
-## Notes
+### Phase 3: Authentication (Week 2)
+1. Add Clerk or NextAuth for client/cleaner login
+2. Protect routes: `/client/*`, `/cleaner/*`, `/admin/*`
+3. Add "My Account" pages
 
-The app is designed to be hands-off after setup. Clients get instant quotes & book themselves. Cleaners are auto-assigned. Payments are automated via Stripe. You just approve cleaners, then the system runs itself.
+### Phase 4: Notifications (Week 2)
+1. Set up Microsoft Graph OAuth (Office 365) for email
+2. Test email sending via `lib/notifications.ts`
+3. Set up Quo API for SMS
+4. Test SMS sending
+5. Add notification preferences (client/cleaner settings)
+
+### Phase 5: Photo Uploads & Job Completion (Week 3)
+1. Add file upload to S3 or Cloudinary
+2. Build before/after photo capture in cleaner app
+3. Implement `/cleaner/job/[id]/complete` page
+4. Wire up job completion workflow (triggers payment hold check)
+
+### Phase 6: Payments & Payouts (Week 3)
+1. Test Stripe payment flow end-to-end
+2. Set up Stripe Connect for cleaner automatic payouts
+3. Implement payment hold approval UI for clients
+4. Build payout dashboard (admin)
+
+### Phase 7: Background Checks (Week 4)
+1. Integrate with Checkr or similar (API call on cleaner signup)
+2. Store check status in DB
+3. Notify cleaner when approved/rejected
+
+### Phase 8: Maps & Geolocation (Week 4)
+1. Add Google Maps API for distance calculations
+2. Improve job assignment logic to prefer nearest cleaner
+3. Show service areas on landing page
+
+### Phase 9: Admin Features (Week 5)
+1. Build admin approval for new cleaners
+2. Add dispute resolution dashboard
+3. Build referral tracking (optional)
+
+### Phase 10: Launch Prep (Week 5-6)
+1. Load test (simulate 100+ concurrent users)
+2. Security audit
+3. Setup monitoring & alerts
+4. Create support docs
+
+## How This Stays Hands-Off
+
+- **For clients:** They self-serve (quote → book → pay). Zero manual work.
+- **For cleaners:** Auto-assigned from availability. System sends notifications.
+- **For you:** 
+  - Approve new cleaners 1x (background check auto-triggered)
+  - Resolve disputes only (payment holds, ratings disputes)
+  - Monitor dashboard weekly (optional)
+  - All payments/payouts run on schedule automatically
+
+## Key Files to Watch
+
+- `lib/quoteCalculator.ts` - Adjust pricing formulas here
+- `lib/notifications.ts` - Customize email/SMS templates
+- `app/api/jobs/assign/route.ts` - Customize assignment logic
+- `prisma/schema.prisma` - Extend for new features

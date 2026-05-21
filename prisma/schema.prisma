@@ -45,6 +45,7 @@ model Cleaner {
   beforeAfterPhotos BeforeAfterPhoto[]
   reviews       Review[]
   payouts       CleanerPayout[]
+  references    CleanerReference[]
 }
 
 model Availability {
@@ -129,9 +130,13 @@ model JobAssignment {
   actualHours Float?
   startTime DateTime?
   endTime   DateTime?
+  onHold    Boolean  @default(false)
+  holdReason String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  paymentHold PaymentHold?
 }
 
 model BeforeAfterPhoto {
@@ -187,4 +192,36 @@ model Review {
   comment   String?
 
   createdAt DateTime @default(now())
+}
+
+model CleanerReference {
+  id        String   @id @default(cuid())
+  cleanerId String
+  cleaner   Cleaner  @relation(fields: [cleanerId], references: [id], onDelete: Cascade)
+
+  referenceName String
+  phone         String
+  email         String
+  relationship  String // "employer", "previous_client", "colleague", etc.
+  comment       String?
+  verified      Boolean @default(false)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model PaymentHold {
+  id                String   @id @default(cuid())
+  assignmentId      String   @unique
+  assignment        JobAssignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+
+  reason            String   // "time_overrun", "additional_charges", etc.
+  estimatedHours    Float
+  actualHours       Float
+  additionalCharge  Float
+  clientApproved    Boolean  @default(false)
+  approvalRequestSent Boolean @default(false)
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 }
