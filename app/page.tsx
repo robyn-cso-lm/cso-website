@@ -6,9 +6,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-gray-900">CleanDispatch</h1>
-          <p className="text-gray-600">Professional cleaning, instantly booked</p>
+        <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">CleanDispatch</h1>
+            <p className="text-gray-600">Professional cleaning, instantly booked</p>
+          </div>
+          <Link href="/how-it-works" className="text-blue-600 hover:text-blue-700 font-semibold">
+            How It Works
+          </Link>
         </div>
       </header>
 

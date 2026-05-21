@@ -2,6 +2,12 @@
 
 A white-label cleaning services platform connecting clients and professional cleaners in Florida (Apollo Beach, Hillsborough County, Manatee County).
 
+**📚 Full Launch Strategy:** See [LAUNCH_STRATEGY.md](./LAUNCH_STRATEGY.md) for detailed 30-day plan to get first clients & cleaners.
+
+**📖 Cleaner Onboarding:** View `/cleaner/onboarding` for best practices guide.
+
+**❓ How It Works:** View `/how-it-works` for client/cleaner overview.
+
 ## How It Works
 
 ### Client Flow
