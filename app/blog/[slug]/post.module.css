@@ -150,6 +150,15 @@
   margin: 40px 0;
 }
 
+.prose img {
+  display: block;
+  max-width: min(420px, 100%);
+  width: 100%;
+  margin: 32px auto 36px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(61, 26, 110, 0.18);
+}
+
 @media (max-width: 640px) {
   .contentSection {
     padding: 48px 20px 64px;
