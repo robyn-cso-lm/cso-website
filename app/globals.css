@@ -8,6 +8,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'ATB Serif';
+  src: url('/fonts/above-the-beyond-serif-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ATB Serif';
+  src: url('/fonts/above-the-beyond-serif-italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --deep-purple: #3D1A6E;
   --mid-purple: #6B3FA0;
@@ -60,6 +76,21 @@ button {
 ::selection {
   background: var(--lavender-light);
   color: var(--deep-purple);
+}
+
+/* ── Letter body — ATB serif for the mom letter only ── */
+.letter-body p,
+.letter-body li,
+.letter-body blockquote {
+  font-family: 'ATB Serif', 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.letter-body p em,
+.letter-body em {
+  font-family: 'ATB Serif', 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
 }
 
 /* ── Letter / handwriting styles ── */
