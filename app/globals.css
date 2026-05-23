@@ -78,18 +78,17 @@ button {
   color: var(--deep-purple);
 }
 
-/* ── Letter body — ATB serif for the mom letter only ── */
+/* ── Letter body — Cormorant Garamond for the mom letter only ── */
 .letter-body p,
 .letter-body li,
 .letter-body blockquote {
-  font-family: 'ATB Serif', 'Cormorant Garamond', Georgia, serif;
-  font-size: 18px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
   line-height: 1.9;
 }
 
 .letter-body p em,
 .letter-body em {
-  font-family: 'ATB Serif', 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
 }
 
