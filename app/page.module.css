@@ -677,3 +677,54 @@
   .heroStatStrip { flex-direction: column; gap: 24px; }
   .refundBanner { flex-direction: column; text-align: center; gap: 10px; }
 }
+
+/* ── Why CSO Trust Strip ── */
+.whyCso {
+  background: #FDFAF7;
+  border-top: 1px solid #E8E0F5;
+  border-bottom: 1px solid #E8E0F5;
+  padding: 52px 24px;
+}
+.whyCsoInner {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+.whyCsoEyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9B7FC7;
+  margin-bottom: 20px;
+}
+.whyCsoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 8px;
+}
+.whyCsoPill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #E8E0F5;
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: #3D1A6E;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.whyCsoPillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9B7FC7;
+  flex-shrink: 0;
+}
+@media (max-width: 580px) {
+  .whyCsoGrid { gap: 10px; }
+  .whyCsoPill { font-size: 0.82rem; padding: 8px 16px; }
+}

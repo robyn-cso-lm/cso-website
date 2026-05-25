@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | Canadian Surrogacy Options',
   description: 'Answers to the most common questions about surrogacy in Canada, for intended parents, surrogates, and anyone just starting to explore.',
+  alternates: {
+    canonical: 'https://canadiansurrogacyoptions.com/faq',
+  },
 };
 
 const sections = [
@@ -158,6 +161,18 @@ const sections = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sections.flatMap(s =>
+    s.questions.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    }))
+  ),
+};
+
 export default function FAQPage() {
   return (
     <>
@@ -191,6 +206,11 @@ export default function FAQPage() {
         .faq-cta p { font-size: 1.05rem; opacity: 0.9; max-width: 520px; margin: 0 auto 28px; }
         @media (max-width: 600px) { .faq-hero { padding: 52px 20px 40px; } }
       `}</style>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       <div className="faq-body">
 

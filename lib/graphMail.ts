@@ -1,3 +1,11 @@
+const TIMEOUT_MS = 10_000;
+
+function fetchWithTimeout(url: string, options: RequestInit): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  return fetch(url, { ...options, signal: controller.signal }).finally(() => clearTimeout(timer));
+}
+
 async function getAccessToken(): Promise<string> {
   const tenantId = process.env.AZURE_TENANT_ID;
   const clientId = process.env.AZURE_CLIENT_ID;
@@ -7,7 +15,7 @@ async function getAccessToken(): Promise<string> {
     throw new Error('Missing Azure credentials in environment variables.');
   }
 
-  const res = await fetch(
+  const res = await fetchWithTimeout(
     `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`,
     {
       method: 'POST',
@@ -41,7 +49,7 @@ export async function sendMail(
 ): Promise<void> {
   const token = await getAccessToken();
 
-  const res = await fetch(
+  const res = await fetchWithTimeout(
     `https://graph.microsoft.com/v1.0/users/${from}/sendMail`,
     {
       method: 'POST',

@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
       );
     } else if (!memberRes.ok) {
       console.error('[ip-cost-guide] Mailchimp error:', memberData);
-      return NextResponse.json({ error: 'Could not subscribe. Please try again.' }, { status: 400 });
+      // Don't block PDF delivery on Mailchimp failure
     }
 
     try {

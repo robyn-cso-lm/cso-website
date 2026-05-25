@@ -143,6 +143,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Why CSO trust strip */}
+      <section className={styles.whyCso}>
+        <div className={styles.whyCsoInner}>
+          <p className={styles.whyCsoEyebrow}>Why Canadian Surrogacy Options</p>
+          <div className={styles.whyCsoGrid}>
+            {[
+              "Canada's first surrogacy agency · Founded 1992",
+              "2,500+ families built",
+              "Only agency with a published refund policy",
+              "Three-stage payment — not everything upfront",
+              "Matches built on connection, not algorithms",
+              "30+ years of magic sparks",
+            ].map(item => (
+              <div key={item} className={styles.whyCsoPill}>
+                <span className={styles.whyCsoPillDot} />
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Guides Strip */}
       <GuidesStrip />
 
