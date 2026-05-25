@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     siteName: 'Canadian Surrogacy Options',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Canadian Surrogacy Options',
+        alt: 'Canadian Surrogacy Options — From Hope to Heartbeat to Home',
       },
     ],
   },
