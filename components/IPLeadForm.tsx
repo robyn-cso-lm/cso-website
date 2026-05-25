@@ -56,7 +56,7 @@ export default function IPLeadForm() {
         <div className={styles.successIcon}>💜</div>
         <h3 className={styles.successTitle}>Your guide is ready, {firstName}!</h3>
         <p className={styles.successText}>
-          We&rsquo;ve sent it to your inbox too. If you have questions after reading,
+          Your guide is ready to download below. If you have questions after reading,
           a free call with Robyn is just one click away.
         </p>
         <a href={pdfUrl} download className={styles.downloadBtn}>
