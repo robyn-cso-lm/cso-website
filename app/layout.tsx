@@ -4,6 +4,7 @@ import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://canadiansurrogacyoptions.com'),
@@ -98,6 +99,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <StickyCTA />
+        <ExitIntentPopup />
       </body>
     </html>
   );
