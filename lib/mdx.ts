@@ -9,6 +9,7 @@ export interface PostFrontmatter {
   description: string;
   category: string;
   keywords: string[];
+  image?: string;
 }
 
 export interface Post extends PostFrontmatter {
@@ -34,6 +35,7 @@ export function getAllPosts(): PostFrontmatter[] {
       description: data.description || '',
       category: data.category || 'Uncategorized',
       keywords: data.keywords || [],
+      image: data.image || undefined,
     } as PostFrontmatter;
   });
 
@@ -55,6 +57,7 @@ export function getPostBySlug(slug: string): Post | null {
     description: data.description || '',
     category: data.category || 'Uncategorized',
     keywords: data.keywords || [],
+    image: data.image || undefined,
     content,
   };
 }
