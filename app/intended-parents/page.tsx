@@ -4,6 +4,7 @@ import IPLeadForm from '../../components/IPLeadForm';
 export const metadata: Metadata = {
   title: 'Intended Parents | Canadian Surrogacy Options',
   description: 'CSO has helped build families since 1992. If you\'re ready to become a parent through surrogacy, we\'re here to guide you every step of the way.',
+  alternates: { canonical: 'https://canadiansurrogacyoptions.com/intended-parents' },
 };
 
 export default function IntendedParentsPage() {

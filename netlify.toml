@@ -1,3 +1,9 @@
+[[redirects]]
+  from = "https://www.canadiansurrogacyoptions.com/*"
+  to = "https://canadiansurrogacyoptions.com/:splat"
+  status = 301
+  force = true
+
 [build]
   command = "npm ci && npx prisma generate && npm run build"
   publish = ".next"

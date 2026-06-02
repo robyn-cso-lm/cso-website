@@ -4,6 +4,7 @@ import SurrogateLeadForm from '@/components/SurrogateLeadForm';
 export const metadata: Metadata = {
   title: 'Become a Surrogate | Canadian Surrogacy Options',
   description: 'Give a family the gift of a lifetime. CSO has supported surrogates since 1992 with full legal support, dedicated coordinators, and a real community.',
+  alternates: { canonical: 'https://canadiansurrogacyoptions.com/surrogates' },
 };
 
 export default function SurrogatesPage() {

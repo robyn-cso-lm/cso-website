@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'International Surrogacy in Canada | Canadian Surrogacy Options',
   description: 'Canada is one of the safest and most welcoming countries in the world for international intended parents. Learn how CSO supports families from the USA, UK, Australia, Israel, and beyond.',
+  alternates: { canonical: 'https://canadiansurrogacyoptions.com/international' },
 };
 
 const countries = [

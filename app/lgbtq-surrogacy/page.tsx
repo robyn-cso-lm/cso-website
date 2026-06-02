@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'LGBTQ+ Surrogacy in Canada | Canadian Surrogacy Options',
   description: 'Canada is one of the best countries in the world for LGBTQ+ families to build through surrogacy. Clear legal protections, altruistic surrogacy, and a welcoming community.',
+  alternates: { canonical: 'https://canadiansurrogacyoptions.com/lgbtq-surrogacy' },
 };
 
 export default function LGBTQSurrogacyPage() {
