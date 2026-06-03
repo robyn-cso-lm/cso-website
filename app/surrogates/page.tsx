@@ -117,7 +117,7 @@ export default function SurrogatesPage() {
                 { icon: '💜', title: 'Your Own Support Coordinator', desc: 'Shondra is with you from day one through the whole journey, no matter what comes up.' },
                 { icon: '👯', title: 'A Real Peer Community', desc: 'Connect with other CSO surrogates who truly get what you\'re going through.' },
                 { icon: '✅', title: 'All Expenses Fully Reimbursed', desc: 'Every pregnancy-related expense is covered. You won\'t be out of pocket.' },
-                { icon: '❤️', title: 'You Choose the Family', desc: 'You always have a say in which intended parents you work with. Always.' },
+                { icon: '❤️', title: 'Browse Families Before You Commit', desc: 'Our portal lets you browse real family profiles before you even apply — get a feel for the families we work with and reach out if one resonates.' },
                 { icon: '⚖️', title: 'Legal Counsel Included', desc: 'Your legal representation is fully paid for by the intended parents.' },
                 { icon: '🏠', title: 'Judgment-Free Support', desc: 'Flexible, warm support from a team that\'s been doing this since 1992. We\'ve seen it all and we\'re here for all of it.' },
               ].map(b => (

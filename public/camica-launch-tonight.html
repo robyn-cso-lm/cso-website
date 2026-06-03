@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camica:Launch Tonight Checklist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand: #FAF6EE; --deep-teal: #1C4F58; --teal: #2D7A87;
+      --seafoam: #82C4BF; --gold: #C9A75A; --blush: #E8A87C;
+      --text: #1A2C30; --text-soft: #4A6870; --text-muted: #7A9298;
+      --white: #FFFFFF; --border: rgba(28,79,88,0.13);
+      --maroon: #C84646;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Jost',sans-serif; font-weight:300; background:var(--sand); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; }
+    h1,h2,h3 { font-family:'Cormorant Garamond',serif; font-weight:300; }
+    em { font-style:italic; color:var(--teal); }
+
+    .cover {
+      background: var(--deep-teal);
+      padding: 72px 10%;
+      position: relative; overflow: hidden;
+    }
+    .cover::after {
+      content:'LAUNCH'; position:absolute; bottom:-40px; right:-20px;
+      font-family:'Cormorant Garamond',serif; font-size:200px; font-weight:300;
+      color:rgba(255,255,255,0.03); letter-spacing:10px; line-height:1; pointer-events:none;
+    }
+    .cover .eyebrow { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--seafoam); font-weight:600; margin-bottom:20px; display:block; }
+    .cover h1 { color:#fff; font-size:clamp(36px,5vw,68px); margin-bottom:16px; }
+    .cover h1 em { color:var(--gold); font-style:italic; }
+    .cover p { color:rgba(255,255,255,0.6); font-size:16px; max-width:580px; }
+
+    section { padding:72px 10%; border-bottom:1px solid rgba(28,79,88,0.08); }
+    section:last-child { border-bottom:none; }
+
+    .section-label {
+      font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--teal);
+      font-weight:600; margin-bottom:36px; display:flex; align-items:center; gap:16px;
+    }
+    .section-label::after { content:''; flex:1; height:1px; background:rgba(28,79,88,0.15); }
+
+    h2 { font-size:clamp(26px,3.5vw,42px); color:var(--text); margin-bottom:16px; }
+    h3 { font-size:16px; font-family:'Jost',sans-serif; font-weight:600; color:var(--deep-teal); margin-bottom:10px; margin-top:28px; letter-spacing:0.3px; }
+    p { font-size:15px; color:var(--text-soft); margin-bottom:14px; max-width:720px; }
+
+    /* STEP BLOCKS */
+    .steps { display:flex; flex-direction:column; gap:2px; margin:32px 0; }
+    .step {
+      display:grid; grid-template-columns:80px 1fr; gap:0;
+      background:var(--white);
+    }
+    .step-num {
+      background:var(--deep-teal); display:flex; align-items:center; justify-content:center;
+      font-family:'Cormorant Garamond',serif; font-size:32px; color:rgba(255,255,255,0.6); font-weight:300;
+      padding:24px 0;
+    }
+    .step-body { padding:24px 28px; }
+    .step-body h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:8px; font-family:'Jost',sans-serif; }
+    .step-body p { font-size:13.5px; margin-bottom:6px; }
+    .step-body ul { list-style:none; padding:0; }
+    .step-body ul li { font-size:13px; color:var(--text-soft); padding:4px 0; padding-left:18px; position:relative; border-bottom:1px solid rgba(28,79,88,0.05); }
+    .step-body ul li:last-child { border-bottom:none; }
+    .step-body ul li::before { content:'→'; position:absolute; left:0; color:var(--seafoam); font-size:11px; }
+
+    /* COPY BOXES */
+    .copy-box {
+      background:var(--white); border:1px solid rgba(28,79,88,0.12);
+      padding:28px 32px; margin:20px 0;
+      font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic;
+      color:var(--text); line-height:1.75;
+    }
+    .copy-box .copy-label {
+      font-family:'Jost',sans-serif; font-size:9px; letter-spacing:3px; text-transform:uppercase;
+      color:var(--teal); font-style:normal; font-weight:600; display:block; margin-bottom:14px;
+    }
+
+    /* INFO/WARN BOXES */
+    .info-box {
+      background:rgba(130,196,191,0.1); border-left:3px solid var(--seafoam);
+      padding:20px 28px; margin:20px 0;
+    }
+    .info-box p { font-size:14px; max-width:100%; }
+    .warn-box {
+      background:rgba(200,70,70,0.06); border-left:3px solid var(--maroon);
+      padding:20px 28px; margin:20px 0;
+    }
+    .warn-box p { font-size:14px; max-width:100%; color:var(--text); }
+    .gold-box {
+      background:rgba(201,167,90,0.1); border-left:3px solid var(--gold);
+      padding:20px 28px; margin:20px 0;
+    }
+    .gold-box p { font-size:14px; max-width:100%; }
+
+    /* GRID */
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin:28px 0; }
+    .grid-card { background:var(--white); padding:28px 24px; }
+    .grid-card h4 { font-size:13px; font-weight:600; color:var(--deep-teal); margin-bottom:10px; font-family:'Jost',sans-serif; letter-spacing:0.3px; }
+    .grid-card p { font-size:13px; max-width:100%; margin-bottom:8px; }
+
+    /* CHECKLIST */
+    .checklist { list-style:none; margin:20px 0; }
+    .checklist li {
+      display:flex; align-items:flex-start; gap:14px;
+      padding:12px 0; border-bottom:1px solid rgba(28,79,88,0.07);
+      font-size:14px; color:var(--text-soft);
+    }
+    .checklist li:last-child { border-bottom:none; }
+    .check { width:18px; height:18px; border:1.5px solid rgba(28,79,88,0.3); flex-shrink:0; margin-top:2px; }
+    .checklist strong { color:var(--text); font-weight:500; }
+
+    footer { padding:48px 10%; text-align:center; }
+    footer p { font-size:12px; color:var(--text-muted); max-width:100%; }
+    .tagline { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; color:var(--gold); margin-bottom:8px; }
+
+    @media (max-width:700px) {
+      .two-col { grid-template-columns:1fr; }
+      .step { grid-template-columns:1fr; }
+      .step-num { padding:16px; font-size:24px; }
+      section { padding:56px 6%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <span class="eyebrow">Camica:Launch Playbook</span>
+  <h1>Get this off<br>the ground <em>tonight.</em></h1>
+  <p>Everything you need to run your first ad, send your first email, and have packages ready:in one place. Do this from the couch. You've got this.</p>
+</div>
+
+<!-- SECTION 1: DEPLOY THE HOMEPAGE -->
+<section>
+  <div class="section-label">01:Deploy the Homepage (15 min)</div>
+  <h2>Your site is already <em>built.</em></h2>
+  <p>The Camica homepage HTML file is ready. You can have it live tonight in under 15 minutes using Netlify Drop:no code, no Cameron needed right now.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Open the homepage file</h4>
+        <p>Find <code style="background:rgba(28,79,88,0.08);padding:2px 6px;font-size:12px;">camica-homepage.html</code> in your files (it was just built:ask Claude where it is).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Go to netlify.com/drop</h4>
+        <p>You already have a Netlify account (CSO website uses it). Go to <strong>netlify.com/drop</strong> and drag the HTML file onto the page. It deploys instantly to a random URL like <code style="background:rgba(28,79,88,0.08);padding:2px 6px;font-size:12px;">amazing-turtle-abc123.netlify.app</code>.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Add your custom domain (optional tonight)</h4>
+        <p>If you have camica.ca or camica.com registered, you can connect it in Netlify Settings → Domain Management. If not, the random URL works fine for ads tonight:you can forward camica.ca later.</p>
+        <ul>
+          <li>In Netlify: Site Settings → Domain Management → Add custom domain</li>
+          <li>Update your DNS to point to Netlify (they walk you through it)</li>
+          <li>If you don't have camica.ca yet:grab it at namecheap.com (about $12/year)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Update two things in the HTML before deploying</h4>
+        <ul>
+          <li>Replace <strong>robyn@camica.ca</strong> with your real Camica email (or just use your CSO email for now)</li>
+          <li>The Calendly link is already correct (calendly.com/cso-robyn)</li>
+          <li>Add your real photo: swap the placeholder section with <code style="background:rgba(28,79,88,0.08);padding:2px 6px;font-size:12px;">&lt;img src="robyn.jpg" ...&gt;</code></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <p><strong>Cameron's job Monday:</strong> Connect camica.ca, swap in your real photo, add the logo image from your Camica docs folder. Tonight's goal is just: live URL for ads.</p>
+  </div>
+</section>
+
+<!-- SECTION 2: FACEBOOK/INSTAGRAM ADS -->
+<section>
+  <div class="section-label">02:Running Ads Tonight</div>
+  <h2>Two ads. <em>Two audiences.</em><br>One evening.</h2>
+  <p>You need two separate ad campaigns: one recruiting surrogates in Florida, one reaching intended parents (US and Canadian). Here's exactly what to set up.</p>
+
+  <div class="warn-box">
+    <p><strong>What you need before starting:</strong> A Facebook Business Page for Camica (5 min to create if you don't have one). A Facebook Ads Manager account linked to it. A payment method added to Ads Manager. That's it.</p>
+  </div>
+
+  <h3>Step 1:Create or confirm your Camica Facebook Page</h3>
+  <p>Go to <strong>facebook.com/pages/create</strong>. Category: "Agency" or "Medical &amp; Health". Name: "Camica Surrogacy" or "Camica". Add your Calendly link as the website. Upload your logo. Done.</p>
+
+  <h3>Step 2:Open Ads Manager</h3>
+  <p>Go to <strong>business.facebook.com → Ads Manager</strong>. If you haven't used it before, it'll walk you through setup. Add a credit card as your payment method.</p>
+
+  <h3>Ad Campaign A:Surrogate Recruitment (Florida)</h3>
+
+  <div class="two-col">
+    <div class="grid-card">
+      <h4>Campaign Settings</h4>
+      <p><strong>Objective:</strong> Leads (or Traffic if Leads isn't available yet)</p>
+      <p><strong>Budget:</strong> $30–40/day</p>
+      <p><strong>Campaign name:</strong> Camica FL Surrogate Recruitment:May 2026</p>
+    </div>
+    <div class="grid-card">
+      <h4>Audience Targeting</h4>
+      <p><strong>Location:</strong> Florida (all of FL, or focus: Tampa Bay, Orlando, Jacksonville)</p>
+      <p><strong>Age:</strong> 22–40</p>
+      <p><strong>Gender:</strong> Women</p>
+      <p><strong>Interests:</strong> Parenting, Pregnancy, Women's health, Surrogacy</p>
+      <p><strong>Exclude:</strong> People who already follow Camica</p>
+    </div>
+  </div>
+
+  <div class="copy-box">
+    <span class="copy-label">Ad Copy:Surrogate Recruitment (paste this)</span>
+    Are you done having your own kids:and wondering if you could help someone else have theirs?<br><br>
+    Florida surrogates with Camica earn $55,000–$70,000+ for a first journey. Every medical expense covered. Legal team included. And you'll work directly with me:Robyn, a woman who grew up in this world.<br><br>
+    No corporate agency. No getting lost in a system. Just real support from someone who knows surrogacy from the inside out.<br><br>
+    If this is speaking to you:the link is in my bio. Or send me a message right now.
+  </div>
+
+  <div class="info-box">
+    <p><strong>Ad creative:</strong> Your face + a warm, honest video OR a calm, sandy photo. No stock photos. No hospital photos. Think: you on your porch, warm light, relaxed. That outperforms everything. Film one 30-second video saying the above (or a version of it) directly to camera.</p>
+  </div>
+
+  <h3>Ad Campaign B:Intended Parents (US + Canadian)</h3>
+
+  <div class="two-col">
+    <div class="grid-card">
+      <h4>Campaign Settings</h4>
+      <p><strong>Objective:</strong> Leads or Traffic</p>
+      <p><strong>Budget:</strong> $20–30/day</p>
+      <p><strong>Campaign name:</strong> Camica IP:North America:May 2026</p>
+    </div>
+    <div class="grid-card">
+      <h4>Audience Targeting</h4>
+      <p><strong>Location:</strong> United States + Canada</p>
+      <p><strong>Age:</strong> 28–52</p>
+      <p><strong>Gender:</strong> All</p>
+      <p><strong>Interests:</strong> IVF, Infertility, Surrogacy, Fertility treatment, Adoption (as signal)</p>
+      <p><strong>Household income:</strong> Top 25–50% (if available in your region)</p>
+    </div>
+  </div>
+
+  <div class="copy-box">
+    <span class="copy-label">Ad Copy:Intended Parents (paste this)</span>
+    If you've been waiting for a surrogate in Canada:I want to tell you something.<br><br>
+    I'm Robyn. My mother founded Canada's first surrogacy agency in 1992. I grew up in this world. And now I'm in Florida, with access to one of the deepest surrogate pools in North America.<br><br>
+    Through Camica, I can match you with a Florida gestational carrier who delivers your baby in Ontario. You stay home. Your baby is born in Canada. And you don't wait two more years.<br><br>
+    The first families who secure a spot this weekend get founding family pricing. Spots are limited.<br><br>
+    Book a free 20-minute call with me:link in bio.
+  </div>
+
+  <div class="gold-box">
+    <p><strong>Destination URL for both ads:</strong> Your Camica homepage (the Netlify URL you deployed). Make sure the Calendly booking link works on your phone before you launch.</p>
+  </div>
+
+  <h3>Step 3:Review and launch</h3>
+  <p>Facebook reviews ads in 1–24 hours. Submit both tonight:they'll usually be approved by morning. Set your ads to run continuously (no end date) and check results in 5 days. Kill any creative that has under 1% click-through rate. Keep winners running.</p>
+</section>
+
+<!-- SECTION 3: SEND THE EMAIL -->
+<section>
+  <div class="section-label">03:The Founding Families Email</div>
+  <h2>Send this tonight<br>or <em>first thing tomorrow.</em></h2>
+  <p>The founding families email is already written:it's the <code style="background:rgba(28,79,88,0.08);padding:2px 6px;font-size:12px;">camica-founding-families-email.html</code> file. Here's how to send it.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Update the two placeholders in the email</h4>
+        <ul>
+          <li>Replace <strong>[NAME]</strong> with the first name (or leave as a merge tag if using Mailchimp: <code>*|FNAME|*</code>)</li>
+          <li>Replace <strong>[ your e-transfer email ]</strong> with the email address you want them to send e-transfers to</li>
+          <li>The CC link option says "reply and I'll send a link":that's fine, just be ready to send Square/Stripe/Wave links same-day</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Option A: Send via Mailchimp (recommended)</h4>
+        <ul>
+          <li>Create a new campaign in Mailchimp → "HTML email"</li>
+          <li>Paste the email HTML into the code editor</li>
+          <li>Subject: <em>A faster path forward:and a founding families offer for you.</em></li>
+          <li>From: Robyn Price &lt;robyn@camica.ca or your CSO email&gt;</li>
+          <li>Send to: your IP Waiting 2026 list</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Option B: Send via Gmail (BCC:works fine for smaller lists)</h4>
+        <ul>
+          <li>Open Gmail → Compose → BCC all your waiting IPs</li>
+          <li>Copy the plain-text version of the email (or just use the script from the pivot plan as your email body)</li>
+          <li>Subject: <em>A faster path forward:and a founding families offer for you.</em></li>
+          <li>Sign with your name and Calendly link</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <p><strong>How to handle deposits when they come in:</strong><br>
+    E-transfer: they send to your email, you reply with the Founding Families confirmation + agreement PDF.<br>
+    CC link: use <strong>Square</strong> (free, instant setup at squareup.com) or <strong>Wave</strong> (free invoicing at waveapps.com). Create a $500 USD invoice, send the link in your reply email. Done in 5 minutes.</p>
+  </div>
+</section>
+
+<!-- SECTION 4: PACKAGES + AGREEMENTS -->
+<section>
+  <div class="section-label">04:Packages &amp; Agreements You Have Ready</div>
+  <h2>You already have<br>more than you <em>think.</em></h2>
+  <p>Your Camica documents folder (<code style="background:rgba(28,79,88,0.08);padding:2px 6px;font-size:12px;">OneDrive/Documents/Camica/</code>) already contains:</p>
+
+  <div class="two-col">
+    <div class="grid-card">
+      <h4>Documents you already have (PDFs ready)</h4>
+      <ul class="checklist" style="margin:0;">
+        <li><span class="check"></span><span><strong>Camica Intro Package</strong>:send as first response to any inquiry</span></li>
+        <li><span class="check"></span><span><strong>Private Client Program Overview</strong>:packages/pricing detail</span></li>
+        <li><span class="check"></span><span><strong>Private Client Program Agreement</strong>:the actual contract</span></li>
+        <li><span class="check"></span><span><strong>Private Client Financial Planning</strong>:escrow/cost breakdown</span></li>
+        <li><span class="check"></span><span><strong>First 90 Days</strong>:what IPs can expect after signing</span></li>
+        <li><span class="check"></span><span><strong>Founding Families</strong>:existing doc (review and update for Camica)</span></li>
+        <li><span class="check"></span><span><strong>Camica Concierge</strong>:for Premier-level clients</span></li>
+      </ul>
+    </div>
+    <div class="grid-card">
+      <h4>What you still need (this week, not tonight)</h4>
+      <ul class="checklist" style="margin:0;">
+        <li><span class="check"></span><span><strong>Founding Families Deposit Agreement</strong>:1-page, confirms the $2,500 deposit, founding price, terms. Ask Claude to draft this.</span></li>
+        <li><span class="check"></span><span><strong>US-adapted IP Agreement</strong>:your existing agreement may need Florida/US-specific clauses. Flag for your attorney.</span></li>
+        <li><span class="check"></span><span><strong>Florida Surrogate Application</strong>:a 1-page screening form for applicants. Ask Claude to build this as a web form.</span></li>
+        <li><span class="check"></span><span><strong>Surrogate Info Sheet</strong>:one-pager with compensation, requirements, timeline. Use the pivot plan's Sunday evening task as the template.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gold-box">
+    <p><strong>For tonight:</strong> Your existing Camica Intro Package + Program Agreement is enough to onboard a founding family who says yes. Send the intro package first, then the agreement once they've paid their deposit. You don't need new documents tonight.</p>
+  </div>
+</section>
+
+<!-- SECTION 5: PORTAL -->
+<section>
+  <div class="section-label">05:The Camica Portal</div>
+  <h2>Login and register<br>are <em>live.</em></h2>
+  <p>The existing CSO portal now has Camica-branded login and registration pages. Cameron can deploy the portal update, and the URLs will be:</p>
+
+  <div class="two-col">
+    <div class="grid-card">
+      <h4>Camica Login</h4>
+      <p><code style="background:rgba(28,79,88,0.08);padding:2px 6px;">portal.canadiansurrogacyoptions.com/camica/login</code></p>
+      <p>Teal Camica branding. Same secure magic-link system as CSO. No password needed.</p>
+    </div>
+    <div class="grid-card">
+      <h4>Camica Register</h4>
+      <p><code style="background:rgba(28,79,88,0.08);padding:2px 6px;">portal.canadiansurrogacyoptions.com/camica/register</code></p>
+      <p>Two-role picker: Intended Parent or Surrogate. Tagged as <code>source_brand: CAMICA</code> in the database. You'll see them separately in your admin.</p>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <p><strong>Next step for Cameron:</strong> Deploy the portal update (it's a small code change). Optionally set up <code>portal.camica.ca</code> as a redirect to the portal's Camica routes once you have the domain.</p>
+  </div>
+</section>
+
+<!-- SECTION 6: THE WEEK AHEAD -->
+<section>
+  <div class="section-label">06:Monday and Beyond</div>
+  <h2>The week after<br>you <em>launched.</em></h2>
+
+  <ul class="checklist">
+    <li><span class="check"></span><div><strong>Monday AM:Cameron deploys</strong> the homepage to camica.ca and the portal Camica auth update. Both done before noon.</div></li>
+    <li><span class="check"></span><div><strong>Monday:Call with a Florida reproductive attorney.</strong> One 30-min call: can you operate as a FL surrogacy agency now, what entity structure, escrow requirements. Search "Florida reproductive attorney" + "surrogacy":NCRM or RMA Florida have good referral lists.</div></li>
+    <li><span class="check"></span><div><strong>Tuesday:Check your ad results.</strong> How many link clicks, how many leads? Adjust budget or creative based on early data. Don't change anything before 48 hours.</div></li>
+    <li><span class="check"></span><div><strong>Wednesday:5 Tampa Bay fertility clinic outreach emails.</strong> Short intro: "Camica is a FL surrogacy agency, I'm building referral relationships, can we talk for 15 minutes?" Cameron can send these.</div></li>
+    <li><span class="check"></span><div><strong>Thursday:Brief Rana on CSO day-to-day.</strong> She handles Canadian inquiries and IP comms. You oversee from distance. One 45-min call covers it.</div></li>
+    <li><span class="check"></span><div><strong>Friday:Follow up with founding family deposits.</strong> For anyone who booked a call from the weekend email: convert to the Hybrid pathway. Send agreement.</div></li>
+    <li><span class="check"></span><div><strong>Week 2:Film 3 more TikToks.</strong> One surrogate recruitment, one IP story, one "honest update from Robyn." Your personal account will drive more traffic than any ad.</div></li>
+  </ul>
+</section>
+
+<!-- SECTION 7: WHAT YOU DON'T NEED TONIGHT -->
+<section>
+  <div class="section-label">07:What You Do Not Need Tonight</div>
+  <h2>The things that can <em>wait.</em></h2>
+
+  <div class="warn-box">
+    <p>
+      <strong>Not tonight, not this weekend:</strong><br><br>
+      You do not need to incorporate a new US entity. You do not need to build a full surrogate screening system. You do not need to hire a US team, overhaul your website completely, figure out escrow providers, or build a new portal from scratch. You do not need new brand photography. You do not need a PR strategy.<br><br>
+      Those are week 2–4 tasks.<br><br>
+      <strong>Tonight is about:</strong> a live URL, two ads running, and the founding families email sent. That's it. Everything else builds from here.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="tagline">from hope to heartbeat to home.</div>
+  <p>CAMICA:Internal launch playbook:Robyn Price:May 2026</p>
+</footer>
+
+</body>
+</html>

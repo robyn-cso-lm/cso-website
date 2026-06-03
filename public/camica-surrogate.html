@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a Surrogate in Florida | Camica</title>
+  <meta name="description" content="Earn $35,000–$55,000 USD as a gestational surrogate in Florida. Camica is a boutique agency with 34 years of experience. Apply in 5 minutes.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand:       #FAF6EE;
+      --deep-teal:  #1C4F58;
+      --teal:       #2D7A87;
+      --seafoam:    #82C4BF;
+      --seafoam-lt: #D4EDEB;
+      --gold:       #C9A75A;
+      --text:       #1A2C30;
+      --text-soft:  #4A6870;
+      --text-muted: #7A9298;
+      --white:      #FFFFFF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; font-weight: 300; color: var(--text); background: var(--sand); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1; }
+    h1 { font-size: clamp(38px, 5.5vw, 72px); }
+    h2 { font-size: clamp(28px, 3.5vw, 48px); }
+    h3 { font-size: clamp(20px, 2.5vw, 28px); }
+    p  { font-size: 15.5px; color: var(--text-soft); line-height: 1.8; margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    a  { color: inherit; text-decoration: none; }
+    em { font-style: italic; color: var(--teal); }
+    .eyebrow { display: block; font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,246,238,0.96); backdrop-filter: blur(10px); padding: 18px 8%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(28,79,88,0.08); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; color: var(--deep-teal); }
+    .nav-logo span { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-right a { font-size: 11px; letter-spacing: 1.5px; color: var(--text-soft); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.22s; border: none; border-radius: 1px; text-decoration: none; }
+    .btn-primary { background: var(--deep-teal); color: var(--white); }
+    .btn-primary:hover { background: var(--teal); }
+    .btn-teal { background: var(--teal); color: var(--white); }
+    .btn-teal:hover { background: var(--deep-teal); }
+    .btn-outline { background: transparent; color: var(--deep-teal); border: 1.5px solid var(--deep-teal); }
+    .btn-outline:hover { background: var(--deep-teal); color: var(--white); }
+    .btn-seafoam { background: var(--seafoam); color: var(--white); }
+    .btn-seafoam:hover { background: var(--teal); }
+    section { padding: 88px 10%; }
+
+    /* HERO */
+    .hero { background: linear-gradient(160deg, #1C4F58 0%, #2D7A87 60%, #3D9DAA 100%); padding: 90px 10% 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; min-height: 88vh; }
+    .hero-kicker { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--seafoam); margin-bottom: 20px; }
+    .hero h1 { color: var(--white); margin-bottom: 24px; }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); margin-bottom: 36px; line-height: 1.75; }
+    .hero-trust { display: flex; gap: 32px; margin-top: 36px; flex-wrap: wrap; }
+    .hero-trust-item { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+    .hero-trust-item::before { content: ''; width: 6px; height: 6px; background: var(--seafoam); border-radius: 50%; flex-shrink: 0; }
+
+    /* HERO FORM */
+    .hero-form-box { background: var(--white); padding: 40px 36px; border-radius: 2px; box-shadow: 0 24px 80px rgba(0,0,0,0.22); }
+    .hfb-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--deep-teal); margin-bottom: 6px; }
+    .hfb-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 28px; letter-spacing: 0.5px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .form-group label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+    .form-group input, .form-group select { padding: 12px 14px; border: 1.5px solid rgba(28,79,88,0.18); border-radius: 1px; font-family: 'Jost', sans-serif; font-size: 14px; color: var(--text); background: var(--white); outline: none; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group select:focus { border-color: var(--teal); }
+    .form-submit { width: 100%; padding: 16px; background: var(--deep-teal); color: var(--white); border: none; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; border-radius: 1px; }
+    .form-submit:hover { background: var(--teal); }
+    .form-note { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px; margin-bottom: 0; }
+
+    /* COMPENSATION */
+    .comp-section { background: var(--white); }
+    .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 48px 0 0; }
+    .comp-card { background: var(--sand); padding: 36px 32px; text-align: center; }
+    .comp-card.featured { background: var(--deep-teal); }
+    .comp-amount { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--deep-teal); line-height: 1; }
+    .comp-card.featured .comp-amount { color: var(--gold); }
+    .comp-label { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-top: 8px; }
+    .comp-card.featured .comp-label { color: rgba(255,255,255,0.5); }
+    .comp-detail { font-size: 13px; color: var(--text-soft); margin-top: 10px; line-height: 1.5; }
+    .comp-card.featured .comp-detail { color: rgba(255,255,255,0.65); }
+    .comp-total-bar { background: var(--deep-teal); padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .comp-total-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .comp-total-amount { font-family: 'Cormorant Garamond', serif; font-size: 40px; color: var(--gold); font-weight: 300; }
+
+    /* PROCESS */
+    .process-section { background: var(--sand); }
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 56px; position: relative; }
+    .step { padding: 0 20px; text-align: center; position: relative; }
+    .step:not(:last-child)::after { content: ''; position: absolute; right: -1px; top: 28px; width: 2px; height: 24px; background: var(--seafoam-lt); }
+    .step-num { width: 56px; height: 56px; background: var(--seafoam-lt); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--teal); }
+    .step h3 { font-size: 15px; color: var(--deep-teal); margin-bottom: 8px; }
+    .step p { font-size: 13px; }
+
+    /* REQUIREMENTS */
+    .req-section { background: var(--white); }
+    .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
+    .req-list { list-style: none; }
+    .req-list li { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(28,79,88,0.07); font-size: 14.5px; color: var(--text-soft); }
+    .req-list li::before { content: '✓'; color: var(--seafoam); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .req-not { list-style: none; margin-top: 28px; }
+    .req-not li { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; font-size: 13.5px; color: var(--text-muted); }
+    .req-not li::before { content: '×'; color: rgba(200,80,80,0.6); font-weight: 700; flex-shrink: 0; }
+
+    /* OBJECTIONS */
+    .obj-section { background: linear-gradient(160deg, #1C4F58, #2D7A87); padding: 88px 10%; }
+    .obj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 48px; }
+    .obj-card { background: rgba(255,255,255,0.06); padding: 32px; }
+    .obj-q { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--white); margin-bottom: 12px; }
+    .obj-a { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.75; margin: 0; }
+
+    /* WHAT WE PROVIDE */
+    .provide-section { background: var(--sand); }
+    .provide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .provide-card { background: var(--white); padding: 32px 28px; border-top: 3px solid var(--seafoam); }
+    .provide-icon { font-size: 28px; margin-bottom: 16px; }
+    .provide-card h3 { font-size: 18px; color: var(--deep-teal); margin-bottom: 10px; }
+    .provide-card p { font-size: 13.5px; margin: 0; }
+
+    /* ROBYN QUOTE */
+    .robyn-section { background: var(--white); padding: 80px 10%; display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center; }
+    .robyn-photo { background: var(--seafoam-lt); height: 380px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+    .robyn-quote { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-style: italic; color: var(--deep-teal); line-height: 1.5; margin-bottom: 24px; }
+    .robyn-attr { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+    .robyn-credentials { margin-top: 32px; display: flex; flex-direction: column; gap: 8px; }
+    .robyn-cred-item { display: flex; gap: 12px; align-items: center; font-size: 13.5px; color: var(--text-soft); }
+    .robyn-cred-item::before { content: ''; width: 24px; height: 1px; background: var(--seafoam); flex-shrink: 0; }
+
+    /* BOTTOM CTA */
+    .bottom-cta { background: var(--deep-teal); padding: 88px 10%; text-align: center; }
+    .bottom-cta h2 { color: var(--white); margin-bottom: 20px; }
+    .bottom-cta p { color: rgba(255,255,255,0.65); font-size: 16px; margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+    /* FOOTER */
+    footer { background: #0F1C1F; padding: 40px 10%; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: var(--white); }
+    .footer-logo span { color: var(--gold); }
+    footer p { font-size: 12px; color: rgba(255,255,255,0.3); margin: 0; }
+    footer a { font-size: 12px; color: rgba(255,255,255,0.4); }
+    footer a:hover { color: var(--seafoam); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 60px 6% 0; }
+      .hero-form-box { border-radius: 0; margin: 0 -6%; }
+      .comp-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .step::after { display: none; }
+      .req-grid { grid-template-columns: 1fr; gap: 40px; }
+      .obj-grid { grid-template-columns: 1fr; }
+      .provide-grid { grid-template-columns: 1fr; }
+      .robyn-section { grid-template-columns: 1fr; gap: 40px; padding: 60px 6%; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="camica-homepage.html" class="nav-logo">Cami<span>c</span>a</a>
+  <div class="nav-right">
+    <a href="camica-homepage.html">For Intended Parents</a>
+    <a href="https://portal.canadiansurrogacyoptions.com/camica/login" style="color:var(--teal);">Surrogate Portal</a>
+    <a href="#apply" class="btn btn-primary">Apply Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-kicker">Florida Gestational Surrogacy</div>
+    <h1>Give a Family Their Greatest Gift.<br><em>And be paid well for it.</em></h1>
+    <p class="hero-sub">Camica matches experienced, compassionate women with exceptional families who have waited years for this chance. You change a life. We take care of everything else.</p>
+    <div class="hero-trust">
+      <div class="hero-trust-item">$35,000–$55,000 USD base</div>
+      <div class="hero-trust-item">Response within 48 hours</div>
+      <div class="hero-trust-item">34 years of experience</div>
+      <div class="hero-trust-item">Boutique agency — you are never a number</div>
+    </div>
+  </div>
+
+  <div class="hero-form-box" id="apply">
+    <div class="hfb-title">Start Your Application</div>
+    <div class="hfb-sub">Takes 5 minutes. No commitment. Robyn reviews every application personally.</div>
+    <form action="https://portal.canadiansurrogacyoptions.com/camica/register" method="get">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="first_name" placeholder="Jane" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="last_name" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="jane@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="(555) 000-0000" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>City, State</label>
+          <input type="text" name="city" placeholder="Tampa, FL">
+        </div>
+        <div class="form-group">
+          <label>Your Age</label>
+          <input type="number" name="age" placeholder="28" min="21" max="40">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Have you given birth before?</label>
+        <select name="has_birth" required>
+          <option value="">Select one...</option>
+          <option value="yes_raising">Yes, and I am raising my child(ren)</option>
+          <option value="yes_not_raising">Yes, but no longer raising</option>
+          <option value="no">No, this would be my first pregnancy</option>
+        </select>
+      </div>
+      <input type="hidden" name="role" value="surrogate">
+      <input type="hidden" name="source" value="camica-surrogate-page">
+      <button type="submit" class="form-submit">Submit My Application &rarr;</button>
+    </form>
+    <p class="form-note">Your information is private and secure. We will never share it without your consent.</p>
+  </div>
+</div>
+
+<!-- COMPENSATION -->
+<section class="comp-section" id="compensation">
+  <span class="eyebrow">What You Earn</span>
+  <h2>Real numbers.<br>No vague "competitive pay."</h2>
+  <p style="max-width:600px;margin-top:16px;">Florida is one of the most surrogate-friendly states in the US. Compensation is legal, expected, and substantial. Here is what a typical Camica journey looks like financially.</p>
+
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-amount">$35–45K</div>
+      <div class="comp-label">Base Compensation</div>
+      <div class="comp-detail">Paid in monthly installments beginning at 4 weeks confirmed pregnancy</div>
+    </div>
+    <div class="comp-card featured">
+      <div class="comp-amount">$6–12K</div>
+      <div class="comp-label">Additional Allowances</div>
+      <div class="comp-detail">Maternity clothing, housekeeping, childcare, travel, lost wages, and more — all reimbursed</div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-amount">$5–8K</div>
+      <div class="comp-label">Medical &amp; Transfer Bonuses</div>
+      <div class="comp-detail">Mock cycle, embryo transfer, multiples, C-section, and other medical-related bonuses</div>
+    </div>
+  </div>
+  <div class="comp-total-bar">
+    <div class="comp-total-label">Total typical package</div>
+    <div class="comp-total-amount">$46,000 – $65,000 USD</div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" id="process">
+  <span class="eyebrow">The Process</span>
+  <h2>Clear steps. No surprises.<br>We walk with you the whole way.</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Apply</h3>
+      <p>5-minute form above. Robyn reviews it personally within 48 hours.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Screening Call</h3>
+      <p>A warm, no-pressure conversation. You ask questions too — this is your decision.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Medical &amp; Psych Clearance</h3>
+      <p>Full medical screening (covered 100%). Psychological support included.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Match with a Family</h3>
+      <p>You review profiles. You choose who feels right. No pressure to accept.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <h3>Journey Begins</h3>
+      <p>Legal contracts signed, transfer scheduled, your dedicated case manager in your corner the whole time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="req-section" id="requirements">
+  <div class="req-grid">
+    <div>
+      <span class="eyebrow">Requirements</span>
+      <h2>Are you a good fit?</h2>
+      <p style="margin-top:16px;">We are selective for good reason. The families we work with are trusting a surrogate with the most important thing in their lives. Here is what we look for.</p>
+      <ul class="req-list" style="margin-top:32px;">
+        <li>Between 21 and 40 years old</li>
+        <li>Have given birth to at least one child you are currently raising</li>
+        <li>Non-smoker (no tobacco or vaping for at least 12 months)</li>
+        <li>BMI under 32 at time of screening</li>
+        <li>No history of serious mental health conditions</li>
+        <li>No felony convictions</li>
+        <li>Financially stable (not receiving government assistance)</li>
+        <li>Located in Florida, or willing to carry in Florida</li>
+        <li>Support system in place (partner, family, friends)</li>
+      </ul>
+    </div>
+    <div>
+      <span class="eyebrow" style="opacity:0;user-select:none;">x</span>
+      <h2>Common concerns.</h2>
+      <p style="margin-top:16px;">Here is what most women ask us before they apply. Honest answers, nothing glossed over.</p>
+
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:20px;">
+        <div style="padding:20px 24px;background:var(--sand);border-left:3px solid var(--seafoam);">
+          <p style="font-weight:600;color:var(--deep-teal);font-size:14px;margin-bottom:6px;">"Will the baby feel like mine?"</p>
+          <p style="font-size:13.5px;margin:0;">Gestational surrogacy means the embryo comes entirely from the intended parents. There is zero genetic connection to you. Most surrogates describe the experience as deeply meaningful without the emotional confusion.</p>
+        </div>
+        <div style="padding:20px 24px;background:var(--sand);border-left:3px solid var(--seafoam);">
+          <p style="font-weight:600;color:var(--deep-teal);font-size:14px;margin-bottom:6px;">"What about my own kids while I'm pregnant?"</p>
+          <p style="font-size:13.5px;margin:0;">Childcare allowances are built into your contract. You live your normal life. The pregnancy is planned around your family, not the other way around.</p>
+        </div>
+        <div style="padding:20px 24px;background:var(--sand);border-left:3px solid var(--seafoam);">
+          <p style="font-weight:600;color:var(--deep-teal);font-size:14px;margin-bottom:6px;">"What if I change my mind partway through?"</p>
+          <p style="font-size:13.5px;margin:0;">That is exactly what legal contracts and our thorough screening process are designed to prevent. We invest heavily in making sure you are fully prepared before a single embryo is transferred.</p>
+        </div>
+        <div style="padding:20px 24px;background:var(--sand);border-left:3px solid var(--seafoam);">
+          <p style="font-weight:600;color:var(--deep-teal);font-size:14px;margin-bottom:6px;">"Is this safe?"</p>
+          <p style="font-size:13.5px;margin:0;">Gestational surrogacy is as safe as any planned pregnancy. You have proven you carry healthy pregnancies. Full health and life insurance is in place before transfer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE PROVIDE -->
+<section class="provide-section" id="why">
+  <span class="eyebrow">What Camica Provides</span>
+  <h2>You are not doing this alone.<br>Not for a single day of it.</h2>
+
+  <div class="provide-grid">
+    <div class="provide-card">
+      <div class="provide-icon">⚖️</div>
+      <h3>Your Own Legal Representation</h3>
+      <p>You are represented by a Florida reproductive attorney. Paid entirely by the intended parents. Your interests are protected independently.</p>
+    </div>
+    <div class="provide-card">
+      <div class="provide-icon">🏥</div>
+      <h3>Full Medical Coverage</h3>
+      <p>All fertility clinic costs, OB appointments, delivery, and postpartum care are covered. You pay nothing out of pocket, ever.</p>
+    </div>
+    <div class="provide-card">
+      <div class="provide-icon">🧠</div>
+      <h3>Psychological Support</h3>
+      <p>Mandatory psych evaluation is part of the process. Ongoing counselling support is available throughout your entire journey.</p>
+    </div>
+    <div class="provide-card">
+      <div class="provide-icon">🛡️</div>
+      <h3>Life Insurance During Pregnancy</h3>
+      <p>A life insurance policy covering the gestational period is in place before transfer. Your family is protected.</p>
+    </div>
+    <div class="provide-card">
+      <div class="provide-icon">👤</div>
+      <h3>Dedicated Case Manager</h3>
+      <p>One person, assigned to you from day one. Available by phone or text. Not a call centre, not a ticketing system.</p>
+    </div>
+    <div class="provide-card">
+      <div class="provide-icon">💛</div>
+      <h3>Post-Birth Support</h3>
+      <p>The relationship does not end at delivery. Post-birth emotional support and debrief are part of your Camica experience.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROBYN QUOTE -->
+<div class="robyn-section">
+  <div class="robyn-photo">
+    <!-- Replace with Robyn's photo -->
+    Robyn Price
+  </div>
+  <div>
+    <p class="robyn-quote">"I have been in this industry for over three decades. The surrogates who come to us are among the most extraordinary people I have ever met. I take that seriously. We do not move fast and we do not cut corners. Your safety and your experience matter just as much as the family's outcome."</p>
+    <div class="robyn-attr">Robyn Price, Founder — Camica and Canadian Surrogacy Options</div>
+    <div class="robyn-credentials">
+      <div class="robyn-cred-item">34 years in surrogacy and egg donation</div>
+      <div class="robyn-cred-item">Founder, Canadian Surrogacy Options (1992)</div>
+      <div class="robyn-cred-item">Hundreds of families matched across North America</div>
+      <div class="robyn-cred-item">Licensed and insured agency in Florida</div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <span class="eyebrow" style="color:var(--seafoam);">No commitment. No judgment.</span>
+  <h2>The families waiting for you<br>have been waiting a long time.</h2>
+  <p>Your application takes 5 minutes. Robyn personally reviews every single one and responds within 48 hours. If you qualify, you will be the first to know.</p>
+  <a href="#apply" class="btn btn-seafoam" style="font-size:12px;padding:16px 36px;letter-spacing:2.5px;">Apply Now — It's Free &rarr;</a>
+  <p style="margin-top:24px;font-size:12px;color:rgba(255,255,255,0.3);">Already in the process? <a href="https://portal.canadiansurrogacyoptions.com/camica/login" style="color:var(--seafoam);text-decoration:underline;">Sign in to your surrogate portal</a></p>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Cami<span>c</span>a</div>
+    <p style="margin-top:6px;">Florida, USA &nbsp;·&nbsp; <a href="mailto:robyn@camica.ca">robyn@camica.ca</a></p>
+  </div>
+  <p>Sister agency: <a href="https://canadiansurrogacyoptions.com">Canadian Surrogacy Options</a> — Est. 1992</p>
+</footer>
+
+</body>
+</html>

@@ -176,7 +176,7 @@ export default function IntendedParentsPage() {
           <div className="steps">
             {[
               { num: '01', title: 'Free Consultation', text: 'We sit down together, by phone, video, or in person, and I learn about you, your history, and what you need.' },
-              { num: '02', title: 'Matching', text: 'We introduce you to surrogate candidates who are a genuine fit. You\'ll have a say in every match. This isn\'t a database; it\'s a relationship.' },
+              { num: '02', title: 'Matching', text: 'Browse surrogate profiles in your private portal. We introduce candidates who are a genuine fit, and you have a say in every match. This isn\'t an algorithm; it\'s a relationship.' },
               { num: '03', title: 'Legal & Medical', text: 'Your surrogate\'s legal counsel is arranged. Medical screening, contract signing, and coordination with your fertility clinic all happen here.' },
               { num: '04', title: 'Pregnancy', text: 'Transfer, confirmation, prenatal care: your case manager keeps you informed and supported at every milestone.' },
               { num: '05', title: 'Birth & Home', text: 'Your baby is born. We help with the birth certificate, parentage order, and anything you need to bring your family home.' },
