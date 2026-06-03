@@ -1,10 +1,34 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Cormorant_Garamond, DM_Sans, Dancing_Script } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
+  display: 'swap',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-dancing',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://canadiansurrogacyoptions.com'),
@@ -50,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${cormorant.variable} ${dmSans.variable} ${dancingScript.variable}`}>
       <head>
         {/* ── Google Tag (GA4 + GT) ─────────────────────────────────────────── */}
         <Script
