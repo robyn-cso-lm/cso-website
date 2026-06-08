@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 const CALENDLY = 'https://calendly.com/cso-robyn';
+const GET_STARTED = 'https://portal.canadiansurrogacyoptions.com/get-started';
 
 // Stripe links read server-side
 function getStripeLinks() {
@@ -43,9 +44,14 @@ export default function ProgramsPage() {
             Every family&rsquo;s journey is different, and our programs are designed to meet you
             exactly where you are.
           </p>
-          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.heroCTA}>
-            Talk to Robyn, it&rsquo;s free
-          </a>
+          <div className={styles.heroActions}>
+            <a href={GET_STARTED} className={styles.heroCTA}>
+              Get Started →
+            </a>
+            <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.heroEmailLink}>
+              Not sure? Email us and let&rsquo;s chat
+            </a>
+          </div>
         </div>
       </section>
 
@@ -71,6 +77,9 @@ export default function ProgramsPage() {
                 <li>Access to CSO&rsquo;s screened surrogate pool</li>
               </ul>
               <div className={styles.cardFooter}>
+                <a href={GET_STARTED} className={styles.btnPrimary}>
+                  Get Started →
+                </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
                 </a>
@@ -92,6 +101,9 @@ export default function ProgramsPage() {
                 <li>Matching advocacy and surrogate introductions</li>
               </ul>
               <div className={styles.cardFooter}>
+                <a href={GET_STARTED} className={styles.btnPrimary}>
+                  Get Started →
+                </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
                 </a>
@@ -114,6 +126,9 @@ export default function ProgramsPage() {
                 <li>Split payment structure available</li>
               </ul>
               <div className={styles.cardFooter}>
+                <a href={GET_STARTED} className={styles.btnPrimaryWhite}>
+                  Get Started →
+                </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnFilled}>
                   Book a Free Call
                 </a>
@@ -135,6 +150,9 @@ export default function ProgramsPage() {
                 <li>Optional receipt management add-on</li>
               </ul>
               <div className={styles.cardFooter}>
+                <a href={GET_STARTED} className={styles.btnPrimary}>
+                  Get Started →
+                </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
                 </a>
@@ -315,9 +333,14 @@ export default function ProgramsPage() {
             questions, share your concerns, and leave with a clear sense of what the next step
             looks like for your family.
           </p>
-          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.notSureBtn}>
-            Book Your Free Call
-          </a>
+          <div className={styles.notSureActions}>
+            <a href={GET_STARTED} className={styles.notSureBtn}>
+              Get Started →
+            </a>
+            <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.notSureEmail}>
+              Not sure? Email us and let&rsquo;s chat
+            </a>
+          </div>
         </div>
       </section>
     </>
