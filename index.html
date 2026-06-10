@@ -1,5 +1,1489 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=/camica-homepage.html">
-<title>Camica</title>
-</head><body></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camica | Florida's Boutique Surrogacy Agency</title>
+  <meta name="description" content="Camica connects intended parents with exceptional gestational carriers in Florida and across North America. Founded by Robyn Price with 34 years of surrogacy experience.">
+  <link rel="canonical" href="https://camica.ca/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://camica.ca/">
+  <meta property="og:title" content="Camica | Florida's Boutique Surrogacy Agency">
+  <meta property="og:description" content="Camica connects intended parents with exceptional gestational carriers in Florida and across North America. Founded by Robyn Price with 34 years of surrogacy experience.">
+  <meta property="og:site_name" content="Camica Surrogacy">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Camica Surrogacy","url":"https://camica.ca","email":"robyn@camica.ca","description":"Boutique compensated surrogacy agency based in Florida, USA.","areaServed":"United States","founder":{"@type":"Person","name":"Robyn Price"}}
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand:         #FAF6EE;
+      --sand-alt:     #F2EAD7;
+      --sand-deep:    #E8DCC8;
+      --deep-teal:    #1C4F58;
+      --teal:         #2D7A87;
+      --seafoam:      #82C4BF;
+      --seafoam-lt:   #D4EDEB;
+      --gold:         #C9A75A;
+      --gold-lt:      #EDD99B;
+      --blush:        #E8A87C;
+      --blush-lt:     #F7E0D0;
+      --text:         #1A2C30;
+      --text-soft:    #4A6870;
+      --text-muted:   #7A9298;
+      --white:        #FFFFFF;
+      --border:       rgba(28,79,88,0.13);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--sand);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.1;
+    }
+
+    h1 { font-size: clamp(42px, 6vw, 80px); }
+    h2 { font-size: clamp(30px, 4vw, 52px); }
+    h3 { font-size: clamp(20px, 2.5vw, 30px); }
+
+    em { font-style: italic; color: var(--teal); }
+
+    p {
+      font-size: 15.5px;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── BUTTONS ────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      border: none;
+      border-radius: 1px;
+      text-decoration: none;
+    }
+    .btn-primary   { background: var(--deep-teal); color: var(--white); }
+    .btn-primary:hover { background: var(--teal); }
+    .btn-outline   { background: transparent; color: var(--deep-teal); border: 1.5px solid var(--deep-teal); }
+    .btn-outline:hover { background: var(--deep-teal); color: var(--white); }
+    .btn-gold      { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: #B8943E; }
+    .btn-light     { background: var(--white); color: var(--deep-teal); }
+    .btn-light:hover { background: var(--seafoam-lt); }
+    .btn-outline-light { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.5); }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    /* ── EYEBROWS & DIVIDERS ────────────────────────── */
+    .eyebrow {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+    .eyebrow.light { color: var(--seafoam); }
+    .eyebrow.gold  { color: var(--gold); }
+
+    .rule {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 18px 0 28px;
+    }
+
+    /* ── NAVIGATION ──────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(250,246,238,0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 8%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--deep-teal);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--deep-teal); }
+
+    .nav-cta {
+      padding: 10px 22px !important;
+      font-size: 10px !important;
+      letter-spacing: 2px !important;
+    }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 94vh;
+      background: linear-gradient(155deg, #FAF6EE 0%, #EDE5D2 50%, #E5D9C2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 10% 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -15%;
+      right: -8%;
+      width: 60vw;
+      height: 60vw;
+      max-width: 700px;
+      max-height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(130,196,191,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -15%;
+      left: -5%;
+      width: 40vw;
+      height: 40vw;
+      max-width: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,168,124,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+    }
+
+    .hero h1 {
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-soft);
+      max-width: 580px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .hero-detail {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-detail-item .hd-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .hero-detail-item .hd-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--deep-teal);
+    }
+
+    .hero-wave {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      line-height: 0;
+    }
+
+    /* ── TRUST BAR ───────────────────────────────────── */
+    .trust-bar {
+      background: var(--deep-teal);
+      padding: 0 10%;
+      display: flex;
+    }
+
+    .trust-item {
+      flex: 1;
+      padding: 32px 16px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item:last-child { border-right: none; }
+
+    .trust-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 300;
+      color: var(--gold-lt);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .trust-label {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+
+    /* ── SECTIONS ────────────────────────────────────── */
+    section {
+      padding: 100px 10%;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section.alt { background: var(--sand-alt); }
+    section.white { background: var(--white); }
+    section.seafoam-bg { background: #EBF7F6; }
+
+    /* ── STORY / ABOUT ───────────────────────────────── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .story-img {
+      aspect-ratio: 4/5;
+      background: linear-gradient(145deg, var(--seafoam-lt) 0%, #D4ECEA 40%, var(--blush-lt) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-img-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+      background: linear-gradient(to top, rgba(28,79,88,0.3) 0%, transparent 50%);
+    }
+
+    .story-img-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .story-img-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* placeholder for actual photo */
+    .story-img-placeholder {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .story-img-placeholder p {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .story-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-style: italic;
+      color: var(--deep-teal);
+      line-height: 1.55;
+      margin-bottom: 28px;
+      position: relative;
+      padding-left: 24px;
+      border-left: 3px solid var(--gold);
+    }
+
+    /* ── PACKAGES ────────────────────────────────────── */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 52px;
+    }
+
+    .pkg-card {
+      background: var(--white);
+      padding: 48px 36px;
+      position: relative;
+      transition: box-shadow 0.25s;
+    }
+    .pkg-card:hover { box-shadow: 0 12px 40px rgba(28,79,88,0.1); z-index: 1; }
+
+    .pkg-card.featured {
+      background: var(--deep-teal);
+    }
+
+    .pkg-featured-label {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--white);
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 5px 18px;
+    }
+
+    .pkg-tier {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+    .pkg-card.featured .pkg-tier { color: var(--seafoam); }
+
+    .pkg-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pkg-card.featured .pkg-price { color: var(--white); }
+
+    .pkg-currency { font-size: 22px; color: var(--gold); }
+
+    .pkg-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      letter-spacing: 0.5px;
+    }
+    .pkg-card.featured .pkg-note { color: rgba(255,255,255,0.4); }
+
+    .pkg-features {
+      list-style: none;
+      border-top: 1px solid rgba(28,79,88,0.1);
+      padding-top: 28px;
+    }
+    .pkg-card.featured .pkg-features { border-top-color: rgba(255,255,255,0.12); }
+
+    .pkg-features li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13.5px;
+      color: var(--text-soft);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(28,79,88,0.05);
+    }
+    .pkg-card.featured .pkg-features li { color: rgba(255,255,255,0.72); border-bottom-color: rgba(255,255,255,0.07); }
+    .pkg-features li:last-child { border-bottom: none; }
+
+    .pkg-features li::before {
+      content: '✓';
+      color: var(--seafoam);
+      font-size: 12px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    /* ── HYBRID PATHWAY ──────────────────────────────── */
+    .hybrid-section {
+      background: linear-gradient(145deg, #1C4F58 0%, #245F6A 50%, #2D7A87 100%);
+      padding: 100px 10%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hybrid-section::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 50vw;
+      height: 50vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(130,196,191,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hybrid-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hybrid-inner h2 { color: var(--white); }
+    .hybrid-inner p  { color: rgba(255,255,255,0.7); }
+
+    .hybrid-how {
+      margin: 32px 0 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hybrid-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .hybrid-step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--seafoam);
+      line-height: 1;
+      min-width: 36px;
+      margin-top: 2px;
+    }
+
+    .hybrid-step-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    .hybrid-step-text strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* Founding Families card */
+    .founding-card {
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(201,167,90,0.5);
+      padding: 48px 40px;
+      position: relative;
+    }
+
+    .founding-badge {
+      position: absolute;
+      top: -14px;
+      left: 40px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 5px 16px;
+    }
+
+    .founding-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .founding-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+    }
+
+    .founding-price-compare {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .fpc-item .fpc-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 4px;
+    }
+
+    .fpc-item .fpc-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .fpc-item .fpc-price.crossed {
+      text-decoration: line-through;
+      color: rgba(255,255,255,0.3);
+      font-size: 26px;
+    }
+
+    .fpc-item .fpc-price.highlight { color: var(--gold-lt); }
+
+    .fpc-item .fpc-save {
+      font-size: 11px;
+      color: var(--gold-lt);
+      margin-top: 4px;
+    }
+
+    .founding-deposit-note {
+      background: rgba(255,255,255,0.06);
+      border-left: 2px solid var(--gold);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .founding-deposit-note strong { color: var(--white); }
+
+    /* ── SURROGATES ──────────────────────────────────── */
+    .surro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .comp-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .comp-block {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 20px 24px;
+      background: var(--white);
+      border-left: 3px solid var(--seafoam);
+    }
+
+    .comp-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      color: var(--teal);
+      line-height: 1;
+      min-width: 90px;
+    }
+
+    .comp-details .cd-label {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .comp-details .cd-text {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .req-list {
+      list-style: none;
+      margin-top: 32px;
+    }
+
+    .req-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--text-soft);
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .req-list li:last-child { border-bottom: none; }
+
+    .req-list li::before {
+      content: '→';
+      color: var(--seafoam);
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .surro-apply-box {
+      background: var(--seafoam-lt);
+      border-left: 3px solid var(--seafoam);
+      padding: 32px;
+      margin-top: 32px;
+    }
+
+    .surro-apply-box h3 {
+      font-size: 22px;
+      color: var(--deep-teal);
+      margin-bottom: 10px;
+    }
+
+    .surro-apply-box p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* ── WHY CAMICA ──────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 52px;
+    }
+
+    .why-item {
+      padding: 52px 44px;
+      background: var(--white);
+      position: relative;
+    }
+
+    .why-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--seafoam-lt);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .why-item h3 {
+      font-size: 24px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    /* ── TESTIMONIAL / STORY CALLOUT ─────────────────── */
+    .callout-section {
+      background: var(--sand-alt);
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .callout-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3.5vw, 38px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--deep-teal);
+      max-width: 820px;
+      margin: 0 auto 16px;
+      line-height: 1.5;
+    }
+
+    .callout-attr {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ── CTA ─────────────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(145deg, var(--deep-teal) 0%, #245F6A 60%, #2D7A87 100%);
+      padding: 120px 10%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: 'CAMICA';
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(100px, 18vw, 220px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.025);
+      letter-spacing: 18px;
+      white-space: nowrap;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2   { color: var(--white); margin-bottom: 16px; }
+    .cta-section p    { color: rgba(255,255,255,0.65); font-size: 17px; margin-bottom: 40px; }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 1px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: #0F1C1F;
+      padding: 80px 10% 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr 1fr;
+      gap: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 36px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .footer-logo span { color: var(--gold); }
+
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .footer-contact a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 6px;
+      transition: color 0.2s;
+    }
+    .footer-contact a:hover { color: var(--white); }
+
+    .footer-col h4 {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { padding: 5px 0; }
+    .footer-col ul li a {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.35);
+      transition: color 0.2s;
+    }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+    .footer-cso {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 8px;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 1000px) {
+      .packages-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .footer-grid   { grid-template-columns: 1fr 1fr; }
+      .why-grid      { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 800px) {
+      .story-grid  { grid-template-columns: 1fr; }
+      .hybrid-inner { grid-template-columns: 1fr; }
+      .surro-grid  { grid-template-columns: 1fr; }
+      .trust-bar   { flex-wrap: wrap; }
+      .trust-item  { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .nav-links   { display: none; }
+      section      { padding: 72px 6%; }
+      .hero        { padding: 100px 6% 80px; min-height: unset; padding-top: 80px; }
+      .hybrid-section { padding: 80px 6%; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions   { flex-direction: column; }
+      .founding-price-compare { flex-direction: column; }
+      .cta-actions    { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ──────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">Cami<span>c</span>a</a>
+  <ul class="nav-links">
+    <li><a href="#intended-parents">For Intended Parents</a></li>
+    <li><a href="#hybrid">The Hybrid Pathway</a></li>
+    <li><a href="camica-surrogate.html">Become a Surrogate</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://portal.canadiansurrogacyoptions.com/camica/login" style="font-size:11px;letter-spacing:1.5px;color:var(--teal);">Client Portal</a></li>
+    <li>
+      <a href="camica-ip.html" class="btn btn-primary nav-cta">
+        Begin Your Journey
+      </a>
+    </li>
+  </ul>
+  <!-- mobile CTA -->
+  <a href="camica-ip.html" class="btn btn-primary nav-cta" style="display:none" id="mobile-nav-cta">
+    Get Started
+  </a>
+</nav>
+
+<script>
+  // show mobile CTA when nav-links hidden
+  (function() {
+    var cta = document.getElementById('mobile-nav-cta');
+    function check() { cta.style.display = window.innerWidth <= 800 ? 'inline-flex' : 'none'; }
+    window.addEventListener('resize', check); check();
+  })();
+</script>
+
+<!-- ─── HERO ────────────────────────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="eyebrow">Florida's Boutique Surrogacy Agency</span>
+    <h1>Surrogacy the way it<br>should <em>feel.</em></h1>
+    <p class="hero-sub">
+      Camica connects intended parents with exceptional gestational carriers in Florida and across North America, with the warmth, honesty, and deep experience of a family that has been doing this for 34 years.
+    </p>
+    <div class="hero-actions">
+      <a href="#intended-parents" class="btn btn-primary">
+        I'm an Intended Parent &rarr;
+      </a>
+      <a href="#surrogates" class="btn btn-outline">
+        I Want to Be a Surrogate
+      </a>
+    </div>
+    <div class="hero-detail">
+      <div class="hero-detail-item">
+        <span class="hd-label">Founded</span>
+        <span class="hd-val">1992</span>
+      </div>
+      <div class="hero-detail-item">
+        <span class="hd-label">Based in</span>
+        <span class="hd-val">Florida</span>
+      </div>
+      <div class="hero-detail-item">
+        <span class="hd-label">Serving</span>
+        <span class="hd-val">North America</span>
+      </div>
+      <div class="hero-detail-item">
+        <span class="hd-label">Families helped</span>
+        <span class="hd-val">300+</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block;">
+      <path d="M0 32 C240 64 480 0 720 32 C960 64 1200 0 1440 32 L1440 64 L0 64 Z" fill="#1C4F58"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ─── TRUST BAR ────────────────────────────────────────────── -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-num">34</div>
+    <div class="trust-label">Years in surrogacy</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">300+</div>
+    <div class="trust-label">Families served</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">Florida</div>
+    <div class="trust-label">Deep surrogate pool</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">2</div>
+    <div class="trust-label">Nations covered</div>
+  </div>
+</div>
+
+<!-- ─── ABOUT / STORY ────────────────────────────────────────── -->
+<section id="about">
+  <div class="section-inner">
+    <span class="eyebrow">Why Camica Exists</span>
+    <div class="story-grid">
+
+      <div class="story-img">
+        <!-- Replace with Robyn's actual photo: <img src="robyn-photo.jpg" alt="Robyn Price" style="width:100%;height:100%;object-fit:cover;"> -->
+        <div class="story-img-placeholder">
+          <p>[ Photo of Robyn ]</p>
+        </div>
+        <div class="story-img-inner">
+          <div class="story-img-caption">Robyn Price</div>
+          <div class="story-img-note">Founder · Camica &amp; CSO</div>
+        </div>
+      </div>
+
+      <div class="story-text">
+        <h2>I grew up in<br>surrogacy. <em>Literally.</em></h2>
+        <div class="rule"></div>
+        <p class="story-quote">
+          "My mother founded Canada's first surrogacy agency in 1992. I grew up in her office, beside her at hospital visits, learning this world from the inside out."
+        </p>
+        <p>
+          I was an egg donor before I became an agency director. I inherited her agency, Canadian Surrogacy Options, and ran it for years. And then I moved to Florida, and I knew exactly what I was going to build here.
+        </p>
+        <p>
+          Camica is what happens when 34 years of institutional knowledge meets Florida's deep, motivated surrogate pool. It's boutique by design. You will know my name. I will know yours.
+        </p>
+        <p>
+          What that means for you: you will never work with an agency that has more experience, more care, or a more personal stake in your outcome. Camica is not a corporation. It is a family business, and it will treat your journey like it is personal. Because to me, it always has been.
+        </p>
+        <div style="margin-top:32px;">
+          <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener" class="btn btn-outline">
+            Meet Robyn &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOR INTENDED PARENTS ─────────────────────────────────── -->
+<section id="intended-parents" class="alt">
+  <div class="section-inner">
+    <span class="eyebrow">For Intended Parents</span>
+    <h2>Your family shouldn't<br>have to <em>wait.</em></h2>
+    <div class="rule"></div>
+    <p style="max-width:620px;">
+      Camica's Florida base gives you access to one of North America's deepest surrogate communities. Compensated surrogacy means motivated, available carriers, with match timelines measured in weeks, not years. Four program tiers. Every one includes Robyn.
+    </p>
+
+    <div class="packages-grid">
+
+      <!-- Signature -->
+      <div class="pkg-card">
+        <div class="pkg-tier">Signature</div>
+        <div class="pkg-price"><span class="pkg-currency">$</span>28,000</div>
+        <div class="pkg-note">USD &nbsp;·&nbsp; Full-service matching</div>
+        <ul class="pkg-features">
+          <li>Surrogate matching &amp; background screening</li>
+          <li>Legal contract coordination</li>
+          <li>Escrow management setup</li>
+          <li>Dedicated case manager</li>
+          <li>Medical appointment coordination</li>
+          <li>Unlimited email &amp; call support</li>
+        </ul>
+        <div style="margin-top:32px;">
+          <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;">
+            Book a Consultation
+          </a>
+        </div>
+      </div>
+
+      <!-- Priority (featured) -->
+      <div class="pkg-card featured">
+        <div class="pkg-featured-label">Most Popular</div>
+        <div class="pkg-tier">Priority</div>
+        <div class="pkg-price"><span class="pkg-currency" style="color:var(--seafoam);">$</span>38,000</div>
+        <div class="pkg-note">USD &nbsp;·&nbsp; Expedited matching</div>
+        <ul class="pkg-features">
+          <li>All Signature services</li>
+          <li>Expedited matching: target 60 to 90 days</li>
+          <li>Full medical screening package</li>
+          <li>Psychological evaluation support</li>
+          <li>Extended emotional support package</li>
+          <li>Priority access to new surrogate profiles</li>
+        </ul>
+        <div style="margin-top:32px;">
+          <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener" class="btn btn-light" style="width:100%;justify-content:center;">
+            Book a Consultation
+          </a>
+        </div>
+      </div>
+
+      <!-- Premier -->
+      <div class="pkg-card">
+        <div class="pkg-tier">Premier</div>
+        <div class="pkg-price"><span class="pkg-currency">$</span>48,000</div>
+        <div class="pkg-note">USD &nbsp;·&nbsp; Concierge experience</div>
+        <ul class="pkg-features">
+          <li>All Priority services</li>
+          <li>Robyn personally involved throughout</li>
+          <li>Concierge-level case management</li>
+          <li>VIP clinic coordination</li>
+          <li>International family travel support</li>
+          <li>Post-birth support package</li>
+        </ul>
+        <div style="margin-top:32px;">
+          <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;">
+            Book a Consultation
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Concierge -->
+    <div style="margin-top:2px;background:#0F1C1F;padding:48px 44px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+      <div>
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:16px;">Concierge</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:300;color:#fff;line-height:1.15;margin-bottom:16px;">For families where every detail must be right.</div>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.8;margin-bottom:0;">Camica's Concierge tier is a fully bespoke engagement for families with complex international circumstances, medical complexity, or exceptional needs. Robyn personally manages every aspect of your journey from the first conversation to the day you go home.</p>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">From</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:300;color:#fff;line-height:1;margin-bottom:4px;"><span style="font-size:24px;color:var(--gold);">$</span>65,000</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:28px;letter-spacing:0.5px;">USD &nbsp;|&nbsp; by application only</div>
+        <ul style="list-style:none;padding:0;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;">
+          <li style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.65);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <span style="color:var(--gold);flex-shrink:0;">&#10003;</span> All Premier services
+          </li>
+          <li style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.65);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <span style="color:var(--gold);flex-shrink:0;">&#10003;</span> Robyn leads your case personally from day one
+          </li>
+          <li style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.65);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <span style="color:var(--gold);flex-shrink:0;">&#10003;</span> Direct relationships at Florida's top fertility clinics
+          </li>
+          <li style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.65);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <span style="color:var(--gold);flex-shrink:0;">&#10003;</span> International travel and logistics coordination
+          </li>
+          <li style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.65);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <span style="color:var(--gold);flex-shrink:0;">&#10003;</span> Cross-border legal team assembly
+          </li>
+          <li style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.65);padding:6px 0;">
+            <span style="color:var(--gold);flex-shrink:0;">&#10003;</span> Priority above all other active clients
+          </li>
+        </ul>
+        <div style="margin-top:24px;">
+          <a href="mailto:robyn@camica.ca" class="btn btn-gold" style="justify-content:center;width:100%;">
+            Inquire About Concierge &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:28px;font-size:13px;color:var(--text-muted);text-align:center;">
+      All fees are in USD. Surrogate compensation ($55,000 to $70,000+), medical, legal, and escrow costs are separate.<br>
+      Ask about the Hybrid Pathway if you are a Canadian family.
+    </p>
+  </div>
+</section>
+
+<!-- ─── HYBRID PATHWAY ───────────────────────────────────────── -->
+<div class="hybrid-section" id="hybrid">
+  <div class="hybrid-inner">
+
+    <div class="hybrid-left">
+      <span class="eyebrow light">The Camica Hybrid Pathway</span>
+      <h2>Already waiting<br>in Canada?</h2>
+      <div class="rule"></div>
+      <p>
+        Canada's altruistic-only surrogacy law means deep waitlists and no clear timeline. The Hybrid Pathway is Camica's answer: a Florida-based gestational carrier who travels to Ontario for delivery. You stay home. Your baby is born in Canada. And you don't wait 18 more months.
+      </p>
+
+      <div class="hybrid-how">
+        <div class="hybrid-step">
+          <div class="hybrid-step-num">01</div>
+          <div class="hybrid-step-text"><strong>You sign with Camica.</strong> We begin surrogate matching from our Florida pool, typically within weeks.</div>
+        </div>
+        <div class="hybrid-step">
+          <div class="hybrid-step-num">02</div>
+          <div class="hybrid-step-text"><strong>Your surrogate carries in Florida.</strong> All medical appointments, legal contracts, and support are managed by Camica.</div>
+        </div>
+        <div class="hybrid-step">
+          <div class="hybrid-step-num">03</div>
+          <div class="hybrid-step-text"><strong>She travels to Ontario for delivery.</strong> Your baby is born in Canada. Your legal team handles the birth order on both sides of the border.</div>
+        </div>
+        <div class="hybrid-step">
+          <div class="hybrid-step-num">04</div>
+          <div class="hybrid-step-text"><strong>You go home with your family.</strong> Camica handles post-birth coordination and ongoing support.</div>
+        </div>
+      </div>
+
+      <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener" class="btn btn-outline-light">
+        Ask About the Hybrid Pathway &rarr;
+      </a>
+    </div>
+
+    <div class="hybrid-right">
+      <div class="founding-card">
+        <div class="founding-badge">Founding Families: Limited Spots</div>
+
+        <div class="founding-heading">Lock In Today's Rate</div>
+        <div class="founding-sub">The first 12 families who secure their place lock in the current Hybrid rate — guaranteed, no matter what pricing does next.</div>
+
+        <div class="founding-price-compare">
+          <div class="fpc-item">
+            <div class="fpc-label">Hybrid Pathway</div>
+            <div class="fpc-price highlight">$26,500 USD</div>
+            <div class="fpc-save">Rate locked at today's price</div>
+          </div>
+          <div class="fpc-item">
+            <div class="fpc-label">To Secure Your Spot</div>
+            <div class="fpc-price highlight">$2,500</div>
+            <div class="fpc-save">Deposit credited to total</div>
+          </div>
+        </div>
+
+        <div class="founding-deposit-note">
+          Your <strong>$2,500 founding deposit</strong> is fully credited toward your total fee. Your rate is locked — even if pricing increases. Matching begins the moment your deposit clears. Refundable if no surrogate match is made within 12 months.
+        </div>
+
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:28px;line-height:1.6;">
+          Only 12 founding family spots. The list opened this week. Robyn personally leads every founding family file.
+        </p>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <a href="https://portal.canadiansurrogacyoptions.com/camica/register" class="btn btn-gold" style="justify-content:center;">
+            Secure My Founding Family Spot &rarr;
+          </a>
+          <p style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin:0;letter-spacing:0.5px;">
+            Email robyn@camica.ca to pay and reserve your place
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── FOR SURROGATES ───────────────────────────────────────── -->
+<section id="surrogates" class="seafoam-bg">
+  <div class="section-inner">
+    <span class="eyebrow">Become a Surrogate</span>
+    <div class="surro-grid">
+
+      <div>
+        <h2>Carry with purpose.<br><em>Earn what you deserve.</em></h2>
+        <div class="rule"></div>
+        <p>
+          If you have finished having your own children and you have wondered about giving this gift to someone else: this is your sign. Florida surrogates with Camica earn $55,000 to $70,000+ for a first journey. Every expense covered. Legal team included. And you will have me, personally, in your corner for every step.
+        </p>
+        <p>
+          I know this world from every angle. I have been a donor. I watched my mother support hundreds of surrogates over 34 years. I built Camica because I wanted to do it the right way, with radical honesty and real human care.
+        </p>
+
+        <div class="comp-blocks">
+          <div class="comp-block">
+            <div class="comp-num">$55K+</div>
+            <div class="comp-details">
+              <div class="cd-label">First journey base</div>
+              <div class="cd-text">Florida first-time gestational carrier compensation. Paid monthly via secure escrow.</div>
+            </div>
+          </div>
+          <div class="comp-block">
+            <div class="comp-num">$70K+</div>
+            <div class="comp-details">
+              <div class="cd-label">Experienced carriers</div>
+              <div class="cd-text">Higher base for surrogates with a prior successful journey.</div>
+            </div>
+          </div>
+          <div class="comp-block">
+            <div class="comp-num">100%</div>
+            <div class="comp-details">
+              <div class="cd-label">Expenses covered</div>
+              <div class="cd-text">All medical, legal, travel, and incidental costs. Life insurance included.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="eyebrow" style="margin-top:0;">Surrogate Requirements</span>
+        <h3 style="margin-bottom:12px;">Are you a good candidate?</h3>
+        <p>We're looking for real women, not perfect ones. If you check most of these boxes, let's talk.</p>
+
+        <ul class="req-list">
+          <li>Age 21 – 40</li>
+          <li>At least one prior healthy full-term pregnancy</li>
+          <li>Done having your own children</li>
+          <li>BMI under 32</li>
+          <li>Non-smoker; no illicit drug use</li>
+          <li>US citizen, permanent resident, or valid visa</li>
+          <li>Stable home environment and support system</li>
+          <li>No disqualifying medical conditions</li>
+        </ul>
+
+        <div class="surro-apply-box">
+          <h3>Apply in 5 minutes.</h3>
+          <p>
+            Tell us a little about yourself. Robyn personally reviews every application and responds within 48 hours. No judgment, no pressure.
+          </p>
+          <a href="camica-surrogate.html" class="btn btn-primary">
+            Start My Application &rarr;
+          </a>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:12px;margin-bottom:0;">Already applied? <a href="https://portal.canadiansurrogacyoptions.com/camica/login" style="color:var(--teal);text-decoration:underline;">Sign in to your portal</a></p>
+        </div>
+
+        <p style="font-size:12px;color:var(--text-muted);margin-top:16px;">
+          Applications for Florida surrogates are open now. We are actively matching.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CAMICA ────────────────────────────────────────────── -->
+<section id="why" class="white">
+  <div class="section-inner">
+    <span class="eyebrow">The Camica Difference</span>
+    <h2>Not a platform.<br>Not a corporation.<br><em>A family business.</em></h2>
+    <div class="rule"></div>
+    <p style="max-width:580px;">
+      The surrogacy industry is full of agencies that process families. Camica does the opposite. Here's what makes us different.
+    </p>
+
+    <div class="why-grid">
+
+      <div class="why-item">
+        <div class="why-num">34</div>
+        <h3>Years of institutional knowledge</h3>
+        <p>This is not a startup. Every scenario encountered, every protocol built, every hard conversation navigated: 34 years of it comes with your journey.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <h3>One founder's direct attention</h3>
+        <p>Camica is intentionally small. You're not a file number. Robyn personally reviews every match and stays in your corner throughout. This is what boutique actually means.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-num">FL</div>
+        <h3>Florida's best surrogate pool</h3>
+        <p>Florida has one of the deepest, most active surrogate communities in the US. Compensated surrogacy means motivated carriers. Your match timeline is weeks, not the 18 to 24 months Canadian families wait.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-num">∞</div>
+        <h3>The only agency built on both sides of the border</h3>
+        <p>With CSO's 34-year Canadian legacy and Camica's US strength, we uniquely serve North American families, including the Hybrid Pathway that solves Canada's waitlist problem today.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CALLOUT QUOTE ─────────────────────────────────────────── -->
+<div class="callout-section">
+  <p class="callout-quote">
+    "My mother built this from a kitchen table in 1992. I watched her change hundreds of lives. I am doing the same thing, just with a different zip code and a larger market."
+  </p>
+  <div class="callout-attr">Robyn Price &nbsp;·&nbsp; Founder, Camica &amp; CSO</div>
+</div>
+
+<!-- ─── CTA ───────────────────────────────────────────────────── -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="eyebrow light" style="display:block;text-align:center;margin-bottom:20px;">Begin Your Story</span>
+    <h2>Your family is ready.<br>So are <em style="color:var(--seafoam);">we.</em></h2>
+    <p>
+      A 30-minute consultation with Robyn costs nothing and changes everything. Let us talk about what your path looks like, and how soon we can start.
+    </p>
+    <div class="cta-actions">
+      <a href="camica-ip.html" class="btn btn-gold">
+        Start My Journey &rarr;
+      </a>
+      <a href="camica-surrogate.html" class="btn btn-outline-light">
+        Surrogate Inquiry
+      </a>
+    </div>
+    <p class="cta-note">No pressure. No commitment. Just a real conversation.</p>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <div class="footer-logo">Cami<span>c</span>a</div>
+      <div class="footer-tagline">from hope to heartbeat to home.</div>
+      <p class="footer-desc">
+        Camica is a Florida-based boutique surrogacy agency serving intended parents and gestational carriers across North America. Founded by Robyn Price, with 34 years of surrogacy experience behind every decision.
+      </p>
+      <div class="footer-contact">
+        <a href="mailto:robyn@camica.ca">robyn@camica.ca</a>
+        <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener">calendly.com/cso-robyn</a>
+        <a href="tel:+1">Florida, USA &nbsp;·&nbsp; Serving North America</a>
+      </div>
+      <div class="footer-cso" style="margin-top:16px;">
+        Sister agency: <a href="https://canadiansurrogacyoptions.com" style="color:rgba(255,255,255,0.4);">Canadian Surrogacy Options</a> &nbsp;·&nbsp; Est. 1992
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Intended Parents</h4>
+      <ul>
+        <li><a href="#intended-parents">Program Overview</a></li>
+        <li><a href="#intended-parents">Signature Package</a></li>
+        <li><a href="#intended-parents">Priority Package</a></li>
+        <li><a href="#intended-parents">Premier Package</a></li>
+        <li><a href="#hybrid">The Hybrid Pathway</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Surrogates</h4>
+      <ul>
+        <li><a href="camica-surrogate.html#why">Why Carry with Camica</a></li>
+        <li><a href="camica-surrogate.html#compensation">Compensation Guide</a></li>
+        <li><a href="camica-surrogate.html#requirements">Requirements</a></li>
+        <li><a href="camica-surrogate.html" style="color:var(--seafoam);font-weight:500;">Apply Now &rarr;</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#about">Meet Robyn</a></li>
+        <li><a href="#why">Why Camica</a></li>
+        <li><a href="camica-ip.html" style="color:var(--seafoam);font-weight:500;">Begin Your Journey &rarr;</a></li>
+        <li><a href="https://portal.canadiansurrogacyoptions.com/camica/login">Client Portal Login</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; 2026 Camica Inc. &nbsp;·&nbsp; All rights reserved.</span>
+    <span>
+      <a href="#">Privacy Policy</a> &nbsp;&nbsp;
+      <a href="#">Terms of Service</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

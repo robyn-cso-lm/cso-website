@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://camica.ca/sitemap.xml

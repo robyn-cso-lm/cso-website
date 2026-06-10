@@ -1,7 +1,7 @@
-/                   /camica-homepage.html   200
-/surrogates         /camica-surrogate.html  200
-/intended-parents   /camica-ip.html         200
-/apply              /camica-surrogate.html  200
-/join               /camica-ip.html         200
-/qualify            /qualify.html           200
-/calculator         /calculator.html        200
+/camica-homepage.html   /                       301!
+/surrogates             /camica-surrogate.html  200
+/intended-parents       /camica-ip.html         200
+/apply                  /camica-surrogate.html  200
+/join                   /camica-ip.html         200
+/qualify                /qualify.html           200
+/calculator             /calculator.html        200
