@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ClinicStrip from '../../components/ClinicStrip';
 import styles from './programs.module.css';
 
 export const metadata: Metadata = {
@@ -181,6 +182,9 @@ export default function ProgramsPage() {
           </div>
         </div>
       </section>
+
+      {/* Clinics trust strip */}
+      <ClinicStrip />
 
       {/* Bridge Quote */}
       <section className={styles.bridge}>
