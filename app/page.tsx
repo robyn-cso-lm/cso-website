@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './page.module.css';
 import GuidesStrip from '@/components/GuidesStrip';
+import ClinicStrip from '@/components/ClinicStrip';
 
 export const metadata: Metadata = {
   title: 'Canadian Surrogacy Options | Canada\'s First Surrogacy Agency Since 1992',
@@ -164,6 +165,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Clinics trust strip */}
+      <ClinicStrip />
 
       {/* Guides Strip */}
       <GuidesStrip />

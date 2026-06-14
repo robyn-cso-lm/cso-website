@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ClinicStrip from '@/components/ClinicStrip';
 import styles from './about.module.css';
 
 export const metadata: Metadata = {
@@ -164,6 +165,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Clinics trust strip */}
+      <ClinicStrip />
 
       {/* CTA */}
       <section className={styles.cta}>
