@@ -70,6 +70,11 @@ export default function SurrogatesPage() {
           <h1>Give a Family the Gift of a Lifetime</h1>
           <p>Surrogacy is one of the most profound things a woman can do. We&apos;ve been here since 1992 and we&apos;ll be with you every step of the way.</p>
           <a href="#apply" className="btn">Start Your Application</a>
+          <div style={{ marginTop: '16px' }}>
+            <a href="/qualify" style={{ color: '#fff', opacity: 0.9, fontSize: '0.95rem', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+              Not sure yet? Take the 3-minute eligibility quiz &rarr;
+            </a>
+          </div>
           <div className="trust-bar">
             <span>In Practice Since 1992</span>
             <span>100% Canadian</span>
