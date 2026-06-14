@@ -1,0 +1,26 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "CSO Website",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "cwd": "C:/Users/robyn/cso-website"
+    },
+    {
+      "name": "Portal Client",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 5173,
+      "cwd": "C:/Users/robyn/cso-portal/client"
+    },
+    {
+      "name": "Portal Server",
+      "runtimeExecutable": "nodemon",
+      "runtimeArgs": ["index.js"],
+      "port": 3001,
+      "cwd": "C:/Users/robyn/cso-portal/server"
+    }
+  ]
+}

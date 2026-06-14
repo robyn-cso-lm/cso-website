@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP Profile Template Pack - Canadian Surrogacy Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-purple: #3D1A6E;
+    --mid-purple: #6B3FA0;
+    --lavender: #9B7FC7;
+    --lavender-light: #E8E0F5;
+    --cream: #FDFAF7;
+    --text: #2E1A4A;
+    --text-secondary: #6B5A85;
+    --rule: rgba(155,127,199,0.22);
+  }
+
+  @page { size: letter; margin: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    background: var(--cream);
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-inner { padding: 0.75in 0.85in 1in; flex: 1; }
+
+  .page-footer {
+    margin: 0 0.85in;
+    padding: 0.18in 0 0.38in;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    width: 8.5in;
+    min-height: 11in;
+    background: var(--deep-purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.65in 0.85in 0.55in;
+    page-break-after: always;
+  }
+
+  .cover-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cover-wordmark {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(232, 224, 245, 0.6);
+  }
+
+  .cover-tag {
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    border: 1px solid rgba(155,127,199,0.3);
+    border-radius: 100px;
+    padding: 4px 12px;
+  }
+
+  .cover-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5in 0 0.3in;
+  }
+
+  .cover-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 64px;
+    font-weight: 400;
+    color: white;
+    line-height: 1.08;
+    margin-bottom: 8px;
+  }
+
+  .cover-title em { font-style: italic; color: var(--lavender-light); }
+
+  .cover-rule {
+    width: 60px;
+    height: 1px;
+    background: rgba(155,127,199,0.4);
+    margin: 28px 0;
+  }
+
+  .cover-sub {
+    font-size: 15px;
+    color: rgba(232, 224, 245, 0.75);
+    line-height: 1.75;
+    max-width: 460px;
+    margin-bottom: 8px;
+  }
+
+  .cover-includes {
+    font-size: 12.5px;
+    font-style: italic;
+    color: rgba(155, 127, 199, 0.8);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .cover-author {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cover-author-line { width: 32px; height: 1px; background: rgba(155,127,199,0.4); }
+
+  .cover-author-text { font-size: 12px; color: rgba(232,224,245,0.6); line-height: 1.5; }
+  .cover-author-name { font-weight: 500; color: rgba(253,250,247,0.85); font-size: 13px; }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(155,127,199,0.15);
+    padding-top: 20px;
+  }
+
+  .cover-bottom-contact { font-size: 10px; color: rgba(155,127,199,0.5); letter-spacing: 0.08em; }
+
+  /* ── Section Headers ── */
+  .section-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--lavender); font-weight: 500; margin-bottom: 10px; display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px; font-weight: 400; color: var(--deep-purple);
+    line-height: 1.15; margin-bottom: 28px;
+  }
+
+  .welcome-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px; font-weight: 400; color: var(--deep-purple);
+    margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--rule);
+  }
+
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── Callout ── */
+  .callout {
+    background: white; border-left: 3px solid var(--lavender);
+    border-radius: 0 8px 8px 0; padding: 16px 20px;
+    margin: 22px 0; font-size: 13.5px; color: var(--text); line-height: 1.7;
+  }
+  .callout.priority { border-left-color: var(--deep-purple); }
+  .callout-label {
+    font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--lavender); font-weight: 500; margin-bottom: 6px; display: block;
+  }
+  .callout.priority .callout-label { color: var(--mid-purple); }
+
+  /* ── Profile structure card ── */
+  .profile-section-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    page-break-inside: avoid;
+  }
+
+  .profile-section-num {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--lavender); font-weight: 500; margin-bottom: 6px;
+  }
+
+  .profile-section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-weight: 500; color: var(--deep-purple);
+    margin-bottom: 10px;
+  }
+
+  .profile-section-body { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+  .example-block {
+    background: var(--lavender-light);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .example-label {
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--mid-purple); font-weight: 500; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .example-good { border-left: 2px solid #6B3FA0; padding-left: 12px; margin-bottom: 10px; }
+  .example-avoid { border-left: 2px solid rgba(155,127,199,0.35); padding-left: 12px; color: var(--text-secondary); font-style: italic; }
+
+  /* ── Photo grid guide ── */
+  .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+
+  .photo-card {
+    background: white; border: 1px solid var(--rule); border-radius: 10px;
+    padding: 16px 18px;
+  }
+
+  .photo-card-title { font-weight: 500; color: var(--deep-purple); font-size: 13px; margin-bottom: 6px; }
+  .photo-card-body { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+
+  .photo-avoid { background: rgba(232,224,245,0.3); }
+
+  /* ── Steps ── */
+  .step-row {
+    display: flex; gap: 18px; align-items: flex-start;
+    padding: 16px 0; border-bottom: 1px solid var(--rule);
+  }
+  .step-row:last-child { border-bottom: none; }
+
+  .step-badge {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--lavender-light); border: 1.5px solid var(--lavender);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 15px;
+    color: var(--mid-purple); flex-shrink: 0; margin-top: 2px;
+  }
+
+  .step-content { flex: 1; }
+  .step-title { font-weight: 500; color: var(--deep-purple); font-size: 14px; margin-bottom: 4px; }
+  .step-body { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* ── Avoid patterns ── */
+  .avoid-item {
+    padding: 16px 0; border-bottom: 1px solid var(--rule);
+  }
+  .avoid-item:last-child { border-bottom: none; }
+  .avoid-title { font-weight: 500; color: var(--deep-purple); font-size: 13.5px; margin-bottom: 6px; }
+  .avoid-example { font-size: 12px; color: var(--lavender); font-style: italic; margin-bottom: 6px; font-family: 'Cormorant Garamond', serif; font-size: 15px; }
+  .avoid-body { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* ── Worksheet fields ── */
+  .worksheet-page { background: white; }
+
+  .ws-label {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--lavender); font-weight: 500; margin-bottom: 4px;
+  }
+
+  .ws-field {
+    margin-bottom: 26px;
+  }
+
+  .ws-field-label {
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-secondary); font-weight: 500; margin-bottom: 8px;
+    padding-bottom: 6px; border-bottom: 1.5px solid var(--deep-purple);
+  }
+
+  .ws-lines {
+    margin-top: 6px;
+  }
+
+  .ws-line {
+    height: 24px;
+    border-bottom: 1px solid rgba(155,127,199,0.2);
+    margin-bottom: 2px;
+  }
+
+  .ws-line-tall { height: 36px; }
+
+  /* ── Two-column layout ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  /* ── Pull quote ── */
+  .pull-quote {
+    text-align: center; padding: 30px 40px; margin: 24px 0;
+  }
+  .pull-quote-rule { width: 40px; height: 1px; background: var(--lavender); margin: 0 auto 14px; }
+  .pull-quote-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-weight: 400; font-style: italic;
+    color: var(--deep-purple); line-height: 1.55; margin-bottom: 14px;
+  }
+  .pull-quote-source { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender); }
+
+  /* ── Closing ── */
+  .closing {
+    width: 8.5in; min-height: 11in; background: var(--deep-purple);
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; text-align: center; padding: 0.85in;
+    page-break-before: always;
+  }
+  .closing-eyebrow { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--lavender); margin-bottom: 20px; }
+  .closing-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 52px; font-weight: 400; color: white; line-height: 1.1; margin-bottom: 36px; }
+  .closing-title em { font-style: italic; color: var(--lavender-light); }
+  .closing-rule { width: 50px; height: 1px; background: rgba(155,127,199,0.3); margin: 0 auto 32px; }
+  .closing-body { font-size: 14px; color: rgba(253,250,247,0.75); line-height: 1.85; max-width: 440px; margin-bottom: 40px; }
+  .closing-cta {
+    display: inline-block; background: white; color: var(--deep-purple);
+    font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 500;
+    letter-spacing: 0.05em; padding: 13px 30px; border-radius: 100px; margin-bottom: 50px;
+  }
+  .closing-footer { font-size: 10px; color: rgba(155,127,199,0.6); line-height: 2.1; }
+
+  .section-divider { width: 100%; height: 1px; background: var(--rule); margin: 24px 0; }
+
+  @media print {
+    body { background: white; }
+    .page, .cover, .closing { page-break-after: always; }
+    .worksheet-page { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER ══════════ -->
+<div class="cover">
+  <div class="cover-top">
+    <span class="cover-wordmark">Canadian Surrogacy Options</span>
+    <span class="cover-tag">For Intended Parents</span>
+  </div>
+
+  <div class="cover-main">
+    <span class="cover-eyebrow">Build a Profile That Connects</span>
+    <div class="cover-title">IP Profile<br><em>Template Pack</em></div>
+    <div class="cover-rule"></div>
+    <p class="cover-sub">How to present your family to a surrogate - beautifully and honestly.</p>
+    <p class="cover-includes">Includes: profile writing guide, bio worksheets, photo selection guide,<br>what surrogates actually want to know, and Canva template.</p>
+    <div class="cover-author">
+      <div class="cover-author-line"></div>
+      <div class="cover-author-text">
+        <div class="cover-author-name">Robyn Price</div>
+        <div>Executive Director, Canadian Surrogacy Options</div>
+        <div style="font-style:italic; color:rgba(155,127,199,0.6);">In this field since I was four years old.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <span class="cover-bottom-contact">canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+    <span style="font-size:9px; color:rgba(155,127,199,0.3); letter-spacing:0.1em; text-transform:uppercase;">2024 Edition</span>
+  </div>
+</div>
+
+<!-- ══════════ WELCOME ══════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="section-label">Welcome</div>
+    <div class="welcome-title">Your profile is your first impression.</div>
+
+    <p>Before a surrogate ever speaks to you, she will read your profile. She will look at your photos. She will read your story. And she will make a decision about whether she can imagine going on this journey with you.</p>
+
+    <p>I have reviewed hundreds of IP profiles over the years. I have seen profiles that made surrogates want to meet the family before they finished the first page. And I have seen profiles that made surrogates hesitant before they reached the second paragraph.</p>
+
+    <p>The difference is almost never about how perfect the family is. It is about how honest and how human they are willing to be.</p>
+
+    <div class="pull-quote">
+      <div class="pull-quote-rule"></div>
+      <div class="pull-quote-text">"A surrogate is not looking for a perfect family. She is looking for a real one - one she trusts, one she connects with, and one she feels good handing a baby to."</div>
+      <div class="pull-quote-rule"></div>
+    </div>
+
+    <p>This pack gives you the framework, the prompts, and the guidance to build a profile that does exactly that. Use the worksheets to draft, then build your final version in the Canva template included with this pack.</p>
+
+    <div style="display:flex; align-items:center; gap:16px; margin-top:32px;">
+      <div style="width:32px; height:1px; background:var(--lavender);"></div>
+      <div>
+        <div style="font-weight:500; color:var(--deep-purple); font-size:13.5px;">Robyn Price</div>
+        <div style="font-size:12px; color:var(--text-secondary);">Executive Director, Canadian Surrogacy Options</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Canadian Surrogacy Options</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ SECTION 1 ══════════ -->
+<div class="page">
+  <div class="page-inner">
+    <span class="section-label">Section 1</span>
+    <div class="section-title">What surrogates actually want to know</div>
+
+    <p>This is the section most IPs skip - and they shouldn't. Understanding what a surrogate is looking for changes how you write everything.</p>
+
+    <div class="profile-section-card">
+      <div class="profile-section-title">Who are you as people - not just as hopeful parents?</div>
+      <div class="profile-section-body">Surrogates want to feel like they know you. Your job, your hobbies, what makes you laugh, what your home feels like. The human stuff. Not your resume.</div>
+    </div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-title">Why do you need a surrogate?</div>
+      <div class="profile-section-body">You do not need to share every medical detail. But a brief, honest explanation helps. It tells her this is real, and it helps her understand the significance of what she is doing.</div>
+    </div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-title">What kind of relationship do you want during the pregnancy?</div>
+      <div class="profile-section-body">How often will you communicate? Will you attend appointments? How do you see this relationship working? She wants to know if your expectations are compatible with hers.</div>
+    </div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-title">What will you be like as parents?</div>
+      <div class="profile-section-body">She is carrying this baby for someone. She wants to feel good about who that someone is. Give her a window into what kind of family this child is going to.</div>
+    </div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-title">What happens after the birth?</div>
+      <div class="profile-section-body">Will you stay in touch? Send photos? Most surrogates are not looking for lifelong friendship - but most want to know this baby is loved and cared for. A simple honest statement goes a long way.</div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Section 1 - What surrogates actually want to know</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ SECTION 2 ══════════ -->
+<div class="page">
+  <div class="page-inner">
+    <span class="section-label">Section 2</span>
+    <div class="section-title">The profile structure - section by section</div>
+
+    <p>Here is what a strong IP profile includes and what to put in each section.</p>
+
+    <div class="profile-section-card">
+      <div class="profile-section-num">1 - Most Important</div>
+      <div class="profile-section-title">The opening letter</div>
+      <div class="profile-section-body">This is the most important part of your profile. It is the first thing she reads and it sets the entire tone. Write it as a letter directly to a potential surrogate - warm, personal, and from the heart.</div>
+      <div class="example-block">
+        <div class="example-label">✓ Works well</div>
+        <div class="example-good">"If you are reading this, you are already someone extraordinary. We are Ali and Martin, and we have been waiting a long time to find the right person to help us build our family."</div>
+        <div class="example-label" style="margin-top:12px;">✕ Avoid</div>
+        <div class="example-avoid">"We are a married couple from Ontario seeking a surrogate to carry our embryo."</div>
+      </div>
+    </div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-num">2</div>
+      <div class="profile-section-title">Your story - why you need a surrogate</div>
+      <div class="profile-section-body">Keep it honest and keep it human. You do not need to share every clinical detail. But a brief, genuine explanation matters.</div>
+      <div class="example-block">
+        <div class="example-label">✓ Works well</div>
+        <div class="example-good">"After three years and more appointments than we can count, we found out that carrying a pregnancy safely is not possible for me. It was a hard thing to accept. But it led us here, and here feels right."</div>
+        <div class="example-label" style="margin-top:12px;">✕ Avoid</div>
+        <div class="example-avoid">"Due to medical reasons, we are unable to conceive naturally and require the assistance of a gestational carrier."</div>
+      </div>
+    </div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-num">3</div>
+      <div class="profile-section-title">Individual bios</div>
+      <div class="profile-section-body">Each partner gets their own section. Keep it conversational - not a LinkedIn profile. Include: what you do for work (briefly), what you love, what you are like as a person, and something that makes you specific and real.</div>
+      <div class="callout" style="margin:12px 0 0;">
+        <span class="callout-label">Pro Tip</span>
+        Include something unexpected - a hobby, a quirk, a funny detail. "Martin cooks elaborate Sunday breakfasts that nobody asked for but everyone shows up for" tells her more about who he is than any professional accomplishment.
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Section 2 - The profile structure</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ SECTION 2 cont. ══════════ -->
+<div class="page">
+  <div class="page-inner">
+    <span class="section-label">Section 2, continued</span>
+    <div class="section-title" style="font-size:26px; margin-bottom:22px;">The profile structure - continued</div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-num">4</div>
+      <div class="profile-section-title">Your home and family life</div>
+      <div class="profile-section-body">Describe where you live, what your home feels like, and who else is in your family - pets, children, extended family nearby. Help her picture the environment this baby is going to.</div>
+    </div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-num">5</div>
+      <div class="profile-section-title">What you are looking for in a surrogate</div>
+      <div class="profile-section-body">Be specific but not demanding. What values matter to you? What kind of communication do you hope for? What does your ideal relationship during the pregnancy look like?</div>
+      <div class="example-block">
+        <div class="example-label">✓ Works well</div>
+        <div class="example-good">"We are looking for someone who values open communication and feels comfortable reaching out when something feels off. We want to be present in this journey - not hovering, but genuinely involved and grateful at every step."</div>
+      </div>
+    </div>
+
+    <div class="profile-section-card">
+      <div class="profile-section-num">6</div>
+      <div class="profile-section-title">A closing note</div>
+      <div class="profile-section-body">End with something that feels like a conversation, not a contract. Thank her for reading. Tell her what it would mean to you. Invite her to reach out.</div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Section 2 - The profile structure</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ SECTION 3 - PHOTOS ══════════ -->
+<div class="page">
+  <div class="page-inner">
+    <span class="section-label">Section 3</span>
+    <div class="section-title">The photo selection guide</div>
+
+    <p>Photos are often the first thing a surrogate looks at. Here is exactly what works - and what to avoid.</p>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--lavender); font-weight:500; margin-bottom:14px;">Photos that work well</div>
+      <div class="photo-grid">
+        <div class="photo-card">
+          <div class="photo-card-title">A natural, smiling photo of you both together</div>
+          <div class="photo-card-body">Outdoors works beautifully. Candid is better than posed. You should look like yourselves.</div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-card-title">A photo in your home</div>
+          <div class="photo-card-body">At the kitchen table, in the backyard, on the couch. Somewhere that feels real and lived-in.</div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-card-title">A photo doing something you love</div>
+          <div class="photo-card-body">Cooking, hiking, at a farmers market, with your dog. Activity photos tell a story.</div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-card-title">A photo with family</div>
+          <div class="photo-card-body">Parents, siblings, nieces and nephews. Helps her see the support system around you.</div>
+        </div>
+        <div class="photo-card" style="grid-column: 1 / -1;">
+          <div class="photo-card-title">One photo that makes you laugh</div>
+          <div class="photo-card-body">A slightly ridiculous photo that shows you do not take yourselves too seriously.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--lavender); font-weight:500; margin-bottom:12px;">Photos to avoid</div>
+      <ul style="list-style:none; padding:0;">
+        <li style="padding:8px 0 8px 20px; position:relative; border-bottom:1px solid var(--rule); font-size:13px; color:var(--text-secondary);" >
+          <span style="position:absolute; left:0; color:var(--lavender); font-size:14px; top:8px;">×</span>
+          Overly formal or stiff portraits - they read as impersonal
+        </li>
+        <li style="padding:8px 0 8px 20px; position:relative; border-bottom:1px solid var(--rule); font-size:13px; color:var(--text-secondary);">
+          <span style="position:absolute; left:0; color:var(--lavender); font-size:14px; top:8px;">×</span>
+          Photos where you look unhappy or uncomfortable
+        </li>
+        <li style="padding:8px 0 8px 20px; position:relative; border-bottom:1px solid var(--rule); font-size:13px; color:var(--text-secondary);">
+          <span style="position:absolute; left:0; color:var(--lavender); font-size:14px; top:8px;">×</span>
+          Low quality, dark, or blurry images
+        </li>
+        <li style="padding:8px 0 8px 20px; position:relative; border-bottom:1px solid var(--rule); font-size:13px; color:var(--text-secondary);">
+          <span style="position:absolute; left:0; color:var(--lavender); font-size:14px; top:8px;">×</span>
+          Photos more than 3–4 years old
+        </li>
+        <li style="padding:8px 0 8px 20px; position:relative; font-size:13px; color:var(--text-secondary);">
+          <span style="position:absolute; left:0; color:var(--lavender); font-size:14px; top:8px;">×</span>
+          More than 8–10 photos total - quality over quantity
+        </li>
+      </ul>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      <span class="callout-label">Photo Tip</span>
+      If you don't have the right photos, take some this weekend. A phone camera in good natural light is all you need. Go somewhere you love and have someone take a few shots of you being yourselves.
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Section 3 - The photo selection guide</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ SECTION 4 - WHAT TO AVOID ══════════ -->
+<div class="page">
+  <div class="page-inner">
+    <span class="section-label">Section 4</span>
+    <div class="section-title">What to avoid in your profile</div>
+
+    <p>These are the patterns that make surrogates hesitant. Most are well-intentioned - which is exactly why they are worth flagging.</p>
+
+    <div style="margin-top:8px;">
+      <div class="avoid-item">
+        <div class="avoid-title">Overloading with medical information</div>
+        <div class="avoid-example">"After 4 failed IVF cycles, 2 laparoscopies, and a diagnosis of..."</div>
+        <div class="avoid-body">A brief, honest explanation is enough. The medical details belong in your intake file, not your profile. Too much medical information can feel overwhelming and shifts the tone from a human connection to a clinical transaction.</div>
+      </div>
+
+      <div class="avoid-item">
+        <div class="avoid-title">Language that sounds like a job posting</div>
+        <div class="avoid-example">"We require a surrogate who is reliable, punctual, and committed to following all medical protocols."</div>
+        <div class="avoid-body">You are looking for a relationship, not an employee. Language like this creates distance and signals that you may be difficult to work with.</div>
+      </div>
+
+      <div class="avoid-item">
+        <div class="avoid-title">Over-promising closeness</div>
+        <div class="avoid-example">"We will treat you like family!" or "You will always be part of our lives!"</div>
+        <div class="avoid-body">Surrogates are experienced in reading profiles. Empty promises read as empty. Be honest about what you genuinely see this relationship being.</div>
+      </div>
+
+      <div class="avoid-item">
+        <div class="avoid-title">Being vague about your situation</div>
+        <div class="avoid-example">"We prefer not to share details until we have spoken."</div>
+        <div class="avoid-body">Transparency builds trust. If you are withholding basic information in your profile, it raises questions about what else you might withhold. Share the essentials.</div>
+      </div>
+
+      <div class="avoid-item">
+        <div class="avoid-title">Focusing entirely on what you want</div>
+        <div class="avoid-example">A profile that is all about your hopes, your needs, your expectations - with no acknowledgement of what this means for the surrogate.</div>
+        <div class="avoid-body">Balance matters. Acknowledge her. Express genuine gratitude for what she is considering doing.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Section 4 - What to avoid in your profile</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ SECTION 5 - CANVA ══════════ -->
+<div class="page">
+  <div class="page-inner">
+    <span class="section-label">Section 5</span>
+    <div class="section-title">Using the Canva template</div>
+
+    <p>Your purchase includes access to a professionally designed Canva template in CSO's purple and lavender palette. Here is how to use it.</p>
+
+    <div style="margin-top: 8px;">
+      <div class="step-row">
+        <div class="step-badge">1</div>
+        <div class="step-content">
+          <div class="step-title">Access the template</div>
+          <div class="step-body">The Canva template link is included in your purchase confirmation email. Click the link and select "Use template" to create your own copy. You will need a free Canva account.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">2</div>
+        <div class="step-content">
+          <div class="step-title">Replace the placeholder text</div>
+          <div class="step-body">Every text block in the template is a placeholder. Click on any text block to edit it. Use the worksheets in this pack to have your content ready before you start editing.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">3</div>
+        <div class="step-content">
+          <div class="step-title">Add your photos</div>
+          <div class="step-body">Click on any photo placeholder and select "Replace" to upload your own images. Canva will automatically fit them to the frame. For best results use images that are at least 1200px wide.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">4</div>
+        <div class="step-content">
+          <div class="step-title">Adjust colours if needed</div>
+          <div class="step-body">The template uses CSO's brand colours. If your agency has different brand guidelines, you can update the colour palette in Canva's brand kit or by selecting individual elements.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">5</div>
+        <div class="step-content">
+          <div class="step-title">Export your profile</div>
+          <div class="step-body">When you are happy with your profile, click "Share" then "Download" and export as PDF. Standard quality is fine for digital sharing. For print, select "PDF Print" and high quality.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-badge">6</div>
+        <div class="step-content">
+          <div class="step-title">Create two versions</div>
+          <div class="step-body">Consider creating a full version with all your details, and a simplified version with your names changed for privacy. Your agency can advise on which to use and when.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Section 5 - Using the Canva template</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ WORKSHEETS INTRO ══════════ -->
+<div class="page">
+  <div class="page-inner" style="display:flex; flex-direction:column; justify-content:center; text-align:center; padding: 1in 1.2in;">
+    <span class="section-label" style="display:block; text-align:center; margin-bottom:16px;">Worksheets</span>
+    <div class="section-title" style="font-size:46px; text-align:center; margin-bottom:20px;">Draft your profile<br><em style="font-style:italic;">here first.</em></div>
+    <div style="width:50px; height:1px; background:var(--lavender); margin:0 auto 24px;"></div>
+    <p style="max-width:400px; margin:0 auto; color:var(--text-secondary); font-size:14px; line-height:1.8;">Write your answers here before you open Canva. Having your content drafted first makes the design process much faster - and the writing much better.</p>
+  </div>
+  <div class="page-footer">
+    <span>Worksheets</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ WORKSHEET 1 ══════════ -->
+<div class="page worksheet-page">
+  <div class="page-inner">
+    <div class="ws-label">Worksheet 1</div>
+    <div class="section-title" style="font-size:28px; margin-bottom:8px;">Your Opening Letter</div>
+    <p style="font-size:12.5px; color:var(--text-secondary); margin-bottom:28px;">Write a letter directly to a potential surrogate. Aim for 150–250 words. Warm, honest, personal.</p>
+
+    <div class="ws-field">
+      <div class="ws-field-label">Opening line - how do you want to start?</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">Why do you need a surrogate? (honest and brief)</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">What does becoming parents mean to you?</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">What do you want her to know about you before anything else?</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">Closing - what do you want to leave her with?</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Worksheet 1 - Your Opening Letter</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ WORKSHEET 2 ══════════ -->
+<div class="page worksheet-page">
+  <div class="page-inner">
+    <div class="ws-label">Worksheet 2</div>
+    <div class="section-title" style="font-size:28px; margin-bottom:8px;">Your Individual Bios</div>
+    <p style="font-size:12.5px; color:var(--text-secondary); margin-bottom:28px;">Complete one section for each partner. Aim for 80–120 words each.</p>
+
+    <div style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid-purple); font-weight:500; margin-bottom:18px; padding-bottom:8px; border-bottom:2px solid var(--lavender-light);">Person 1</div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">Name</div>
+      <div class="ws-lines"><div class="ws-line"></div></div>
+    </div>
+    <div class="ws-field">
+      <div class="ws-field-label">What do you do for work? (briefly)</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div></div>
+    </div>
+    <div class="ws-field">
+      <div class="ws-field-label">What do you love? (hobbies, passions, things that light you up)</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+    <div class="ws-field">
+      <div class="ws-field-label">Something specific and real that tells her who you are</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+
+    <div style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid-purple); font-weight:500; margin: 24px 0 18px; padding-bottom:8px; border-bottom:2px solid var(--lavender-light);">Person 2</div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">Name</div>
+      <div class="ws-lines"><div class="ws-line"></div></div>
+    </div>
+    <div class="ws-field">
+      <div class="ws-field-label">What do you do for work? (briefly)</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div></div>
+    </div>
+    <div class="ws-field">
+      <div class="ws-field-label">What do you love?</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+    <div class="ws-field">
+      <div class="ws-field-label">Something specific and real that tells her who you are</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Worksheet 2 - Your Individual Bios</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ WORKSHEET 3 ══════════ -->
+<div class="page worksheet-page">
+  <div class="page-inner">
+    <div class="ws-label">Worksheet 3</div>
+    <div class="section-title" style="font-size:28px; margin-bottom:28px;">Your Home &amp; Family Life</div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">Where do you live? What does your neighbourhood / home feel like?</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">Who else is in your family? (pets, children, extended family nearby)</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">What does a typical weekend look like in your home?</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">What kind of home is this baby coming into?</div>
+      <div class="ws-lines">
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+        <div class="ws-line ws-line-tall"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Worksheet 3 - Your Home &amp; Family Life</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ WORKSHEET 4 ══════════ -->
+<div class="page worksheet-page">
+  <div class="page-inner">
+    <div class="ws-label">Worksheet 4</div>
+    <div class="section-title" style="font-size:28px; margin-bottom:28px;">What You're Looking For</div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">What kind of person are you hoping to match with?</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">What does communication during the pregnancy look like for you?</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">How involved do you want to be during the pregnancy?</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">What will you do to show up for her throughout this journey?</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+
+    <div class="ws-field">
+      <div class="ws-field-label">What do you see the relationship looking like after the birth?</div>
+      <div class="ws-lines"><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div><div class="ws-line ws-line-tall"></div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Worksheet 4 - What You're Looking For</span>
+    <span>canadiansurrogacyoptions.com &nbsp;·&nbsp; 1-877-401-4175</span>
+  </div>
+</div>
+
+<!-- ══════════ CLOSING ══════════ -->
+<div class="closing">
+  <div class="closing-eyebrow">You're ready.</div>
+  <div class="closing-title">Build your profile.<br><em>Find your match.</em></div>
+  <div class="closing-rule"></div>
+  <p class="closing-body">You now have everything you need to build a profile that is honest, warm, and genuinely compelling. Use the worksheets to draft your content, then bring it to life in the Canva template.<br><br>If you would like a professional review of your profile before it goes live, CSO offers profile review consultations. And if you are ready to take the next step and work with an agency, we would love to talk.</p>
+  <a href="https://calendly.com/cso-robyn" class="closing-cta">Book a free 30-minute call with Robyn</a>
+  <div class="closing-footer">
+    <strong style="color:rgba(253,250,247,0.55); font-weight:400;">Canadian Surrogacy Options</strong> &nbsp;·&nbsp; Cambridge &amp; Guelph, Ontario<br>
+    1-877-401-4175 &nbsp;·&nbsp; canadiansurrogacyoptions.com &nbsp;·&nbsp; robyn@canadiansurrogacyoptions.com<br>
+    Little Miracles Egg Donation Services &nbsp;·&nbsp; little-miracles.ca<br>
+    <br>
+    <em style="font-size:9.5px; color:rgba(155,127,199,0.35);">This guide is provided for informational purposes only. Profile content is the responsibility of the intended parents.<br>Canadian Surrogacy Options does not guarantee any specific matching outcome.</em>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+.cta {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 24px;
+  background: var(--deep-purple);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(61, 26, 110, 0.35);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.cta:hover {
+  background: var(--mid-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(61, 26, 110, 0.45);
+}
+
+@media (max-width: 480px) {
+  .cta {
+    bottom: 16px;
+    right: 16px;
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}

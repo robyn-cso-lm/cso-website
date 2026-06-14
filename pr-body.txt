@@ -1,0 +1,17 @@
+## Summary
+- Added canonical tags to all public pages missing them (about, contact, families, intended-parents, international, lgbtq-surrogacy, resources, surrogates)
+- Fixed cost-calculator OG URL: had www prefix causing duplicate page issues in Search Console
+- Added www to non-www 301 redirect in netlify.toml
+- Blog posts now include og:image, twitter:image, BreadcrumbList schema, richer BlogPosting schema
+- Sitemap static routes use stable dates instead of rebuilding as today on every deploy
+
+## Why
+Google Search Console flagged 27 blog posts as Discovered but not indexed, and sent alerts for canonical conflicts caused by www vs non-www being treated as separate sites.
+
+## Test plan
+- [ ] Confirm www.canadiansurrogacyoptions.com redirects to non-www after deploy
+- [ ] Check /sitemap.xml loads correctly
+- [ ] Verify canonical tags appear in page source for key pages
+- [ ] Request indexing in Search Console for all 23 blog posts
+
+Generated with Claude Code

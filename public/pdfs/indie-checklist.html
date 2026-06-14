@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Independent Journey Checklist - Canadian Surrogacy Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FDFAF7;
+    color: #4A3560;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* PAGE STRUCTURE */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    background: #FDFAF7;
+    position: relative;
+    padding: 0.85in 0.85in 1in 0.85in;
+    page-break-after: always;
+    overflow: hidden;
+  }
+
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  /* FOOTER */
+  .page-footer {
+    position: absolute;
+    bottom: 0.45in;
+    left: 0.85in;
+    right: 0.85in;
+    border-top: 0.5px solid #9B7FC7;
+    padding-top: 0.12in;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    color: #9B7FC7;
+    letter-spacing: 0.04em;
+    text-align: right;
+  }
+
+  /* COVER PAGE */
+  .cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 11in;
+    padding: 0.9in 1in;
+    background: #FDFAF7;
+    position: relative;
+  }
+
+  .cover-wordmark {
+    position: absolute;
+    top: 0.6in;
+    left: 1in;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6B3FA0;
+  }
+
+  .cover-content {
+    margin-top: 1.2in;
+    max-width: 5.5in;
+  }
+
+  .cover-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.3in;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #3D1A6E;
+    margin-bottom: 0.25in;
+  }
+
+  .cover-rule {
+    width: 2in;
+    height: 2px;
+    background: linear-gradient(to right, #9B7FC7, #E8E0F5);
+    margin-bottom: 0.3in;
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: #6B3FA0;
+    line-height: 1.5;
+    margin-bottom: 0.2in;
+    max-width: 5in;
+  }
+
+  .cover-subsubtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #6B3FA0;
+    line-height: 1.7;
+    max-width: 4.8in;
+    margin-bottom: 0.5in;
+  }
+
+  .cover-byline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #9B7FC7;
+    letter-spacing: 0.05em;
+  }
+
+  .cover-byline strong {
+    color: #6B3FA0;
+    font-weight: 500;
+  }
+
+  .cover-bottom-decoration {
+    position: absolute;
+    bottom: 0.9in;
+    right: 1in;
+    text-align: right;
+  }
+
+  .cover-bottom-decoration .deco-line {
+    width: 1.2in;
+    height: 1px;
+    background: #E8E0F5;
+    margin-left: auto;
+    margin-bottom: 0.1in;
+  }
+
+  .cover-bottom-decoration span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C4B3E0;
+  }
+
+  /* PART HEADER */
+  .part-header-block {
+    margin-bottom: 0.3in;
+    padding-bottom: 0.18in;
+    border-bottom: 1px solid #E8E0F5;
+  }
+
+  .part-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.1in;
+  }
+
+  .part-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: #3D1A6E;
+    line-height: 1.15;
+  }
+
+  /* PHASE HEADER */
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 0.18in;
+    margin-bottom: 0.2in;
+    padding-bottom: 0.15in;
+    border-bottom: 1px solid #E8E0F5;
+  }
+
+  .phase-number {
+    width: 0.5in;
+    height: 0.5in;
+    background: #3D1A6E;
+    color: #FDFAF7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .phase-label-wrap {
+    flex: 1;
+  }
+
+  .phase-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.03in;
+  }
+
+  .phase-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #3D1A6E;
+    line-height: 1.15;
+  }
+
+  .phase-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: #9B7FC7;
+    letter-spacing: 0.05em;
+    margin-top: 0.02in;
+  }
+
+  /* BODY TEXT */
+  p {
+    margin-bottom: 0.18in;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4A3560;
+  }
+
+  /* CALLOUT BOXES */
+  .callout {
+    background: #FDFAF7;
+    border-left: 3px solid #9B7FC7;
+    padding: 0.15in 0.22in;
+    margin: 0.2in 0;
+    margin-left: 0.1in;
+  }
+
+  .callout p {
+    margin-bottom: 0;
+    font-size: 13.5px;
+    color: #4A3560;
+  }
+
+  .callout .callout-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.07in;
+    display: block;
+  }
+
+  .callout-warning {
+    background: #F9F5FF;
+    border-left: 3px solid #3D1A6E;
+    padding: 0.15in 0.22in;
+    margin: 0.2in 0;
+    margin-left: 0.1in;
+  }
+
+  .callout-warning .warning-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #3D1A6E;
+    margin-bottom: 0.07in;
+    display: block;
+  }
+
+  .callout-warning p {
+    margin-bottom: 0;
+    font-size: 13.5px;
+    color: #4A3560;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    text-align: center;
+    padding: 0.3in 0.4in;
+    margin: 0.25in 0;
+  }
+
+  .pull-quote-rule {
+    width: 1.5in;
+    height: 1px;
+    background: #9B7FC7;
+    margin: 0 auto 0.18in;
+  }
+
+  .pull-quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    color: #3D1A6E;
+    line-height: 1.5;
+    margin-bottom: 0.15in;
+  }
+
+  /* CHECKLIST ITEMS */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0.1in 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.12in;
+    padding: 0.06in 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #4A3560;
+    border-bottom: 0.5px solid #F5F0FB;
+  }
+
+  .checklist li:last-child {
+    border-bottom: none;
+  }
+
+  .checkbox {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #9B7FC7;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* PRIORITY items */
+  .checklist li.priority {
+    background: #FAF7FE;
+    border-left: 3px solid #3D1A6E;
+    padding-left: 0.12in;
+    margin: 0.05in 0;
+    border-bottom: 0.5px solid #EDE6F7;
+  }
+
+  .checklist li.priority .checkbox {
+    border-color: #3D1A6E;
+  }
+
+  .priority-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3D1A6E;
+    background: #E8E0F5;
+    padding: 1px 5px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+
+  .checklist-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: #9B7FC7;
+    font-style: italic;
+    margin-left: calc(14px + 0.12in);
+    margin-bottom: 0.06in;
+    line-height: 1.5;
+  }
+
+  /* CHECKLIST GROUP LABEL */
+  .checklist-group-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6B3FA0;
+    margin: 0.18in 0 0.08in;
+    padding-bottom: 0.06in;
+    border-bottom: 1px solid #E8E0F5;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.15in 0;
+    font-size: 13px;
+  }
+
+  thead tr {
+    background: #E8E0F5;
+  }
+
+  thead th {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #3D1A6E;
+    padding: 0.09in 0.14in;
+    text-align: left;
+    border: 1px solid #D4C8EE;
+  }
+
+  tbody tr:nth-child(odd) { background: #FDFAF7; }
+  tbody tr:nth-child(even) { background: #F7F3FC; }
+
+  tbody td {
+    padding: 0.08in 0.14in;
+    border: 1px solid #E8E0F5;
+    vertical-align: top;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #4A3560;
+  }
+
+  /* TEAM / PROFESSIONAL CARDS */
+  .pro-card {
+    border: 1px solid #E8E0F5;
+    padding: 0.15in 0.2in;
+    margin-bottom: 0.12in;
+    position: relative;
+    background: #FDFAF7;
+  }
+
+  .pro-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.12in;
+    margin-bottom: 0.06in;
+  }
+
+  .pro-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3D1A6E;
+    flex: 1;
+  }
+
+  .required-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FDFAF7;
+    background: #6B3FA0;
+    padding: 2px 7px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .optional-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    background: #E8E0F5;
+    padding: 2px 7px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .pro-card-body {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #4A3560;
+  }
+
+  /* APPENDIX */
+  .mistake-item {
+    border-left: 3px solid #E8E0F5;
+    padding: 0.12in 0.18in;
+    margin-bottom: 0.18in;
+    position: relative;
+  }
+
+  .mistake-item::before {
+    content: '⚠';
+    position: absolute;
+    left: -0.18in;
+    top: 0.1in;
+    font-size: 11px;
+    color: #9B7FC7;
+  }
+
+  .mistake-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #3D1A6E;
+    margin-bottom: 0.06in;
+  }
+
+  .mistake-body {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #4A3560;
+  }
+
+  /* SERVICE CARDS */
+  .service-card {
+    border: 1px solid #E8E0F5;
+    padding: 0.18in 0.22in;
+    margin-bottom: 0.15in;
+    background: #FDFAF7;
+  }
+
+  .service-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #3D1A6E;
+    margin-bottom: 0.06in;
+  }
+
+  .service-card-body {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #4A3560;
+  }
+
+  /* H3, H4 */
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #3D1A6E;
+    margin: 0.2in 0 0.08in;
+    line-height: 1.2;
+  }
+
+  ul.body-list {
+    padding-left: 0.22in;
+    margin: 0.08in 0 0.15in;
+  }
+
+  ul.body-list li {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #4A3560;
+    margin-bottom: 0.04in;
+  }
+
+  /* CLOSING PAGE */
+  .closing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 11in;
+    padding: 0.9in 1in;
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.2in;
+  }
+
+  .closing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #3D1A6E;
+    line-height: 1.15;
+    margin-bottom: 0.2in;
+    max-width: 5in;
+  }
+
+  .closing-rule {
+    width: 1.5in;
+    height: 2px;
+    background: linear-gradient(to right, #9B7FC7, #E8E0F5);
+    margin-bottom: 0.3in;
+  }
+
+  .closing-body {
+    max-width: 5in;
+    margin-bottom: 0.3in;
+  }
+
+  .cta-box {
+    background: #F2EDF9;
+    border: 1px solid #D4C8EE;
+    padding: 0.22in 0.3in;
+    display: inline-block;
+    margin-bottom: 0.35in;
+  }
+
+  .cta-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9B7FC7;
+    margin-bottom: 0.06in;
+  }
+
+  .cta-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: #3D1A6E;
+  }
+
+  .closing-footer-info {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    line-height: 1.9;
+    color: #6B3FA0;
+  }
+
+  .disclaimer {
+    margin-top: 0.25in;
+    padding-top: 0.12in;
+    border-top: 0.5px solid #E8E0F5;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    line-height: 1.7;
+    color: #9B7FC7;
+    max-width: 5.5in;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: #FDFAF7; }
+    .page { page-break-after: always; }
+    .page:last-child { page-break-after: avoid; }
+    a { text-decoration: none; color: inherit; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="page" style="padding: 0;">
+  <div class="cover-page">
+    <div class="cover-wordmark">Canadian Surrogacy Options</div>
+    <div class="cover-content">
+      <div class="cover-label">Independent Journey Guide</div>
+      <h1 class="cover-title">The Independent<br>Journey<br>Checklist</h1>
+      <div class="cover-rule"></div>
+      <p class="cover-subtitle">Everything you need to manage your own surrogacy journey - step by step.</p>
+      <p class="cover-subsubtitle">For families who have found their surrogate and are ready to move forward - without a full agency.</p>
+      <div class="cover-byline">
+        <strong>Robyn Price</strong><br>
+        Executive Director, Canadian Surrogacy Options<br>
+        <span style="font-style: italic; color: #9B7FC7;">In this field since I was four years old.</span>
+      </div>
+    </div>
+    <div class="cover-bottom-decoration">
+      <div class="deco-line"></div>
+      <span>canadiansurrogacyoptions.com</span>
+    </div>
+  </div>
+</div>
+
+<!-- WELCOME PAGE -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Welcome</div>
+    <h2 class="part-title">You found your surrogate.<br>Now what?</h2>
+  </div>
+
+  <p>This checklist is for families who are doing their surrogacy journey independently - meaning you have found your surrogate yourself, whether through a friend, family member, online community, or your own network. You are not working with a full-service agency, or you are using limited agency support.</p>
+
+  <p>That is a completely valid path. But it is also a path where things can go wrong when steps are missed, done in the wrong order, or handled without the right professionals involved.</p>
+
+  <p>I have been in this field since I was four years old. My mother founded Canadian Surrogacy Options in 1992. I have seen independent journeys go beautifully - and I have seen them fall apart because someone skipped a step that seemed minor at the time.</p>
+
+  <div class="pull-quote" style="margin: 0.2in 0;">
+    <div class="pull-quote-rule"></div>
+    <p class="pull-quote-text">"This checklist will not replace a lawyer, a clinic, or a counsellor. But it will make sure you know what you need and when you need it."</p>
+    <div class="pull-quote-rule"></div>
+  </div>
+
+  <p>Work through this guide in order. Every phase builds on the last. And if at any point you feel like you need more support than a checklist provides, CSO offers consultation calls, receipt management, and independent journey support packages - you do not have to do this completely alone.</p>
+
+  <p style="font-size: 13.5px; color: #6B3FA0;">- Robyn Price, Executive Director, Canadian Surrogacy Options</p>
+
+  <h3 style="margin-top: 0.25in;">How to Use This Checklist</h3>
+
+  <table>
+    <thead>
+      <tr><th>Phase</th><th>Topic</th><th>Who It Applies To</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>01</td><td>Confirming readiness</td><td>Both parties</td></tr>
+      <tr><td>02</td><td>Building your team</td><td>Lawyers, clinic, counsellor</td></tr>
+      <tr><td>03</td><td>Medical screening</td><td>Surrogate and embryos</td></tr>
+      <tr><td>04</td><td>Legal agreements</td><td>Before anything medical</td></tr>
+      <tr><td>05</td><td>Financial setup</td><td>Trust account and expenses</td></tr>
+      <tr><td>06</td><td>The pregnancy</td><td>Support and communication</td></tr>
+      <tr><td>07</td><td>Birth preparation</td><td>Legal and logistical</td></tr>
+      <tr><td>08</td><td>After the birth</td><td>Parentage and closure</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout-warning" style="margin-top: 0.2in;">
+    <span class="warning-label">Priority items</span>
+    <p>Items marked <strong>PRIORITY</strong> are the steps most commonly skipped on independent journeys and the ones most likely to cause serious problems if missed.</p>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- PHASE 01 - CONFIRMING READINESS -->
+<div class="page">
+  <div class="phase-header">
+    <div class="phase-number">01</div>
+    <div class="phase-label-wrap">
+      <div class="phase-eyebrow">Phase One</div>
+      <div class="phase-title">Confirming Readiness</div>
+      <div class="phase-subtitle">Before anything else is signed or scheduled</div>
+    </div>
+  </div>
+
+  <div class="checklist-group-label">Intended Parents</div>
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>You have a confirmed diagnosis or medical reason for surrogacy</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>You have completed or are working with a fertility clinic on embryo creation</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>You have a realistic understanding of total costs ($60,000 to $150,000+ CAD)</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>You have confirmed access to funds or financing before proceeding</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>You have discussed surrogacy in depth with your partner if applicable</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>You have or are arranging psychological support for yourself</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>You understand the Canadian altruistic model - no fees to surrogate, reimbursements only</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+
+  <div class="checklist-group-label">Your Surrogate</div>
+  <ul class="checklist">
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>She has had at least one previous successful pregnancy and birth</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>She is between 21 and 45 years of age</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>She is a Canadian citizen or permanent resident</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>She is not currently on social assistance or government benefits</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+  <p class="checklist-note">Receiving reimbursements while on benefits can create legal complications.</p>
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>She has discussed surrogacy with her partner or support person</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>She has access to independent legal counsel</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>She understands she will need independent psychological screening</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>She is not being coerced or pressured by anyone to be a surrogate</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- PHASE 02 - BUILDING YOUR TEAM -->
+<div class="page">
+  <div class="phase-header">
+    <div class="phase-number">02</div>
+    <div class="phase-label-wrap">
+      <div class="phase-eyebrow">Phase Two</div>
+      <div class="phase-title">Building Your Team</div>
+      <div class="phase-subtitle">The professionals you cannot skip</div>
+    </div>
+  </div>
+
+  <div class="pro-card">
+    <div class="pro-card-header">
+      <div class="pro-card-title">Surrogacy Lawyer (for IPs)</div>
+      <span class="required-badge">Required</span>
+    </div>
+    <div class="pro-card-body">You need a lawyer who specialises in reproductive law in your province. They will draft and review the surrogacy agreement and handle the parentage order after birth. Do not use a general family lawyer for this.</div>
+  </div>
+
+  <div class="pro-card">
+    <div class="pro-card-header">
+      <div class="pro-card-title">Independent Lawyer (for Surrogate)</div>
+      <span class="required-badge">Required</span>
+    </div>
+    <div class="pro-card-body">Your surrogate must have her own independent legal counsel - separate from yours. This is a legal and ethical requirement. You typically pay for her legal fees.</div>
+  </div>
+
+  <div class="pro-card">
+    <div class="pro-card-header">
+      <div class="pro-card-title">Fertility Clinic</div>
+      <span class="required-badge">Required</span>
+    </div>
+    <div class="pro-card-body">The clinic performs medical screening of your surrogate, manages the embryo transfer, and handles all medical coordination. Your surrogate must be cleared by your clinic before any agreement is signed.</div>
+  </div>
+
+  <div class="pro-card">
+    <div class="pro-card-header">
+      <div class="pro-card-title">Registered Psychologist or Counsellor</div>
+      <span class="required-badge">Required</span>
+    </div>
+    <div class="pro-card-body">Independent psychological screening for the surrogate (and ideally IPs) is required by most clinics and strongly recommended by lawyers. Use a professional with reproductive experience.</div>
+  </div>
+
+  <div class="pro-card">
+    <div class="pro-card-header">
+      <div class="pro-card-title">Life Insurance Broker</div>
+      <span class="required-badge">Required</span>
+    </div>
+    <div class="pro-card-body">Your surrogate needs life insurance for the duration of the pregnancy. Some standard policies exclude surrogacy - get this confirmed in writing before the transfer.</div>
+  </div>
+
+  <div class="pro-card">
+    <div class="pro-card-header">
+      <div class="pro-card-title">Accountant</div>
+      <span class="optional-badge">Optional - Recommended</span>
+    </div>
+    <div class="pro-card-body">Surrogate reimbursements, trust accounts, and cross-border payments can have tax implications. A brief consultation is worth it.</div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- PHASE 03 - MEDICAL SCREENING -->
+<div class="page">
+  <div class="phase-header">
+    <div class="phase-number">03</div>
+    <div class="phase-label-wrap">
+      <div class="phase-eyebrow">Phase Three</div>
+      <div class="phase-title">Medical Screening</div>
+      <div class="phase-subtitle">Before any legal agreements are signed</div>
+    </div>
+  </div>
+
+  <div class="callout-warning">
+    <span class="warning-label">Important Order of Operations</span>
+    <p>Medical screening happens <strong>before</strong> legal agreements. Do not sign anything until your surrogate has been medically cleared by your clinic.</p>
+  </div>
+
+  <div class="checklist-group-label">Surrogate Medical Screening</div>
+  <ul class="checklist">
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Surrogate has had initial consultation with your fertility clinic</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Full physical exam and bloodwork completed</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Uterine assessment (sonohysterogram or hysteroscopy) completed</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Infectious disease screening completed for surrogate and her partner</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Psychological evaluation by registered professional completed</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Drug and alcohol screening completed if required by clinic</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Clinic has issued formal medical clearance in writing</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Surrogate's OB/GYN has been identified for pregnancy care</span>
+    </li>
+  </ul>
+
+  <div class="checklist-group-label">Embryo / Genetic Material</div>
+  <ul class="checklist">
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Embryos are created and confirmed viable by your clinic</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Embryo grading and quantity confirmed in writing from clinic</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Embryos are stored at a clinic that can coordinate with your surrogate's transfer clinic</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+  <p class="checklist-note">If embryos are at a different clinic (e.g. Montreal for Quebec IPs), confirm transfer logistics early.</p>
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>Genetic testing (PGT) status confirmed and documented</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Embryo transport arrangements confirmed if applicable</span>
+    </li>
+  </ul>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- PHASE 04 - LEGAL AGREEMENTS -->
+<div class="page">
+  <div class="phase-header">
+    <div class="phase-number">04</div>
+    <div class="phase-label-wrap">
+      <div class="phase-eyebrow">Phase Four</div>
+      <div class="phase-title">Legal Agreements</div>
+      <div class="phase-subtitle">The most important phase - do not rush this</div>
+    </div>
+  </div>
+
+  <div class="callout-warning">
+    <span class="warning-label">Non-negotiable rule</span>
+    <p>The surrogacy agreement is the legal foundation of your entire journey. It must be completed and signed by all parties <strong>before</strong> any embryo transfer takes place. No exceptions.</p>
+  </div>
+
+  <ul class="checklist">
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Both parties have retained independent legal counsel</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>IPs' lawyer has drafted the surrogacy agreement</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Surrogate's lawyer has reviewed the agreement independently</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+  <p class="checklist-note">Allow at least 2 to 4 weeks for this process. Do not rush your surrogate's lawyer review.</p>
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>Agreement includes: reimbursement schedule and categories</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Agreement includes: selective reduction and termination clauses</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Agreement includes: multi-fetal pregnancy terms</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Agreement includes: contact and communication expectations during pregnancy</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Agreement includes: what happens if the surrogate or IPs need to withdraw</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Agreement includes: travel restrictions and lifestyle expectations</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Agreement includes: media and social media restrictions if applicable</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>All parties have signed the agreement before transfer proceeds</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Copies of signed agreement held by both legal teams</span>
+    </li>
+  </ul>
+
+  <div class="callout" style="margin-top: 0.18in;">
+    <span class="callout-label">Province Note - Quebec</span>
+    <p>If your surrogate is in Quebec, note that Quebec's Civil Code does not recognise surrogacy agreements as enforceable. Use a surrogate in another province. Your lawyer can advise.</p>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- PHASE 05 - FINANCIAL SETUP -->
+<div class="page">
+  <div class="phase-header">
+    <div class="phase-number">05</div>
+    <div class="phase-label-wrap">
+      <div class="phase-eyebrow">Phase Five</div>
+      <div class="phase-title">Financial Setup</div>
+      <div class="phase-subtitle">Protecting your surrogate and yourself</div>
+    </div>
+  </div>
+
+  <p style="font-size: 13.5px; margin-bottom: 0.18in;">How you manage money on an independent journey matters enormously - legally, ethically, and practically. Here is what needs to be in place before any reimbursements flow.</p>
+
+  <div class="checklist-group-label">Trust Account and Expense Management</div>
+  <ul class="checklist">
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>A trust account has been established to hold surrogate expense funds</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+  <p class="checklist-note">This should be managed by a lawyer, not by you or the surrogate directly. CSO also offers receipt management services if you need a third party to handle this.</p>
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>Initial trust deposit made per agreement terms</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Surrogate has been provided with a copy of approved expense categories</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Receipt submission process agreed upon and documented</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Reimbursement turnaround time agreed upon (recommended: within 14 days of receipt)</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Surrogate life insurance policy in place and active</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Disability insurance reviewed if applicable</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Surrogate's base monthly allowance (if applicable) confirmed and scheduled</span>
+    </li>
+  </ul>
+
+  <div class="callout-warning" style="margin-top: 0.15in;">
+    <span class="warning-label">Important</span>
+    <p>Never pay your surrogate directly in cash or e-transfer without documentation. Every dollar should be traceable, documented, and receipted. This protects both of you.</p>
+  </div>
+
+  <h3 style="margin-top: 0.2in;">Approved Reimbursement Categories</h3>
+  <p style="font-size: 13px;">The following expenses are generally considered reimbursable under Canadian law when documented with receipts:</p>
+
+  <ul class="body-list">
+    <li>Maternity clothing allowance</li>
+    <li>Travel to and from medical appointments (mileage, parking, transit)</li>
+    <li>Childcare during medical appointments</li>
+    <li>Lost wages for mandatory medical appointments</li>
+    <li>Medications and supplements prescribed for the surrogacy</li>
+    <li>Psychological counselling during the journey</li>
+    <li>Life and disability insurance premiums</li>
+    <li>Legal fees for the surrogate's independent counsel</li>
+    <li>Housekeeping if medically required post-transfer or post-birth</li>
+    <li>Hospital costs not covered by provincial health insurance</li>
+    <li>Comfort items and nutritional supplements as agreed</li>
+  </ul>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- PHASE 06 - THE PREGNANCY -->
+<div class="page">
+  <div class="phase-header">
+    <div class="phase-number">06</div>
+    <div class="phase-label-wrap">
+      <div class="phase-eyebrow">Phase Six</div>
+      <div class="phase-title">The Pregnancy</div>
+      <div class="phase-subtitle">Staying connected and keeping things healthy</div>
+    </div>
+  </div>
+
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>Positive pregnancy test confirmed - both parties notified</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>First trimester screening appointment dates shared with IPs</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Communication schedule agreed upon (calls, texts, appointment updates)</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>IPs have been introduced to surrogate's OB/GYN and are on approved contact list</span>
+    </li>
+  </ul>
+  <p class="checklist-note">Ask the OB/GYN office in writing to copy IPs on appointment summaries.</p>
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>Anatomy scan (18 to 20 weeks) attended or report shared with IPs</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Monthly expense reimbursements processed on time</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Any complications or hospitalisation communicated to IPs immediately</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Third trimester check-in call between all parties completed</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Psychological support available to surrogate throughout - not just at start</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>IPs have arranged travel plans if they live outside surrogate's province</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Birth preferences discussed and documented</span>
+    </li>
+  </ul>
+
+  <div class="callout" style="margin-top: 0.2in;">
+    <span class="callout-label">On the relationship</span>
+    <p>The relationship between IPs and surrogate is the heart of this journey. Check in regularly, acknowledge milestones, send thank-you notes. The families who build genuine relationships with their surrogates almost always describe their experience as one of the most meaningful of their lives.</p>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- PHASE 07 - BIRTH PREPARATION -->
+<div class="page">
+  <div class="phase-header">
+    <div class="phase-number">07</div>
+    <div class="phase-label-wrap">
+      <div class="phase-eyebrow">Phase Seven</div>
+      <div class="phase-title">Birth Preparation</div>
+      <div class="phase-subtitle">The 8 weeks before your due date</div>
+    </div>
+  </div>
+
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>Hospital birth plan completed and on file with delivering hospital</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Hospital has been notified of the surrogacy arrangement in writing</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>IPs are listed as authorised individuals at the hospital</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>IPs' lawyer has filed for pre-birth order if applicable in that province</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+  <p class="checklist-note">Ontario, BC, and Alberta typically allow pre-birth orders. File at least 6 to 8 weeks before due date.</p>
+  <ul class="checklist">
+    <li>
+      <span class="checkbox"></span>
+      <span>IPs have confirmed travel and accommodation near birth location</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Emergency contact plan documented - what happens if birth is early</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Surrogate has a support person for the birth separate from IPs if desired</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Cord blood banking decision made and kit obtained if applicable</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Newborn care plan confirmed (who is in the room, who holds baby first, etc.)</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>IPs have reviewed their province's parentage process with their lawyer</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- PHASE 08 - AFTER THE BIRTH -->
+<div class="page">
+  <div class="phase-header">
+    <div class="phase-number">08</div>
+    <div class="phase-label-wrap">
+      <div class="phase-eyebrow">Phase Eight</div>
+      <div class="phase-title">After the Birth</div>
+      <div class="phase-subtitle">Legal parentage and closing the journey</div>
+    </div>
+  </div>
+
+  <p style="font-size: 13.5px; margin-bottom: 0.15in;">The baby is here. But the journey is not quite over. Here is what needs to happen in the weeks and months after birth.</p>
+
+  <ul class="checklist">
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Birth certificate application filed with IPs listed as parents</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+  </ul>
+  <p class="checklist-note">In provinces with pre-birth orders this is straightforward. In others, additional steps required.</p>
+  <ul class="checklist">
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Post-birth parentage order obtained if pre-birth order was not available</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Passport application initiated for baby if travel is required</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Final expense reimbursements processed and documented</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li class="priority">
+      <span class="checkbox"></span>
+      <span>Trust account closed and final accounting provided to both parties</span>
+      <span class="priority-badge">Priority</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Life insurance policy on surrogate terminated (with her confirmation)</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Any final medical follow-up for surrogate attended and reimbursed</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Gratitude acknowledged - letter, gift, or agreed-upon token of appreciation</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>Future contact expectations discussed and agreed upon</span>
+    </li>
+    <li>
+      <span class="checkbox"></span>
+      <span>All legal files closed with both legal teams</span>
+    </li>
+  </ul>
+
+  <div class="pull-quote" style="margin-top: 0.25in;">
+    <div class="pull-quote-rule"></div>
+    <p class="pull-quote-text">"Congratulations. You did this. From hope to heartbeat to home - exactly as it should be."</p>
+    <div class="pull-quote-rule"></div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- APPENDIX - COMMON MISTAKES -->
+<div class="page">
+  <div class="part-header-block">
+    <div class="part-eyebrow">Appendix</div>
+    <h2 class="part-title">The Most Common Independent Journey Mistakes</h2>
+  </div>
+
+  <p style="font-size: 13px; margin-bottom: 0.22in;">These are the errors that come up most frequently - and cause the most damage. Read through them once, even if you are confident you know what you are doing.</p>
+
+  <div class="mistake-item">
+    <div class="mistake-title">Starting medical before legal</div>
+    <div class="mistake-body">The embryo transfer happens before the surrogacy agreement is signed. This leaves everyone legally unprotected. Agreement first - always.</div>
+  </div>
+
+  <div class="mistake-item">
+    <div class="mistake-title">Paying the surrogate directly</div>
+    <div class="mistake-body">Cash or e-transfer payments without documentation create legal risk and can be mischaracterised as commercial surrogacy. Use a trust account.</div>
+  </div>
+
+  <div class="mistake-item">
+    <div class="mistake-title">Skipping independent legal counsel for the surrogate</div>
+    <div class="mistake-body">Some IPs try to use one lawyer for both parties to save money. This is legally and ethically unacceptable. Both parties need independent counsel. Period.</div>
+  </div>
+
+  <div class="mistake-item">
+    <div class="mistake-title">Not confirming insurance coverage</div>
+    <div class="mistake-body">Standard life insurance policies sometimes exclude surrogacy. Confirm in writing before the transfer that your surrogate is covered.</div>
+  </div>
+
+  <div class="mistake-item">
+    <div class="mistake-title">Rushing the match because you are emotionally ready</div>
+    <div class="mistake-body">Being emotionally ready to proceed does not mean the surrogate is medically and psychologically cleared. The screening process exists to protect everyone - including her. Do not skip or rush it.</div>
+  </div>
+
+  <div class="mistake-item">
+    <div class="mistake-title">Ignoring provincial parentage laws</div>
+    <div class="mistake-body">Parentage law varies significantly by province. What works in Ontario may not work the same way in another province. Your lawyer needs to be licensed in the relevant province.</div>
+  </div>
+
+  <div class="mistake-item">
+    <div class="mistake-title">Underestimating the cost</div>
+    <div class="mistake-body">$60,000 is the floor, not the ceiling. Budget for complications, additional transfer cycles, and contingencies. Going into this under-resourced is one of the most common causes of journey breakdown.</div>
+  </div>
+
+  <div class="page-footer">Canadian Surrogacy Options &nbsp;|&nbsp; canadiansurrogacyoptions.com &nbsp;|&nbsp; 1-877-401-4175</div>
+</div>
+
+<!-- CLOSING PAGE -->
+<div class="page" style="padding: 0;">
+  <div class="closing-page">
+    <div class="closing-eyebrow">We're here</div>
+    <h2 class="closing-title">You don't have to do this completely alone.</h2>
+    <div class="closing-rule"></div>
+
+    <div class="closing-body">
+      <p>This checklist covers what you need to know. But knowing what to do and having support while you do it are two different things.</p>
+      <p>CSO offers a range of services for independent journey families - from single consultation calls to full receipt and expense management. You do not have to take on a full agency program to access our expertise.</p>
+    </div>
+
+    <div class="service-card" style="max-width: 5.2in;">
+      <div class="service-card-title">Consultation Call</div>
+      <div class="service-card-body">Book a 60-minute call with Robyn to review your situation, ask questions, and get guidance on any phase of your journey.</div>
+    </div>
+
+    <div class="service-card" style="max-width: 5.2in;">
+      <div class="service-card-title">Surrogate Expense Management</div>
+      <div class="service-card-body">CSO holds funds in trust and manages receipt review, approval, and monthly statements on your behalf. Removes the financial administration from your plate entirely.</div>
+    </div>
+
+    <div class="service-card" style="max-width: 5.2in;">
+      <div class="service-card-title">Independent Journey Support Package</div>
+      <div class="service-card-body">Ongoing light-touch support throughout your journey - check-ins, document review, and access to Robyn when you need a second opinion.</div>
+    </div>
+
+    <div class="cta-box" style="margin-top: 0.25in;">
+      <div class="cta-label">Book your free call</div>
+      <div class="cta-link">calendly.com/cso-robyn</div>
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 11px; color: #9B7FC7; margin-top: 0.05in;">30 minutes with Robyn - no obligation, no pressure.</div>
+    </div>
+
+    <div class="closing-footer-info">
+      Canadian Surrogacy Options<br>
+      Cambridge &amp; Guelph, Ontario<br>
+      1-877-401-4175 &nbsp;|&nbsp; canadiansurrogacyoptions.com<br>
+      robyn@canadiansurrogacyoptions.com<br>
+      <br>
+      Little Miracles Egg Donation Services<br>
+      little-miracles.ca
+    </div>
+
+    <div class="disclaimer">
+      This guide is provided for informational purposes only and does not constitute legal or medical advice. Always obtain independent legal counsel before entering into any surrogacy arrangement. Laws vary by province - consult a surrogacy lawyer licensed in the relevant jurisdiction.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

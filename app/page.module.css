@@ -1,0 +1,730 @@
+/* ── Refund Banner ── */
+.refundBanner {
+  background: #111;
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.refundBannerBadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #111;
+  background: #C9A84C;
+  padding: 4px 10px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.refundBannerText {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.refundBannerText strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+.refundBannerLink {
+  font-size: 13px;
+  font-weight: 500;
+  color: #C9A84C;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.4);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.refundBannerLink:hover {
+  border-color: #C9A84C;
+}
+
+/* ── Hero ── */
+.hero {
+  background: var(--deep-purple);
+  background-image:
+    radial-gradient(ellipse at 60% 40%, rgba(107, 63, 160, 0.4) 0%, transparent 70%),
+    radial-gradient(ellipse at 20% 80%, rgba(155, 127, 199, 0.2) 0%, transparent 60%);
+  padding: 100px 48px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroInner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.heroEyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 12px;
+}
+
+.heroTagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 24px;
+  margin-top: -8px;
+  letter-spacing: 0.01em;
+}
+
+.heroH1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.heroH1 em {
+  font-style: italic;
+  color: var(--lavender);
+}
+
+.heroSub {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 580px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.heroCTAs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+
+.heroCTAPrimary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  background: #fff;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.25s;
+  display: inline-block;
+}
+
+.heroCTAPrimary:hover {
+  background: var(--lavender-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.heroCTAGhost {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.25s;
+  display: inline-block;
+}
+
+.heroCTAGhost:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.heroStatStrip {
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+.heroStat {
+  text-align: center;
+}
+
+.heroStatNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.heroStatLabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.05em;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Paths ── */
+.paths {
+  background: #fff;
+  padding: 96px 48px;
+}
+
+.pathsInner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pathsEyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  text-align: center;
+  margin-bottom: 16px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.pathsHeading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 3.5vw, 46px);
+  font-weight: 400;
+  text-align: center;
+  color: var(--deep-purple);
+  margin-bottom: 56px;
+  line-height: 1.2;
+}
+
+.pathsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.pathCard {
+  border: 1px solid #E2DAF0;
+  border-radius: 4px;
+  padding: 40px 36px;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.pathCard:hover {
+  box-shadow: 0 12px 40px rgba(61, 26, 110, 0.1);
+  transform: translateY(-2px);
+}
+
+.pathCardFeatured {
+  background: var(--deep-purple);
+  border-color: var(--deep-purple);
+}
+
+.pathNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--lavender-light);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.pathCardFeatured .pathNum {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.pathTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  margin-bottom: 12px;
+}
+
+.pathCardFeatured .pathTitle {
+  color: #fff;
+}
+
+.pathBody {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.pathCardFeatured .pathBody {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btnPath {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  border: 1.5px solid var(--deep-purple);
+  background: transparent;
+  padding: 12px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s;
+}
+
+.btnPath:hover {
+  background: #F4F0FB;
+}
+
+.pathCardFeatured .btnPath {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.pathCardFeatured .btnPath:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* ── Contact Nudge ── */
+.contactNudge {
+  background: var(--deep-purple);
+  padding: 36px 48px;
+}
+
+.contactNudgeInner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.contactNudgeText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactNudgeHeading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.contactNudgeSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+}
+
+.contactNudgeActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contactNudgeLink {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactNudgeLink:hover {
+  color: #fff;
+}
+
+.contactNudgeBtn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--deep-purple);
+  background: #fff;
+  padding: 10px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.contactNudgeBtn:hover {
+  background: var(--lavender-light);
+}
+
+@media (max-width: 768px) {
+  .contactNudge { padding: 32px 24px; }
+  .contactNudgeInner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Refund Feature ── */
+.refundFeature {
+  background: #111;
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.refundFeature::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.refundFeatureInner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.refundFeatureBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.refundFeatureBadgeDot {
+  width: 6px;
+  height: 6px;
+  background: #C9A84C;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.refundFeatureBadgeText {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.refundFeatureHeading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 3.5vw, 50px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.refundFeatureHeading em {
+  font-style: italic;
+  color: #C9A84C;
+}
+
+.refundFeatureBody {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.btnRefundCta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+  background: #C9A84C;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s;
+}
+
+.btnRefundCta:hover {
+  background: #D4B862;
+  transform: translateY(-1px);
+}
+
+.refundPhasePill {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.refundPhasePill:last-child {
+  border-bottom: none;
+}
+
+.pillNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: rgba(201, 168, 76, 0.3);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 36px;
+}
+
+.pillLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin-bottom: 4px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.pillOffer {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.pillDetail {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Robyn ── */
+.robynSection {
+  background: #F4F0FB;
+  padding: 96px 48px;
+}
+
+.robynInner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.robynQuote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--deep-purple);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.robynBody {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 620px;
+  margin: 0 auto 32px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.robynSig {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--deep-purple);
+}
+
+.robynSig span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* ── Final CTA ── */
+.finalCta {
+  background: var(--deep-purple);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.finalCtaH2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.finalCtaH2 em {
+  font-style: italic;
+  color: var(--lavender);
+}
+
+.finalCtaP {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.finalCtaActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.btnCtaPrimary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  background: #fff;
+  padding: 16px 40px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.25s;
+  display: inline-block;
+}
+
+.btnCtaPrimary:hover {
+  background: var(--lavender-light);
+  transform: translateY(-1px);
+}
+
+.btnCtaSecondary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+}
+
+.btnCtaSecondary:hover {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero { padding: 72px 24px 60px; }
+  .heroStatStrip { gap: 32px; }
+  .paths { padding: 64px 24px; }
+  .pathsGrid { grid-template-columns: 1fr; gap: 16px; }
+  .refundFeature { padding: 64px 24px; }
+  .refundFeatureInner { grid-template-columns: 1fr; gap: 48px; }
+  .robynSection { padding: 64px 24px; }
+  .finalCta { padding: 64px 24px; }
+  .refundBanner { padding: 16px 24px; }
+}
+
+@media (max-width: 580px) {
+  .heroStatStrip { flex-direction: column; gap: 24px; }
+  .refundBanner { flex-direction: column; text-align: center; gap: 10px; }
+}
+
+/* ── Why CSO Trust Strip ── */
+.whyCso {
+  background: #FDFAF7;
+  border-top: 1px solid #E8E0F5;
+  border-bottom: 1px solid #E8E0F5;
+  padding: 52px 24px;
+}
+.whyCsoInner {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+.whyCsoEyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9B7FC7;
+  margin-bottom: 20px;
+}
+.whyCsoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 8px;
+}
+.whyCsoPill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #E8E0F5;
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: #3D1A6E;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.whyCsoPillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9B7FC7;
+  flex-shrink: 0;
+}
+@media (max-width: 580px) {
+  .whyCsoGrid { gap: 10px; }
+  .whyCsoPill { font-size: 0.82rem; padding: 8px 16px; }
+}
