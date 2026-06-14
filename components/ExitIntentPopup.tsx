@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
+import { trackLead } from '@/lib/track';
 import styles from './ExitIntentPopup.module.css';
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
@@ -127,6 +128,7 @@ export default function ExitIntentPopup() {
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
       setPdfUrl(data.pdfUrl);
       sessionStorage.setItem(STORAGE_KEY, '1');
+      trackLead({ type: variant === 'ip' ? 'Intended Parent' : 'Surrogate', source: 'exit_intent' });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     } finally {

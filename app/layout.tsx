@@ -6,6 +6,7 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
+import ConversionTracking from '@/components/ConversionTracking';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -124,6 +125,7 @@ export default function RootLayout({
         <Footer />
         <StickyCTA />
         <ExitIntentPopup />
+        <ConversionTracking />
       </body>
     </html>
   );

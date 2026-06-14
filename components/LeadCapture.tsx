@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { trackLead } from '@/lib/track';
 import styles from './LeadCapture.module.css';
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
@@ -50,6 +51,7 @@ export default function LeadCapture() {
         throw new Error(data.error || 'Something went wrong.');
       }
       setSuccess(true);
+      trackLead({ source: 'lead_capture' });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     } finally {
