@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { trackLead } from '@/lib/track';
 import styles from './GuidesStrip.module.css';
 
 export default function GuidesStrip() {
@@ -24,6 +25,7 @@ export default function GuidesStrip() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
       setSuccess(true);
+      trackLead({ type: 'Intended Parent', source: 'guides_strip' });
     } catch (err: unknown) {
       setError(
         err instanceof Error ? err.message : 'Something went wrong. Please try again.'

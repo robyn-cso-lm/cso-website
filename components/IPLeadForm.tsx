@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { trackLead } from '@/lib/track';
 import styles from './SurrogateLeadForm.module.css';
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
@@ -43,6 +44,7 @@ export default function IPLeadForm() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
       setPdfUrl(data.pdfUrl);
+      trackLead({ type: 'Intended Parent', source: 'ip_cost_guide' });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     } finally {

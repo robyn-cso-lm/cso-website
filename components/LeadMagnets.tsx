@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackLead } from '@/lib/track';
 import styles from './LeadMagnets.module.css';
 
 function GuideForm({
@@ -37,6 +38,7 @@ function GuideForm({
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
       setPdfUrl(data.pdfUrl);
+      trackLead({ type: endpoint.includes('surrogate') ? 'Surrogate' : 'Intended Parent', source: 'lead_magnet' });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     } finally {
