@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/programs`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/surrogates`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/qualify`, lastModified: new Date('2026-06-14'), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE_URL}/gallery`, lastModified: new Date('2026-06-14'), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE_URL}/resources`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/faq`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/families`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.8 },
