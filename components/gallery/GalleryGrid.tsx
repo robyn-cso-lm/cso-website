@@ -12,6 +12,8 @@ interface IPProfile {
   profile_image_url?: string;
   spotlight_badge?: string;
   listing_tier?: string;
+  match_status?: string;
+  matched_at?: string;
 }
 
 const API_URLS = [
@@ -124,6 +126,15 @@ export function GalleryGrid() {
     );
   }
 
+  const seeking = profiles.filter((p) => p.match_status !== 'matched');
+  const matched = profiles.filter((p) => p.match_status === 'matched');
+
+  const gridStyle: React.CSSProperties = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+    gap: '24px',
+  };
+
   return (
     <div>
       <p
@@ -134,19 +145,55 @@ export function GalleryGrid() {
           textAlign: 'center',
         }}
       >
-        Showing {profiles.length} {profiles.length === 1 ? 'family' : 'families'}
+        Showing {seeking.length} {seeking.length === 1 ? 'family' : 'families'} seeking a surrogate
       </p>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: '24px',
-        }}
-      >
-        {profiles.map((profile) => (
-          <FamilyCard key={profile.id} profile={profile} />
-        ))}
-      </div>
+
+      {seeking.length > 0 ? (
+        <div style={gridStyle}>
+          {seeking.map((profile) => (
+            <FamilyCard key={profile.id} profile={profile} />
+          ))}
+        </div>
+      ) : (
+        <p style={{ textAlign: 'center', color: '#6b7280', fontFamily: "'DM Sans', sans-serif" }}>
+          All of our featured families have been matched — check back soon for new families.
+        </p>
+      )}
+
+      {matched.length > 0 && (
+        <section style={{ marginTop: '72px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '8px' }}>
+            <h2
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: 'clamp(26px, 4vw, 36px)',
+                fontWeight: 400,
+                fontStyle: 'italic',
+                color: '#3D1A6E',
+              }}
+            >
+              Recently Matched <span aria-hidden>💜</span>
+            </h2>
+            <p
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: '15px',
+                color: '#6b5b80',
+                maxWidth: '560px',
+                margin: '6px auto 0',
+              }}
+            >
+              These families found their surrogate through Canadian Surrogacy Options. Every match is a
+              new story beginning.
+            </p>
+          </div>
+          <div style={{ ...gridStyle, marginTop: '28px' }}>
+            {matched.map((profile) => (
+              <FamilyCard key={profile.id} profile={profile} matched />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

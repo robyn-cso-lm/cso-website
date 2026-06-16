@@ -15,6 +15,7 @@ interface IPProfile {
 
 interface FamilyCardProps {
   profile: IPProfile;
+  matched?: boolean;
 }
 
 const headingStyle: React.CSSProperties = {
@@ -34,24 +35,49 @@ const bodyStyle: React.CSSProperties = {
   whiteSpace: 'pre-wrap',
 };
 
-export function FamilyCard({ profile }: FamilyCardProps) {
+export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
   const [expanded, setExpanded] = useState(false);
 
-  const isFeatured = profile.listing_tier === 'cso_client' && Boolean(profile.spotlight_badge);
+  // A matched family shows the "Matched" ribbon instead of any marketing badge.
+  const isFeatured = !matched && profile.listing_tier === 'cso_client' && Boolean(profile.spotlight_badge);
   const badgeBg = profile.spotlight_badge === 'Featured Family' ? '#C8973A' : '#6a2c91';
 
   return (
     <div
       style={{
         backgroundColor: '#fff',
-        border: '1px solid #e5e7eb',
+        border: matched ? '1px solid #d9c7a3' : '1px solid #e5e7eb',
         borderRadius: '12px',
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
         boxShadow: '0 4px 16px rgba(61,26,110,0.06)',
+        position: 'relative',
       }}
     >
+      {matched && (
+        <div
+          aria-label="Matched"
+          style={{
+            position: 'absolute',
+            top: '18px',
+            left: '-34px',
+            transform: 'rotate(-45deg)',
+            background: 'linear-gradient(135deg, #C8973A, #a8761f)',
+            color: '#fff',
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: '0.72rem',
+            fontWeight: 700,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            padding: '5px 40px',
+            zIndex: 3,
+            boxShadow: '0 2px 6px rgba(0,0,0,0.18)',
+          }}
+        >
+          Matched 💜
+        </div>
+      )}
       {/* Image */}
       <div
         style={{
