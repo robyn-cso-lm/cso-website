@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { CoupleIllustration } from './CoupleIllustration';
 
 interface IPProfile {
   id: string;
@@ -103,19 +104,7 @@ export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
             }}
           />
         ) : (
-          <svg
-            style={{ width: '64px', height: '64px', color: '#9ca3af' }}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 4.354a4 4 0 110 5.292M15 9H9m6 0a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          <CoupleIllustration familyId={profile.id} familyName={profile.public_name} />
         )}
 
         {isFeatured && (
