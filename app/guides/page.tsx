@@ -98,16 +98,16 @@ export default function GuidesPage() {
       <section className={styles.upsell}>
         <div className={styles.inner}>
           <p className={styles.upsellEyebrow}>Already have a guide?</p>
-          <h2 className={styles.upsellTitle}>Browse the IP Gallery</h2>
+          <h2 className={styles.upsellTitle}>Browse IP Profiles</h2>
           <p className={styles.upsellText}>
-            The next step after the guides. Browse real profiles from screened, ready-to-match
-            surrogates—before you commit to an agency or program.
+            Get a snapshot of the intended parents currently working with CSO. A public gallery is
+            coming soon—take a look at what&rsquo;s already there.
           </p>
           <a
-            href="https://portal.canadiansurrogacyoptions.com/gallery"
+            href="https://portal.canadiansurrogacyoptions.com/profiles"
             className={styles.upsellCta}
           >
-            Explore the Gallery →
+            Browse IP Profiles →
           </a>
         </div>
       </section>
