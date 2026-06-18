@@ -4,6 +4,17 @@
   padding: 0 24px;
 }
 
+/* ── Promo Banner ─────────────────────────────────── */
+.promoBanner {
+  background: var(--mid-purple);
+  color: #fff;
+  text-align: center;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
 /* ── Hero ─────────────────────────────────────────── */
 .hero {
   background: var(--deep-purple);
