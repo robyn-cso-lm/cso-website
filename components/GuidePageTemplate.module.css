@@ -1,0 +1,299 @@
+.inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+.hero {
+  background: var(--deep-purple);
+  padding: 88px 0 80px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 24px;
+}
+
+.headline {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.subheading {
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 0 auto 36px;
+}
+
+.ctaHero {
+  display: inline-block;
+  background: #fff;
+  color: var(--deep-purple);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 15px 36px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  margin-bottom: 20px;
+}
+
+.ctaHero:hover {
+  opacity: 0.9;
+}
+
+.badge {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* ── Included ─────────────────────────────────────── */
+.included {
+  background: var(--lavender-light);
+  padding: 72px 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 400;
+  color: var(--deep-purple);
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+
+.includedList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.includedItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.check {
+  color: var(--mid-purple);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ctaMid {
+  display: inline-block;
+  background: var(--deep-purple);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 30px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.ctaMid:hover {
+  opacity: 0.88;
+}
+
+/* ── For Who ──────────────────────────────────────── */
+.forWho {
+  background: #fff;
+  padding: 72px 0;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 660px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.forWhoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.forWhoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.dot {
+  color: var(--lavender);
+  font-size: 0.55rem;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.outcomeBox {
+  background: var(--lavender-light);
+  border-radius: 12px;
+  padding: 28px 28px 28px;
+}
+
+.outcomeText {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Testimonial ──────────────────────────────────── */
+.testimonial {
+  background: var(--cream);
+  padding: 80px 0;
+  text-align: center;
+  border-top: 1px solid var(--lavender-light);
+  border-bottom: 1px solid var(--lavender-light);
+}
+
+.quote {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0 auto 20px;
+  max-width: 620px;
+}
+
+.attribution {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* ── Final CTA ────────────────────────────────────── */
+.finalCta {
+  background: var(--deep-purple);
+  padding: 88px 0;
+  text-align: center;
+}
+
+.finalEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 16px;
+}
+
+.finalTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.finalSub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 36px;
+}
+
+.ctaFinal {
+  display: inline-block;
+  background: #fff;
+  color: var(--deep-purple);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 17px 44px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  margin-bottom: 24px;
+}
+
+.ctaFinal:hover {
+  opacity: 0.9;
+}
+
+.finalNote {
+  font-size: 0.87rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.emailLink {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+}
+
+/* ── Portal Upsell ────────────────────────────────── */
+.upsell {
+  background: var(--lavender-light);
+  padding: 52px 0;
+  text-align: center;
+}
+
+.upsellEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid-purple);
+  margin-bottom: 10px;
+}
+
+.upsellText {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 22px;
+}
+
+.upsellCta {
+  display: inline-block;
+  border: 1.5px solid var(--deep-purple);
+  color: var(--deep-purple);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.upsellCta:hover {
+  background: var(--deep-purple);
+  color: #fff;
+}

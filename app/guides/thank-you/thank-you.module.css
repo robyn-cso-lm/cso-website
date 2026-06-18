@@ -1,0 +1,175 @@
+.inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Confirmation ─────────────────────────────────── */
+.hero {
+  background: var(--deep-purple);
+  padding: 88px 0 80px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.subtitle strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Personal Note ────────────────────────────────── */
+.note {
+  background: var(--cream);
+  padding: 72px 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--deep-purple);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.noteText {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.noteSig {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--deep-purple);
+  margin-top: 24px;
+}
+
+/* ── Portal Upsell ────────────────────────────────── */
+.upsell {
+  background: var(--deep-purple);
+  padding: 88px 0;
+  text-align: center;
+}
+
+.upsellEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 16px;
+}
+
+.upsellTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.upsellText {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.75;
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.upsellCta {
+  display: inline-block;
+  background: #fff;
+  color: var(--deep-purple);
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 15px 40px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  margin-bottom: 16px;
+}
+
+.upsellCta:hover {
+  opacity: 0.9;
+}
+
+.upsellNote {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* ── More Guides ──────────────────────────────────── */
+.moreGuides {
+  background: var(--lavender-light);
+  padding: 64px 0;
+}
+
+.guidesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .guidesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.guideCard {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  display: block;
+  border: 1px solid rgba(61, 26, 110, 0.08);
+}
+
+.guideCard:hover {
+  box-shadow: 0 4px 16px rgba(61, 26, 110, 0.12);
+  transform: translateY(-2px);
+}
+
+.guideTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.guidePrice {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--mid-purple);
+  margin: 0;
+}
