@@ -22,6 +22,7 @@ export default function SurrogateReadinessPage() {
   return (
     <GuidePageTemplate
       stripeLink={stripeLink}
+      promoBanner="Free for a limited time — use code SURROGACY at checkout"
       guide={{
         title: 'Surrogate Readiness Guide',
         price: 47,

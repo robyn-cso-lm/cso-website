@@ -20,14 +20,20 @@ export interface GuideData {
 interface Props {
   guide: GuideData;
   stripeLink: string;
+  promoBanner?: string;
 }
 
-export default function GuidePageTemplate({ guide, stripeLink }: Props) {
+export default function GuidePageTemplate({ guide, stripeLink, promoBanner }: Props) {
   const { title, price, badge, hero, included, forWho, outcomeBody, testimonial } = guide;
   const priceLabel = `Get the Guide — $${price}`;
 
   return (
     <main>
+      {promoBanner && (
+        <div className={styles.promoBanner}>
+          <span>{promoBanner}</span>
+        </div>
+      )}
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.inner}>
