@@ -117,13 +117,13 @@ export default function GuidePageTemplate({ guide, stripeLink }: Props) {
         <div className={styles.inner}>
           <p className={styles.upsellEyebrow}>Want to take the next step?</p>
           <p className={styles.upsellText}>
-            Our IP Gallery connects intended parents with screened, ready-to-match surrogates—browse real profiles before committing to anything.
+            Get a snapshot of the intended parent profiles currently working with CSO. A public gallery is coming soon—take a look at what&rsquo;s already there.
           </p>
           <a
-            href="https://portal.canadiansurrogacyoptions.com/gallery"
+            href="https://portal.canadiansurrogacyoptions.com/profiles"
             className={styles.upsellCta}
           >
-            Explore the Gallery →
+            Browse IP Profiles →
           </a>
         </div>
       </section>
