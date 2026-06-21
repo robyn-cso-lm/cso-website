@@ -15,30 +15,37 @@ async function getAccessToken(): Promise<string> {
     throw new Error('Missing Azure credentials in environment variables.');
   }
 
-  const res = await fetchWithTimeout(
-    `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        grant_type: 'client_credentials',
-        client_id: clientId,
-        client_secret: clientSecret,
-        scope: 'https://graph.microsoft.com/.default',
-      }),
+  try {
+    const res = await fetchWithTimeout(
+      `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          grant_type: 'client_credentials',
+          client_id: clientId,
+          client_secret: clientSecret,
+          scope: 'https://graph.microsoft.com/.default',
+        }),
+      }
+    );
+
+    if (!res.ok) {
+      const err = await res.text();
+      console.error(`[graphMail] Auth failed (${res.status}):`, err);
+      throw new Error(`Failed to get access token: ${res.status} ${err}`);
     }
-  );
 
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Failed to get access token: ${err}`);
+    const data = await res.json();
+    if (!data.access_token) {
+      console.error('[graphMail] No access_token in auth response:', data);
+      throw new Error(`No access token in response: ${JSON.stringify(data)}`);
+    }
+    return data.access_token;
+  } catch (err) {
+    console.error('[graphMail] getAccessToken error:', err);
+    throw err;
   }
-
-  const data = await res.json();
-  if (!data.access_token) {
-    throw new Error(`No access token in response: ${JSON.stringify(data)}`);
-  }
-  return data.access_token;
 }
 
 export async function sendMail(
@@ -47,29 +54,37 @@ export async function sendMail(
   htmlBody: string,
   from = 'robyn@canadiansurrogacyoptions.com'
 ): Promise<void> {
-  const token = await getAccessToken();
+  try {
+    const token = await getAccessToken();
 
-  const res = await fetchWithTimeout(
-    `https://graph.microsoft.com/v1.0/users/${from}/sendMail`,
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        message: {
-          subject,
-          body: { contentType: 'HTML', content: htmlBody },
-          toRecipients: [{ emailAddress: { address: to } }],
+    const res = await fetchWithTimeout(
+      `https://graph.microsoft.com/v1.0/users/${from}/sendMail`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
         },
-        saveToSentItems: true,
-      }),
-    }
-  );
+        body: JSON.stringify({
+          message: {
+            subject,
+            body: { contentType: 'HTML', content: htmlBody },
+            toRecipients: [{ emailAddress: { address: to } }],
+          },
+          saveToSentItems: true,
+        }),
+      }
+    );
 
-  if (!res.ok && res.status !== 202) {
-    const err = await res.text();
-    throw new Error(`Failed to send email: ${err}`);
+    if (!res.ok && res.status !== 202) {
+      const errBody = await res.text();
+      console.error(`[graphMail] Send failed (${res.status}) to ${to}:`, errBody);
+      throw new Error(`Failed to send email to ${to}: ${res.status} ${errBody}`);
+    }
+
+    console.log(`[graphMail] Email sent successfully to ${to}`);
+  } catch (err) {
+    console.error(`[graphMail] sendMail error (to: ${to}, subject: ${subject}):`, err);
+    throw err;
   }
 }
