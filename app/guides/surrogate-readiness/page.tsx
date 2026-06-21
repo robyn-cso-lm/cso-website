@@ -22,6 +22,9 @@ export default function SurrogateReadinessPage() {
   return (
     <GuidePageTemplate
       stripeLink={stripeLink}
+      fallbackHref="/surrogates"
+      fallbackLabel="Get the Free Guide"
+      fallbackNote="This guide is currently being shared through our surrogate page."
       promoBanner="Free for a limited time — use code SURROGACY at checkout"
       guide={{
         title: 'Surrogate Readiness Guide',

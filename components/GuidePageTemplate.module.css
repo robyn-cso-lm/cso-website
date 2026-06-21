@@ -64,6 +64,17 @@
   opacity: 0.9;
 }
 
+.heroSupport {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 18px;
+}
+
+.supportLink {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .badge {
   font-size: 0.93rem;
   color: rgba(255, 255, 255, 0.6);

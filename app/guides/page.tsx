@@ -71,6 +71,10 @@ export default function GuidesPage() {
             Written by Robyn Price after 30 years in Canadian surrogacy. No sales pitch—just the
             information you actually need to move forward with clarity.
           </p>
+          <p className={styles.subtitle}>
+            Paid digital guides with instant delivery, plus a clear way to book a call if you want
+            help choosing the right one first.
+          </p>
         </div>
       </section>
 
