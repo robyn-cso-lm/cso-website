@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
+import { sendIntendedParentLeadToZapier } from '@/lib/zapier';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MSG_LEN = 5000;
@@ -41,6 +42,8 @@ function escapeHtml(str: string): string {
 
 export async function POST(req: NextRequest) {
   try {
+    const referer = req.headers.get('referer') || '';
+    const sourcePath = referer ? new URL(referer).pathname + new URL(referer).search + new URL(referer).hash : '/contact';
     const { firstName, email, phone, role, message, website, captchaToken } = await req.json();
     console.log('[contact] Submission received.', { email, role, hasCaptchaToken: Boolean(captchaToken), honeypotFilled: Boolean(website) });
 
@@ -206,6 +209,19 @@ export async function POST(req: NextRequest) {
     }
 
     await Promise.allSettled(backgroundTasks);
+
+    if (role === 'Intended Parent') {
+      await sendIntendedParentLeadToZapier({
+        formType: 'Contact Form',
+        firstName,
+        email,
+        phone,
+        role,
+        message,
+        sourcePath,
+        sourceLabel: 'Website Contact Form',
+      });
+    }
     console.log('[contact] Submission completed.', { email, role });
 
     return NextResponse.json({ success: true });

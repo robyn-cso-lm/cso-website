@@ -2,11 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
+import { sendIntendedParentLeadToZapier } from '@/lib/zapier';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: NextRequest) {
   try {
+    const referer = req.headers.get('referer') || '';
+    const sourcePath = referer ? new URL(referer).pathname + new URL(referer).search + new URL(referer).hash : '/intended-parents#cost-guide';
     const { firstName, email, captchaToken, website } = await req.json();
     console.log('[ip-cost-guide] Submission received.', { email, hasCaptchaToken: Boolean(captchaToken), honeypotFilled: Boolean(website) });
 
@@ -99,6 +102,16 @@ export async function POST(req: NextRequest) {
         console.error('[ip-cost-guide] mail error:', err);
       }),
     ]);
+
+    await sendIntendedParentLeadToZapier({
+      formType: 'IP Cost Guide',
+      firstName,
+      email,
+      role: 'Intended Parent',
+      sourcePath,
+      sourceLabel: 'IP Cost Guide Download',
+      guideName: 'Canadian Surrogacy Cost Guide',
+    });
 
     console.log('[ip-cost-guide] Submission completed.', { email });
 

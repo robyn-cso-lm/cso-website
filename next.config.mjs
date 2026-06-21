@@ -52,6 +52,8 @@ const nextConfig = {
       { source: '/types_of_surrogacy.html',      destination: '/blog/gestational-vs-traditional-surrogacy', permanent: true },
       { source: '/surrogate-application',        destination: '/qualify',         permanent: true },
       { source: '/intake-form',                  destination: '/contact',         permanent: true },
+      { source: '/ip-intake-form',               destination: '/intended-parents#cost-guide', permanent: true },
+      { source: '/ip-intake-form/',              destination: '/intended-parents#cost-guide', permanent: true },
       { source: '/ipgiveaway',                   destination: '/resources',       permanent: true },
       { source: '/ips/what-we-offer',            destination: '/programs',        permanent: true },
       { source: '/ips/concierge/concierge-welcome', destination: '/intended-parents', permanent: true },

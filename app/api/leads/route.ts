@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
+import { sendIntendedParentLeadToZapier } from '@/lib/zapier';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: NextRequest) {
   try {
+    const referer = req.headers.get('referer') || '';
+    const sourcePath = referer ? new URL(referer).pathname + new URL(referer).search + new URL(referer).hash : '/qualify';
     const body = await req.json();
     const { firstName, email, role, captchaToken, website } = body;
     console.log('[leads] Submission received.', { email, role, hasCaptchaToken: Boolean(captchaToken), honeypotFilled: Boolean(website) });
@@ -80,6 +83,17 @@ export async function POST(req: NextRequest) {
          <li><strong>Source:</strong> Website lead form</li>
        </ul>`
     );
+
+    if (role === 'Intended Parent') {
+      await sendIntendedParentLeadToZapier({
+        formType: 'Lead Form',
+        firstName,
+        email,
+        role,
+        sourcePath,
+        sourceLabel: 'Website Lead Form',
+      });
+    }
 
     console.log('[leads] Submission completed.', { email, role });
 
