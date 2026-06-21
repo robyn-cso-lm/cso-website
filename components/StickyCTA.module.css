@@ -27,9 +27,12 @@
 
 @media (max-width: 480px) {
   .cta {
-    bottom: 16px;
-    right: 16px;
-    font-size: 14px;
-    padding: 12px 20px;
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .cta {
+    display: none;
   }
 }

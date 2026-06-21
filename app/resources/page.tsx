@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Surrogacy Resources & Guides | Canadian Surrogacy Options',
+  title: 'Surrogacy Resources and Guides in Canada',
   description: 'PDF guides for intended parents and surrogates. Written by Robyn Price after 34 years answering the same questions on calls.',
   alternates: { canonical: 'https://canadiansurrogacyoptions.com/resources' },
 };

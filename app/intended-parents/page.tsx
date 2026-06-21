@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import IPLeadForm from '../../components/IPLeadForm';
 
 export const metadata: Metadata = {
-  title: 'Intended Parents | Canadian Surrogacy Options',
+  title: 'Surrogacy for Intended Parents in Canada',
   description: 'CSO has helped build families since 1992. If you\'re ready to become a parent through surrogacy, we\'re here to guide you every step of the way.',
   alternates: { canonical: 'https://canadiansurrogacyoptions.com/intended-parents' },
 };
@@ -118,7 +118,10 @@ export default function IntendedParentsPage() {
         <section className="ip-hero">
           <h1>Your Family Is Worth Fighting For</h1>
           <p>Whatever brought you here, I want you to know: you are not out of options. CSO has been helping families grow through surrogacy since 1992, and we&apos;re still here for you.</p>
-          <a href="/contact" className="btn btn-white">Start Your Journey</a>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="#cost-guide" className="btn btn-white">Get the Cost Guide</a>
+            <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener noreferrer" className="btn" style={{ background: 'transparent', border: '2px solid white' }}>Book a Free Call</a>
+          </div>
           <div className="trust-bar">
             <span>In Practice Since 1992</span>
             <span>2,500+ Families Built</span>
@@ -133,13 +136,13 @@ export default function IntendedParentsPage() {
             <p>Families are building right now. Yours can too.</p>
             <small>A free consultation takes 30 minutes. It could change everything.</small>
             <div style={{ marginTop: 24 }}>
-              <a href="/contact" className="btn btn-white">Book a Free Consultation</a>
+              <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener noreferrer" className="btn btn-white">Book a Free Consultation</a>
             </div>
           </div>
         </div>
 
         {/* IP LEAD MAGNET */}
-        <div style={{ padding: '60px 24px', background: '#3D1A6E' }}>
+        <div id="cost-guide" style={{ padding: '60px 24px', background: '#3D1A6E' }}>
           <IPLeadForm />
         </div>
 

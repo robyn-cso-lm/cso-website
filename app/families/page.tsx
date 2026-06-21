@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Families Built Through CSO | Canadian Surrogacy Options',
+  title: 'Surrogacy Family Stories in Canada',
   description: 'Over 2,500 families have been built through Canadian Surrogacy Options since 1992. Read their stories.',
   alternates: { canonical: 'https://canadiansurrogacyoptions.com/families' },
 };

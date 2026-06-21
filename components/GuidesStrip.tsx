@@ -1,30 +1,56 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { trackLead } from '@/lib/track';
 import styles from './GuidesStrip.module.css';
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+function loadRecaptcha() {
+  if (!SITE_KEY || document.getElementById('recaptcha-script')) return;
+  const s = document.createElement('script');
+  s.id = 'recaptcha-script';
+  s.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
+  s.async = true;
+  document.head.appendChild(s);
+}
+
+async function getToken(action: string): Promise<string | null> {
+  if (!SITE_KEY || !window.grecaptcha) return null;
+  try {
+    return await window.grecaptcha.execute(SITE_KEY, { action });
+  } catch {
+    return null;
+  }
+}
 
 export default function GuidesStrip() {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState('');
   const [error, setError] = useState('');
+  const [website, setWebsite] = useState('');
+
+  useEffect(() => {
+    loadRecaptcha();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError('');
+    const captchaToken = await getToken('guides_strip');
     try {
       const res = await fetch('/api/ip-cost-guide', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, email }),
+        body: JSON.stringify({ firstName, email, captchaToken, website }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
-      setSuccess(true);
+      setPdfUrl(data.pdfUrl);
       trackLead({ type: 'Intended Parent', source: 'guides_strip' });
     } catch (err: unknown) {
       setError(
@@ -65,16 +91,31 @@ export default function GuidesStrip() {
             📄 Refund &amp; Protection Policy
           </Link>
         </div>
-        <div className={styles.emailCapture}>
+        <div id="cost-guide" className={styles.emailCapture}>
           <p className={styles.emailLabel}>
             Or get the Canadian Surrogacy Cost Guide sent to your inbox:
           </p>
-          {success ? (
-            <p className={styles.formSuccess}>
-              Sent! Check your inbox, and feel free to share with anyone who needs it.
-            </p>
+          {pdfUrl ? (
+            <div>
+              <p className={styles.formSuccess}>
+                Your guide is ready. Download it now, and we&rsquo;ll send a copy to your inbox too.
+              </p>
+              <a href={pdfUrl} download className={styles.guideLink}>
+                Download the Cost Guide &rarr;
+              </a>
+            </div>
           ) : (
             <form onSubmit={handleSubmit} className={styles.emailForm} noValidate>
+              <input
+                type="text"
+                name="website"
+                value={website}
+                onChange={e => setWebsite(e.target.value)}
+                style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
               <input
                 className={styles.emailInput}
                 type="text"

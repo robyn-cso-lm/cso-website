@@ -8,12 +8,15 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { firstName, email, role, captchaToken, website } = body;
+    console.log('[leads] Submission received.', { email, role, hasCaptchaToken: Boolean(captchaToken), honeypotFilled: Boolean(website) });
 
-    // Honeypot
-    if (website) return NextResponse.json({ success: true });
+    if (website) {
+      console.warn('[leads] Honeypot triggered.');
+      return NextResponse.json({ success: true });
+    }
 
-    // reCAPTCHA v3
     if (!await verifyRecaptcha(captchaToken)) {
+      console.warn('[leads] reCAPTCHA failed.', { email, role });
       return NextResponse.json({ error: 'Security check failed. Please try again.' }, { status: 400 });
     }
 
@@ -25,22 +28,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
-    const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
-    const LIST_ID = process.env.MAILCHIMP_LIST_ID;
+    const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
+    const listId = process.env.MAILCHIMP_LIST_ID;
 
-    if (!MAILCHIMP_API_KEY || !LIST_ID) {
+    if (!mailchimpApiKey || !listId) {
       console.error('[leads] Missing Mailchimp env vars');
       return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 });
     }
 
-    const DC = MAILCHIMP_API_KEY.split('-')[1];
+    const dc = mailchimpApiKey.split('-')[1];
 
     const res = await fetch(
-      `https://${DC}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`,
+      `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members`,
       {
         method: 'POST',
         headers: {
-          Authorization: `Basic ${Buffer.from(`anystring:${MAILCHIMP_API_KEY}`).toString('base64')}`,
+          Authorization: `Basic ${Buffer.from(`anystring:${mailchimpApiKey}`).toString('base64')}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -56,7 +59,6 @@ export async function POST(req: NextRequest) {
 
     const data = await res.json();
 
-    // Mailchimp returns 400 with title "Member Exists" for duplicate — treat as success
     if (!res.ok && data.title !== 'Member Exists') {
       console.error('[leads] Mailchimp error:', data);
       return NextResponse.json(
@@ -65,21 +67,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    try {
-      await sendMail(
-        'robyn@canadiansurrogacyoptions.com',
-        `New ${role} lead — ${firstName}`,
-        `<p>New lead from the website:</p>
-         <ul>
-           <li><strong>Name:</strong> ${firstName}</li>
-           <li><strong>Email:</strong> ${email}</li>
-           <li><strong>Role:</strong> ${role}</li>
-           <li><strong>Source:</strong> Website lead form</li>
-         </ul>`
-      );
-    } catch (err) {
-      console.error('[leads] mail error:', err);
-    }
+    console.log('[leads] Mailchimp accepted.', { email, role, status: res.status, memberExists: data.title === 'Member Exists' });
+
+    await sendMail(
+      'robyn@canadiansurrogacyoptions.com',
+      `New ${role} lead - ${firstName}`,
+      `<p>New lead from the website:</p>
+       <ul>
+         <li><strong>Name:</strong> ${firstName}</li>
+         <li><strong>Email:</strong> ${email}</li>
+         <li><strong>Role:</strong> ${role}</li>
+         <li><strong>Source:</strong> Website lead form</li>
+       </ul>`
+    );
+
+    console.log('[leads] Submission completed.', { email, role });
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {

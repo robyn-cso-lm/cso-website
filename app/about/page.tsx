@@ -4,7 +4,7 @@ import ClinicStrip from '@/components/ClinicStrip';
 import styles from './about.module.css';
 
 export const metadata: Metadata = {
-  title: 'About Us | Canadian Surrogacy Options',
+  title: 'About Canadian Surrogacy Options',
   description: 'Founded in 1992 by Joanne Wright, Canadian Surrogacy Options is Canada\'s very first surrogacy agency. Meet Robyn Price and learn our story of building families for over 30 years.',
   alternates: { canonical: 'https://canadiansurrogacyoptions.com/about' },
 };

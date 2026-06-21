@@ -3,7 +3,7 @@ import styles from './contact.module.css';
 import ContactForm from '../../components/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Canadian Surrogacy Options',
+  title: 'Contact Canadian Surrogacy Options',
   description: 'Reach out to Robyn and the CSO team. Call, text, email, or book a free consultation. Cambridge, Ontario. We answer every message personally.',
   alternates: { canonical: 'https://canadiansurrogacyoptions.com/contact' },
 };

@@ -1,4 +1,18 @@
 const TIMEOUT_MS = 10_000;
+const TOKEN_REFRESH_BUFFER_MS = 2 * 60 * 1000;
+
+type TokenResponse = {
+  access_token?: string;
+  expires_in?: number | string;
+};
+
+let cachedToken:
+  | {
+      accessToken: string;
+      expiresAt: number;
+    }
+  | null = null;
+let inflightTokenPromise: Promise<string> | null = null;
 
 function fetchWithTimeout(url: string, options: RequestInit): Promise<Response> {
   const controller = new AbortController();
@@ -7,6 +21,15 @@ function fetchWithTimeout(url: string, options: RequestInit): Promise<Response> 
 }
 
 async function getAccessToken(): Promise<string> {
+  const now = Date.now();
+  if (cachedToken && now < cachedToken.expiresAt) {
+    return cachedToken.accessToken;
+  }
+
+  if (inflightTokenPromise) {
+    return inflightTokenPromise;
+  }
+
   const tenantId = process.env.AZURE_TENANT_ID;
   const clientId = process.env.AZURE_CLIENT_ID;
   const clientSecret = process.env.AZURE_CLIENT_SECRET;
@@ -15,30 +38,45 @@ async function getAccessToken(): Promise<string> {
     throw new Error('Missing Azure credentials in environment variables.');
   }
 
-  const res = await fetchWithTimeout(
-    `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        grant_type: 'client_credentials',
-        client_id: clientId,
-        client_secret: clientSecret,
-        scope: 'https://graph.microsoft.com/.default',
-      }),
+  inflightTokenPromise = (async () => {
+    const res = await fetchWithTimeout(
+      `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          grant_type: 'client_credentials',
+          client_id: clientId,
+          client_secret: clientSecret,
+          scope: 'https://graph.microsoft.com/.default',
+        }),
+      }
+    );
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Failed to get access token: ${err}`);
     }
-  );
 
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Failed to get access token: ${err}`);
-  }
+    const data = (await res.json()) as TokenResponse;
+    if (!data.access_token) {
+      throw new Error(`No access token in response: ${JSON.stringify(data)}`);
+    }
 
-  const data = await res.json();
-  if (!data.access_token) {
-    throw new Error(`No access token in response: ${JSON.stringify(data)}`);
+    const expiresInMs = Math.max(Number(data.expires_in ?? 3600) * 1000, TIMEOUT_MS);
+    cachedToken = {
+      accessToken: data.access_token,
+      expiresAt: Date.now() + Math.max(expiresInMs - TOKEN_REFRESH_BUFFER_MS, TIMEOUT_MS),
+    };
+
+    return data.access_token;
+  })();
+
+  try {
+    return await inflightTokenPromise;
+  } finally {
+    inflightTokenPromise = null;
   }
-  return data.access_token;
 }
 
 export async function sendMail(
@@ -47,6 +85,7 @@ export async function sendMail(
   htmlBody: string,
   from = 'robyn@canadiansurrogacyoptions.com'
 ): Promise<void> {
+  console.log('[graphMail] sendMail called.', { to, from, subject });
   const token = await getAccessToken();
 
   const res = await fetchWithTimeout(
@@ -70,6 +109,9 @@ export async function sendMail(
 
   if (!res.ok && res.status !== 202) {
     const err = await res.text();
+    console.error('[graphMail] sendMail failed.', { to, from, subject, status: res.status, err });
     throw new Error(`Failed to send email: ${err}`);
   }
+
+  console.log('[graphMail] sendMail accepted.', { to, from, subject, status: res.status });
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions | Canadian Surrogacy Options',
+  title: 'Surrogacy FAQ Canada',
   description: 'Answers to the most common questions about surrogacy in Canada, for intended parents, surrogates, and anyone just starting to explore.',
   alternates: {
     canonical: 'https://canadiansurrogacyoptions.com/faq',
@@ -75,7 +75,7 @@ const sections = [
     questions: [
       {
         q: 'Do I need to have had my own children to become a surrogate?',
-        a: 'Yes. Surrogates must have had at least one successful, uncomplicated pregnancy and delivery. This requirement exists to protect your health: it confirms that your body can carry a pregnancy safely and that you understand what pregnancy involves.',
+        a: 'Usually, yes. The most common path is to have had at least one healthy pregnancy and delivery first. That said, there can be exceptions for women who have not yet had a pregnancy, but it involves more medical review, more screening, and the right clinic fit.',
       },
       {
         q: 'How much does a surrogate receive in Canada?',
@@ -95,7 +95,7 @@ const sections = [
       },
       {
         q: 'Is there an age limit for surrogates?',
-        a: 'Yes. Surrogates must be between 21 and 42 years old. This aligns with medical guidelines for safe pregnancy and is a standard requirement across reputable agencies and clinics.',
+        a: 'There is not one single hard cutoff across every clinic. Many clinics prefer surrogates to be between 21 and 45, but we also work with women into their late 40s depending on health, history, and the clinic involved.',
       },
     ],
   },

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SurrogateLeadForm from '@/components/SurrogateLeadForm';
 
 export const metadata: Metadata = {
-  title: 'Become a Surrogate | Canadian Surrogacy Options',
+  title: 'Become a Surrogate in Canada',
   description: 'Give a family the gift of a lifetime. CSO has supported surrogates since 1992 with full legal support, dedicated coordinators, and a real community.',
   alternates: { canonical: 'https://canadiansurrogacyoptions.com/surrogates' },
 };
@@ -69,10 +69,10 @@ export default function SurrogatesPage() {
         <section className="sur-hero">
           <h1>Give a Family the Gift of a Lifetime</h1>
           <p>Surrogacy is one of the most profound things a woman can do. We&apos;ve been here since 1992 and we&apos;ll be with you every step of the way.</p>
-          <a href="#apply" className="btn">Start Your Application</a>
+          <a href="/qualify" className="btn">Take the 3-Minute Quiz</a>
           <div style={{ marginTop: '16px' }}>
-            <a href="/qualify" style={{ color: '#fff', opacity: 0.9, fontSize: '0.95rem', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-              Not sure yet? Take the 3-minute eligibility quiz &rarr;
+            <a href="#apply" style={{ color: '#fff', opacity: 0.9, fontSize: '0.95rem', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+              Already know you&apos;re ready? Start your application &rarr;
             </a>
           </div>
           <div className="trust-bar">
@@ -107,7 +107,7 @@ export default function SurrogatesPage() {
 
         {/* CTA */}
         <div className="cta-center" style={{ padding: '12px 24px' }}>
-          <a href="#apply" className="btn">See If Surrogacy Is Right for You</a>
+          <a href="/qualify" className="btn">See If You Qualify</a>
         </div>
 
         {/* BENEFITS */}
@@ -184,7 +184,7 @@ export default function SurrogatesPage() {
           <div className="divider divider-left" />
           <p style={{ marginBottom: 8, maxWidth: 580 }}>Here&apos;s what we look for in a surrogate candidate. If you check most of these, we&apos;d love to hear from you.</p>
           <ul className="req-list">
-            {['Between 21 and 42 years old', 'Have had at least one successful pregnancy', 'Canadian resident (citizen or PR)', 'Healthy BMI and no major health concerns', 'Non-smoker (and household)', 'Financially stable (not receiving social assistance)'].map(r => (
+            {['Usually 21 to 45, with some women accepted into their late 40s', 'Often have had a successful prior pregnancy, though some first-time cases are possible', 'Canadian resident (citizen or PR)', 'Healthy BMI and no major health concerns', 'Non-smoker (and household)', 'Financially stable (not receiving social assistance)'].map(r => (
               <li key={r}>{r}</li>
             ))}
           </ul>

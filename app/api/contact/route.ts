@@ -6,10 +6,9 @@ import { sendMail } from '@/lib/graphMail';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MSG_LEN = 5000;
 
-// ── Rate limiting (in-memory, resets on redeploy — good enough for serverless) ──
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 5;
-const RATE_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const RATE_WINDOW_MS = 10 * 60 * 1000;
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
@@ -23,15 +22,12 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-// ── Looks like random gibberish: no spaces, mixed case, >10 chars ──
 function looksLikeGibberish(str: string): boolean {
   if (str.length < 10) return false;
-  if (/\s/.test(str)) return false; // has spaces = probably real
-  // high ratio of random-looking char transitions
+  if (/\s/.test(str)) return false;
   const upper = (str.match(/[A-Z]/g) || []).length;
   const lower = (str.match(/[a-z]/g) || []).length;
-  if (upper > 2 && lower > 2 && Math.abs(upper - lower) < str.length * 0.4) return true;
-  return false;
+  return upper > 2 && lower > 2 && Math.abs(upper - lower) < str.length * 0.4;
 }
 
 function escapeHtml(str: string): string {
@@ -46,20 +42,21 @@ function escapeHtml(str: string): string {
 export async function POST(req: NextRequest) {
   try {
     const { firstName, email, phone, role, message, website, captchaToken } = await req.json();
+    console.log('[contact] Submission received.', { email, role, hasCaptchaToken: Boolean(captchaToken), honeypotFilled: Boolean(website) });
 
-    // Honeypot — bots fill this, humans don't see it
     if (website) {
-      return NextResponse.json({ success: true }); // silent pass to fool bots
+      console.warn('[contact] Honeypot triggered.');
+      return NextResponse.json({ success: true });
     }
 
-    // Rate limit by IP
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown';
     if (isRateLimited(ip)) {
+      console.warn('[contact] Rate limited.', { ip });
       return NextResponse.json({ error: 'Too many submissions. Please try again later.' }, { status: 429 });
     }
 
-    // reCAPTCHA v3
     if (!await verifyRecaptcha(captchaToken)) {
+      console.warn('[contact] reCAPTCHA failed.', { email, role });
       return NextResponse.json({ error: 'Security check failed. Please try again.' }, { status: 400 });
     }
 
@@ -75,65 +72,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Message is too long.' }, { status: 400 });
     }
 
-    // Reject gibberish names/messages
     if (looksLikeGibberish(firstName) || looksLikeGibberish(message)) {
-      return NextResponse.json({ success: true }); // silent pass
+      console.warn('[contact] Gibberish filter triggered.', { email, role });
+      return NextResponse.json({ success: true });
     }
 
-    const safeName    = escapeHtml(String(firstName));
-    const safeEmail   = escapeHtml(String(email));
-    const safePhone   = phone ? escapeHtml(String(phone)) : '';
-    const safeRole    = escapeHtml(String(role));
+    const safeName = escapeHtml(String(firstName));
+    const safeEmail = escapeHtml(String(email));
+    const safePhone = phone ? escapeHtml(String(phone)) : '';
+    const safeRole = escapeHtml(String(role));
     const safeMessage = escapeHtml(String(message)).replace(/\n/g, '<br/>');
 
-    // Add to Mailchimp with "Contact Form" tag
-    const API_KEY = process.env.MAILCHIMP_API_KEY;
-    const LIST_ID = process.env.MAILCHIMP_LIST_ID;
-
-    if (API_KEY && LIST_ID) {
-      const DC = API_KEY.split('-')[1];
-      const auth = Buffer.from(`anystring:${API_KEY}`).toString('base64');
-
-      const memberRes = await fetch(
-        `https://${DC}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`,
-        {
-          method: 'POST',
-          headers: { Authorization: `Basic ${auth}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email_address: email,
-            status: 'subscribed',
-            merge_fields: { FNAME: firstName, PHONE: phone || '' },
-            tags: ['Contact Form', role],
-          }),
-        }
-      );
-
-      if (!memberRes.ok) {
-        let memberData: Record<string, unknown> = {};
-        try { memberData = await memberRes.json(); } catch { /* non-JSON response, ignore */ }
-
-        if (memberData.title === 'Member Exists') {
-          const hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
-          await fetch(
-            `https://${DC}.api.mailchimp.com/3.0/lists/${LIST_ID}/members/${hash}/tags`,
-            {
-              method: 'POST',
-              headers: { Authorization: `Basic ${auth}`, 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                tags: [
-                  { name: 'Contact Form', status: 'active' },
-                  { name: role, status: 'active' },
-                ],
-              }),
-            }
-          );
-        } else {
-          console.error('[contact] Mailchimp error:', memberData);
-        }
-      }
-    }
-
-    // Send notification email to Robyn
     const html = `
 <!DOCTYPE html>
 <html>
@@ -192,15 +141,72 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
-    try {
-      await sendMail(
+    const backgroundTasks: Promise<unknown>[] = [
+      sendMail(
         'robyn@canadiansurrogacyoptions.com',
-        `New contact from ${safeName} — ${safeRole}`,
+        `New contact from ${safeName} - ${safeRole}`,
         html
-      );
-    } catch (err) {
-      console.error('[contact] mail error:', err);
+      ).catch((err) => {
+        console.error('[contact] mail error:', err);
+      }),
+    ];
+
+    const apiKey = process.env.MAILCHIMP_API_KEY;
+    const listId = process.env.MAILCHIMP_LIST_ID;
+
+    if (apiKey && listId) {
+      const dc = apiKey.split('-')[1];
+      const auth = Buffer.from(`anystring:${apiKey}`).toString('base64');
+
+      backgroundTasks.push((async () => {
+        const memberRes = await fetch(
+          `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members`,
+          {
+            method: 'POST',
+            headers: { Authorization: `Basic ${auth}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email_address: email,
+              status: 'subscribed',
+              merge_fields: { FNAME: firstName, PHONE: phone || '' },
+              tags: ['Contact Form', role],
+            }),
+          }
+        );
+
+        if (!memberRes.ok) {
+          let memberData: Record<string, unknown> = {};
+          try {
+            memberData = await memberRes.json();
+          } catch {
+            // Ignore non-JSON Mailchimp responses.
+          }
+
+          if (memberData.title === 'Member Exists') {
+            const hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
+            await fetch(
+              `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members/${hash}/tags`,
+              {
+                method: 'POST',
+                headers: { Authorization: `Basic ${auth}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  tags: [
+                    { name: 'Contact Form', status: 'active' },
+                    { name: role, status: 'active' },
+                  ],
+                }),
+              }
+            );
+          } else {
+            console.error('[contact] Mailchimp error:', memberData);
+          }
+        } else {
+          console.log('[contact] Mailchimp subscribe accepted.', { email, role, status: memberRes.status });
+        }
+      })());
     }
+
+    await Promise.allSettled(backgroundTasks);
+    console.log('[contact] Submission completed.', { email, role });
 
     return NextResponse.json({ success: true });
   } catch (err) {

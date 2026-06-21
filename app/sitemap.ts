@@ -24,7 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/blog`, lastModified: latestPostDate, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/contact`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/private-inquiry`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.5 },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({

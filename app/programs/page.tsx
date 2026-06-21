@@ -4,7 +4,7 @@ import ClinicStrip from '@/components/ClinicStrip';
 import styles from './programs.module.css';
 
 export const metadata: Metadata = {
-  title: 'Surrogacy Programs & Services',
+  title: 'Surrogacy Programs in Canada',
   description: 'Explore Canadian Surrogacy Options\' agency programs: Foundation, Guided Journey, Priority Match, and Independent Journey, plus digital guides and resources for your surrogacy path.',
   alternates: {
     canonical: 'https://canadiansurrogacyoptions.com/programs',
@@ -32,6 +32,11 @@ function getStripeLinks() {
 
 export default function ProgramsPage() {
   const stripe = getStripeLinks();
+  const hasSurrogateCheckout = stripe.surrogate !== '#';
+  const surrogatePrice = '$47';
+  const surrogateHref = hasSurrogateCheckout ? stripe.surrogate : '/surrogates';
+  const surrogateCta = hasSurrogateCheckout ? 'Get the Guide' : 'Get the Free Guide';
+  const surrogateNote = hasSurrogateCheckout ? 'Instant download. PDF.' : 'Use code SURROGACY to get it free.';
 
   return (
     <>
@@ -273,8 +278,13 @@ export default function ProgramsPage() {
               <div className={styles.productIcon}>💜</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Readiness Guide&rdquo;</h3>
-                <p className={styles.productPrice}>$47</p>
+                <p className={styles.productPrice}>{surrogatePrice}</p>
               </div>
+              {!hasSurrogateCheckout && (
+                <p className={styles.productNote} style={{ marginBottom: '14px', color: '#3D1A6E', fontWeight: 600 }}>
+                  Free guide with code SURROGACY
+                </p>
+              )}
               <ul className={styles.productFeatures}>
                 <li>Canadian eligibility requirements</li>
                 <li>What the screening process looks like</li>
@@ -282,16 +292,17 @@ export default function ProgramsPage() {
                 <li>How to choose the right agency</li>
                 <li>Talking to your partner and family</li>
               </ul>
-              <a href={stripe.surrogate} className={styles.productBtn}>
-                Get the Guide
+              <a href={surrogateHref} className={styles.productBtn}>
+                {surrogateCta}
               </a>
+              <p className={styles.productNote}>{surrogateNote}</p>
             </div>
 
             <div className={styles.productCard}>
               <div className={styles.productIcon}>✨</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;IP Profile Template Pack&rdquo;</h3>
-                <p className={styles.productPrice}>$67</p>
+                <p className={styles.productPrice}>$47</p>
               </div>
               <ul className={styles.productFeatures}>
                 <li>Professionally designed profile template</li>

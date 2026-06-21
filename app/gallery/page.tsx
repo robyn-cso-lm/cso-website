@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { GalleryGrid } from '@/components/gallery/GalleryGrid';
 
 export const metadata: Metadata = {
-  title: 'Surrogate Connection Gallery | Canadian Surrogacy Options',
+  title: 'Families Waiting for a Surrogate in Canada',
   description:
     'Meet families waiting to grow through surrogacy. Browse anonymized family profiles and discover real stories of hope.',
   alternates: { canonical: 'https://canadiansurrogacyoptions.com/gallery' },
