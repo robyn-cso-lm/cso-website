@@ -73,18 +73,18 @@ export default function HomePage() {
           </p>
           <div className={styles.heroCTAs}>
             <a
-              href="https://portal.canadiansurrogacyoptions.com/register"
-              className={styles.heroCTAPrimary}
-            >
-              Begin Your Application
-            </a>
-            <a
               href="https://calendly.com/cso-robyn"
               target="_blank"
               rel="noopener noreferrer"
+              className={styles.heroCTAPrimary}
+            >
+              Book a Free Call with Robyn
+            </a>
+            <a
+              href="https://portal.canadiansurrogacyoptions.com/register"
               className={styles.heroCTAGhost}
             >
-              Book a Free Call First
+              Begin Your Application
             </a>
           </div>
           <div className={styles.heroStatStrip}>
@@ -182,6 +182,14 @@ export default function HomePage() {
           <div className={styles.contactNudgeActions}>
             <a href="tel:+18774014175" className={styles.contactNudgeLink}>📞 1-877-401-4175</a>
             <a href="mailto:robyn@canadiansurrogacyoptions.com" className={styles.contactNudgeLink}>✉️ robyn@canadiansurrogacyoptions.com</a>
+            <a
+              href="https://calendly.com/cso-robyn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.contactNudgeBtn}
+            >
+              Book a Free Call
+            </a>
             <Link href="/contact" className={styles.contactNudgeBtn}>Send a Message &rarr;</Link>
           </div>
         </div>

@@ -16,7 +16,7 @@ export default function StickyCTA() {
       className={styles.cta}
       aria-label="Book a free call with Robyn"
     >
-      Book a Free Call 💜
+      Book a Free Call
     </a>
   );
 }

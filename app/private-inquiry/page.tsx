@@ -4,7 +4,7 @@ import ConciergeForm from './ConciergeForm';
 import styles from './concierge.module.css';
 
 export const metadata: Metadata = {
-  title: 'Private Inquiry | Canadian Surrogacy Options',
+  title: 'Private Inquiry',
   description: 'Private concierge surrogacy experience with Robyn Price. By invitation only.',
   robots: {
     index: false,
