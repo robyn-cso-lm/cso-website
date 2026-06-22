@@ -19,6 +19,13 @@ export default function SurrogatesPage() {
         .sur-hero p { font-size: 1.2rem; max-width: 620px; margin: 0 auto 32px; opacity: 0.92; }
         .trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 32px; font-size: 0.85rem; opacity: 0.85; letter-spacing: 0.05em; }
         .trust-bar span::before { content: "· "; }
+        .trust-clarity { max-width: 900px; margin: 42px auto 12px; padding: 0 24px; }
+        .trust-clarity-card { background: linear-gradient(135deg, rgba(232,224,245,0.78) 0%, rgba(255,255,255,0.98) 100%); border: 1px solid rgba(155,127,199,0.25); border-radius: 18px; padding: 28px 26px; box-shadow: 0 8px 28px rgba(61,26,110,0.06); }
+        .trust-clarity-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #3D1A6E; margin-bottom: 10px; line-height: 1.12; }
+        .trust-clarity-card p { font-size: 1rem; color: #4A3560; line-height: 1.8; margin-bottom: 12px; }
+        .trust-clarity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 22px 0 8px; }
+        .trust-clarity-pill { background: #fff; border: 1px solid rgba(155,127,199,0.2); border-radius: 999px; padding: 12px 14px; text-align: center; font-size: 0.88rem; color: #3D1A6E; font-weight: 600; box-shadow: 0 4px 14px rgba(61,26,110,0.04); }
+        .trust-clarity-note { font-size: 0.95rem; color: #6B3FA0; font-weight: 600; margin-top: 6px; margin-bottom: 0; }
         .urgency { background: #E8E0F5; border-left: 5px solid #3D1A6E; padding: 24px 32px; max-width: 780px; margin: 48px auto; border-radius: 6px; text-align: center; }
         .urgency p { font-size: 1.25rem; color: #3D1A6E; font-weight: 600; line-height: 1.5; }
         .btn { display: inline-block; background: #3D1A6E; color: #fff !important; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none !important; }
@@ -82,6 +89,29 @@ export default function SurrogatesPage() {
             <span>Compensation Up to $30,000</span>
           </div>
         </section>
+
+        <div className="trust-clarity">
+          <div className="trust-clarity-card">
+            <h3>If you are doing your homework, that is a good thing.</h3>
+            <p>
+              A lot of women take a serious pause before they apply. They Google. They ask hard questions.
+              They want to know who they are trusting. We respect that.
+            </p>
+            <p>
+              What matters most to us is how we show up now: with honest answers, careful matching,
+              real support, and direct access to Robyn and the team.
+            </p>
+            <div className="trust-clarity-grid">
+              <div className="trust-clarity-pill">Founded in 1992</div>
+              <div className="trust-clarity-pill">2,500+ families built</div>
+              <div className="trust-clarity-pill">Direct contact with Robyn</div>
+              <div className="trust-clarity-pill">Support from first question to final match</div>
+            </div>
+            <p className="trust-clarity-note">
+              If you are a fit, we will tell you. If you are not, we will tell you that honestly too.
+            </p>
+          </div>
+        </div>
 
         {/* URGENCY */}
         <div className="urgency">
