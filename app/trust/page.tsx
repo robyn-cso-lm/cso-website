@@ -36,6 +36,33 @@ const changedItems = [
   'A trust-first approach that invites questions instead of dodging them',
 ];
 
+const testimonials = [
+  {
+    name: 'Grit and a Little Glitter',
+    meta: 'Public Google review · a month ago',
+    quote:
+      'Our family had an absolutely amazing experience with Canadian Surrogacy Options. The staff were compassionate, knowledgeable, and always available to answer questions or provide reassurance during emotional moments.',
+  },
+  {
+    name: 'julien marchand',
+    meta: 'Public Google review · a year ago',
+    quote:
+      'The CSO team has been great. We are scrutinizing all bills and steps of the process and everything has been according to what had been discussed. Robyn is accessible and involved in the whole journey.',
+  },
+  {
+    name: 'Erin M',
+    meta: 'Public Google review · a year ago',
+    quote:
+      'I have had nothing but the greatest support from all of them at CSO. If I ever ran into an issue, Robyn and the rest of the team took care of it ASAP.',
+  },
+  {
+    name: 'Caity Herman',
+    meta: 'Public Google review · a year ago',
+    quote:
+      'Very positive experience. Lovely staff and generally quick in responses and communication, and quick to help bridge any gaps where needed between agency, surrogate, and clinics.',
+  },
+];
+
 const trustSteps = [
   {
     title: 'Start with clarity',
@@ -331,6 +358,57 @@ export default function TrustPage() {
           color: var(--text-secondary);
           line-height: 1.8;
         }
+        .trust-testimonialGrid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 22px;
+          margin-top: 18px;
+        }
+        .trust-testimonial {
+          background: linear-gradient(145deg, #ffffff 0%, #f8f4fc 100%);
+          border: 1px solid rgba(232, 224, 245, 0.92);
+          border-radius: 24px;
+          padding: 28px;
+          box-shadow: 0 14px 34px rgba(61, 26, 110, 0.05);
+        }
+        .trust-stars {
+          color: #d29a25;
+          font-size: 1rem;
+          letter-spacing: 0.12em;
+          margin-bottom: 14px;
+        }
+        .trust-testimonial p {
+          font-family: var(--font-dm-sans), sans-serif;
+          color: var(--text-secondary);
+          font-size: 1rem;
+          line-height: 1.85;
+        }
+        .trust-testimonialName {
+          display: block;
+          margin-top: 16px;
+          color: var(--deep-purple);
+          font-size: 1.02rem;
+          font-weight: 700;
+          font-family: var(--font-dm-sans), sans-serif;
+        }
+        .trust-testimonialMeta {
+          display: block;
+          margin-top: 4px;
+          color: #2d8c8a;
+          font-size: 0.82rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-family: var(--font-dm-sans), sans-serif;
+        }
+        .trust-testimonialNote {
+          margin-top: 14px;
+          max-width: 840px;
+          font-family: var(--font-dm-sans), sans-serif;
+          color: var(--text-secondary);
+          font-size: 0.95rem;
+          line-height: 1.8;
+        }
         .trust-final {
           text-align: center;
           padding-bottom: 80px;
@@ -358,7 +436,8 @@ export default function TrustPage() {
           .trust-grid3,
           .trust-grid2,
           .trust-stepGrid,
-          .trust-miniGrid {
+          .trust-miniGrid,
+          .trust-testimonialGrid {
             grid-template-columns: 1fr;
           }
           .trust-hero {
@@ -467,6 +546,32 @@ export default function TrustPage() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="trust-section">
+          <div className="trust-wrap">
+            <div className="trust-sectionHeading">
+              <span className="trust-sectionLabel">Recent Positive Feedback</span>
+              <h2>What people have said more recently.</h2>
+            </div>
+
+            <div className="trust-testimonialGrid">
+              {testimonials.map((testimonial) => (
+                <article key={testimonial.name} className="trust-testimonial">
+                  <div className="trust-stars">★★★★★</div>
+                  <p>&ldquo;{testimonial.quote}&rdquo;</p>
+                  <span className="trust-testimonialName">{testimonial.name}</span>
+                  <span className="trust-testimonialMeta">{testimonial.meta}</span>
+                </article>
+              ))}
+            </div>
+
+            <p className="trust-testimonialNote">
+              These are selected excerpts from public reviews shared online and edited lightly for length
+              and readability. If you are researching carefully, we encourage that. Ask us direct
+              questions too.
+            </p>
           </div>
         </section>
 

@@ -60,6 +60,10 @@ export default function SurrogatesPage() {
         .step-num { font-size: 2.5rem; font-weight: 700; color: #9B7FC7; line-height: 1; margin-bottom: 12px; }
         .step h3 { font-size: 1.05rem; color: #3D1A6E; margin-bottom: 8px; }
         .step p { font-size: 0.93rem; color: #555; }
+        .unsure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 28px; }
+        .unsure-card { background: linear-gradient(145deg, #ffffff 0%, #f8f4fc 100%); border: 1px solid rgba(155,127,199,0.18); border-radius: 16px; padding: 24px 22px; box-shadow: 0 4px 20px rgba(61,26,110,0.05); }
+        .unsure-card h3 { font-size: 1.08rem; color: #3D1A6E; margin-bottom: 10px; }
+        .unsure-card p { font-size: 0.95rem; color: #555; line-height: 1.8; }
         .video-placeholder { background: #2a1050; border-radius: 14px; padding: 56px 32px; text-align: center; color: #fff; margin: 0 auto; max-width: 640px; border: 2px dashed #9B7FC7; }
         .video-placeholder .play-icon { font-size: 3.5rem; margin-bottom: 16px; opacity: 0.7; }
         .contact-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 28px; }
@@ -205,6 +209,30 @@ export default function SurrogatesPage() {
         {/* CTA */}
         <div className="cta-center" style={{ padding: '12px 24px 48px' }}>
           <a href="#apply" className="btn">See If Surrogacy Is Right for You</a>
+        </div>
+
+        {/* STILL UNSURE */}
+        <div className="section">
+          <span className="section-label">Still Unsure?</span>
+          <h2 className="sur-h2">That does not mean no.</h2>
+          <div className="divider divider-left" />
+          <p style={{ marginBottom: 8, maxWidth: 620 }}>
+            Most women who become amazing surrogates did not start out 100% certain. They started with a few honest questions.
+          </p>
+          <div className="unsure-grid">
+            <div className="unsure-card">
+              <h3>What if I am not sure I qualify?</h3>
+              <p>That is exactly why the quiz is here. Start there first. It is quick, private, and gives you a better sense of whether this could be a fit.</p>
+            </div>
+            <div className="unsure-card">
+              <h3>What if I am worried about support?</h3>
+              <p>You should be. Surrogacy is too important to do with vague promises. We believe in direct communication, careful matching, and real support from first question to final match.</p>
+            </div>
+            <div className="unsure-card">
+              <h3>What if I just want honest answers first?</h3>
+              <p>Then ask. We would rather give you a truthful answer now than have you move forward with the wrong expectations.</p>
+            </div>
+          </div>
         </div>
 
         {/* REQUIREMENTS */}
