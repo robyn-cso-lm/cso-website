@@ -30,6 +30,12 @@ const supportItems = [
   'Resources to help you decide before you commit',
 ];
 
+const changedItems = [
+  'More direct public-facing communication from Robyn and the team',
+  'Clear next-step tools like /qualify, /cost-calculator, and the gallery',
+  'A trust-first approach that invites questions instead of dodging them',
+];
+
 const trustSteps = [
   {
     title: 'Start with clarity',
@@ -277,6 +283,28 @@ export default function TrustPage() {
           gap: 22px;
           margin-top: 18px;
         }
+        .trust-miniGrid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+          margin-top: 18px;
+        }
+        .trust-miniCard {
+          padding: 22px 20px;
+          border-radius: 20px;
+          background: rgba(255,255,255,0.92);
+          border: 1px solid rgba(232, 224, 245, 0.92);
+        }
+        .trust-miniCard h3 {
+          margin-bottom: 8px;
+          font-size: 1.3rem;
+          color: var(--deep-purple);
+        }
+        .trust-miniCard p {
+          font-family: var(--font-dm-sans), sans-serif;
+          color: var(--text-secondary);
+          line-height: 1.75;
+        }
         .trust-stepCard {
           padding: 26px 24px;
           border-radius: 22px;
@@ -329,7 +357,8 @@ export default function TrustPage() {
         @media (max-width: 900px) {
           .trust-grid3,
           .trust-grid2,
-          .trust-stepGrid {
+          .trust-stepGrid,
+          .trust-miniGrid {
             grid-template-columns: 1fr;
           }
           .trust-hero {
@@ -420,6 +449,24 @@ export default function TrustPage() {
                 ))}
               </ul>
             </article>
+          </div>
+        </section>
+
+        <section className="trust-section">
+          <div className="trust-wrap">
+            <div className="trust-sectionHeading">
+              <span className="trust-sectionLabel">What We Want You To Know</span>
+              <h2>We know trust has to feel current, not historical.</h2>
+            </div>
+
+            <div className="trust-miniGrid">
+              {changedItems.map((item, index) => (
+                <article key={item} className="trust-miniCard">
+                  <h3>{`0${index + 1}`}</h3>
+                  <p>{item}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
