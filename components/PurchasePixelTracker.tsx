@@ -48,6 +48,11 @@ export default async function PurchasePixelTracker({ sessionId }: Props) {
       expand: ['line_items', 'line_items.data.price'],
     });
 
+    // Only fire a Purchase event for sessions that actually completed payment.
+    if (session.payment_status !== 'paid') {
+      return null;
+    }
+
     if (!session.line_items?.data || session.line_items.data.length === 0) {
       return null;
     }

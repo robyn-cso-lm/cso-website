@@ -84,19 +84,26 @@ export async function POST(req: NextRequest) {
 
     console.log('[leads] Mailchimp accepted.', { email, role, status: res.status, memberExists: data.title === 'Member Exists' });
 
-    await sendMail(
-      'robyn@canadiansurrogacyoptions.com',
-      `New ${role} lead - ${firstName}`,
-      `<p>New lead from the website:</p>
-       <ul>
-         <li><strong>Name:</strong> ${firstName}</li>
-         <li><strong>Email:</strong> ${email}</li>
-         ${phone ? `<li><strong>Phone:</strong> ${phone}</li>` : ''}
-         <li><strong>Role:</strong> ${role}</li>
-         <li><strong>Source:</strong> ${normalizedSourceLabel}</li>
-         <li><strong>Page:</strong> ${sourcePath}</li>
-       </ul>`
-    );
+    const esc = (v: unknown) =>
+      String(v ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+    try {
+      await sendMail(
+        'robyn@canadiansurrogacyoptions.com',
+        `New ${role} lead - ${firstName}`,
+        `<p>New lead from the website:</p>
+         <ul>
+           <li><strong>Name:</strong> ${esc(firstName)}</li>
+           <li><strong>Email:</strong> ${esc(email)}</li>
+           ${phone ? `<li><strong>Phone:</strong> ${esc(phone)}</li>` : ''}
+           <li><strong>Role:</strong> ${esc(role)}</li>
+           <li><strong>Source:</strong> ${esc(normalizedSourceLabel)}</li>
+           <li><strong>Page:</strong> ${esc(sourcePath)}</li>
+         </ul>`
+      );
+    } catch (mailErr) {
+      console.error('[leads] Notification email failed (lead still captured).', { email, error: mailErr });
+    }
 
     if (role === 'Intended Parent') {
       await sendIntendedParentLeadToZapier({

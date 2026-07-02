@@ -41,16 +41,19 @@ export function trackPurchase(
   eventId?: string
 ) {
   if (typeof window !== 'undefined' && (window as any).fbq) {
-    const params: any = {
+    const params = {
       content_name: contentName,
       content_ids: contentIds,
       value,
       currency,
     };
+    // eventID must be the 4th argument so the browser event deduplicates
+    // against the server-side CAPI event that shares the same id.
     if (eventId) {
-      params.event_id = eventId;
+      (window as any).fbq('track', 'Purchase', params, { eventID: eventId });
+    } else {
+      (window as any).fbq('track', 'Purchase', params);
     }
-    (window as any).fbq('track', 'Purchase', params);
   }
 }
 

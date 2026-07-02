@@ -1,7 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './GuideEmailCapture.module.css';
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+function loadRecaptcha() {
+  if (!SITE_KEY || document.getElementById('recaptcha-script')) return;
+  const s = document.createElement('script');
+  s.id = 'recaptcha-script';
+  s.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
+  s.async = true;
+  document.head.appendChild(s);
+}
+
+async function getToken(action: string): Promise<string | null> {
+  if (!SITE_KEY || !(window as any).grecaptcha) return null;
+  try { return await (window as any).grecaptcha.execute(SITE_KEY, { action }); } catch { return null; }
+}
 
 interface Props {
   guideName: string;
@@ -13,12 +29,15 @@ export default function GuideEmailCapture({ guideName }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
+  useEffect(() => { loadRecaptcha(); }, []);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     setMessage(null);
 
     try {
+      const captchaToken = await getToken('guide_email_capture');
       const response = await fetch('/api/guide-email-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -26,6 +45,7 @@ export default function GuideEmailCapture({ guideName }: Props) {
           email,
           firstName,
           guideName,
+          captchaToken,
           website: '', // honeypot field
         }),
       });

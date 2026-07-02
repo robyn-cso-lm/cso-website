@@ -21,7 +21,7 @@ export async function sendIntendedParentLeadToZapier(payload: IntendedParentPayl
     const cleanMessage = payload.message || '';
     const cleanGuideName = payload.guideName || '';
 
-    await fetch(webhookUrl, {
+    const res = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +42,21 @@ export async function sendIntendedParentLeadToZapier(payload: IntendedParentPayl
         timestamp: new Date().toISOString(),
       }),
     });
+
+    if (!res.ok) {
+      const responseBody = await res.text().catch(() => '');
+      console.error('[zapier] Intended parent webhook rejected.', {
+        status: res.status,
+        responseBody: responseBody.slice(0, 500),
+        email: payload.email,
+        sourceLabel: payload.sourceLabel,
+      });
+    }
   } catch (error) {
-    console.error('[zapier] Intended parent webhook failed.', error);
+    console.error('[zapier] Intended parent webhook failed.', {
+      error,
+      email: payload.email,
+      sourceLabel: payload.sourceLabel,
+    });
   }
 }
