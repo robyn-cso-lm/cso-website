@@ -11,7 +11,7 @@ export default function SurrogatesPage() {
   return (
     <>
       <style>{`
-        .sur-body { font-family: 'Jost', sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 300; }
+        .sur-body { font-family: var(--font-dm-sans), sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 400; }
         .sur-body a { color: #6B3FA0; text-decoration: none; }
         .sur-body a:hover { text-decoration: underline; }
         .sur-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px 60px; }
@@ -19,6 +19,13 @@ export default function SurrogatesPage() {
         .sur-hero p { font-size: 1.2rem; max-width: 620px; margin: 0 auto 32px; opacity: 0.92; }
         .trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 32px; font-size: 0.85rem; opacity: 0.85; letter-spacing: 0.05em; }
         .trust-bar span::before { content: "· "; }
+        .trust-clarity { max-width: 900px; margin: 42px auto 12px; padding: 0 24px; }
+        .trust-clarity-card { background: linear-gradient(135deg, rgba(232,224,245,0.78) 0%, rgba(255,255,255,0.98) 100%); border: 1px solid rgba(155,127,199,0.25); border-radius: 18px; padding: 28px 26px; box-shadow: 0 8px 28px rgba(61,26,110,0.06); }
+        .trust-clarity-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #3D1A6E; margin-bottom: 10px; line-height: 1.12; }
+        .trust-clarity-card p { font-family: var(--font-dm-sans), sans-serif; font-size: 1rem; color: #4A3560; line-height: 1.85; margin-bottom: 12px; }
+        .trust-clarity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 22px 0 8px; }
+        .trust-clarity-pill { display: flex; align-items: center; justify-content: center; min-height: 74px; background: #fff; border: 1px solid rgba(155,127,199,0.2); border-radius: 999px; padding: 12px 18px; text-align: center; font-family: var(--font-dm-sans), sans-serif; font-size: 0.9rem; color: #3D1A6E; font-weight: 700; line-height: 1.45; box-shadow: 0 4px 14px rgba(61,26,110,0.04); }
+        .trust-clarity-note { font-family: var(--font-dm-sans), sans-serif; font-size: 0.98rem; color: #6B3FA0; font-weight: 700; margin-top: 10px; margin-bottom: 0; }
         .urgency { background: #E8E0F5; border-left: 5px solid #3D1A6E; padding: 24px 32px; max-width: 780px; margin: 48px auto; border-radius: 6px; text-align: center; }
         .urgency p { font-size: 1.25rem; color: #3D1A6E; font-weight: 600; line-height: 1.5; }
         .btn { display: inline-block; background: #3D1A6E; color: #fff !important; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none !important; }
@@ -53,6 +60,10 @@ export default function SurrogatesPage() {
         .step-num { font-size: 2.5rem; font-weight: 700; color: #9B7FC7; line-height: 1; margin-bottom: 12px; }
         .step h3 { font-size: 1.05rem; color: #3D1A6E; margin-bottom: 8px; }
         .step p { font-size: 0.93rem; color: #555; }
+        .unsure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 28px; }
+        .unsure-card { background: linear-gradient(145deg, #ffffff 0%, #f8f4fc 100%); border: 1px solid rgba(155,127,199,0.18); border-radius: 16px; padding: 24px 22px; box-shadow: 0 4px 20px rgba(61,26,110,0.05); }
+        .unsure-card h3 { font-size: 1.08rem; color: #3D1A6E; margin-bottom: 10px; }
+        .unsure-card p { font-size: 0.95rem; color: #555; line-height: 1.8; }
         .video-placeholder { background: #2a1050; border-radius: 14px; padding: 56px 32px; text-align: center; color: #fff; margin: 0 auto; max-width: 640px; border: 2px dashed #9B7FC7; }
         .video-placeholder .play-icon { font-size: 3.5rem; margin-bottom: 16px; opacity: 0.7; }
         .contact-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 28px; }
@@ -79,9 +90,32 @@ export default function SurrogatesPage() {
             <span>In Practice Since 1992</span>
             <span>100% Canadian</span>
             <span>Full Legal Support</span>
-            <span>Compensation Up to $30,000</span>
+            <span>Compensation Starts at $30,000 + Expenses</span>
           </div>
         </section>
+
+        <div className="trust-clarity">
+          <div className="trust-clarity-card">
+            <h3>If you are doing your homework, that is a good thing.</h3>
+            <p>
+              A lot of women take a serious pause before they apply. They Google. They ask hard questions.
+              They want to know who they are trusting. We respect that.
+            </p>
+            <p>
+              What matters most to us is how we show up now: with honest answers, careful matching,
+              real support, and direct access to Robyn and the team.
+            </p>
+            <div className="trust-clarity-grid">
+              <div className="trust-clarity-pill">Founded in 1992</div>
+              <div className="trust-clarity-pill">2,500+ families built</div>
+              <div className="trust-clarity-pill">Direct contact with Robyn</div>
+              <div className="trust-clarity-pill">Support from first question to final match</div>
+            </div>
+            <p className="trust-clarity-note">
+              If you are a fit, we will tell you. If you are not, we will tell you that honestly too.
+            </p>
+          </div>
+        </div>
 
         {/* URGENCY */}
         <div className="urgency">
@@ -175,6 +209,30 @@ export default function SurrogatesPage() {
         {/* CTA */}
         <div className="cta-center" style={{ padding: '12px 24px 48px' }}>
           <a href="#apply" className="btn">See If Surrogacy Is Right for You</a>
+        </div>
+
+        {/* STILL UNSURE */}
+        <div className="section">
+          <span className="section-label">Still Unsure?</span>
+          <h2 className="sur-h2">That does not mean no.</h2>
+          <div className="divider divider-left" />
+          <p style={{ marginBottom: 8, maxWidth: 620 }}>
+            Most women who become amazing surrogates did not start out 100% certain. They started with a few honest questions.
+          </p>
+          <div className="unsure-grid">
+            <div className="unsure-card">
+              <h3>What if I am not sure I qualify?</h3>
+              <p>That is exactly why the quiz is here. Start there first. It is quick, private, and gives you a better sense of whether this could be a fit.</p>
+            </div>
+            <div className="unsure-card">
+              <h3>What if I am worried about support?</h3>
+              <p>You should be. Surrogacy is too important to do with vague promises. We believe in direct communication, careful matching, and real support from first question to final match.</p>
+            </div>
+            <div className="unsure-card">
+              <h3>What if I just want honest answers first?</h3>
+              <p>Then ask. We would rather give you a truthful answer now than have you move forward with the wrong expectations.</p>
+            </div>
+          </div>
         </div>
 
         {/* REQUIREMENTS */}

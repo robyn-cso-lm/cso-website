@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { sendMail } from '@/lib/graphMail';
+import { sendMetaConversionEvent } from '@/lib/meta-capi';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,27 +24,45 @@ for (const v of REQUIRED_PRICE_VARS) {
 }
 
 // Map Stripe price IDs to product info + PDF URLs
-function getProductInfo(priceId: string): { name: string; pdfUrl: string } | null {
-  const map: Record<string, { name: string; pdfUrl: string }> = {
+function getProductInfo(priceId: string): {
+  name: string;
+  pdfUrl: string;
+  slug: string;
+  price: number;
+} | null {
+  const map: Record<
+    string,
+    { name: string; pdfUrl: string; slug: string; price: number }
+  > = {
     [process.env.STRIPE_PRICE_STARTER || '__missing__']: {
       name: 'Is Surrogacy Right For Me?',
       pdfUrl: process.env.PDF_STARTER_URL || '/pdfs/is-surrogacy-right-for-me.pdf',
+      slug: 'is-surrogacy-right',
+      price: 27,
     },
     [process.env.STRIPE_PRICE_ROADMAP || '__missing2__']: {
       name: 'The Canadian Surrogacy Roadmap',
       pdfUrl: process.env.PDF_ROADMAP_URL || '/pdfs/roadmap.pdf',
+      slug: 'canadian-surrogacy-roadmap',
+      price: 97,
     },
     [process.env.STRIPE_PRICE_INDIE || '__missing3__']: {
       name: 'Independent Journey Checklist',
       pdfUrl: process.env.PDF_INDIE_URL || '/pdfs/indie-checklist.pdf',
+      slug: 'is-surrogacy-right',
+      price: 67,
     },
     [process.env.STRIPE_PRICE_SURROGATE || '__missing4__']: {
       name: 'Surrogate Readiness Guide',
       pdfUrl: process.env.PDF_SURROGATE_URL || '/pdfs/surrogate-readiness.pdf',
+      slug: 'surrogate-readiness',
+      price: 47,
     },
     [process.env.STRIPE_PRICE_PROFILE || '__missing5__']: {
       name: 'IP Profile Template Pack',
       pdfUrl: process.env.PDF_PROFILE_URL || '/pdfs/ip-profile-template.pdf',
+      slug: 'ip-profile-template',
+      price: 67,
     },
   };
   return map[priceId] || null;
@@ -189,6 +208,39 @@ export async function POST(req: NextRequest) {
         );
 
         console.log(`[stripe-webhook] PDF delivery email sent to ${customerEmail} for "${product.name}"`);
+
+        // Send Purchase event to Meta Conversions API
+        // Wrap in try/catch so failures don't prevent PDF delivery
+        if (process.env.META_CAPI_ACCESS_TOKEN && process.env.NEXT_PUBLIC_META_PIXEL_ID) {
+          try {
+            const amount = (item.amount_total || 0) / 100; // Convert from cents
+            const capiResult = await sendMetaConversionEvent(
+              process.env.NEXT_PUBLIC_META_PIXEL_ID,
+              process.env.META_CAPI_ACCESS_TOKEN,
+              {
+                sessionId: session.id,
+                email: customerEmail,
+                value: amount,
+                currency: 'CAD',
+                contentIds: [product.slug],
+                contentName: product.name,
+              }
+            );
+
+            if (capiResult.success) {
+              console.log(
+                `[stripe-webhook] Meta CAPI Purchase event sent for session ${session.id}`
+              );
+            } else {
+              console.warn(
+                `[stripe-webhook] Meta CAPI Purchase event failed: ${capiResult.error}`
+              );
+            }
+          } catch (capiErr) {
+            console.error('[stripe-webhook] Error sending Meta CAPI event:', capiErr);
+            // Don't fail the webhook for CAPI errors
+          }
+        }
       }
     } catch (err: unknown) {
       console.error('[stripe-webhook] Error processing session:', err);

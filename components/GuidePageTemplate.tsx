@@ -1,4 +1,10 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import styles from './GuidePageTemplate.module.css';
+import GuidePixelTracker from './GuidePixelTracker';
+import GuideEmailCapture from './GuideEmailCapture';
+import { trackInitiateCheckout, getGuideSlugFromPathname } from '@/lib/meta-pixel';
 
 export interface GuideData {
   title: string;
@@ -34,14 +40,32 @@ export default function GuidePageTemplate({
   fallbackLabel = 'Ask Robyn First',
   fallbackNote = 'Questions first? Book a free call or send a note.',
 }: Props) {
+  const pathname = usePathname();
   const { title, price, badge, hero, included, forWho, outcomeBody, testimonial } = guide;
   const hasCheckout = Boolean(stripeLink && stripeLink !== '#');
   const priceLabel = `Get the Guide - $${price}`;
   const primaryHref = hasCheckout ? stripeLink : fallbackHref;
   const primaryLabel = hasCheckout ? `${priceLabel} ->` : fallbackLabel;
 
+  const guideSlug = getGuideSlugFromPathname(pathname);
+
+  const handleCheckoutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (hasCheckout && guideSlug) {
+      try {
+        trackInitiateCheckout(title, [guideSlug], price, 'CAD');
+      } catch (err) {
+        // Silently fail if pixel tracking fails
+        console.error('[GuidePageTemplate] Pixel tracking error:', err);
+      }
+    }
+  };
+
   return (
     <main>
+      {guideSlug && (
+        <GuidePixelTracker guideTitle={title} guideSlug={guideSlug} guidePrice={price} />
+      )}
+
       {promoBanner && (
         <div className={styles.promoBanner}>
           <span>{promoBanner}</span>
@@ -53,7 +77,7 @@ export default function GuidePageTemplate({
           <p className={styles.eyebrow}>Canadian Surrogacy Options</p>
           <h1 className={styles.headline}>{hero.headline}</h1>
           <p className={styles.subheading}>{hero.subheading}</p>
-          <a href={primaryHref} className={styles.ctaHero}>
+          <a href={primaryHref} onClick={handleCheckoutClick} className={styles.ctaHero}>
             {primaryLabel}
           </a>
           <p className={styles.heroSupport}>
@@ -79,7 +103,7 @@ export default function GuidePageTemplate({
               </li>
             ))}
           </ul>
-          <a href={primaryHref} className={styles.ctaMid}>
+          <a href={primaryHref} onClick={handleCheckoutClick} className={styles.ctaMid}>
             {primaryLabel}
           </a>
         </div>
@@ -125,7 +149,7 @@ export default function GuidePageTemplate({
           <p className={styles.finalSub}>
             {hasCheckout ? 'Instant download. No call required. No fluff.' : fallbackNote}
           </p>
-          <a href={primaryHref} className={styles.ctaFinal}>
+          <a href={primaryHref} onClick={handleCheckoutClick} className={styles.ctaFinal}>
             {primaryLabel}
           </a>
           <p className={styles.finalNote}>
@@ -145,6 +169,8 @@ export default function GuidePageTemplate({
           </p>
         </div>
       </section>
+
+      <GuideEmailCapture guideName={title} />
 
       <section className={styles.upsell}>
         <div className={styles.inner}>
