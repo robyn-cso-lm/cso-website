@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import styles from './thank-you.module.css';
+import PurchasePixelTracker from '@/components/PurchasePixelTracker';
 
 export const metadata: Metadata = {
   title: 'Thank You | Canadian Surrogacy Options',
@@ -7,9 +9,21 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function ThankYouPage() {
+export default function ThankYouPage({
+  searchParams,
+}: {
+  searchParams: { session_id?: string };
+}) {
+  const sessionId = searchParams?.session_id;
+
   return (
     <main>
+      {sessionId && (
+        <Suspense fallback={null}>
+          <PurchasePixelTracker sessionId={sessionId} />
+        </Suspense>
+      )}
+
       {/* Confirmation */}
       <section className={styles.hero}>
         <div className={styles.inner}>
