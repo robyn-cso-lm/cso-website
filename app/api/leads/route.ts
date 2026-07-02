@@ -10,8 +10,20 @@ export async function POST(req: NextRequest) {
     const referer = req.headers.get('referer') || '';
     const sourcePath = referer ? new URL(referer).pathname + new URL(referer).search + new URL(referer).hash : '/qualify';
     const body = await req.json();
-    const { firstName, email, role, captchaToken, website } = body;
-    console.log('[leads] Submission received.', { email, role, hasCaptchaToken: Boolean(captchaToken), honeypotFilled: Boolean(website) });
+    const { firstName, email, phone, role, captchaToken, website, sourceLabel } = body;
+    const normalizedSourceLabel =
+      typeof sourceLabel === 'string' && sourceLabel.trim().length > 0
+        ? sourceLabel.trim()
+        : 'Website lead form';
+
+    console.log('[leads] Submission received.', {
+      email,
+      role,
+      sourceLabel: normalizedSourceLabel,
+      sourcePath,
+      hasCaptchaToken: Boolean(captchaToken),
+      honeypotFilled: Boolean(website),
+    });
 
     if (website) {
       console.warn('[leads] Honeypot triggered.');
@@ -79,8 +91,10 @@ export async function POST(req: NextRequest) {
        <ul>
          <li><strong>Name:</strong> ${firstName}</li>
          <li><strong>Email:</strong> ${email}</li>
+         ${phone ? `<li><strong>Phone:</strong> ${phone}</li>` : ''}
          <li><strong>Role:</strong> ${role}</li>
-         <li><strong>Source:</strong> Website lead form</li>
+         <li><strong>Source:</strong> ${normalizedSourceLabel}</li>
+         <li><strong>Page:</strong> ${sourcePath}</li>
        </ul>`
     );
 
@@ -90,8 +104,9 @@ export async function POST(req: NextRequest) {
         firstName,
         email,
         role,
+        phone,
         sourcePath,
-        sourceLabel: 'Website Lead Form',
+        sourceLabel: normalizedSourceLabel,
       });
     }
 

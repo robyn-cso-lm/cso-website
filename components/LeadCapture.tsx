@@ -44,7 +44,14 @@ export default function LeadCapture() {
       const res = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, email, role, captchaToken, website }),
+        body: JSON.stringify({
+          firstName,
+          email,
+          role,
+          captchaToken,
+          website,
+          sourceLabel: 'Blog lead form',
+        }),
       });
       if (!res.ok) {
         const data = await res.json();

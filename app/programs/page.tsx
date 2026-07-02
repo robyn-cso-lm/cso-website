@@ -5,13 +5,13 @@ import styles from './programs.module.css';
 
 export const metadata: Metadata = {
   title: 'Surrogacy Programs in Canada',
-  description: 'Explore Canadian Surrogacy Options\' agency programs: Foundation, Guided Journey, Priority Match, and Independent Journey, plus digital guides and resources for your surrogacy path.',
+  description: "Explore Canadian Surrogacy Options' agency programs: Foundation, Guided Journey, Priority Match, and Independent Journey, plus digital guides and resources for your surrogacy path.",
   alternates: {
     canonical: 'https://canadiansurrogacyoptions.com/programs',
   },
   openGraph: {
     title: 'Surrogacy Programs & Services | Canadian Surrogacy Options',
-    description: 'Find the program that\'s right for your family. From first-time explorers to families ready to match now.',
+    description: "Find the program that's right for your family. From first-time explorers to families ready to match now.",
     url: 'https://canadiansurrogacyoptions.com/programs',
   },
 };
@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 const CALENDLY = 'https://calendly.com/cso-robyn';
 const GET_STARTED = 'https://portal.canadiansurrogacyoptions.com/get-started';
 
-// Stripe links read server-side
 function getStripeLinks() {
   return {
     starter: process.env.STRIPE_STARTER_LINK || '#',
@@ -40,28 +39,26 @@ export default function ProgramsPage() {
 
   return (
     <>
-      {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>Canadian Surrogacy Options</p>
-          <h1 className={styles.heroH1}>Find the path that&rsquo;s right for your family</h1>
+          <h1 className={styles.heroH1}>Find the path that&apos;s right for your family</h1>
           <p className={styles.heroSub}>
-            From your first question to the moment you hold your baby, we&rsquo;re here.
-            Every family&rsquo;s journey is different, and our programs are designed to meet you
+            From your first question to the moment you hold your baby, we&apos;re here.
+            Every family&apos;s journey is different, and our programs are designed to meet you
             exactly where you are.
           </p>
           <div className={styles.heroActions}>
             <a href={GET_STARTED} className={styles.heroCTA}>
-              Get Started →
+              Get Started -&gt;
             </a>
             <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.heroEmailLink}>
-              Not sure? Email us and let&rsquo;s chat
+              Not sure? Email us and let&apos;s chat
             </a>
           </div>
         </div>
       </section>
 
-      {/* Agency Programs */}
       <section className={styles.agencySection} id="programs">
         <div className={styles.sectionInner}>
           <h2 className={styles.sectionTitle}>Agency Programs</h2>
@@ -69,8 +66,6 @@ export default function ProgramsPage() {
             Full-service support for families who want an experienced partner by their side.
           </p>
           <div className={styles.programGrid}>
-
-            {/* Foundation */}
             <div className={styles.programCard}>
               <div className={styles.cardHeader}>
                 <h3 className={styles.cardTitle}>Foundation</h3>
@@ -80,20 +75,19 @@ export default function ProgramsPage() {
                 <li>Surrogate matching coordination</li>
                 <li>Legal and clinic referrals</li>
                 <li>Journey milestone support</li>
-                <li>Access to CSO&rsquo;s screened surrogate pool</li>
+                <li>Access to CSO&apos;s screened surrogate pool</li>
               </ul>
               <div className={styles.cardFooter}>
+                <p className={styles.priceNote}>From $9,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started →
+                  Get Started -&gt;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
                 </a>
-                <p className={styles.priceNote}>From $9,500 + HST</p>
               </div>
             </div>
 
-            {/* Guided Journey */}
             <div className={styles.programCard}>
               <div className={styles.cardHeader}>
                 <h3 className={styles.cardTitle}>Guided Journey</h3>
@@ -107,17 +101,16 @@ export default function ProgramsPage() {
                 <li>Matching advocacy and surrogate introductions</li>
               </ul>
               <div className={styles.cardFooter}>
+                <p className={styles.priceNote}>From $19,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started →
+                  Get Started -&gt;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
                 </a>
-                <p className={styles.priceNote}>From $19,500 + HST</p>
               </div>
             </div>
 
-            {/* Priority Match - Featured */}
             <div className={`${styles.programCard} ${styles.featured}`}>
               <div className={styles.featuredBadge}>Most Popular</div>
               <div className={styles.cardHeader}>
@@ -132,17 +125,16 @@ export default function ProgramsPage() {
                 <li>Split payment structure available</li>
               </ul>
               <div className={styles.cardFooter}>
+                <p className={styles.priceNote}>From $29,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimaryWhite}>
-                  Get Started →
+                  Get Started -&gt;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnFilled}>
                   Book a Free Call
                 </a>
-                <p className={styles.priceNote}>From $29,500 + HST</p>
               </div>
             </div>
 
-            {/* Independent Journey */}
             <div className={styles.programCard}>
               <div className={styles.cardHeader}>
                 <h3 className={styles.cardTitle}>Independent Journey</h3>
@@ -156,19 +148,17 @@ export default function ProgramsPage() {
                 <li>Optional receipt management add-on</li>
               </ul>
               <div className={styles.cardFooter}>
+                <p className={styles.priceNote}>From $1,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started →
+                  Get Started -&gt;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
                 </a>
-                <p className={styles.priceNote}>From $1,500 + HST</p>
               </div>
             </div>
-
           </div>
 
-          {/* Concierge Teaser */}
           <div className={styles.conciergeTeaser} id="concierge">
             <div className={styles.conciergeLeft}>
               <p className={styles.conciergeEyebrow}>By Private Inquiry Only</p>
@@ -188,15 +178,13 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Clinics trust strip */}
       <ClinicStrip />
 
-      {/* Bridge Quote */}
       <section className={styles.bridge}>
         <div className={styles.bridgeInner}>
           <blockquote className={styles.bridgeQuote}>
             &ldquo;The timing of your journey matters less than the quality of the support around you.
-            When you&rsquo;re ready, whether that&rsquo;s today or in six months, I want to make sure
+            When you&apos;re ready, whether that&apos;s today or in six months, I want to make sure
             you have the right information to move forward with confidence.&rdquo;
           </blockquote>
           <cite className={styles.bridgeCite}>
@@ -208,7 +196,6 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Digital Products */}
       <section className={styles.digitalSection} id="digital">
         <div className={styles.sectionInner}>
           <h2 className={styles.sectionTitle}>Digital Guides &amp; Resources</h2>
@@ -217,9 +204,8 @@ export default function ProgramsPage() {
             you need to move forward at your own pace.
           </p>
           <div className={styles.productGrid}>
-
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>📋</div>
+              <div className={styles.productIcon}>ðŸ“‹</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Is Surrogacy Right For Me?&rdquo;</h3>
                 <p className={styles.productPrice}>$27</p>
@@ -238,7 +224,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>🗺️</div>
+              <div className={styles.productIcon}>ðŸ—ºï¸</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;The Canadian Surrogacy Roadmap&rdquo;</h3>
                 <p className={styles.productPrice}>$97</p>
@@ -256,7 +242,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>🧭</div>
+              <div className={styles.productIcon}>ðŸ§­</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Independent Journey Checklist&rdquo;</h3>
                 <p className={styles.productPrice}>$87</p>
@@ -275,7 +261,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>💜</div>
+              <div className={styles.productIcon}>ðŸ’œ</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Readiness Guide&rdquo;</h3>
                 <p className={styles.productPrice}>{surrogatePrice}</p>
@@ -299,7 +285,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>✨</div>
+              <div className={styles.productIcon}>âœ¨</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;IP Profile Template Pack&rdquo;</h3>
                 <p className={styles.productPrice}>$47</p>
@@ -317,7 +303,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={`${styles.productCard} ${styles.receiptCard}`}>
-              <div className={styles.productIcon}>🧾</div>
+              <div className={styles.productIcon}>ðŸ§¾</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Expense Management&rdquo;</h3>
                 <p className={styles.productPrice}>From $199/mo</p>
@@ -334,12 +320,10 @@ export default function ProgramsPage() {
                 Book a Call to Learn More
               </a>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Not Sure */}
       <section className={styles.notSure}>
         <div className={styles.notSureInner}>
           <h2 className={styles.notSureTitle}>Not sure where to start?</h2>
@@ -350,10 +334,10 @@ export default function ProgramsPage() {
           </p>
           <div className={styles.notSureActions}>
             <a href={GET_STARTED} className={styles.notSureBtn}>
-              Get Started →
+              Get Started -&gt;
             </a>
             <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.notSureEmail}>
-              Not sure? Email us and let&rsquo;s chat
+              Not sure? Email us and let&apos;s chat
             </a>
           </div>
         </div>

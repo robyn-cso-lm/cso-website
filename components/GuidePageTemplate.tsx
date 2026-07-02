@@ -57,16 +57,13 @@ export default function GuidePageTemplate({
             {primaryLabel}
           </a>
           <p className={styles.heroSupport}>
-            {hasCheckout ? 'Instant PDF download after checkout.' : fallbackNote}{' '}
-            <a
-              href="https://calendly.com/cso-robyn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.supportLink}
-            >
-              Book a free call
-            </a>
+            {hasCheckout ? 'Secure Stripe checkout. Instant PDF delivery after purchase.' : fallbackNote}
           </p>
+          <div className={styles.trustRow}>
+            <span>Written by Robyn Price</span>
+            <span>Instant access</span>
+            <span>No call required</span>
+          </div>
           <p className={styles.badge}>{badge}</p>
         </div>
       </section>
@@ -151,15 +148,15 @@ export default function GuidePageTemplate({
 
       <section className={styles.upsell}>
         <div className={styles.inner}>
-          <p className={styles.upsellEyebrow}>Want to take the next step?</p>
+          <p className={styles.upsellEyebrow}>Still deciding?</p>
           <p className={styles.upsellText}>
-            Get a snapshot of the intended parent profiles currently working with CSO. A public gallery is coming soon. Take a look at what&apos;s already there.
+            Compare the full guide library and choose the one that fits where you are right now.
           </p>
           <a
-            href="https://portal.canadiansurrogacyoptions.com/profiles"
+            href="/guides"
             className={styles.upsellCta}
           >
-            Browse IP Profiles {'->'}
+            See All Guides {'->'}
           </a>
         </div>
       </section>

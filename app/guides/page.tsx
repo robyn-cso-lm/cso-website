@@ -34,27 +34,27 @@ const GUIDES = [
     badge: 'Start here',
     title: 'Is Surrogacy Right For Me?',
     description:
-      'Honest costs, real timelines, and the legal landscape by province—before you talk to anyone. Know if surrogacy is feasible for your situation.',
-    audience: 'For: Explorers, comparison shoppers',
+      'Honest costs, real timelines, and the legal landscape by province before you talk to anyone. Know if surrogacy is feasible for your situation.',
+    audience: 'For: Explorers and comparison shoppers',
     featured: false,
   },
   {
     href: '/guides/ip-profile-template',
-    price: '$67',
+    price: '$47',
     badge: 'Matching prep',
     title: 'IP Profile Template Pack',
     description:
-      'A 3-part framework surrogates actually respond to—plus annotated examples, photo guide, and ready-to-use Word + PDF templates.',
-    audience: 'For: IPs ready to match',
+      'A 3-part framework surrogates actually respond to, plus annotated examples, photo guidance, and ready-to-use Word + PDF templates.',
+    audience: 'For: Intended parents ready to match',
     featured: false,
   },
   {
     href: '/guides/surrogate-readiness',
-    price: '$47',
+    price: 'Free with code SURROGACY',
     badge: 'For surrogates',
     title: 'Surrogate Readiness Guide',
     description:
-      "What surrogacy is really like at each stage, how to evaluate agencies, and the honest questions to sit with before you commit.",
+      'What surrogacy is really like at each stage, how to evaluate agencies, and the honest questions to sit with before you commit.',
     audience: 'For: Women considering surrogacy',
     featured: false,
   },
@@ -68,12 +68,12 @@ export default function GuidesPage() {
           <p className={styles.eyebrow}>Canadian Surrogacy Options</p>
           <h1 className={styles.title}>Guides for every stage of your journey</h1>
           <p className={styles.subtitle}>
-            Written by Robyn Price after 30 years in Canadian surrogacy. No sales pitch—just the
+            Written by Robyn Price after 30 years in Canadian surrogacy. No sales pitch, just the
             information you actually need to move forward with clarity.
           </p>
           <p className={styles.subtitle}>
-            Paid digital guides with instant delivery, plus a clear way to book a call if you want
-            help choosing the right one first.
+            Start with one guide that fits your stage. No course, no membership, no waiting, just
+            immediate access to the right information.
           </p>
         </div>
       </section>
@@ -93,7 +93,7 @@ export default function GuidesPage() {
               <h2 className={styles.cardTitle}>{guide.title}</h2>
               <p className={styles.cardDescription}>{guide.description}</p>
               <p className={styles.cardAudience}>{guide.audience}</p>
-              <span className={styles.cardCta}>Get this guide →</span>
+              <span className={styles.cardCta}>Get this guide -&gt;</span>
             </Link>
           ))}
         </div>
@@ -101,17 +101,14 @@ export default function GuidesPage() {
 
       <section className={styles.upsell}>
         <div className={styles.inner}>
-          <p className={styles.upsellEyebrow}>Already have a guide?</p>
-          <h2 className={styles.upsellTitle}>Browse IP Profiles</h2>
+          <p className={styles.upsellEyebrow}>Not sure where to start?</p>
+          <h2 className={styles.upsellTitle}>Start with the $27 guide</h2>
           <p className={styles.upsellText}>
-            Get a snapshot of the intended parents currently working with CSO. A public gallery is
-            coming soon—take a look at what&rsquo;s already there.
+            If you are still figuring out whether surrogacy is realistic for your family, begin
+            with the low-risk first step before moving up to the bigger guides.
           </p>
-          <a
-            href="https://portal.canadiansurrogacyoptions.com/profiles"
-            className={styles.upsellCta}
-          >
-            Browse IP Profiles →
+          <a href="/guides/is-surrogacy-right" className={styles.upsellCta}>
+            See the Starter Guide -&gt;
           </a>
         </div>
       </section>

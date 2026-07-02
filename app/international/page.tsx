@@ -10,27 +10,27 @@ const countries = [
   {
     country: 'United States',
     flag: '🇺🇸',
-    notes: 'American IPs can often drive to Canada or take a short flight. Embryo shipping is straightforward across the US–Canada border. US citizens do not need a visa. Confirm your baby\'s US citizenship through the US consulate.',
+    notes: "American intended parents can often drive to Canada or take a short flight. Embryo shipping is straightforward across the US-Canada border. US citizens do not need a visa. Confirm your baby's US citizenship through the US consulate.",
   },
   {
     country: 'United Kingdom',
     flag: '🇬🇧',
-    notes: 'UK IPs are among our most frequent international clients. Surrogacy law in the UK is far more restrictive, which is why many UK families look to Canada. Plan for 2–3 trips: transfer, possibly prenatal visit, and birth. UK passport for baby through consulate.',
+    notes: 'UK intended parents are among our most frequent international clients. Surrogacy law in the UK is more restrictive, which is why many UK families look to Canada. Plan for 2-3 trips: transfer, possibly prenatal visit, and birth.',
   },
   {
     country: 'Australia',
     flag: '🇦🇺',
-    notes: 'Commercial surrogacy restrictions in Australia drive many Aussie IPs to look internationally. Canadian altruistic surrogacy is fully compliant with Australian legal standards. Plan for significant travel; video consultations handle the bulk of the process.',
+    notes: 'Commercial surrogacy restrictions in Australia drive many families to look internationally. Canadian altruistic surrogacy is often a strong fit. Plan for significant travel; video consultations handle most of the process.',
   },
   {
     country: 'Israel',
     flag: '🇮🇱',
-    notes: 'Israeli IPs have specific requirements around genetic connection and legal process. We have experience coordinating with Israeli families and can advise on documentation required by Israeli family courts.',
+    notes: 'Israeli intended parents often have specific requirements around genetic connection and legal process. We have experience coordinating with Israeli families and can advise on documentation needed by Israeli family courts.',
   },
   {
     country: 'Western Europe',
     flag: '🇪🇺',
-    notes: 'France, Germany, Spain, and other EU countries where domestic surrogacy is illegal or heavily restricted. Canadian surrogacy is legally clean and internationally recognised. Most European embassies will process citizenship documentation for babies born abroad.',
+    notes: 'France, Germany, Spain, and other EU countries where domestic surrogacy is illegal or heavily restricted. Canadian surrogacy offers a legally cleaner and more stable path for many families.',
   },
 ];
 
@@ -43,15 +43,17 @@ export default function InternationalPage() {
         .intl-body a:hover { text-decoration: underline; }
         .intl-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 80px 24px 64px; }
         .intl-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
-        .intl-hero p { font-size: 1.2rem; max-width: 640px; margin: 0 auto 32px; opacity: 0.92; }
+        .intl-hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 32px; opacity: 0.92; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 18px; }
+        .hero-note { font-size: 0.95rem; color: rgba(255,255,255,0.74); margin: 0 auto; max-width: 620px; }
         .trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 28px; font-size: 0.85rem; opacity: 0.85; letter-spacing: 0.05em; }
         .trust-bar span::before { content: "· "; }
         .btn { display: inline-block; background: #3D1A6E; color: #fff !important; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none !important; }
         .btn:hover { background: #6B3FA0; }
         .btn-white { background: #fff; color: #3D1A6E !important; }
         .btn-white:hover { background: #E8E0F5; }
-        .btn-outline { display: inline-block; background: transparent; color: #3D1A6E !important; border: 2px solid #3D1A6E; padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 600; transition: all 0.2s; text-decoration: none !important; }
-        .btn-outline:hover { background: #3D1A6E; color: #fff !important; }
+        .btn-soft { background: rgba(255,255,255,0.12); color: #fff !important; border: 1px solid rgba(255,255,255,0.28); }
+        .btn-soft:hover { background: rgba(255,255,255,0.18); }
         .section { max-width: 880px; margin: 0 auto; padding: 60px 24px; }
         .section-dark { background: #3D1A6E; color: #fff; }
         .section-dark .section { color: #fff; }
@@ -85,7 +87,7 @@ export default function InternationalPage() {
         .practical-list li .bullet { color: #C4ADEA; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
         .practical-list li .text strong { display: block; color: #E8E0F5; margin-bottom: 3px; font-size: 0.95rem; }
         .practical-list li .text span { font-size: 0.9rem; color: rgba(255,255,255,0.72); }
-        .concierge-block { background: linear-gradient(145deg, #f3eeff, #e8e0f5); border-radius: 16px; padding: 48px 40px; margin-top: 0; border-left: 5px solid #3D1A6E; }
+        .concierge-block { background: linear-gradient(145deg, #f3eeff, #e8e0f5); border-radius: 16px; padding: 48px 40px; border-left: 5px solid #3D1A6E; }
         .concierge-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #3D1A6E; margin-bottom: 12px; }
         .concierge-block p { font-size: 0.95rem; color: #444; margin-bottom: 20px; }
         .final-cta { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px; }
@@ -95,12 +97,14 @@ export default function InternationalPage() {
       `}</style>
 
       <div className="intl-body">
-
-        {/* HERO */}
         <section className="intl-hero">
           <h1>Canada Welcomes Families From Around the World</h1>
-          <p>Whether you&apos;re in the UK, Australia, the US, or anywhere else surrogacy is complicated at home, Canada offers a clear, ethical, legally sound path to parenthood.</p>
-          <a href="/contact" className="btn btn-white">Start with a Free Video Consultation</a>
+          <p>Whether you're in the UK, Australia, the US, or somewhere else surrogacy is complicated at home, Canada can offer a clear, ethical, legally sound path to parenthood. Start by understanding the real costs, travel, and legal steps before you book a call.</p>
+          <div className="hero-actions">
+            <a href="/guides/is-surrogacy-right" className="btn btn-white">Start with the $27 Guide</a>
+            <a href="/contact" className="btn btn-soft">Book a Free Video Consultation</a>
+          </div>
+          <p className="hero-note">Best first step for international intended parents who want honest numbers, realistic timelines, and a clearer sense of whether Canada is the right fit.</p>
           <div className="trust-bar">
             <span>Video Consultations Available</span>
             <span>Embryo Shipping Coordination</span>
@@ -109,7 +113,6 @@ export default function InternationalPage() {
           </div>
         </section>
 
-        {/* WHY CANADA */}
         <div className="section-dark">
           <div className="section">
             <span className="section-label">Why Canada</span>
@@ -117,12 +120,12 @@ export default function InternationalPage() {
             <div className="divider" />
             <div className="why-grid">
               {[
-                { title: 'Altruistic Surrogacy', text: 'No exploitation concerns. Canadian surrogates are not paid a fee, only reimbursed. This satisfies the ethical requirements most international IPs have.' },
-                { title: 'Clear Legal Framework', text: 'The Assisted Human Reproduction Act provides a stable, federal legal foundation. Parentage law is well-established and consistently applied.' },
-                { title: 'English-Speaking', text: 'Communication is easy. Legal documents are in English or French. No translation barriers for most international families.' },
-                { title: 'World-Class Fertility Clinics', text: 'Canada\'s fertility clinics operate to internationally recognised standards. Many already work with international patients.' },
+                { title: 'Altruistic Surrogacy', text: 'No exploitation concerns. Canadian surrogates are not paid a fee, only reimbursed. This satisfies the ethical requirements many international intended parents have.' },
+                { title: 'Clear Legal Framework', text: 'The Assisted Human Reproduction Act provides a stable federal legal foundation. Parentage law is well-established and consistently applied.' },
+                { title: 'English-Speaking', text: 'Communication is easy. Legal documents are in English or French. There are few translation barriers for most international families.' },
+                { title: 'World-Class Fertility Clinics', text: "Canada's fertility clinics operate to internationally recognised standards. Many already work with international patients." },
                 { title: 'Proximity to the US', text: 'For US families, Canada is often just a short drive or flight away, making required travel appointments far less disruptive.' },
-                { title: 'Diverse Surrogate Pool', text: 'CSO has surrogates across all provinces. We\'re not limited to one city or region, which improves match timelines.' },
+                { title: 'Diverse Surrogate Pool', text: "CSO has surrogates across all provinces. We're not limited to one city or region, which improves match flexibility." },
               ].map(r => (
                 <div key={r.title} className="why-card">
                   <h3>{r.title}</h3>
@@ -133,12 +136,11 @@ export default function InternationalPage() {
           </div>
         </div>
 
-        {/* COUNTRIES */}
         <div className="section">
           <span className="section-label">Where We Work</span>
           <h2 className="intl-h2">Countries We Work With</h2>
           <div className="divider divider-left" />
-          <p style={{ maxWidth: 660, marginBottom: 8 }}>We work with international families regularly. Here&apos;s what families from common countries need to know.</p>
+          <p style={{ maxWidth: 660, marginBottom: 8 }}>We work with international families regularly. Here is what intended parents from common countries usually need to know.</p>
           <div className="countries-list">
             {countries.map(c => (
               <div key={c.country} className="country-item">
@@ -152,7 +154,6 @@ export default function InternationalPage() {
           </div>
         </div>
 
-        {/* PROCESS */}
         <div className="section-lavender">
           <div className="section">
             <span className="section-label">How It Works</span>
@@ -160,12 +161,12 @@ export default function InternationalPage() {
             <div className="divider divider-left" />
             <div className="process-steps">
               {[
-                { num: '01', title: 'Initial Video Consultation', text: 'We meet by video. You tell us your situation. We explain what\'s realistic for your country, timeline, and budget. No travel required at this stage.' },
+                { num: '01', title: 'Initial Video Consultation', text: "We meet by video. You tell us your situation. We explain what's realistic for your country, timeline, and budget. No travel required at this stage." },
                 { num: '02', title: 'Contract & Onboarding', text: 'Legal agreements are signed. Your case manager is assigned. We begin the matching process.' },
                 { num: '03', title: 'Embryo Shipping or IVF', text: 'If you have frozen embryos, we coordinate shipping to the Canadian clinic. If embryos need to be created, we coordinate with the clinic.' },
-                { num: '04', title: 'Transfer Appointment', text: 'You travel to Canada for the embryo transfer. This is typically a 3–5 day trip. Your case manager coordinates everything with the clinic.' },
-                { num: '05', title: 'Pregnancy & Check-Ins', text: 'You\'re home. We manage everything in Canada. Video updates, milestones, regular communication with your surrogate.' },
-                { num: '06', title: 'Birth & Documents', text: 'You travel for the birth. We help with the Canadian birth certificate, parentage order, and citizenship documentation for your home country.' },
+                { num: '04', title: 'Transfer Appointment', text: 'You travel to Canada for the embryo transfer. This is typically a 3-5 day trip. Your case manager coordinates everything with the clinic.' },
+                { num: '05', title: 'Pregnancy & Check-Ins', text: "You're home. We manage everything in Canada. Video updates, milestones, regular communication with your surrogate." },
+                { num: '06', title: 'Birth & Documents', text: "You travel for the birth. We help with the Canadian birth certificate, parentage order, and citizenship documentation for your home country." },
               ].map(s => (
                 <div key={s.num} className="process-step">
                   <div className="process-num">{s.num}</div>
@@ -177,7 +178,6 @@ export default function InternationalPage() {
           </div>
         </div>
 
-        {/* LEGAL */}
         <div className="section">
           <span className="section-label">Legal Clarity</span>
           <h2 className="intl-h2">What the Paperwork Looks Like</h2>
@@ -185,9 +185,9 @@ export default function InternationalPage() {
           <div className="legal-grid">
             {[
               { title: 'Parentage Order', text: 'A Canadian court order naming you as the legal parents. Obtained before or after birth depending on province. This is the foundational document.' },
-              { title: 'Canadian Birth Certificate', text: 'Your baby is a Canadian citizen by birth. The birth certificate is issued provincially and lists both intended parents as parents.' },
-              { title: 'Citizenship for Your Baby', text: 'Your baby\'s citizenship in your home country is established through your consulate or embassy in Canada. The process varies by country and we\'ll guide you.' },
-              { title: 'Passport & Travel', text: 'You\'ll need travel documents to bring your baby home. We have experience supporting families through this step and can connect you with specialists.' },
+              { title: 'Canadian Birth Certificate', text: 'Your baby is a Canadian citizen by birth. The birth certificate is issued provincially and usually lists the intended parents.' },
+              { title: 'Citizenship for Your Baby', text: "Your baby's citizenship in your home country is established through your consulate or embassy in Canada. The process varies by country and we will guide you." },
+              { title: 'Passport & Travel', text: "You'll need travel documents to bring your baby home. We have experience supporting families through this step and can connect you with specialists." },
             ].map(l => (
               <div key={l.title} className="legal-card">
                 <h3>{l.title}</h3>
@@ -197,7 +197,6 @@ export default function InternationalPage() {
           </div>
         </div>
 
-        {/* PRACTICAL */}
         <div className="section-dark">
           <div className="section">
             <span className="section-label">Practical Details</span>
@@ -205,10 +204,10 @@ export default function InternationalPage() {
             <div className="divider" />
             <ul className="practical-list">
               {[
-                { title: 'Which Appointments Require Travel?', desc: 'Typically 2–3 trips: embryo transfer (3–5 days), optionally a prenatal visit mid-pregnancy, and the birth (plan for 2–3 weeks to manage post-birth documentation).' },
-                { title: 'Where to Stay', desc: 'We recommend short-term rentals over hotels for the birth trip; you\'ll want a kitchen and laundry. We can suggest options near top clinics in Toronto, Vancouver, and Calgary.' },
-                { title: 'Approximate Travel Budget', desc: 'Most international families budget $8,000–$15,000 CAD for travel across the full journey, depending on distance and number of trips.' },
-                { title: 'Clinic Coordination', desc: 'We work with fertility clinics across Canada. We\'ll match you with a clinic that has international patient experience and is geographically convenient for your surrogate.' },
+                { title: 'Which Appointments Require Travel?', desc: 'Typically 2-3 trips: embryo transfer, optionally a prenatal visit, and the birth. Plan for 2-3 weeks after birth to handle post-birth documentation.' },
+                { title: 'Where to Stay', desc: "We usually recommend short-term rentals over hotels for the birth trip so you have a kitchen and laundry. We can suggest options near major clinics." },
+                { title: 'Approximate Travel Budget', desc: 'Most international families budget roughly $8,000-$15,000 CAD for travel across the full journey, depending on distance and number of trips.' },
+                { title: 'Clinic Coordination', desc: "We work with fertility clinics across Canada and can help match you with one that has international patient experience and makes logistical sense for your surrogate." },
               ].map(p => (
                 <li key={p.title}>
                   <span className="bullet">→</span>
@@ -222,7 +221,6 @@ export default function InternationalPage() {
           </div>
         </div>
 
-        {/* CAMICA CONCIERGE */}
         <div className="section-lavender">
           <div className="section">
             <span className="section-label">For Complex Journeys</span>
@@ -231,19 +229,20 @@ export default function InternationalPage() {
             <div className="concierge-block">
               <h3>White-Glove Coordination for International Families</h3>
               <p>International surrogacy has more moving parts than a domestic journey. Camica Concierge is our premium coordination program designed specifically for families navigating distance, time zones, embryo logistics, and cross-border documentation.</p>
-              <p>From your first video call to the moment your baby clears customs, Camica handles it. Travel coordination, clinic liaising, consulate documentation support, 24-hour access to your coordinator. You focus on your family. We handle the rest.</p>
+              <p>From your first video call to the moment your baby clears customs, Camica handles it. Travel coordination, clinic liaison, consulate documentation support, and direct access to your coordinator.</p>
               <a href="/programs" className="btn">Learn About Camica</a>
             </div>
           </div>
         </div>
 
-        {/* FINAL CTA */}
         <section className="final-cta">
-          <h2>Let&apos;s Start With a Conversation</h2>
-          <p>A free 30-minute video consultation with our team. We&apos;ll cover your country&apos;s specific considerations, timeline, costs, and next steps.</p>
-          <a href="/contact" className="btn btn-white">Book a Free Video Consultation</a>
+          <h2>Start with Clarity, Then Book the Call</h2>
+          <p>The fastest way to know whether Canada makes sense for your family is to read the guide first, then come to your consultation with the right questions already in hand.</p>
+          <div className="hero-actions" style={{ marginBottom: 0 }}>
+            <a href="/guides/is-surrogacy-right" className="btn btn-white">Get the $27 Guide</a>
+            <a href="/contact" className="btn btn-soft">Book a Free Video Consultation</a>
+          </div>
         </section>
-
       </div>
     </>
   );

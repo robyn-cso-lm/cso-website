@@ -232,7 +232,15 @@ export default function QualifyQuiz() {
       const res = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, email, phone, role: 'Surrogate', captchaToken, website }),
+        body: JSON.stringify({
+          firstName,
+          email,
+          phone,
+          role: 'Surrogate',
+          captchaToken,
+          website,
+          sourceLabel: 'Surrogate qualify quiz',
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
