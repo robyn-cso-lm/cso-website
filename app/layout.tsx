@@ -66,7 +66,7 @@ const GA4_ID  = 'G-G9L2PTW3ES';
 const GTAG_ID = 'GT-5D93JGQ2';
 const GADS_ID = 'AW-467681165';
 
-// Meta Pixel ID from environment variable
+// Meta Pixel ID from environment variable (CSO Inc. Pixel: 1533454933710050)
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '1533454933710050';
 
 export default function RootLayout({
