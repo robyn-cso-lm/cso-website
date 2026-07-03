@@ -387,7 +387,10 @@ export default function QualifyQuiz() {
                     Start My Application →
                   </a>
                   <p className={styles.callText} style={{ marginTop: 14, marginBottom: 0 }}>
-                    Prefer to talk first?{' '}
+                    <a href="/gallery" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+                      Meet the families waiting for you
+                    </a>
+                    {' '}· Prefer to talk first?{' '}
                     <a href={CALENDLY} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>
                       Book a free call with Robyn
                     </a>

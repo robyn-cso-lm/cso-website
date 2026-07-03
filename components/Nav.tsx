@@ -56,6 +56,14 @@ export default function Nav() {
           </li>
           <li>
             <Link
+              href="/gallery"
+              className={`${styles.link} ${isActive('/gallery') ? styles.active : ''}`}
+            >
+              Waiting Families
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/resources"
               className={`${styles.link} ${isActive('/resources') ? styles.active : ''}`}
             >
@@ -119,6 +127,7 @@ export default function Nav() {
         <Link href="/intended-parents" className={styles.mobileLink}>Intended Parents</Link>
         <Link href="/programs" className={styles.mobileLink}>Programs</Link>
         <Link href="/surrogates" className={styles.mobileLink}>Become a Surrogate</Link>
+        <Link href="/gallery" className={styles.mobileLink}>Waiting Families</Link>
         <Link href="/resources" className={styles.mobileLink}>Resources</Link>
         <Link href="/blog" className={styles.mobileLink}>Blog</Link>
         <Link href="/contact" className={styles.mobileLink}>Contact</Link>
