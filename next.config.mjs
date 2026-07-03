@@ -6,6 +6,8 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Canonical family gallery lives on the portal (prettier + richer cards)
+      { source: '/gallery', destination: 'https://portal.canadiansurrogacyoptions.com/profiles', permanent: false },
       // ── Pre-rebuild redirects ────────────────────────────────────────────────
       { source: '/become-a-surrogate',          destination: '/surrogates',        permanent: true },
       { source: '/ips',                          destination: '/intended-parents',  permanent: true },

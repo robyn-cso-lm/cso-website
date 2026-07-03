@@ -55,12 +55,12 @@ export default function Nav() {
             </Link>
           </li>
           <li>
-            <Link
-              href="/gallery"
-              className={`${styles.link} ${isActive('/gallery') ? styles.active : ''}`}
+            <a
+              href="https://portal.canadiansurrogacyoptions.com/profiles"
+              className={styles.link}
             >
               Waiting Families
-            </Link>
+            </a>
           </li>
           <li>
             <Link
@@ -127,7 +127,7 @@ export default function Nav() {
         <Link href="/intended-parents" className={styles.mobileLink}>Intended Parents</Link>
         <Link href="/programs" className={styles.mobileLink}>Programs</Link>
         <Link href="/surrogates" className={styles.mobileLink}>Become a Surrogate</Link>
-        <Link href="/gallery" className={styles.mobileLink}>Waiting Families</Link>
+        <a href="https://portal.canadiansurrogacyoptions.com/profiles" className={styles.mobileLink}>Waiting Families</a>
         <Link href="/resources" className={styles.mobileLink}>Resources</Link>
         <Link href="/blog" className={styles.mobileLink}>Blog</Link>
         <Link href="/contact" className={styles.mobileLink}>Contact</Link>

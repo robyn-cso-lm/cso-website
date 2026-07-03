@@ -388,7 +388,7 @@ export default function QualifyQuiz() {
                     Start My Application →
                   </a>
                   <p className={styles.callText} style={{ marginTop: 14, marginBottom: 0 }}>
-                    <a href="/gallery" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+                    <a href="https://portal.canadiansurrogacyoptions.com/profiles" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>
                       Meet the families waiting for you
                     </a>
                     {' '}· Prefer to talk first?{' '}
