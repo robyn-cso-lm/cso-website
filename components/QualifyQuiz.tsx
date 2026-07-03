@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { trackLead } from '@/lib/track';
 import styles from '@/app/qualify/qualify.module.css';
+import ExpenseCalculator from '@/app/qualify/ExpenseCalculator';
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 const CALENDLY = 'https://calendly.com/cso-robyn';
@@ -267,12 +268,12 @@ export default function QualifyQuiz() {
               Could surrogacy be<br /><em>right for you?</em>
             </h1>
             <p className={styles.welcomeSub}>
-              Answer 8 honest questions and you&apos;ll get a personalized result based on
-              Canadian eligibility guidelines, including anything worth working toward.
+              8 quick questions. A real answer at the end — plus a calculator that shows
+              what your expense reimbursements could look like (most journeys: $45,000+).
             </p>
-            <p className={styles.welcomeNote}>No pressure. No wrong answers. About 3 minutes.</p>
+            <p className={styles.welcomeNote}>No pressure. No wrong answers. About 2 minutes.</p>
             <button className={styles.startBtn} onClick={() => { setStarted(true); setStep(0); }}>
-              Let&apos;s Find Out &rarr;
+              Let&apos;s Go &rarr;
             </button>
           </div>
         )}
@@ -308,7 +309,7 @@ export default function QualifyQuiz() {
             <div className={styles.navRow}>
               <button type="button" className={styles.backBtn} onClick={back}>&larr; Back</button>
               <button type="button" className={styles.nextBtn} onClick={next} disabled={!isAnswered}>
-                {step === QUESTIONS.length - 1 ? 'See My Results &rarr;' : 'Next &rarr;'}
+                {step === QUESTIONS.length - 1 ? 'See My Results →' : 'Next →'}
               </button>
             </div>
           </div>
@@ -318,16 +319,16 @@ export default function QualifyQuiz() {
           <div className={styles.fadeIn}>
             <div className={styles.resultCard}>
               <div className={`${styles.resultBadge} ${cleanPass ? styles.badgePass : hasHardFail ? styles.badgeTalk : styles.badgeSoft}`}>
-                {cleanPass ? 'Love' : hasHardFail ? 'Talk' : 'Close'}
+                {cleanPass ? 'Great fit' : hasHardFail ? 'Let’s talk' : 'So close'}
               </div>
               <h2 className={styles.resultTitle}>
-                {cleanPass ? 'You look like a wonderful fit.' : hasHardFail ? 'Let&apos;s have a conversation.' : 'You&apos;re on the right track.'}
+                {cleanPass ? 'You qualify. Let’s go!' : hasHardFail ? 'Let’s talk it through.' : 'You’re closer than you think.'}
               </h2>
               <p className={styles.resultText}>
                 {cleanPass
-                  ? 'Based on your answers, you appear to meet the core requirements. The next step is a relaxed conversation with Robyn and our team, with no commitment and no pressure.'
+                  ? 'Your answers check every core box. Women like you are exactly who waiting families are hoping for — and the next step takes two minutes: start your application or leave your email and we’ll take it from there.'
                   : hasHardFail
-                  ? 'There are a couple of things that might be barriers, but we have worked with women in all kinds of situations, and a short call often changes the picture entirely.'
+                  ? 'A couple of things could be barriers, but we’ve worked with women in every kind of situation, and a short call often changes the picture entirely.'
                   : 'Most of your answers look great. There are a couple of things to be aware of, and in most cases we can work through them together.'}
               </p>
             </div>
@@ -346,28 +347,45 @@ export default function QualifyQuiz() {
               </div>
             )}
 
+            <ExpenseCalculator />
+
             <div className={styles.guidelineNote}>
               <p>
-                <strong>A note on how surrogacy works in Canada.</strong> Surrogacy here is
-                altruistic: you are never paid a fee, but all of your eligible
-                pregnancy-related expenses are reimbursed, and your pregnancy care is covered by
-                your provincial health plan. CSO follows Canadian guidelines under the Assisted
-                Human Reproduction Act, so you are always supported and never out of pocket.
+                <strong>You will never spend a cent of your own money.</strong> Groceries, gas,
+                childcare, maternity clothes, prenatal vitamins, travel, lost wages — every
+                eligible expense is reimbursed throughout your journey, tax-free, on top of
+                pregnancy care covered by your provincial health plan. Canadian surrogacy is
+                altruistic under the Assisted Human Reproduction Act — this is reimbursement,
+                not payment — and CSO has guided compliant journeys since 1992.
               </p>
             </div>
 
             <div className={styles.callCard}>
               <p className={styles.callTitle}>
-                {cleanPass ? 'Ready to take the next step?' : 'Let&apos;s talk. We sort this out all the time.'}
+                {cleanPass ? 'Ready? Start your application now.' : 'Let’s talk. We sort this out all the time.'}
               </p>
               <p className={styles.callText}>
                 {cleanPass
-                  ? 'Book a free, relaxed call with Robyn. No commitment, just a conversation.'
+                  ? 'It takes about 10 minutes, there’s no commitment, and our team reviews every application personally — usually the same day.'
                   : 'Our team has helped women in all kinds of situations. A quick call often clears things up.'}
               </p>
-              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.callBtn}>
-                Book a Free Call with Robyn
-              </a>
+              {cleanPass ? (
+                <>
+                  <a href="/surrogates#apply" className={styles.callBtn}>
+                    Start My Application →
+                  </a>
+                  <p className={styles.callText} style={{ marginTop: 14, marginBottom: 0 }}>
+                    Prefer to talk first?{' '}
+                    <a href={CALENDLY} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+                      Book a free call with Robyn
+                    </a>
+                  </p>
+                </>
+              ) : (
+                <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.callBtn}>
+                  Book a Free Call with Robyn
+                </a>
+              )}
             </div>
 
             <div className={styles.formCard}>
@@ -381,10 +399,10 @@ export default function QualifyQuiz() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
-                  <h3 className={styles.formTitle}>Stay in touch</h3>
+                  <h3 className={styles.formTitle}>Or just send us your email</h3>
                   <p className={styles.formSub}>
-                    Leave your details and our team will reach out, whether you are ready now,
-                    have questions, or want to revisit later.
+                    Not ready to apply this second? Drop your details and Robyn will reach out
+                    personally — usually the same day.
                   </p>
                   <input
                     type="text"
