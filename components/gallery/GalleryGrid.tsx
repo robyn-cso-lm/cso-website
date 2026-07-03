@@ -43,14 +43,14 @@ export function GalleryGrid() {
 
         const data = await response.json();
         const list: IPProfile[] = Array.isArray(data) ? data : [];
-        // Map the API's photo field to an absolute URL; only surface photos on
-        // non-anonymized profiles (same privacy gate as the portal gallery).
-        const mapped = list.map((p: IPProfile & { primary_photo_url?: string; profile_type?: string }) => ({
+        // Map the API's photo field to an absolute URL. Gallery photos are
+        // curated artistic portraits (flagged visible_to_surrogates in the
+        // portal), so they show for anonymized profiles too.
+        const mapped = list.map((p: IPProfile & { primary_photo_url?: string }) => ({
           ...p,
-          profile_image_url:
-            p.primary_photo_url && p.profile_type !== 'anonymized'
-              ? `https://cso-lm-portal-production.up.railway.app${p.primary_photo_url}`
-              : undefined,
+          profile_image_url: p.primary_photo_url
+            ? `https://cso-lm-portal-production.up.railway.app${p.primary_photo_url}`
+            : undefined,
         }));
         // VIP (featured) families lead the gallery
         const isVip = (p: IPProfile) => p.listing_tier === 'featured' || p.spotlight_badge === 'Featured Family';
