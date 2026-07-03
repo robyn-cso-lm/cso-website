@@ -42,7 +42,20 @@ export function GalleryGrid() {
         if (!response?.ok) throw lastError || new Error('Failed to fetch profiles');
 
         const data = await response.json();
-        setProfiles(Array.isArray(data) ? data : []);
+        const list: IPProfile[] = Array.isArray(data) ? data : [];
+        // Map the API's photo field to an absolute URL; only surface photos on
+        // non-anonymized profiles (same privacy gate as the portal gallery).
+        const mapped = list.map((p: IPProfile & { primary_photo_url?: string; profile_type?: string }) => ({
+          ...p,
+          profile_image_url:
+            p.primary_photo_url && p.profile_type !== 'anonymized'
+              ? `https://cso-lm-portal-production.up.railway.app${p.primary_photo_url}`
+              : undefined,
+        }));
+        // VIP (featured) families lead the gallery
+        const isVip = (p: IPProfile) => p.listing_tier === 'featured' || p.spotlight_badge === 'Featured Family';
+        mapped.sort((a, b) => Number(isVip(b)) - Number(isVip(a)));
+        setProfiles(mapped);
       } catch (err) {
         console.error('Error fetching profiles:', err);
         const isDev = typeof window !== 'undefined' && window.location.hostname === 'localhost';

@@ -39,19 +39,25 @@ export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
   const [expanded, setExpanded] = useState(false);
 
   // A matched family shows the "Matched" ribbon instead of any marketing badge.
-  const isFeatured = !matched && profile.listing_tier === 'cso_client' && Boolean(profile.spotlight_badge);
-  const badgeBg = profile.spotlight_badge === 'Featured Family' ? '#C8973A' : '#6a2c91';
+  const isFeatured = !matched && Boolean(profile.spotlight_badge);
+  // VIP (featured/paying) families get the gold spotlight treatment.
+  const isVip = !matched && (profile.listing_tier === 'featured' || profile.spotlight_badge === 'Featured Family');
+  const badgeBg = profile.spotlight_badge === 'Featured Family'
+    ? 'linear-gradient(180deg, #C8973A, #a8761f)'
+    : '#6a2c91';
 
   return (
     <div
       style={{
         backgroundColor: '#fff',
-        border: matched ? '1px solid #d9c7a3' : '1px solid #e5e7eb',
+        border: isVip ? '2px solid #C8973A' : matched ? '1px solid #d9c7a3' : '1px solid #e5e7eb',
         borderRadius: '12px',
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 4px 16px rgba(61,26,110,0.06)',
+        boxShadow: isVip
+          ? '0 10px 30px rgba(200,151,58,0.25), 0 0 0 1px rgba(200,151,58,0.15)'
+          : '0 4px 16px rgba(61,26,110,0.06)',
         position: 'relative',
       }}
     >
