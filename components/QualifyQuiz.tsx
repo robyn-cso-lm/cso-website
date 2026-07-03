@@ -130,7 +130,8 @@ const QUESTIONS: Question[] = [
       { value: 'citizen_pr', label: 'Yes, I am a citizen or permanent resident with provincial coverage', result: 'pass' },
       { value: 'covered_other', label: 'I live in Canada with provincial health coverage on another status', result: 'pass' },
       { value: 'no_coverage', label: 'I live in Canada but do not currently have provincial coverage', result: 'soft_fail', message: 'Provincial health coverage matters because it covers your pregnancy care. If your coverage is in progress, reach out and we will talk through your timing.' },
-      { value: 'outside', label: 'I live outside Canada', result: 'hard_fail', message: 'Canadian Surrogacy Options works with surrogates living in Canada. If you are in the United States, our sister agency Camica may be able to help.' },
+      { value: 'us', label: 'I live in the United States', result: 'pass' },
+      { value: 'outside', label: 'I live outside Canada and the US', result: 'soft_fail', message: 'We support surrogates living in Canada and, currently, the United States. If you are elsewhere, reach out and we will talk honestly about what is possible.' },
     ],
   },
   {
