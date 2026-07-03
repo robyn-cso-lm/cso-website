@@ -10,7 +10,10 @@ export async function POST(req: NextRequest) {
     const referer = req.headers.get('referer') || '';
     const sourcePath = referer ? new URL(referer).pathname + new URL(referer).search + new URL(referer).hash : '/qualify';
     const body = await req.json();
-    const { firstName, email, phone, role, captchaToken, website, sourceLabel } = body;
+    const { firstName, email, phone, role, captchaToken, website, sourceLabel, quizAnswers } = body;
+    const answerList: string[] = Array.isArray(quizAnswers)
+      ? quizAnswers.filter((a: unknown) => typeof a === 'string').slice(0, 20).map((a: string) => a.slice(0, 300))
+      : [];
     const normalizedSourceLabel =
       typeof sourceLabel === 'string' && sourceLabel.trim().length > 0
         ? sourceLabel.trim()
@@ -99,7 +102,8 @@ export async function POST(req: NextRequest) {
            <li><strong>Role:</strong> ${esc(role)}</li>
            <li><strong>Source:</strong> ${esc(normalizedSourceLabel)}</li>
            <li><strong>Page:</strong> ${esc(sourcePath)}</li>
-         </ul>`
+         </ul>
+         ${answerList.length ? `<p><strong>Their quiz answers:</strong></p><ul>${answerList.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}`
       );
     } catch (mailErr) {
       console.error('[leads] Notification email failed (lead still captured).', { email, error: mailErr });

@@ -229,6 +229,17 @@ export default function QualifyQuiz() {
     setLoading(true);
     setError('');
     const captchaToken = await getToken('qualify_quiz');
+    const quizAnswers = QUESTIONS.map((q) => {
+      if (q.type === 'checkbox') {
+        const picked = q.options.filter((o) => motivation.includes(o.value)).map((o) => o.label);
+        return picked.length ? `${q.title} ${picked.join('; ')}` : null;
+      }
+      const a = answers[q.id];
+      if (!a) return null;
+      const label = q.options.find((o) => o.value === a.value)?.label || a.value;
+      const flag = a.result && a.result !== 'pass' ? ` [${a.result}]` : '';
+      return `${q.title} ${label}${flag}`;
+    }).filter(Boolean);
     try {
       const res = await fetch('/api/leads', {
         method: 'POST',
@@ -241,6 +252,7 @@ export default function QualifyQuiz() {
           captchaToken,
           website,
           sourceLabel: 'Surrogate qualify quiz',
+          quizAnswers,
         }),
       });
       const data = await res.json();
