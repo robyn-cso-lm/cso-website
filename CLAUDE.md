@@ -14,7 +14,7 @@
 | Auth | NextAuth v5 beta (`next-auth@^5.0.0-beta.31`) — uses `AUTH_SECRET`, NOT `NEXTAUTH_SECRET` |
 | Content | MDX files for blog/resources — `mdxRs: false` (JS compiler, don't switch to Rust) |
 | Email | Microsoft Graph via `lib/graphMail.ts` — sends from `robyn@canadiansurrogacyoptions.com` |
-| Repo | `robyn-cso-lm/cso-website` (private GitHub), default branch: `master` |
+| Repo | `robyn-cso-lm/cso-website` (private GitHub). **Netlify deploys from `main`** (NOT `master` — that branch is stale, May 2026) |
 
 **Production URL:** https://canadiansurrogacyoptions.com
 
@@ -117,7 +117,13 @@ Create an MDX file in the blog content directory. Check `lib/mdx.ts` for the exp
 Form routes are in `app/api/`. All use the pattern: honeypot check → reCAPTCHA verify → validate fields → Mailchimp add → sendMail notification → return success.
 
 ### Deploying
-Push to `master` branch → Netlify auto-deploys. No build command needed beyond `git push`.
+Push to `main` → Netlify auto-deploys. Always `npm run build` locally first.
+
+### Tracking & funnels (July 2026)
+- **Meta pixel 1533454933710050** is on this site, becomeasurrogate.ca, camica.ca, and the portal client. Purchase events dedup browser/CAPI via eventID (`lib/meta-pixel.ts`, `lib/meta-capi.ts` — CAPI needs `META_CAPI_ACCESS_TOKEN` in Netlify).
+- `/gallery` **redirects to portal.canadiansurrogacyoptions.com/profiles** — the portal gallery is canonical; the "Waiting Families" nav link points there.
+- The `/qualify` quiz accepts **US applicants** (pass, not fail); lead emails include full quiz answers.
+- Guides funnel baseline: 19 checkouts / 1 sale Apr–Jun 2026 (pre-pixel). Guide ads paused until the pixel has data; relaunch optimizing InitiateCheckout.
 
 ### Running locally
 ```bash
