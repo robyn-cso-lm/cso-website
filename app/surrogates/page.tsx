@@ -71,6 +71,20 @@ export default function SurrogatesPage() {
         .contact-row a:hover { background: #E8E0F5; }
         .divider { width: 60px; height: 4px; background: #9B7FC7; margin: 16px auto 32px; border-radius: 2px; }
         .divider-left { margin-left: 0; }
+        .money-card { background: linear-gradient(145deg, #ffffff 0%, #f3eeff 100%); border: 1px solid rgba(155,127,199,0.25); border-radius: 18px; padding: 32px 30px; box-shadow: 0 8px 28px rgba(61,26,110,0.06); margin-top: 24px; }
+        .money-card p { margin-bottom: 14px; }
+        .money-card p:last-child { margin-bottom: 0; }
+        .money-list { list-style: none; padding: 0; margin: 16px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+        .money-list li { background: #fff; border-radius: 10px; padding: 12px 16px; font-size: 0.92rem; color: #3D1A6E; font-weight: 600; box-shadow: 0 2px 8px rgba(61,26,110,0.06); }
+        .who-not-list { margin-top: 20px; }
+        .honest-note { background: #E8E0F5; border-left: 5px solid #6B3FA0; padding: 20px 26px; border-radius: 6px; margin-top: 28px; font-size: 0.98rem; color: #3D1A6E; line-height: 1.8; }
+        .match-story { background: linear-gradient(145deg, #f3eeff 0%, #E8E0F5 100%); border-radius: 16px; padding: 26px 28px; margin-top: 18px; font-size: 1rem; color: #3D1A6E; line-height: 1.85; }
+        .match-story strong { color: #3D1A6E; }
+        .faq-list { margin-top: 28px; }
+        .faq-item { border-bottom: 1px solid #E8E0F5; padding: 22px 0; }
+        .faq-item h3 { font-size: 1.05rem; color: #3D1A6E; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.96rem; color: #4A3560; line-height: 1.8; }
+        .closing-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; line-height: 1.75; max-width: 640px; margin: 0 auto 28px; }
         @media (max-width: 600px) { .sur-hero { padding: 52px 20px 44px; } .urgency { padding: 20px 20px; } }
       `}</style>
 
@@ -90,7 +104,7 @@ export default function SurrogatesPage() {
             <span>In Practice Since 1992</span>
             <span>100% Canadian</span>
             <span>Full Legal Support</span>
-            <span>Compensation Starts at $30,000 + Expenses</span>
+            <span>All Pregnancy Expenses Reimbursed</span>
           </div>
         </section>
 
@@ -131,7 +145,7 @@ export default function SurrogatesPage() {
             <div className="founder-block">
               <div className="founder-text">
                 <blockquote>
-                  &ldquo;I grew up in this field. My mom Joanne was Canada&apos;s first surrogate in 1987 and she founded CSO in 1992. I&apos;ve been part of this world since I was 4 years old, was an egg donor five times, and now I lead CSO. When you join us, you&apos;re not a number. You&apos;re family.&rdquo;
+                  &ldquo;My mom, Joanne Wright, was Canada&apos;s first surrogate. She founded this agency in 1992 because she believed surrogates deserved real support, not just paperwork. I grew up inside this world, and today my team includes women who have carried journeys themselves. When you have a 2am worry, the person answering has actually been where you are.&rdquo;
                 </blockquote>
                 <cite>~ Robyn Price, Executive Director</cite>
               </div>
@@ -142,6 +156,57 @@ export default function SurrogatesPage() {
         {/* CTA */}
         <div className="cta-center" style={{ padding: '12px 24px' }}>
           <a href="/qualify" className="btn">See If You Qualify</a>
+        </div>
+
+        {/* THE MONEY QUESTION, FIRST */}
+        <div className="section">
+          <span className="section-label">The Money Question, First</span>
+          <h2 className="sur-h2">Because It&apos;s Always the First Question</h2>
+          <div className="divider divider-left" />
+          <p style={{ maxWidth: 640 }}>
+            And you deserve a straight answer. In Canada, surrogacy is altruistic by law.
+            Surrogates cannot be paid a fee. What you receive instead is reimbursement for
+            your pregnancy-related expenses, so the journey never costs you anything out of
+            pocket.
+          </p>
+          <div className="money-card">
+            <p style={{ fontWeight: 700, color: '#3D1A6E', marginBottom: 4 }}>What&apos;s typically reimbursed:</p>
+            <ul className="money-list">
+              <li>Maternity clothing</li>
+              <li>Travel to appointments</li>
+              <li>Groceries and nutrition</li>
+              <li>Childcare during appointments</li>
+              <li>Lost wages, where eligible</li>
+            </ul>
+            <p>
+              If you are looking for income, this is not that, and we would rather tell you
+              now than waste your time. If you are called to do this and want to be fully
+              covered so it never costs you anything, that is exactly what reimbursement is
+              for, and we help you administer it properly so everything stays compliant with
+              Canadian law.
+            </p>
+          </div>
+        </div>
+
+        {/* WHO WE'RE LOOKING FOR */}
+        <div className="section-lavender">
+          <div className="section">
+            <span className="section-label">Who We&apos;re Looking For</span>
+            <h2 className="sur-h2">You May Be a Fit If&hellip;</h2>
+            <div className="divider divider-left" />
+            <ul className="req-list who-not-list">
+              <li>You have had at least one healthy pregnancy and birth</li>
+              <li>You have a stable support system at home</li>
+              <li>You want to do this for the right reasons, and you know what yours are</li>
+              <li>You are ready for real medical screening, legal protection, and honest conversation before anything proceeds</li>
+            </ul>
+            <div className="honest-note">
+              An honest thing you should know: we turn away more applicants than we accept.
+              Not because women aren&apos;t wonderful, but because this journey deserves people
+              who are truly ready. If we accept you, it&apos;s because we genuinely believe
+              you&apos;ll have a good journey. That&apos;s a promise, not a slogan.
+            </div>
+          </div>
         </div>
 
         {/* BENEFITS */}
@@ -252,13 +317,81 @@ export default function SurrogatesPage() {
         <div className="section-lavender">
           <div className="section">
             <span className="section-label">How It Works</span>
-            <h2 className="sur-h2">Three Simple Steps to Get Started</h2>
+            <h2 className="sur-h2">From Application to Journey</h2>
             <div className="divider divider-left" />
             <div className="steps">
-              <div className="step"><div className="step-num">01</div><h3>Apply Online</h3><p>Fill out our short application below. It takes about 10 minutes and there&apos;s no commitment at this stage.</p></div>
-              <div className="step"><div className="step-num">02</div><h3>We&apos;ll Be in Touch</h3><p>One of our team members will reach out personally, usually within 1 to 2 business days, to chat and answer your questions.</p></div>
-              <div className="step"><div className="step-num">03</div><h3>Get Matched</h3><p>Once approved, we&apos;ll introduce you to intended parents who are the right fit for you. You&apos;ll always have a say.</p></div>
+              <div className="step"><div className="step-num">01</div><h3>Apply</h3><p>No phone call required. You fill in your application through our portal at your own pace.</p></div>
+              <div className="step"><div className="step-num">02</div><h3>We Talk</h3><p>If your application feels like a fit, our team reaches out to get to know you. Real conversation, no pressure, every question answered.</p></div>
+              <div className="step"><div className="step-num">03</div><h3>Hand-Picked Matches</h3><p>You choose your family from matches hand-picked for you. More on this below.</p></div>
+              <div className="step"><div className="step-num">04</div><h3>Medical Screening</h3><p>Doctors at the fertility clinic handle all medical screening, paid for by the intended parents. We coordinate everything.</p></div>
+              <div className="step"><div className="step-num">05</div><h3>Legal Protection</h3><p>You get your own independent lawyer, also paid for by the intended parents, before anything proceeds. Your agreement protects you.</p></div>
+              <div className="step"><div className="step-num">06</div><h3>The Journey</h3><p>Transfer, pregnancy, birth, with our surrogate support team beside you the whole way. Reimbursements are handled through a clear process so you&apos;re never out of pocket.</p></div>
             </div>
+            <div className="match-story">
+              <strong>This is not a database where you scroll a thousand profiles.</strong>{' '}
+              I read your application, what you hope for, what matters to you, what kind of
+              relationship you want, and I personally select intended parent profiles for
+              you to read. And somewhere in that reading, something clicks. I have watched
+              that moment happen my whole life, and it&apos;s the reason our matches hold.
+              You always choose. You&apos;re just choosing from families chosen for you.
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="cta-center" style={{ padding: '40px 24px 12px' }}>
+          <a href="#apply" className="btn">Apply to Become a Surrogate</a>
+        </div>
+
+        {/* FAQ */}
+        <div className="section">
+          <span className="section-label">Questions Surrogates Always Ask</span>
+          <h2 className="sur-h2">Frequently Asked Questions</h2>
+          <div className="divider divider-left" />
+          <div className="faq-list">
+            {[
+              {
+                q: 'Do I get paid?',
+                a: 'No. Canadian law makes surrogacy altruistic. You are reimbursed for pregnancy-related expenses so the journey never costs you anything, but there is no fee or salary. See "The Money Question, First" above for the honest breakdown.',
+              },
+              {
+                q: 'Do I get to choose the family?',
+                a: 'Yes, truly. Based on your application, we hand-pick intended parent profiles for you to read, and you choose from those. You are never assigned a family and never left to scroll a database alone. Nothing proceeds without your genuine yes.',
+              },
+              {
+                q: 'Do I need to have had my own children?',
+                a: 'Yes. A previous healthy pregnancy and birth is required by clinics across Canada.',
+              },
+              {
+                q: 'Who pays for everything?',
+                a: 'The intended parents. Medical costs, your independent lawyer, and your reimbursed expenses. You should never be out of pocket.',
+              },
+              {
+                q: 'Does this affect my job or my own family?',
+                a: 'Lost wages may be reimbursable where eligible. Most surrogates carry while working and parenting their own kids. We help you plan around your real life, and your family is part of the conversation from the start.',
+              },
+              {
+                q: 'What does the time commitment look like?',
+                a: 'From application to birth typically spans matching, screening, legal, transfer, and then pregnancy. We move at a pace that works for your life.',
+              },
+              {
+                q: 'Can I say no to a family, or change my mind before I am matched?',
+                a: 'Yes, and yes. You are a volunteer doing something extraordinary, not an employee. Nothing proceeds without your genuine yes at every stage.',
+              },
+              {
+                q: 'What if I have questions before applying?',
+                a: 'Email us and a real person answers, usually someone who has been a surrogate herself. But you do not need a call to apply. The application is not a commitment, it is a conversation starter.',
+              },
+              {
+                q: 'Why do you turn so many applicants away?',
+                a: 'Because thirty-plus years taught us that a great journey starts with a truly ready surrogate. Being selective is how we protect you, not just the families.',
+              },
+            ].map(faq => (
+              <div key={faq.q} className="faq-item">
+                <h3>{faq.q}</h3>
+                <p>{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
 
