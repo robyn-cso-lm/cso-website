@@ -118,6 +118,13 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+
+        {/* ── "Ask CSO Live" chat widget ────────────────────────────────────── */}
+        <Script
+          src="https://cso-lm-portal-production.up.railway.app/widget.js"
+          data-site="cso"
+          strategy="afterInteractive"
+        />
       </head>
       <body>
         <Nav />
