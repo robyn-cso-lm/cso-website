@@ -6,6 +6,14 @@ import styles from './concierge.module.css';
 export const metadata: Metadata = {
   title: 'Private Inquiry',
   description: 'Private concierge surrogacy experience with Robyn Price. By invitation only.',
+  alternates: {
+    canonical: 'https://canadiansurrogacyoptions.com/private-inquiry',
+  },
+  openGraph: {
+    title: 'Private Inquiry | Canadian Surrogacy Options',
+    description: 'Private concierge surrogacy experience with Robyn Price. By invitation only.',
+    url: 'https://canadiansurrogacyoptions.com/private-inquiry',
+  },
   robots: {
     index: false,
     follow: false,
