@@ -72,6 +72,14 @@ export default function Nav() {
           </li>
           <li>
             <Link
+              href="/knowledge-centre"
+              className={`${styles.link} ${isActive('/knowledge-centre') ? styles.active : ''}`}
+            >
+              Knowledge Centre
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/blog"
               className={`${styles.link} ${isActive('/blog') ? styles.active : ''}`}
             >
@@ -129,6 +137,7 @@ export default function Nav() {
         <Link href="/surrogates" className={styles.mobileLink}>Become a Surrogate</Link>
         <a href="https://portal.canadiansurrogacyoptions.com/profiles" className={styles.mobileLink}>Waiting Families</a>
         <Link href="/resources" className={styles.mobileLink}>Resources</Link>
+        <Link href="/knowledge-centre" className={styles.mobileLink}>Knowledge Centre</Link>
         <Link href="/blog" className={styles.mobileLink}>Blog</Link>
         <Link href="/contact" className={styles.mobileLink}>Contact</Link>
         <a

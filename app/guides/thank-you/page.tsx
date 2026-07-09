@@ -6,6 +6,14 @@ import PurchasePixelTracker from '@/components/PurchasePixelTracker';
 export const metadata: Metadata = {
   title: 'Thank You | Canadian Surrogacy Options',
   description: 'Your guide is on its way.',
+  alternates: {
+    canonical: 'https://canadiansurrogacyoptions.com/guides/thank-you',
+  },
+  openGraph: {
+    title: 'Thank You | Canadian Surrogacy Options',
+    description: 'Your guide is on its way.',
+    url: 'https://canadiansurrogacyoptions.com/guides/thank-you',
+  },
   robots: { index: false, follow: false },
 };
 
