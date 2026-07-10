@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   description: 'Canada\'s first surrogacy agency, founded in 1992. We\'ve helped over 2,500 families build their families through surrogacy. Book a free consultation with Robyn today.',
   icons: {
-    icon: [{ url: '/icon.png', type: 'image/png' }],
-    apple: [{ url: '/apple-icon.png', type: 'image/png' }],
+    icon: [{ url: '/icon.png?v=20260710', type: 'image/png' }],
+    apple: [{ url: '/apple-icon.png?v=20260710', type: 'image/png' }],
   },
   openGraph: {
     type: 'website',
