@@ -80,7 +80,7 @@ export const GUIDE_DATA: Record<
   },
   'ip-profile-template': {
     title: 'IP Profile Template Pack',
-    price: 67,
+    price: 47,
     contentIds: ['ip-profile-template'],
   },
   'surrogate-readiness': {

@@ -25,19 +25,14 @@ const PRICE_TO_GUIDE: Record<
     price: 97,
   },
   [process.env.STRIPE_PRICE_INDIE || '']: {
-    slug: 'is-surrogacy-right', // Indie checklist not a main guide
+    slug: 'independent-journey-checklist',
     title: 'Independent Journey Checklist',
-    price: 67,
-  },
-  [process.env.STRIPE_PRICE_SURROGATE || '']: {
-    slug: 'surrogate-readiness',
-    title: 'Surrogate Readiness Guide',
-    price: 47,
+    price: 87,
   },
   [process.env.STRIPE_PRICE_PROFILE || '']: {
     slug: 'ip-profile-template',
     title: 'IP Profile Template Pack',
-    price: 67,
+    price: 47,
   },
 };
 

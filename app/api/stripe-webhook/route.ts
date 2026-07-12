@@ -14,7 +14,6 @@ const REQUIRED_PRICE_VARS = [
   'STRIPE_PRICE_STARTER',
   'STRIPE_PRICE_ROADMAP',
   'STRIPE_PRICE_INDIE',
-  'STRIPE_PRICE_SURROGATE',
   'STRIPE_PRICE_PROFILE',
 ];
 for (const v of REQUIRED_PRICE_VARS) {
@@ -49,20 +48,14 @@ function getProductInfo(priceId: string): {
     [process.env.STRIPE_PRICE_INDIE || '__missing3__']: {
       name: 'Independent Journey Checklist',
       pdfUrl: process.env.PDF_INDIE_URL || '/pdfs/indie-checklist.pdf',
-      slug: 'is-surrogacy-right',
-      price: 67,
-    },
-    [process.env.STRIPE_PRICE_SURROGATE || '__missing4__']: {
-      name: 'Surrogate Readiness Guide',
-      pdfUrl: process.env.PDF_SURROGATE_URL || '/pdfs/surrogate-readiness.pdf',
-      slug: 'surrogate-readiness',
-      price: 47,
+      slug: 'independent-journey-checklist',
+      price: 87,
     },
     [process.env.STRIPE_PRICE_PROFILE || '__missing5__']: {
       name: 'IP Profile Template Pack',
       pdfUrl: process.env.PDF_PROFILE_URL || '/pdfs/ip-profile-template.pdf',
       slug: 'ip-profile-template',
-      price: 67,
+      price: 47,
     },
   };
   return map[priceId] || null;
