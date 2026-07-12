@@ -3,6 +3,7 @@ import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
 import { sendIntendedParentLeadToZapier } from '@/lib/zapier';
+import { capturePortalLead } from '@/lib/portalLead';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -111,6 +112,11 @@ export async function POST(req: NextRequest) {
       sourcePath,
       sourceLabel: 'IP Cost Guide Download',
       guideName: 'Canadian Surrogacy Cost Guide',
+    });
+
+    await capturePortalLead({
+      type: 'ip', email, firstName, source: 'website_ip_cost_guide', sourceUrl: sourcePath,
+      rawPayload: { offer: 'Canadian Surrogacy Cost Guide' },
     });
 
     console.log('[ip-cost-guide] Submission completed.', { email });

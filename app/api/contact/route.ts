@@ -3,6 +3,7 @@ import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
 import { sendIntendedParentLeadToZapier } from '@/lib/zapier';
+import { capturePortalLead } from '@/lib/portalLead';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MSG_LEN = 5000;
@@ -220,6 +221,13 @@ export async function POST(req: NextRequest) {
         message,
         sourcePath,
         sourceLabel: 'Website Contact Form',
+      });
+    }
+    const portalType = role === 'Intended Parent' ? 'ip' : role === 'Surrogate' ? 'surrogate' : role === 'Egg Donor' ? 'donor' : null;
+    if (portalType) {
+      await capturePortalLead({
+        type: portalType, email, firstName, phone, source: 'website_contact_form', sourceUrl: sourcePath,
+        rawPayload: { role, message },
       });
     }
     console.log('[contact] Submission completed.', { email, role });

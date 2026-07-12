@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
+import { capturePortalLead } from '@/lib/portalLead';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -99,6 +100,11 @@ export async function POST(req: NextRequest) {
         console.error('[surrogate-guide] mail error:', err);
       }),
     ]);
+
+    await capturePortalLead({
+      type: 'surrogate', email, firstName, source: 'website_surrogate_readiness_guide',
+      sourceUrl: '/surrogates', rawPayload: { offer: 'Surrogate Readiness Guide' },
+    });
 
     console.log('[surrogate-guide] Submission completed.', { email });
 
