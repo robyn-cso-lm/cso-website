@@ -7,6 +7,7 @@ const root = path.resolve(__dirname, '..');
 const dashboardPath = path.join(root, 'editorial-activation', 'editorial_dashboard_data.json');
 const workflowPath = path.join(root, 'content', 'knowledge', 'editorial-workflow.json');
 const portalDataPath = path.resolve(root, '..', '..', '..', '..', 'cso-portal', 'client', 'src', 'data', 'editorialWorkflowData.js');
+const knowledgeArticlesPath = path.join(root, 'content', 'knowledge', 'articles');
 
 const raw = await fs.readFile(dashboardPath, 'utf8');
 const data = JSON.parse(raw);
@@ -55,8 +56,22 @@ function readTime(wordCount) {
   return Math.max(1, Math.ceil(Number(wordCount || 0) / 225));
 }
 
-function itemFromRecord(record) {
+async function recoveredDraftBody(slug) {
+  if (!slug) return '';
+  try {
+    const raw = await fs.readFile(path.join(knowledgeArticlesPath, `${slug}.mdx`), 'utf8');
+    const content = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '').trim();
+    const readableChars = content.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/g, '');
+    const readableRatio = content.length ? readableChars.length / content.length : 1;
+    return readableRatio > 0.97 ? content : '';
+  } catch {
+    return '';
+  }
+}
+
+async function itemFromRecord(record) {
   const workflowStatus = chooseWorkflowStatus(record);
+  const content = await recoveredDraftBody(record.slug);
   return {
     slug: record.slug,
     title: record.title,
@@ -103,10 +118,11 @@ function itemFromRecord(record) {
     whyLater: record.whyLater || '',
     whyNot: record.whyNot || '',
     notes: record.notes || '',
+    content,
   };
 }
 
-const articles = data.records.map(itemFromRecord);
+const articles = await Promise.all(data.records.map(itemFromRecord));
 
 const counts = workflowStates.reduce((acc, state) => {
   acc[state] = articles.filter((article) => article.workflowStatus === state).length;

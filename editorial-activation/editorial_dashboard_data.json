@@ -1,6 +1,66 @@
 {
   "records": [
     {
+      "file": "welcome-to-cso-knowledge-centre.mdx",
+      "title": "Welcome to the CSO Knowledge Centre",
+      "slug": "welcome-to-cso-knowledge-centre",
+      "type": "article",
+      "status": "draft",
+      "date": "2026-07-11",
+      "description": "A warm welcome to the CSO Knowledge Centre, a living library for surrogacy, egg donation, family building, and the knowledge CSO has gathered over more than 30 years.",
+      "author": "Robyn Price",
+      "authorSlug": "robyn-price",
+      "category": "Getting Started",
+      "knowledgeCategory": "Getting Started",
+      "tags": [
+        "Knowledge Centre",
+        "CSO",
+        "surrogacy education",
+        "egg donation",
+        "family building"
+      ],
+      "keywords": [
+        "CSO Knowledge Centre",
+        "Canadian Surrogacy Options",
+        "surrogacy education Canada",
+        "egg donation education",
+        "family building Canada"
+      ],
+      "originallyPublished": "2026-07-11",
+      "lastReviewed": "2026-07-11",
+      "reviewStatus": "Ready for Robyn Review",
+      "primaryTopic": "Knowledge Centre introduction",
+      "secondaryTopic": "CSO digital library",
+      "rewritePriority": "Low",
+      "seoScore": "Good",
+      "internalLinksNeeded": "My Story By Joanne Wright; Program Guide; What is surrogacy in Canada?; Who can be a surrogate?",
+      "sourceUrl": "",
+      "archivedUrl": "",
+      "sourceContentType": "article",
+      "recoveryStatus": "Original",
+      "content": "Welcome to the CSO Knowledge Centre.\n\nThis is more than a collection of articles. It is the beginning of a living library built from more than 30 years of real experience in Canadian surrogacy, egg donation, family building, matching, loss, hope, advocacy, and love.\n\nSome of what you find here will answer practical questions. How does surrogacy work in Canada? What does it cost? Who can become a surrogate? What should intended parents know before they begin?\n\nSome of it will go deeper. Into the stories, the hard lessons, the changing laws, the medical realities, the relationships, and the quiet moments that shape this work long before a baby is placed into someone's arms.\n\nCanadian Surrogacy Options was built on the belief that people deserve clear information, honest guidance, and compassionate support. That belief started with Joanne Wright, Canada's first surrogate and the founder of CSO, and it continues today as we rebuild, preserve, and share the knowledge gathered across decades of helping families come together.\n\nOur goal is simple: to make surrogacy and egg donation easier to understand, easier to navigate, and less lonely for everyone involved.\n\nWhether you are an intended parent, a surrogate, an egg donor, a professional, a journalist, or someone just beginning to learn what this world is all about, you are welcome here.\n\nFollow along as we grow this library, recover our history, answer the questions people are afraid to ask, and work toward transforming the surrogacy and egg donation world through knowledge, transparency, and care.",
+      "rank": 1,
+      "priority": "★★★★★",
+      "recommendedAction": "Light update",
+      "scores": {
+        "seo": 4,
+        "authority": 5,
+        "client": 5,
+        "institutional": 5,
+        "effort": 1
+      },
+      "sensitivity": "Low",
+      "intendedAudience": "Both",
+      "priorityScore": 24,
+      "suggestedNewUrl": "/knowledge-centre/welcome-to-cso-knowledge-centre",
+      "redirectTarget": "/knowledge-centre/welcome-to-cso-knowledge-centre",
+      "wordCount": 252,
+      "whyNow": "Sets the tone for the Knowledge Centre before the first historical article goes live.",
+      "whyLater": "Can be published after Robyn review as the welcome piece for the library.",
+      "whyNot": "No hard blocker; keep draft until Robyn approves.",
+      "notes": "Original Knowledge Centre welcome draft. Not recovered content."
+    },
+    {
       "file": "my-story-by-joanne-wright.mdx",
       "title": "My Story By Joanne Wright",
       "slug": "my-story-by-joanne-wright",
@@ -71,7 +131,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "High legal/medical sensitivity.",
-      "rank": 1
+      "rank": 2
     },
     {
       "file": "press-release-canadian-surrogacy-options-canadas-first-surrogacy-company-celebrates-25-years-helping-couples-nurture-their-dream-of-having-a-family.mdx",
@@ -144,7 +204,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "High legal/medical sensitivity.",
-      "rank": 2
+      "rank": 3
     },
     {
       "file": "success-stories.mdx",
@@ -217,7 +277,7 @@
       "whyLater": "Can follow after the first pillar pages and top-intent resources are live.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "",
-      "rank": 3
+      "rank": 4
     },
     {
       "file": "creating-families-through-surrogacy-with-canadian.mdx",
@@ -290,7 +350,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "High legal/medical sensitivity.",
-      "rank": 4
+      "rank": 5
     },
     {
       "file": "goodluckcharms.mdx",
@@ -359,7 +419,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "High legal/medical sensitivity.",
-      "rank": 5
+      "rank": 6
     },
     {
       "file": "laws.mdx",
@@ -432,7 +492,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 6
+      "rank": 7
     },
     {
       "file": "what-to-expect-at-your-surrogacy-screening-appointment-2.mdx",
@@ -505,7 +565,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 7
+      "rank": 8
     },
     {
       "file": "meet-the-team-tuesday.mdx",
@@ -578,7 +638,7 @@
       "whyLater": "Should be folded into a stronger modern article instead of published alone.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Medium legal/medical sensitivity. Likely merge with A Letter to My Mom.",
-      "rank": 8
+      "rank": 9
     },
     {
       "file": "top-5-reasons-become-surrogate.mdx",
@@ -651,7 +711,7 @@
       "whyLater": "Can follow after the first pillar pages and top-intent resources are live.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "",
-      "rank": 9
+      "rank": 10
     },
     {
       "file": "story-part-2.mdx",
@@ -720,7 +780,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "High legal/medical sensitivity. Likely merge with A Letter to My Mom.",
-      "rank": 10
+      "rank": 11
     },
     {
       "file": "mysurrogacyjourney-quick-check-in.mdx",
@@ -793,7 +853,7 @@
       "whyLater": "Should be folded into a stronger modern article instead of published alone.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Medium legal/medical sensitivity. Likely merge with McDonald's Fries, My Mom, and the Tradition That Started a Movement.",
-      "rank": 11
+      "rank": 12
     },
     {
       "file": "what-we-offer.mdx",
@@ -866,7 +926,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 12
+      "rank": 13
     },
     {
       "file": "surrosister-secrets-part-16.mdx",
@@ -939,7 +999,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 13
+      "rank": 14
     },
     {
       "file": "becoming-a-surrogate-in-canada.mdx",
@@ -1012,7 +1072,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 14
+      "rank": 15
     },
     {
       "file": "surrosister-secrets-part-8.mdx",
@@ -1085,7 +1145,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "High legal/medical sensitivity.",
-      "rank": 15
+      "rank": 16
     },
     {
       "file": "how-to-address-surrogacy-with-your-family.mdx",
@@ -1158,7 +1218,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is partial.",
-      "rank": 16
+      "rank": 17
     },
     {
       "file": "surrogacy-blogs-we-love.mdx",
@@ -1227,7 +1287,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is partial.",
-      "rank": 17
+      "rank": 18
     },
     {
       "file": "surrosister-secrets-part-12.mdx",
@@ -1300,7 +1360,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 18
+      "rank": 19
     },
     {
       "file": "surrosister-secrets-part-9.mdx",
@@ -1373,7 +1433,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 19
+      "rank": 20
     },
     {
       "file": "types-surrogacy.mdx",
@@ -1446,7 +1506,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 20
+      "rank": 21
     },
     {
       "file": "surro-secrets-part-2.mdx",
@@ -1515,7 +1575,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is partial.",
-      "rank": 21
+      "rank": 22
     },
     {
       "file": "surrosister-secrets-part-7.mdx",
@@ -1588,7 +1648,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is partial. High legal/medical sensitivity.",
-      "rank": 22
+      "rank": 23
     },
     {
       "file": "become-surrogate-mother.mdx",
@@ -1661,7 +1721,7 @@
       "whyLater": "Should be folded into a stronger modern article instead of published alone.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is partial. Likely merge with Is Surrogacy Right For You? 5 Questions to Ask Yourself First.",
-      "rank": 23
+      "rank": 24
     },
     {
       "file": "fees-for-surrogacy-process-in-canada.mdx",
@@ -1730,7 +1790,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is partial.",
-      "rank": 24
+      "rank": 25
     },
     {
       "file": "law.mdx",
@@ -1803,7 +1863,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is minimal. High legal/medical sensitivity.",
-      "rank": 25
+      "rank": 26
     },
     {
       "file": "types-of-surrogacy-html.mdx",
@@ -1876,7 +1936,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is partial. Medium legal/medical sensitivity.",
-      "rank": 26
+      "rank": 27
     },
     {
       "file": "story-part-4.mdx",
@@ -1945,7 +2005,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is minimal. High legal/medical sensitivity.",
-      "rank": 27
+      "rank": 28
     },
     {
       "file": "10-side-effects-of-progesterone-shots-for-ivf.mdx",
@@ -2018,7 +2078,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is minimal. High legal/medical sensitivity.",
-      "rank": 28
+      "rank": 29
     },
     {
       "file": "update-cso-family-on-covid-19.mdx",
@@ -2091,7 +2151,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is minimal.",
-      "rank": 29
+      "rank": 30
     },
     {
       "file": "about.mdx",
@@ -2160,7 +2220,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "Low standalone value or archive/tag/page artifact rather than a publishable article.",
       "notes": "High legal/medical sensitivity.",
-      "rank": 30
+      "rank": 31
     },
     {
       "file": "a-patients-perspective-what-to-expect-during-your.mdx",
@@ -2233,7 +2293,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is minimal.",
-      "rank": 31
+      "rank": 32
     },
     {
       "file": "becoming-a-surrogate-in-canada-what-you-should-know-2025-edition.mdx",
@@ -2302,7 +2362,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is minimal.",
-      "rank": 32
+      "rank": 33
     },
     {
       "file": "it-was-a-very-special-day-at-cso-on-october-29th.mdx",
@@ -2371,7 +2431,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is minimal.",
-      "rank": 33
+      "rank": 34
     },
     {
       "file": "why-canadian-surrogacy-remains-one-of-the-safest-and-most-supported-paths-in-2025.mdx",
@@ -2444,7 +2504,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 34
+      "rank": 35
     },
     {
       "file": "keep-recipient-involved-surrogacy.mdx",
@@ -2517,7 +2577,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 35
+      "rank": 36
     },
     {
       "file": "surrosister-secrets-part-10.mdx",
@@ -2590,7 +2650,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 36
+      "rank": 37
     },
     {
       "file": "why-canadian-surrogacy-is-still-one-of-the-most-trusted-paths-to-parenthood-in-2025.mdx",
@@ -2659,7 +2719,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 37
+      "rank": 38
     },
     {
       "file": "spring-surrogacy-fun.mdx",
@@ -2728,7 +2788,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 38
+      "rank": 39
     },
     {
       "file": "story.mdx",
@@ -2801,7 +2861,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is minimal.",
-      "rank": 39
+      "rank": 40
     },
     {
       "file": "surro-self-care-tips.mdx",
@@ -2874,7 +2934,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is minimal.",
-      "rank": 40
+      "rank": 41
     },
     {
       "file": "tips-for-the-2-week-wait.mdx",
@@ -2947,7 +3007,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "No hard blocker; do not publish until reviewed and modernized.",
       "notes": "Recovery is minimal.",
-      "rank": 41
+      "rank": 42
     },
     {
       "file": "such-a-touching-email-today-3-congrats-to-ips.mdx",
@@ -3016,7 +3076,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 42
+      "rank": 43
     },
     {
       "file": "its-been-a-minute-2.mdx",
@@ -3089,7 +3149,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 43
+      "rank": 44
     },
     {
       "file": "5-ways-to-enjoy-an-autumn-pregnancy.mdx",
@@ -3158,7 +3218,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 44
+      "rank": 45
     },
     {
       "file": "for-mom.mdx",
@@ -3231,7 +3291,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 45
+      "rank": 46
     },
     {
       "file": "its-been-a-minute.mdx",
@@ -3304,7 +3364,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 46
+      "rank": 47
     },
     {
       "file": "surrosafecoldremedies.mdx",
@@ -3377,7 +3437,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 47
+      "rank": 48
     },
     {
       "file": "talkingaboutsurrogacy.mdx",
@@ -3450,7 +3510,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Limited direct usefulness for intended parents or surrogates.",
       "notes": "Recovery is minimal.",
-      "rank": 48
+      "rank": 49
     },
     {
       "file": "us-division.mdx",
@@ -3523,7 +3583,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "May be better represented as site/about/program content, not a Knowledge Centre article.",
       "notes": "Recovery is minimal.",
-      "rank": 49
+      "rank": 50
     },
     {
       "file": "surrogacy-medications-protocol-ivf-canadiansurrogacyoptions.mdx",
@@ -3602,7 +3662,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "Low standalone value or archive/tag/page artifact rather than a publishable article.",
       "notes": "Recovery is minimal. High legal/medical sensitivity.",
-      "rank": 50
+      "rank": 51
     },
     {
       "file": "canadiansurrogacy.mdx",
@@ -3680,7 +3740,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Low standalone value or archive/tag/page artifact rather than a publishable article.",
       "notes": "Recovery is minimal.",
-      "rank": 51
+      "rank": 52
     },
     {
       "file": "page-2.mdx",
@@ -3759,7 +3819,7 @@
       "whyLater": "Needs careful medical/legal/currentness review before publication.",
       "whyNot": "Low standalone value or archive/tag/page artifact rather than a publishable article.",
       "notes": "Recovery is minimal. High legal/medical sensitivity.",
-      "rank": 52
+      "rank": 53
     },
     {
       "file": "secretsurro.mdx",
@@ -3837,7 +3897,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Low standalone value or archive/tag/page artifact rather than a publishable article.",
       "notes": "Recovery is minimal.",
-      "rank": 53
+      "rank": 54
     },
     {
       "file": "csofamily.mdx",
@@ -3906,7 +3966,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Low standalone value or archive/tag/page artifact rather than a publishable article.",
       "notes": "Recovery is minimal.",
-      "rank": 54
+      "rank": 55
     },
     {
       "file": "faqs.mdx",
@@ -3979,7 +4039,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Low standalone value or archive/tag/page artifact rather than a publishable article.",
       "notes": "Recovery is minimal.",
-      "rank": 55
+      "rank": 56
     },
     {
       "file": "terms-conditions.mdx",
@@ -4052,7 +4112,7 @@
       "whyLater": "Recovered content is incomplete and needs editorial reconstruction.",
       "whyNot": "Low standalone value or archive/tag/page artifact rather than a publishable article.",
       "notes": "Recovery is minimal.",
-      "rank": 56
+      "rank": 57
     }
   ],
   "top25": [
