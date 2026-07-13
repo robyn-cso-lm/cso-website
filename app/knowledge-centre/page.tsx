@@ -24,6 +24,8 @@ export default function KnowledgeCentrePage({
 }) {
   const entries = getAllKnowledgeEntries();
   const tags = getAllTags(entries);
+  const activeCategory = searchParams?.category || 'All';
+  const activeTag = searchParams?.tag;
   const requestedType = searchParams?.type;
   const activeType: KnowledgeType | 'all' =
     requestedType === 'article' ||
@@ -34,10 +36,19 @@ export default function KnowledgeCentrePage({
       : 'all';
   const filtered = filterKnowledgeEntries(entries, {
     query: searchParams?.q,
-    category: searchParams?.category,
-    tag: searchParams?.tag,
+    category: activeCategory,
+    tag: activeTag,
     type: activeType,
   });
+  const hasActiveFilters = Boolean(searchParams?.q || activeCategory !== 'All' || activeTag || activeType !== 'all');
+  const resultLabel =
+    activeCategory !== 'All'
+      ? activeCategory
+      : activeTag
+        ? `Tagged: ${activeTag}`
+        : activeType !== 'all'
+          ? `${activeType.charAt(0).toUpperCase()}${activeType.slice(1)}s`
+          : 'Latest resources';
 
   return (
     <div className={styles.shell}>
@@ -63,8 +74,9 @@ export default function KnowledgeCentrePage({
             {KNOWLEDGE_CATEGORIES.map((category) => (
               <Link
                 key={category}
-                href={`/knowledge-centre?category=${encodeURIComponent(category)}`}
-                className={styles.navCard}
+                href={`/knowledge-centre?category=${encodeURIComponent(category)}#results`}
+                className={`${styles.navCard} ${activeCategory === category ? styles.activeCard : ''}`}
+                aria-current={activeCategory === category ? 'true' : undefined}
               >
                 <span className={styles.badge}>{category}</span>
                 <h2 className={styles.cardTitle}>{category}</h2>
@@ -74,7 +86,7 @@ export default function KnowledgeCentrePage({
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section id="results" className={styles.section}>
         <div className={styles.inner}>
           <form className={styles.filters}>
             <div className={styles.field}>
@@ -83,7 +95,7 @@ export default function KnowledgeCentrePage({
             </div>
             <div className={styles.field}>
               <label htmlFor="category">Category</label>
-              <select id="category" name="category" defaultValue={searchParams?.category || 'All'} className={styles.select}>
+              <select id="category" name="category" defaultValue={activeCategory} className={styles.select}>
                 <option value="All">All</option>
                 {KNOWLEDGE_CATEGORIES.map((category) => (
                   <option key={category} value={category}>{category}</option>
@@ -100,15 +112,29 @@ export default function KnowledgeCentrePage({
                 <option value="news">News</option>
               </select>
             </div>
-            {searchParams?.tag && <input type="hidden" name="tag" value={searchParams.tag} />}
+            {activeTag && <input type="hidden" name="tag" value={activeTag} />}
+            <button className={styles.filterButton} type="submit">Apply filters</button>
           </form>
 
           <div className={styles.badgeRow} style={{ marginBottom: 24 }}>
             {tags.slice(0, 18).map((tag) => (
-              <Link key={tag} href={`/knowledge-centre?tag=${encodeURIComponent(tag)}`} className={styles.badge}>
+              <Link key={tag} href={`/knowledge-centre?tag=${encodeURIComponent(tag)}#results`} className={styles.badge}>
                 {tag}
               </Link>
             ))}
+          </div>
+
+          <div className={styles.resultsHeader}>
+            <div>
+              <p className={styles.eyebrow}>Showing</p>
+              <h2 className={styles.resultsTitle}>{resultLabel}</h2>
+              <p className={styles.smallText}>{filtered.length} resource{filtered.length === 1 ? '' : 's'} found</p>
+            </div>
+            {hasActiveFilters && (
+              <Link href="/knowledge-centre#results" className={styles.clearLink}>
+                Clear filters
+              </Link>
+            )}
           </div>
 
           <div className={styles.cardGrid}>
@@ -123,6 +149,16 @@ export default function KnowledgeCentrePage({
                 <p className={styles.meta}>By {entry.author}</p>
               </Link>
             ))}
+            {filtered.length === 0 && (
+              <div className={styles.emptyState}>
+                <span className={styles.badge}>No public resources yet</span>
+                <h2 className={styles.cardTitle}>This section is being built</h2>
+                <p className={styles.cardText}>
+                  Drafts may still be in Robyn review. Clear the filters or choose another Knowledge Centre section.
+                </p>
+                <Link href="/knowledge-centre#results" className={styles.button}>View all resources</Link>
+              </div>
+            )}
           </div>
 
           <div className={styles.cardGrid} style={{ marginTop: 28 }}>
