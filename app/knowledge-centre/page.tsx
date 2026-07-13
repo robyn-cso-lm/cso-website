@@ -138,17 +138,26 @@ export default function KnowledgeCentrePage({
           </div>
 
           <div className={styles.cardGrid}>
-            {filtered.map((entry) => (
-              <Link key={`${entry.type}-${entry.slug}`} href={getKnowledgeEntryHref(entry)} className={styles.card}>
-                <div className={styles.badgeRow}>
-                  <span className={styles.badge}>{entry.knowledgeCategory}</span>
-                  <span className={styles.badge}>{entry.type}</span>
-                </div>
-                <h2 className={styles.cardTitle}>{entry.title}</h2>
-                <p className={styles.cardText}>{entry.description}</p>
-                <p className={styles.meta}>By {entry.author}</p>
-              </Link>
-            ))}
+            {filtered.map((entry, index) => {
+              const isFirstResource = index === 0;
+
+              return (
+                <Link
+                  key={`${entry.type}-${entry.slug}`}
+                  href={getKnowledgeEntryHref(entry)}
+                  className={`${styles.card} ${isFirstResource ? styles.firstCard : ''}`}
+                >
+                  <div className={styles.badgeRow}>
+                    {isFirstResource && <span className={styles.firstBadge}>First</span>}
+                    <span className={styles.badge}>{entry.knowledgeCategory}</span>
+                    <span className={styles.badge}>{entry.type}</span>
+                  </div>
+                  <h2 className={styles.cardTitle}>{entry.title}</h2>
+                  <p className={styles.cardText}>{entry.description}</p>
+                  <p className={styles.meta}>By {entry.author}</p>
+                </Link>
+              );
+            })}
             {filtered.length === 0 && (
               <div className={styles.emptyState}>
                 <span className={styles.badge}>No public resources yet</span>
