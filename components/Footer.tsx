@@ -66,8 +66,11 @@ export default function Footer() {
               <h4 className={styles.columnTitle}>For Parents</h4>
               <ul className={styles.columnLinks}>
                 <li><Link href="/about">About Us</Link></li>
+                <li><Link href="/intended-parents">Intended Parents</Link></li>
                 <li><Link href="/programs">Our Programs</Link></li>
-                <li><Link href="/blog?category=Intended+Parents">Parent Stories</Link></li>
+                <li><Link href="/families">Family Stories</Link></li>
+                <li><Link href="/lgbtq-surrogacy">LGBTQ+ Surrogacy</Link></li>
+                <li><Link href="/international">International Families</Link></li>
                 <li>
                   <a href="https://calendly.com/cso-robyn" target="_blank" rel="noopener noreferrer">
                     Book a Free Call
@@ -82,6 +85,18 @@ export default function Footer() {
                 <li><Link href="/surrogates">Apply to Be a Surrogate</Link></li>
                 <li><Link href="/blog?category=Surrogates">Surrogate Resources</Link></li>
                 <li><Link href="/programs#digital">Surrogate Readiness Guide</Link></li>
+              </ul>
+            </div>
+
+            <div className={styles.column}>
+              <h4 className={styles.columnTitle}>Learn</h4>
+              <ul className={styles.columnLinks}>
+                <li><Link href="/knowledge-centre">Knowledge Centre</Link></li>
+                <li><Link href="/faq">FAQ</Link></li>
+                <li><Link href="/blog">Blog</Link></li>
+                <li><Link href="/resources">Guides Shop</Link></li>
+                <li><Link href="/cost-calculator">Cost Calculator</Link></li>
+                <li><Link href="/trust">Why Trust CSO</Link></li>
               </ul>
             </div>
 

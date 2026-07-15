@@ -212,7 +212,8 @@ export function getAllKnowledgeEntries(options: { includeDrafts?: boolean } = {}
   return visibleEntries.sort((a, b) => {
     const aTime = new Date(a.date || a.originallyPublished || 0).getTime();
     const bTime = new Date(b.date || b.originallyPublished || 0).getTime();
-    return bTime - aTime;
+    if (bTime !== aTime) return bTime - aTime;
+    return Number(b.featuredArticle) - Number(a.featuredArticle);
   });
 }
 

@@ -205,7 +205,7 @@ export default function ProgramsPage() {
           </p>
           <div className={styles.productGrid}>
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>ðŸ“‹</div>
+              <div className={styles.productIcon}>📋</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Is Surrogacy Right For Me?&rdquo;</h3>
                 <p className={styles.productPrice}>$27</p>
@@ -224,7 +224,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>ðŸ—ºï¸</div>
+              <div className={styles.productIcon}>🗺️</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;The Canadian Surrogacy Roadmap&rdquo;</h3>
                 <p className={styles.productPrice}>$97</p>
@@ -242,7 +242,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>ðŸ§­</div>
+              <div className={styles.productIcon}>🧭</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Independent Journey Checklist&rdquo;</h3>
                 <p className={styles.productPrice}>$87</p>
@@ -261,7 +261,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>ðŸ’œ</div>
+              <div className={styles.productIcon}>💜</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Readiness Guide&rdquo;</h3>
                 <p className={styles.productPrice}>{surrogatePrice}</p>
@@ -285,7 +285,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>âœ¨</div>
+              <div className={styles.productIcon}>✨</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;IP Profile Template Pack&rdquo;</h3>
                 <p className={styles.productPrice}>$47</p>
@@ -303,7 +303,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={`${styles.productCard} ${styles.receiptCard}`}>
-              <div className={styles.productIcon}>ðŸ§¾</div>
+              <div className={styles.productIcon}>🧾</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Expense Management&rdquo;</h3>
                 <p className={styles.productPrice}>From $199/mo</p>

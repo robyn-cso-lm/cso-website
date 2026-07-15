@@ -36,7 +36,11 @@ export default function DownloadsPage() {
                 </div>
                 <h2 className={styles.cardTitle}>{entry.title}</h2>
                 <p className={styles.cardText}>{entry.description}</p>
-                {entry.downloadUrl && <Link href={entry.downloadUrl} className={styles.button}>Open Download</Link>}
+                {entry.downloadUrl && (
+                  <Link href={entry.downloadUrl} className={styles.button}>
+                    {entry.downloadUrl.endsWith('.pdf') ? 'Download PDF' : 'View Resource'}
+                  </Link>
+                )}
                 {related.length > 0 && (
                   <>
                     <p className={styles.meta}>You may also like...</p>

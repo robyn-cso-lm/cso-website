@@ -23,7 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/guides/canadian-surrogacy-roadmap`, lastModified: GUIDE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/guides/ip-profile-template`, lastModified: GUIDE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/guides/surrogate-readiness`, lastModified: GUIDE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${BASE_URL}/gallery`, lastModified: new Date('2026-06-14'), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${BASE_URL}/cost-calculator`, lastModified: new Date('2026-06-14'), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/resources`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/knowledge-centre`, lastModified: new Date('2026-07-09'), changeFrequency: 'weekly', priority: 0.9 },

@@ -64,26 +64,10 @@ export default function Nav() {
           </li>
           <li>
             <Link
-              href="/resources"
-              className={`${styles.link} ${isActive('/resources') ? styles.active : ''}`}
-            >
-              Resources
-            </Link>
-          </li>
-          <li>
-            <Link
               href="/knowledge-centre"
               className={`${styles.link} ${isActive('/knowledge-centre') ? styles.active : ''}`}
             >
               Knowledge Centre
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/blog"
-              className={`${styles.link} ${isActive('/blog') ? styles.active : ''}`}
-            >
-              Blog
             </Link>
           </li>
           <li>
