@@ -220,10 +220,14 @@ export function getAllKnowledgeEntries(options: { includeDrafts?: boolean } = {}
     ? entries
     : entries.filter((entry) => entry.status === 'published');
 
+  // Undated entries are fresh quick-publishes; surface them first until dated.
+  const entryTime = (entry: KnowledgeEntry) => {
+    const date = entry.date || entry.originallyPublished;
+    return date ? new Date(date).getTime() : Infinity;
+  };
   return visibleEntries.sort((a, b) => {
-    // Undated entries are fresh quick-publishes; surface them first until dated.
-    const aTime = a.date || a.originallyPublished ? new Date(a.date || a.originallyPublished).getTime() : Infinity;
-    const bTime = b.date || b.originallyPublished ? new Date(b.date || b.originallyPublished).getTime() : Infinity;
+    const aTime = entryTime(a);
+    const bTime = entryTime(b);
     if (bTime !== aTime) return bTime - aTime;
     return Number(b.featuredArticle) - Number(a.featuredArticle);
   });

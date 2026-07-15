@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { sendMail } from '@/lib/graphMail';
 import { sendMetaConversionEvent } from '@/lib/meta-capi';
+import { makeSignedDownloadUrl } from '@/lib/signedDownload';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,38 +23,39 @@ for (const v of REQUIRED_PRICE_VARS) {
   }
 }
 
-// Map Stripe price IDs to product info + PDF URLs
+// Map Stripe price IDs to product info. Delivery uses expiring signed links
+// generated at send time; PDFs are no longer publicly reachable.
 function getProductInfo(priceId: string): {
   name: string;
-  pdfUrl: string;
+  guideKey: string;
   slug: string;
   price: number;
 } | null {
   const map: Record<
     string,
-    { name: string; pdfUrl: string; slug: string; price: number }
+    { name: string; guideKey: string; slug: string; price: number }
   > = {
     [process.env.STRIPE_PRICE_STARTER || '__missing__']: {
       name: 'Is Surrogacy Right For Me?',
-      pdfUrl: process.env.PDF_STARTER_URL || '/pdfs/is-surrogacy-right-for-me.pdf',
+      guideKey: 'is-surrogacy-right',
       slug: 'is-surrogacy-right',
       price: 27,
     },
     [process.env.STRIPE_PRICE_ROADMAP || '__missing2__']: {
       name: 'The Canadian Surrogacy Roadmap',
-      pdfUrl: process.env.PDF_ROADMAP_URL || '/pdfs/roadmap.pdf',
+      guideKey: 'roadmap',
       slug: 'canadian-surrogacy-roadmap',
       price: 97,
     },
     [process.env.STRIPE_PRICE_INDIE || '__missing3__']: {
       name: 'Independent Journey Checklist',
-      pdfUrl: process.env.PDF_INDIE_URL || '/pdfs/indie-checklist.pdf',
+      guideKey: 'indie-checklist',
       slug: 'independent-journey-checklist',
       price: 87,
     },
     [process.env.STRIPE_PRICE_PROFILE || '__missing5__']: {
       name: 'IP Profile Template Pack',
-      pdfUrl: process.env.PDF_PROFILE_URL || '/pdfs/ip-profile-template.pdf',
+      guideKey: 'ip-profile-template',
       slug: 'ip-profile-template',
       price: 47,
     },
@@ -109,8 +111,9 @@ function buildDeliveryEmail(customerName: string, productName: string, pdfUrl: s
         <a href="${fullPdfUrl}" class="btn">Download Your Guide &rarr;</a>
       </div>
       <p class="note">
-        This link is for your personal use. If you have any trouble downloading, just reply
-        to this email and we&rsquo;ll sort it out.
+        This link is for your personal use and expires in 72 hours, so save your copy soon.
+        If it expires or you have any trouble downloading, just reply to this email and
+        we&rsquo;ll send you a fresh link.
       </p>
       <div class="sig">
         <p>With warmth,</p>
@@ -192,7 +195,7 @@ export async function POST(req: NextRequest) {
           continue;
         }
 
-        const html = buildDeliveryEmail(customerName, product.name, product.pdfUrl);
+        const html = buildDeliveryEmail(customerName, product.name, makeSignedDownloadUrl(product.guideKey));
 
         await sendMail(
           customerEmail,

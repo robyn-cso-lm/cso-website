@@ -3,6 +3,9 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     mdxRs: false,
+    outputFileTracingIncludes: {
+      '/api/download': ['./private/guides/**'],
+    },
   },
   async redirects() {
     return [

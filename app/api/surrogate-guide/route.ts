@@ -3,6 +3,7 @@ import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
 import { capturePortalLead } from '@/lib/portalLead';
+import { makeSignedDownloadUrl } from '@/lib/signedDownload';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -110,7 +111,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      pdfUrl: process.env.PDF_SURROGATE_URL || '/pdfs/surrogate-readiness.pdf',
+      pdfUrl: makeSignedDownloadUrl('surrogate-readiness'),
     });
   } catch (err) {
     console.error('[surrogate-guide] Error:', err);
