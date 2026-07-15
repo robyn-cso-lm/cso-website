@@ -34,6 +34,11 @@ const PRICE_TO_GUIDE: Record<
     title: 'IP Profile Template Pack',
     price: 47,
   },
+  [process.env.STRIPE_PRICE_SURROGATE || '']: {
+    slug: 'surrogate-readiness',
+    title: 'Surrogate Readiness Guide',
+    price: 47,
+  },
 };
 
 export default async function PurchasePixelTracker({ sessionId }: Props) {

@@ -94,7 +94,7 @@ export default function ThankYouPage({
             </a>
             <a href="/guides/ip-profile-template" className={styles.guideCard}>
               <p className={styles.guideTitle}>IP Profile Template Pack</p>
-              <p className={styles.guidePrice}>$67</p>
+              <p className={styles.guidePrice}>$47</p>
             </a>
             <a href="/guides/surrogate-readiness" className={styles.guideCard}>
               <p className={styles.guideTitle}>Surrogate Readiness Guide</p>

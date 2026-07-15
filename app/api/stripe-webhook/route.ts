@@ -15,6 +15,7 @@ const REQUIRED_PRICE_VARS = [
   'STRIPE_PRICE_ROADMAP',
   'STRIPE_PRICE_INDIE',
   'STRIPE_PRICE_PROFILE',
+  'STRIPE_PRICE_SURROGATE',
 ];
 for (const v of REQUIRED_PRICE_VARS) {
   if (!process.env[v]) {
@@ -55,6 +56,12 @@ function getProductInfo(priceId: string): {
       name: 'IP Profile Template Pack',
       pdfUrl: process.env.PDF_PROFILE_URL || '/pdfs/ip-profile-template.pdf',
       slug: 'ip-profile-template',
+      price: 47,
+    },
+    [process.env.STRIPE_PRICE_SURROGATE || '__missing6__']: {
+      name: 'Surrogate Readiness Guide',
+      pdfUrl: process.env.PDF_SURROGATE_URL || '/pdfs/surrogate-readiness.pdf',
+      slug: 'surrogate-readiness',
       price: 47,
     },
   };
