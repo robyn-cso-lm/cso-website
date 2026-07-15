@@ -139,6 +139,15 @@ function estimateReadingTime(content: string) {
   return Math.max(1, Math.ceil(words / 225));
 }
 
+function excerptFromContent(content: string): string {
+  const firstParagraph = content
+    .split(/\r?\n\r?\n/)
+    .map((block) => block.replace(/[#>*_\[\]`]/g, '').trim())
+    .find((block) => block.length > 40);
+  if (!firstParagraph) return '';
+  return firstParagraph.length > 180 ? `${firstParagraph.slice(0, 177)}...` : firstParagraph;
+}
+
 function readEntryFile(fullPath: string, fallbackType: KnowledgeType): KnowledgeEntry {
   const raw = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(raw);
@@ -149,9 +158,11 @@ function readEntryFile(fullPath: string, fallbackType: KnowledgeType): Knowledge
     title: data.title || '',
     slug: data.slug || filename,
     type,
-    status: data.status || 'draft',
+    // Missing status means the file came from a quick-publish flow that only
+    // writes title/description; explicit drafts always say status: "draft".
+    status: data.status || 'published',
     date: data.date || data.originallyPublished || '',
-    description: data.description || '',
+    description: data.description || excerptFromContent(content),
     author: data.author || 'Robyn Price',
     authorSlug: data.authorSlug || 'robyn-price',
     category: data.category || data.knowledgeCategory || 'Getting Started',
@@ -210,8 +221,9 @@ export function getAllKnowledgeEntries(options: { includeDrafts?: boolean } = {}
     : entries.filter((entry) => entry.status === 'published');
 
   return visibleEntries.sort((a, b) => {
-    const aTime = new Date(a.date || a.originallyPublished || 0).getTime();
-    const bTime = new Date(b.date || b.originallyPublished || 0).getTime();
+    // Undated entries are fresh quick-publishes; surface them first until dated.
+    const aTime = a.date || a.originallyPublished ? new Date(a.date || a.originallyPublished).getTime() : Infinity;
+    const bTime = b.date || b.originallyPublished ? new Date(b.date || b.originallyPublished).getTime() : Infinity;
     if (bTime !== aTime) return bTime - aTime;
     return Number(b.featuredArticle) - Number(a.featuredArticle);
   });
