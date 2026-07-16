@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/knowledge-centre/faqs`, lastModified: new Date('2026-07-09'), changeFrequency: 'monthly', priority: 0.82 },
     { url: `${BASE_URL}/knowledge-centre/news`, lastModified: new Date('2026-07-09'), changeFrequency: 'monthly', priority: 0.78 },
     { url: `${BASE_URL}/knowledge-centre/authors/robyn-price`, lastModified: new Date('2026-07-09'), changeFrequency: 'monthly', priority: 0.78 },
+    { url: `${BASE_URL}/knowledge-centre/authors/joanne-wright`, lastModified: new Date('2026-07-15'), changeFrequency: 'monthly', priority: 0.78 },
     { url: `${BASE_URL}/faq`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/families`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/lgbtq-surrogacy`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.8 },

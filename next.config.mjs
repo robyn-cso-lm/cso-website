@@ -11,6 +11,17 @@ const nextConfig = {
     return [
       // Canonical family gallery lives on the portal (prettier + richer cards)
       { source: '/gallery', destination: 'https://portal.canadiansurrogacyoptions.com/profiles', permanent: false },
+      // ── Blog posts migrated to Knowledge Centre (July 2026) ─────────────────
+      { source: '/blog/letter-to-my-mom', destination: '/knowledge-centre/letter-to-my-mom', permanent: true },
+      { source: '/blog/mcdonalds-fries-transfer-day-tradition', destination: '/knowledge-centre/mcdonalds-fries-transfer-day-tradition', permanent: true },
+      { source: '/blog/surrogacy-canada-guide', destination: '/knowledge-centre/surrogacy-canada-guide', permanent: true },
+      { source: '/blog/surrogacy-cost-canada-2026', destination: '/knowledge-centre/surrogacy-cost-canada-2026', permanent: true },
+      { source: '/blog/legal-framework-canada', destination: '/knowledge-centre/legal-framework-canada', permanent: true },
+      { source: '/blog/egg-donation-in-canada', destination: '/knowledge-centre/egg-donation-in-canada', permanent: true },
+      { source: '/blog/surrogacy-requirements-canada', destination: '/knowledge-centre/surrogacy-requirements-canada', permanent: true },
+      { source: '/blog/surrogacy-timeline-canada', destination: '/knowledge-centre/surrogacy-timeline-canada', permanent: true },
+      { source: '/blog/lgbtq-surrogacy-canada', destination: '/knowledge-centre/lgbtq-surrogacy-canada', permanent: true },
+
       // ── Pre-rebuild redirects ────────────────────────────────────────────────
       { source: '/become-a-surrogate',          destination: '/surrogates',        permanent: true },
       { source: '/ips',                          destination: '/intended-parents',  permanent: true },
