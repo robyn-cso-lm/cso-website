@@ -4,13 +4,19 @@ import { getAllPosts } from '@/lib/mdx';
 
 const BASE_URL = 'https://canadiansurrogacyoptions.com';
 const GUIDE_LAST_MODIFIED = new Date('2026-06-01');
+const DEFAULT_CONTENT_DATE = new Date('2026-07-09');
+
+function validDate(value: string | undefined, fallback = DEFAULT_CONTENT_DATE) {
+  const date = value ? new Date(value) : fallback;
+  return Number.isNaN(date.getTime()) ? fallback : date;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
   const knowledgeEntries = getAllKnowledgeEntries();
 
   // Use the most recent blog post date for the blog index; stable dates for static pages
-  const latestPostDate = posts.length > 0 ? new Date(posts[0].date) : new Date('2026-05-01');
+  const latestPostDate = posts.length > 0 ? validDate(posts[0].date) : new Date('2026-05-01');
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: latestPostDate, changeFrequency: 'weekly', priority: 1 },
@@ -43,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
+    lastModified: validDate(post.date),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
@@ -52,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((entry) => entry.type === 'article')
     .map((entry) => ({
       url: `${BASE_URL}/knowledge-centre/${entry.slug}`,
-      lastModified: new Date(entry.lastReviewed || entry.date),
+      lastModified: validDate(entry.lastReviewed || entry.date),
       changeFrequency: 'monthly' as const,
       priority: 0.68,
     }));
