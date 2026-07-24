@@ -109,19 +109,10 @@ export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
             }}
           />
         ) : (
-          <svg
-            style={{ width: '64px', height: '64px', color: '#9ca3af' }}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 4.354a4 4 0 110 5.292M15 9H9m6 0a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+            <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#A78BCC', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+            <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#8B6BA3', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+          </div>
         )}
 
         {isFeatured && (
