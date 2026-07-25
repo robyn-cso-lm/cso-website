@@ -43,7 +43,7 @@ export default function GuidePageTemplate({
   const pathname = usePathname();
   const { title, price, badge, hero, included, forWho, outcomeBody, testimonial } = guide;
   const hasCheckout = Boolean(stripeLink && stripeLink !== '#');
-  const priceLabel = `Get the Guide - $${price}`;
+  const priceLabel = `Get the Guide - $${price} CAD`;
   const primaryHref = hasCheckout ? stripeLink : fallbackHref;
   const primaryLabel = hasCheckout ? `${priceLabel} ->` : fallbackLabel;
 
@@ -81,7 +81,9 @@ export default function GuidePageTemplate({
             {primaryLabel}
           </a>
           <p className={styles.heroSupport}>
-            {hasCheckout ? 'Secure Stripe checkout. Instant PDF delivery after purchase.' : fallbackNote}
+            {hasCheckout
+              ? "You'll complete your purchase securely via Stripe—instant PDF delivery to your inbox."
+              : fallbackNote}
           </p>
           <div className={styles.trustRow}>
             <span>Written by Robyn Price</span>

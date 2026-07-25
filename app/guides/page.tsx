@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const GUIDES = [
   {
     href: '/guides/canadian-surrogacy-roadmap',
-    price: '$97',
+    price: '$97 CAD',
     badge: 'Most comprehensive',
     title: 'The Canadian Surrogacy Roadmap',
     description:
@@ -30,7 +30,7 @@ const GUIDES = [
   },
   {
     href: '/guides/is-surrogacy-right',
-    price: '$27',
+    price: '$27 CAD',
     badge: 'Start here',
     title: 'Is Surrogacy Right For Me?',
     description:
@@ -40,7 +40,7 @@ const GUIDES = [
   },
   {
     href: '/guides/ip-profile-template',
-    price: '$47',
+    price: '$47 CAD',
     badge: 'Matching prep',
     title: 'IP Profile Template Pack',
     description:
@@ -102,7 +102,7 @@ export default function GuidesPage() {
       <section className={styles.upsell}>
         <div className={styles.inner}>
           <p className={styles.upsellEyebrow}>Not sure where to start?</p>
-          <h2 className={styles.upsellTitle}>Start with the $27 guide</h2>
+          <h2 className={styles.upsellTitle}>Start with the $27 CAD guide</h2>
           <p className={styles.upsellText}>
             If you are still figuring out whether surrogacy is realistic for your family, begin
             with the low-risk first step before moving up to the bigger guides.

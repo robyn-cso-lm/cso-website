@@ -32,7 +32,7 @@ function getStripeLinks() {
 export default function ProgramsPage() {
   const stripe = getStripeLinks();
   const hasSurrogateCheckout = stripe.surrogate !== '#';
-  const surrogatePrice = '$47';
+  const surrogatePrice = '$47 CAD';
   const surrogateHref = hasSurrogateCheckout ? stripe.surrogate : '/surrogates';
   const surrogateCta = hasSurrogateCheckout ? 'Get the Guide' : 'Get the Free Guide';
   const surrogateNote = hasSurrogateCheckout ? 'Instant download. PDF.' : 'Use code SURROGACY to get it free.';
@@ -208,7 +208,7 @@ export default function ProgramsPage() {
               <div className={styles.productIcon}>ðŸ“‹</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Is Surrogacy Right For Me?&rdquo;</h3>
-                <p className={styles.productPrice}>$27</p>
+                <p className={styles.productPrice}>$27 CAD</p>
               </div>
               <ul className={styles.productFeatures}>
                 <li>How Canadian surrogacy actually works</li>
@@ -227,7 +227,7 @@ export default function ProgramsPage() {
               <div className={styles.productIcon}>ðŸ—ºï¸</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;The Canadian Surrogacy Roadmap&rdquo;</h3>
-                <p className={styles.productPrice}>$97</p>
+                <p className={styles.productPrice}>$97 CAD</p>
               </div>
               <ul className={styles.productFeatures}>
                 <li>Full journey timeline with milestones</li>
@@ -245,7 +245,7 @@ export default function ProgramsPage() {
               <div className={styles.productIcon}>ðŸ§­</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Independent Journey Checklist&rdquo;</h3>
-                <p className={styles.productPrice}>$87</p>
+                <p className={styles.productPrice}>$87 CAD</p>
               </div>
               <ul className={styles.productFeatures}>
                 <li>Full independent journey checklist</li>
@@ -288,7 +288,7 @@ export default function ProgramsPage() {
               <div className={styles.productIcon}>âœ¨</div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;IP Profile Template Pack&rdquo;</h3>
-                <p className={styles.productPrice}>$47</p>
+                <p className={styles.productPrice}>$47 CAD</p>
               </div>
               <ul className={styles.productFeatures}>
                 <li>Professionally designed profile template</li>

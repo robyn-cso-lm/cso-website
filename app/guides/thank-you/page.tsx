@@ -90,15 +90,15 @@ export default function ThankYouPage({
           <div className={styles.guidesGrid}>
             <a href="/guides/is-surrogacy-right" className={styles.guideCard}>
               <p className={styles.guideTitle}>Is Surrogacy Right For Me?</p>
-              <p className={styles.guidePrice}>$27</p>
+              <p className={styles.guidePrice}>$27 CAD</p>
             </a>
             <a href="/guides/ip-profile-template" className={styles.guideCard}>
               <p className={styles.guideTitle}>IP Profile Template Pack</p>
-              <p className={styles.guidePrice}>$47</p>
+              <p className={styles.guidePrice}>$47 CAD</p>
             </a>
             <a href="/guides/surrogate-readiness" className={styles.guideCard}>
               <p className={styles.guideTitle}>Surrogate Readiness Guide</p>
-              <p className={styles.guidePrice}>$47</p>
+              <p className={styles.guidePrice}>$47 CAD</p>
             </a>
           </div>
         </div>
