@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
+import { subscribeAndTag } from '@/lib/mailchimp';
 import { sendIntendedParentLeadToZapier } from '@/lib/zapier';
 import { capturePortalLead } from '@/lib/portalLead';
 
@@ -155,58 +155,18 @@ export async function POST(req: NextRequest) {
       }),
     ];
 
-    const apiKey = process.env.MAILCHIMP_API_KEY;
-    const listId = process.env.MAILCHIMP_LIST_ID;
-
-    if (apiKey && listId) {
-      const dc = apiKey.split('-')[1];
-      const auth = Buffer.from(`anystring:${apiKey}`).toString('base64');
-
-      backgroundTasks.push((async () => {
-        const memberRes = await fetch(
-          `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members`,
-          {
-            method: 'POST',
-            headers: { Authorization: `Basic ${auth}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email_address: email,
-              status: 'subscribed',
-              merge_fields: { FNAME: firstName, PHONE: phone || '' },
-              tags: ['Contact Form', role],
-            }),
-          }
-        );
-
-        if (!memberRes.ok) {
-          let memberData: Record<string, unknown> = {};
-          try {
-            memberData = await memberRes.json();
-          } catch {
-            // Ignore non-JSON Mailchimp responses.
-          }
-
-          if (memberData.title === 'Member Exists') {
-            const hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
-            await fetch(
-              `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members/${hash}/tags`,
-              {
-                method: 'POST',
-                headers: { Authorization: `Basic ${auth}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  tags: [
-                    { name: 'Contact Form', status: 'active' },
-                    { name: role, status: 'active' },
-                  ],
-                }),
-              }
-            );
-          } else {
-            console.error('[contact] Mailchimp error:', memberData);
-          }
-        } else {
-          console.log('[contact] Mailchimp subscribe accepted.', { email, role, status: memberRes.status });
-        }
-      })());
+    if (process.env.MAILCHIMP_API_KEY && process.env.MAILCHIMP_LIST_ID) {
+      backgroundTasks.push(
+        subscribeAndTag({
+          email,
+          firstName,
+          mergeFields: { PHONE: phone || '' },
+          tags: ['Contact Form', role],
+          context: 'contact',
+        }).catch((err) => {
+          console.error('[contact] Mailchimp error:', err);
+        })
+      );
     }
 
     await Promise.allSettled(backgroundTasks);

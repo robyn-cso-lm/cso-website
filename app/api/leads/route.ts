@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
 import { sendIntendedParentLeadToZapier } from '@/lib/zapier';
+import { subscribeAndTag } from '@/lib/mailchimp';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -46,46 +47,20 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
-    const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
-    const listId = process.env.MAILCHIMP_LIST_ID;
-
-    if (!mailchimpApiKey || !listId) {
+    if (!process.env.MAILCHIMP_API_KEY || !process.env.MAILCHIMP_LIST_ID) {
       console.error('[leads] Missing Mailchimp env vars');
       return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 });
     }
 
-    const dc = mailchimpApiKey.split('-')[1];
-
-    const res = await fetch(
-      `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Basic ${Buffer.from(`anystring:${mailchimpApiKey}`).toString('base64')}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email_address: email,
-          status: 'subscribed',
-          merge_fields: {
-            FNAME: firstName,
-            MMERGE3: role,
-          },
-        }),
-      }
-    );
-
-    const data = await res.json();
-
-    if (!res.ok && data.title !== 'Member Exists') {
-      console.error('[leads] Mailchimp error:', data);
-      return NextResponse.json(
-        { error: data.detail || 'Failed to subscribe. Please try again.' },
-        { status: 400 }
-      );
-    }
-
-    console.log('[leads] Mailchimp accepted.', { email, role, status: res.status, memberExists: data.title === 'Member Exists' });
+    // This route previously applied no tags at all, so every /qualify quiz lead
+    // landed in the audience untagged and could not enter any journey.
+    await subscribeAndTag({
+      email,
+      firstName,
+      mergeFields: { MMERGE3: role },
+      tags: [role, 'Website Quiz'],
+      context: 'leads',
+    });
 
     const esc = (v: unknown) =>
       String(v ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

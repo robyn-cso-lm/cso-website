@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import crypto from 'crypto';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
+import { subscribeAndTag } from '@/lib/mailchimp';
 import { capturePortalLead } from '@/lib/portalLead';
 import { makeSignedDownloadUrl } from '@/lib/signedDownload';
 
@@ -33,66 +33,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
-    const apiKey = process.env.MAILCHIMP_API_KEY;
-    const listId = process.env.MAILCHIMP_LIST_ID;
-
-    if (!apiKey || !listId) {
+    if (!process.env.MAILCHIMP_API_KEY || !process.env.MAILCHIMP_LIST_ID) {
       return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 });
     }
 
-    const dc = apiKey.split('-')[1];
-    const auth = Buffer.from(`anystring:${apiKey}`).toString('base64');
-
     await Promise.allSettled([
-      (async () => {
-        const memberRes = await fetch(
-          `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members`,
-          {
-            method: 'POST',
-            headers: {
-              Authorization: `Basic ${auth}`,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              email_address: email,
-              status: 'subscribed',
-              merge_fields: { FNAME: firstName },
-              tags: ['Surrogate Lead', 'Surrogate Guide Download'],
-            }),
-          }
-        );
-
-        let memberData: Record<string, unknown> = {};
-        try {
-          memberData = await memberRes.json();
-        } catch {
-          // Ignore non-JSON Mailchimp responses.
-        }
-
-        if (!memberRes.ok && memberData.title === 'Member Exists') {
-          const hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
-          await fetch(
-            `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members/${hash}/tags`,
-            {
-              method: 'POST',
-              headers: {
-                Authorization: `Basic ${auth}`,
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                tags: [
-                  { name: 'Surrogate Lead', status: 'active' },
-                  { name: 'Surrogate Guide Download', status: 'active' },
-                ],
-              }),
-            }
-          );
-        } else if (!memberRes.ok) {
-          console.error('[surrogate-guide] Mailchimp error:', memberData);
-        } else {
-          console.log('[surrogate-guide] Mailchimp subscribe accepted.', { email, status: memberRes.status });
-        }
-      })(),
+      subscribeAndTag({
+        email,
+        firstName,
+        tags: ['Surrogate Lead', 'Surrogate Guide Download'],
+        context: 'surrogate-guide',
+      }).catch((err) => {
+        console.error('[surrogate-guide] Mailchimp error:', err);
+      }),
       sendMail(
         'robyn@canadiansurrogacyoptions.com',
         `New Surrogate Guide download - ${firstName}`,

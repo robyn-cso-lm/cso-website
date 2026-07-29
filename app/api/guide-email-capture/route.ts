@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyRecaptcha } from '@/lib/recaptcha';
 import { sendMail } from '@/lib/graphMail';
+import { subscribeAndTag } from '@/lib/mailchimp';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -54,10 +55,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
-    const listId = process.env.MAILCHIMP_LIST_ID;
-
-    if (!mailchimpApiKey || !listId) {
+    if (!process.env.MAILCHIMP_API_KEY || !process.env.MAILCHIMP_LIST_ID) {
       console.error('[guide-email-capture] Missing Mailchimp env vars');
       return NextResponse.json(
         { error: 'Server configuration error.' },
@@ -65,43 +63,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const dc = mailchimpApiKey.split('-')[1];
-
-    // Add or update subscriber in Mailchimp
-    const res = await fetch(
-      `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Basic ${Buffer.from(`anystring:${mailchimpApiKey}`).toString('base64')}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email_address: email,
-          status: 'subscribed',
-          merge_fields: {
-            FNAME: firstName || '',
-          },
-          tags: ['Guide Interest'],
-        }),
-      }
-    );
-
-    const data = await res.json();
-
-    if (!res.ok && data.title !== 'Member Exists') {
-      console.error('[guide-email-capture] Mailchimp error:', data);
-      return NextResponse.json(
-        { error: data.detail || 'Failed to subscribe. Please try again.' },
-        { status: 400 }
-      );
-    }
+    // Previously this route tagged inline on create and had no fallback, so an
+    // existing subscriber never picked up 'Guide Interest' at all.
+    await subscribeAndTag({
+      email,
+      firstName: firstName || undefined,
+      tags: ['Guide Interest'],
+      context: 'guide-email-capture',
+    });
 
     console.log('[guide-email-capture] Mailchimp accepted.', {
       email,
       guideName,
-      status: res.status,
-      memberExists: data.title === 'Member Exists',
     });
 
     // Send notification to Robyn
