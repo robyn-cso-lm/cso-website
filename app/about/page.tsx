@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ClinicStrip from '@/components/ClinicStrip';
+import Portrait from '@/components/Portrait';
 import styles from './about.module.css';
 
 export const metadata: Metadata = {
@@ -62,17 +63,22 @@ export default function AboutPage() {
       <section className={styles.robyn}>
         <div className={styles.robynInner}>
           <div className={styles.robynPhoto}>
-            <div className={styles.robynPhotoPlaceholder}>
-              <span>R</span>
-            </div>
+            {/* Drop Robyn's photograph at /public/images/team/robyn-price.jpg and
+                pass it as src. Until then this renders the lettered placeholder
+                in the same 220x280 box, so adding it shifts nothing. */}
+            <Portrait
+              name="Robyn Price"
+              alt="Robyn Price, Executive Director of Canadian Surrogacy Options"
+              variant="inset"
+            />
           </div>
           <div className={styles.robynText}>
             <p className={styles.eyebrowDark}>Executive Director</p>
             <h2 className={styles.robynTitle}>Robyn Price</h2>
             <blockquote className={styles.robynQuote}>
-              &ldquo;I grew up in this field. My mother founded this agency when I was four years old.
-              She spent years preparing me, trusting me, handing me the pieces of something she had
-              built from love.&rdquo;
+              &ldquo;I grew up in this field. My mother became Canada&rsquo;s first surrogate when I
+              was six, and made this agency official when I was ten. She spent years preparing me,
+              trusting me, handing me the pieces of something she had built from love.&rdquo;
             </blockquote>
             <p className={styles.body}>
               Robyn didn&rsquo;t choose surrogacy as a career. She was born into it. She spent

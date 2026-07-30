@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Portrait from '@/components/Portrait';
 
 export const metadata: Metadata = {
   title: 'Surrogacy Family Stories in Canada',
@@ -6,7 +7,23 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://canadiansurrogacyoptions.com/families' },
 };
 
-const stories = [
+type Story = {
+  names: string;
+  location: string;
+  label: string;
+  story: string;
+  /**
+   * Illustrated portrait under /public/images/portraits, in the same style as
+   * the portal's anonymized gallery portraits. Never a real photograph: these
+   * are real families. Cards stay text-only until this is set, so portraits
+   * can be added one at a time as the artwork is produced.
+   */
+  portrait?: string;
+  /** Alt text for the portrait. Describe the family, not the illustration. */
+  portraitAlt?: string;
+};
+
+const stories: Story[] = [
   {
     names: 'Tom',
     location: 'Ontario',
@@ -73,6 +90,7 @@ export default function FamiliesPage() {
         .intro-block blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; line-height: 1.8; color: #3D1A6E; flex: 1; min-width: 260px; margin: 0; }
         .stories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 28px; margin-top: 40px; }
         .story-card { background: #fff; border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 20px rgba(61,26,110,0.08); border-top: 4px solid #9B7FC7; }
+        .story-card .story-portrait { margin-bottom: 22px; }
         .story-card .story-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
         .story-card .story-label { background: #E8E0F5; color: #6B3FA0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 12px; border-radius: 20px; }
         .story-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #3D1A6E; margin-bottom: 4px; font-weight: 500; }
@@ -120,6 +138,14 @@ export default function FamiliesPage() {
             <div className="stories-grid reveal-stagger">
               {stories.map(s => (
                 <div key={s.names} className="story-card">
+                  {s.portrait && (
+                    <Portrait
+                      src={s.portrait}
+                      alt={s.portraitAlt ?? s.names}
+                      name={s.names}
+                      className="story-portrait"
+                    />
+                  )}
                   <div className="story-meta">
                     <span className="story-label">{s.label}</span>
                   </div>

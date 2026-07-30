@@ -255,10 +255,10 @@ export default function HomePage() {
       <section className={styles.robynSection}>
         <div className={`${styles.robynInner} reveal`}>
           <p className={styles.robynQuote}>
-            &ldquo;I grew up in this field. My mother founded Canadian Surrogacy Options in 1992,
-            when I was four years old. She started handing me the reins in 2014 and spent years
-            teaching me everything she knew. I stepped in fully in 2016, and I have carried her
-            work with everything I have ever since.&rdquo;
+            &ldquo;I grew up in this field. My mother became Canada&rsquo;s first surrogate in 1988,
+            when I was six, and made Canadian Surrogacy Options official in 1992. She started
+            handing me the reins in 2014 and spent years teaching me everything she knew. I stepped
+            in fully in 2016, and I have carried her work with everything I have ever since.&rdquo;
           </p>
           <p className={styles.robynBody}>
             If you are here, it is because you want to be parents, or because you want to help
