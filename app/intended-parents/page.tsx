@@ -17,25 +17,10 @@ export default function IntendedParentsPage() {
         .ip-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 80px 24px 64px; }
         .ip-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
         .ip-hero p { font-size: 1.2rem; max-width: 640px; margin: 0 auto 36px; opacity: 0.92; }
-        .trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 32px; font-size: 0.85rem; opacity: 0.85; letter-spacing: 0.05em; }
-        .trust-bar span::before { content: "· "; }
-        .btn { display: inline-block; background: #3D1A6E; color: #fff !important; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none !important; }
-        .btn:hover { background: #6B3FA0; }
         .btn-outline { display: inline-block; background: transparent; color: #3D1A6E !important; border: 2px solid #3D1A6E; padding: 14px 32px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: all 0.2s; text-decoration: none !important; }
         .btn-outline:hover { background: #3D1A6E; color: #fff !important; }
-        .btn-white { background: #fff; color: #3D1A6E !important; }
-        .btn-white:hover { background: #E8E0F5; }
-        .cta-center { text-align: center; margin: 36px 0; }
-        .section { max-width: 860px; margin: 0 auto; padding: 60px 24px; }
-        .section-dark { background: #3D1A6E; color: #fff; }
-        .section-dark .section { color: #fff; }
-        .section-lavender { background: #E8E0F5; }
         h2.ip-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.ip-h2 { color: #E8E0F5; }
-        .section-label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9B7FC7; margin-bottom: 10px; display: block; }
-        .section-dark .section-label { color: #C4ADEA; }
-        .divider { width: 60px; height: 4px; background: #9B7FC7; margin: 16px auto 32px; border-radius: 2px; }
-        .divider-left { margin-left: 0; }
         .urgency { background: #3D1A6E; color: #fff; padding: 32px; max-width: 820px; margin: 48px auto; border-radius: 12px; text-align: center; }
         .urgency p { font-size: 1.3rem; font-weight: 600; line-height: 1.5; margin-bottom: 20px; }
         .urgency small { font-size: 0.9rem; opacity: 0.8; display: block; }
@@ -80,13 +65,6 @@ export default function IntendedParentsPage() {
         .testimonial-card { background: linear-gradient(145deg, #f3eeff 0%, #e8e0f5 100%); border-radius: 16px; padding: 36px 32px; border-left: 4px solid #9B7FC7; box-shadow: 0 4px 20px rgba(61,26,110,0.07); }
         .testimonial-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: #3D1A6E; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
         .testimonial-card cite { font-size: 0.78rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-        .faq-list { margin-top: 32px; }
-        .faq-item { border-bottom: 1px solid #E8E0F5; padding: 20px 0; }
-        .faq-item h3 { font-size: 1.05rem; color: #3D1A6E; font-weight: 600; margin-bottom: 10px; }
-        .faq-item p { font-size: 0.95rem; color: #444; line-height: 1.7; }
-        .final-cta { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px; }
-        .final-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; margin-bottom: 16px; }
-        .final-cta p { font-size: 1.1rem; opacity: 0.9; max-width: 560px; margin: 0 auto 32px; }
         .refund-section { background: #111; color: #fff; padding: 80px 24px; }
         .refund-section-inner { max-width: 900px; margin: 0 auto; }
         .refund-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A84C; margin-bottom: 14px; display: block; }

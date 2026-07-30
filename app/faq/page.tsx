@@ -183,24 +183,14 @@ export default function FAQPage() {
         .faq-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px 56px; }
         .faq-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.15; margin-bottom: 18px; }
         .faq-hero p { font-size: 1.15rem; max-width: 580px; margin: 0 auto; opacity: 0.9; }
-        .btn { display: inline-block; background: #3D1A6E; color: #fff !important; padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 600; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none !important; }
-        .btn:hover { background: #6B3FA0; }
-        .btn-white { background: #fff; color: #3D1A6E !important; }
-        .btn-white:hover { background: #E8E0F5; }
         .faq-nav { background: #E8E0F5; padding: 20px 24px; }
         .faq-nav-inner { max-width: 860px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px 20px; }
         .faq-nav-inner a { font-size: 0.9rem; color: #3D1A6E; font-weight: 600; text-decoration: none; padding: 6px 16px; border-radius: 20px; background: #fff; border: 1px solid #c4adea; transition: background 0.2s; }
         .faq-nav-inner a:hover { background: #3D1A6E; color: #fff; }
         .faq-section { max-width: 860px; margin: 0 auto; padding: 52px 24px; border-bottom: 1px solid #E8E0F5; }
         .faq-section:last-child { border-bottom: none; }
-        .section-label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9B7FC7; margin-bottom: 10px; display: block; }
         h2.faq-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
-        .divider-left { width: 60px; height: 4px; background: #9B7FC7; margin: 16px 0 36px; border-radius: 2px; }
-        .faq-list { display: flex; flex-direction: column; gap: 0; }
-        .faq-item { border-bottom: 1px solid #E8E0F5; padding: 22px 0; }
         .faq-item:last-child { border-bottom: none; }
-        .faq-item h3 { font-size: 1.05rem; color: #3D1A6E; font-weight: 600; margin-bottom: 10px; line-height: 1.4; }
-        .faq-item p { font-size: 0.95rem; color: #444; line-height: 1.75; }
         .faq-cta { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 64px 24px; }
         .faq-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 500; margin-bottom: 14px; }
         .faq-cta p { font-size: 1.05rem; opacity: 0.9; max-width: 520px; margin: 0 auto 28px; }

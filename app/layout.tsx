@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Cormorant_Garamond, DM_Sans, Dancing_Script } from 'next/font/google';
 import './globals.css';
+import './design-system.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import Reveal from '@/components/Reveal';
 import StickyCTA from '@/components/StickyCTA';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 import ConversionTracking from '@/components/ConversionTracking';
@@ -137,6 +139,7 @@ export default function RootLayout({
         <StickyCTA />
         <ExitIntentPopup />
         <ConversionTracking />
+        <Reveal />
       </body>
     </html>
   );

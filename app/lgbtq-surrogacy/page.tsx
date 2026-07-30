@@ -17,25 +17,10 @@ export default function LGBTQSurrogacyPage() {
         .lgbtq-hero-inner { max-width: 820px; margin: 0 auto; }
         .lgbtq-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.2; margin-bottom: 20px; }
         .lgbtq-hero p { font-size: 1.15rem; max-width: 680px; opacity: 0.92; margin-bottom: 32px; }
-        .trust-bar { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 28px; font-size: 0.85rem; opacity: 0.85; letter-spacing: 0.05em; }
-        .trust-bar span::before { content: "· "; }
-        .btn { display: inline-block; background: #3D1A6E; color: #fff !important; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none !important; }
-        .btn:hover { background: #6B3FA0; }
-        .btn-white { background: #fff; color: #3D1A6E !important; }
-        .btn-white:hover { background: #E8E0F5; }
         .btn-outline { display: inline-block; background: transparent; color: #3D1A6E !important; border: 2px solid #3D1A6E; padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 600; transition: all 0.2s; text-decoration: none !important; }
         .btn-outline:hover { background: #3D1A6E; color: #fff !important; }
-        .cta-center { text-align: center; margin: 36px 0; }
-        .section { max-width: 860px; margin: 0 auto; padding: 60px 24px; }
-        .section-dark { background: #3D1A6E; color: #fff; }
-        .section-dark .section { color: #fff; }
-        .section-lavender { background: #E8E0F5; }
-        .section-label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9B7FC7; margin-bottom: 10px; display: block; }
-        .section-dark .section-label { color: #C4ADEA; }
         h2.lgbtq-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.8vw, 2.7rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.lgbtq-h2 { color: #E8E0F5; }
-        .divider { width: 60px; height: 4px; background: #9B7FC7; margin: 16px auto 32px; border-radius: 2px; }
-        .divider-left { margin-left: 0; }
         .reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 32px; }
         .reason-card { background: #fff; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(61,26,110,0.07); border-left: 4px solid #9B7FC7; }
         .reason-card h3 { font-size: 1rem; color: #3D1A6E; font-weight: 600; margin-bottom: 8px; }
@@ -58,9 +43,6 @@ export default function LGBTQSurrogacyPage() {
         .testimonial-block { background: linear-gradient(145deg, #f3eeff 0%, #e8e0f5 100%); border-radius: 16px; padding: 48px 40px; border-left: 5px solid #6B3FA0; max-width: 700px; margin: 40px auto 0; }
         .testimonial-block p { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin-bottom: 20px; }
         .testimonial-block cite { font-size: 0.8rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-        .final-cta { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px; }
-        .final-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; margin-bottom: 16px; }
-        .final-cta p { font-size: 1.1rem; opacity: 0.9; max-width: 560px; margin: 0 auto 32px; }
         @media (max-width: 600px) { .lgbtq-hero { padding: 56px 20px 48px; } }
       `}</style>
 
@@ -72,7 +54,7 @@ export default function LGBTQSurrogacyPage() {
             <h1>Canada Is One of the Best Places in the World for LGBTQ+ Families to Build Through Surrogacy.</h1>
             <p>Altruistic surrogacy. Inclusive family law. Clear legal protections for all parents. Canada doesn&apos;t just tolerate LGBTQ+ families. It protects them.</p>
             <a href="/contact" className="btn btn-white">Book a Free Consultation</a>
-            <div className="trust-bar">
+            <div className="trust-bar trust-bar-left">
               <span>More Than Half Our Families Are LGBTQ+</span>
               <span>Pre-Birth Orders Available</span>
               <span>Both Parents on Birth Certificate</span>

@@ -65,17 +65,8 @@ export default function ResourcesPage() {
         .res-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 80px 24px 64px; }
         .res-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
         .res-hero p { font-size: 1.2rem; max-width: 620px; margin: 0 auto; opacity: 0.92; }
-        .btn { display: inline-block; background: #3D1A6E; color: #fff !important; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none !important; }
-        .btn:hover { background: #6B3FA0; }
-        .btn-white { background: #fff; color: #3D1A6E !important; }
-        .btn-white:hover { background: #E8E0F5; }
         .btn-sm { padding: 12px 28px; font-size: 0.95rem; }
-        .section { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
-        .section-lavender { background: #E8E0F5; }
-        .section-label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9B7FC7; margin-bottom: 10px; display: block; }
         h2.res-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
-        .divider { width: 60px; height: 4px; background: #9B7FC7; margin: 16px auto 32px; border-radius: 2px; }
-        .divider-left { margin-left: 0; }
         .intro-block { background: linear-gradient(145deg, #f3eeff, #e8e0f5); border-radius: 16px; padding: 40px; max-width: 780px; margin: 0 auto; }
         .intro-block blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin: 0 0 12px; }
         .intro-block cite { font-size: 0.82rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -95,9 +86,6 @@ export default function ResourcesPage() {
         .testimonial-block { background: linear-gradient(145deg, #f3eeff, #e8e0f5); border-radius: 16px; padding: 40px; max-width: 680px; margin: 48px auto 0; border-left: 5px solid #9B7FC7; }
         .testimonial-block p { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin-bottom: 16px; }
         .testimonial-block cite { font-size: 0.78rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-        .final-cta { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 64px 24px; }
-        .final-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 500; margin-bottom: 14px; }
-        .final-cta p { font-size: 1.05rem; opacity: 0.9; max-width: 500px; margin: 0 auto 28px; }
         @media (max-width: 600px) { .res-hero { padding: 56px 20px 48px; } .helper-block { padding: 36px 24px; } }
       `}</style>
 
