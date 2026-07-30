@@ -18,6 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${author.name} | CSO Knowledge Centre`,
     description: `${author.name}, ${author.role} at ${author.organization}.`,
+    alternates: {
+      canonical: `https://canadiansurrogacyoptions.com/knowledge-centre/authors/${author.slug}`,
+    },
   };
 }
 

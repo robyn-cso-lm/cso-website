@@ -6,6 +6,9 @@ import styles from '../knowledge.module.css';
 export const metadata: Metadata = {
   title: 'News | CSO Knowledge Centre',
   description: 'CSO news and announcements, separate from blogs and Knowledge Centre articles.',
+  alternates: {
+    canonical: 'https://canadiansurrogacyoptions.com/knowledge-centre/news',
+  },
 };
 
 export default function NewsPage() {
