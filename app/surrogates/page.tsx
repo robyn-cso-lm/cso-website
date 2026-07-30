@@ -17,8 +17,6 @@ export default function SurrogatesPage() {
         .sur-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px 60px; }
         .sur-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 18px; }
         .sur-hero p { font-size: 1.2rem; max-width: 620px; margin: 0 auto 32px; opacity: 0.92; }
-        .trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 32px; font-size: 0.85rem; opacity: 0.85; letter-spacing: 0.05em; }
-        .trust-bar span::before { content: "· "; }
         .trust-clarity { max-width: 900px; margin: 42px auto 12px; padding: 0 24px; }
         .trust-clarity-card { background: linear-gradient(135deg, rgba(232,224,245,0.78) 0%, rgba(255,255,255,0.98) 100%); border: 1px solid rgba(155,127,199,0.25); border-radius: 18px; padding: 28px 26px; box-shadow: 0 8px 28px rgba(61,26,110,0.06); }
         .trust-clarity-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #3D1A6E; margin-bottom: 10px; line-height: 1.12; }
@@ -28,17 +26,8 @@ export default function SurrogatesPage() {
         .trust-clarity-note { font-family: var(--font-dm-sans), sans-serif; font-size: 0.98rem; color: #6B3FA0; font-weight: 700; margin-top: 10px; margin-bottom: 0; }
         .urgency { background: #E8E0F5; border-left: 5px solid #3D1A6E; padding: 24px 32px; max-width: 780px; margin: 48px auto; border-radius: 6px; text-align: center; }
         .urgency p { font-size: 1.25rem; color: #3D1A6E; font-weight: 600; line-height: 1.5; }
-        .btn { display: inline-block; background: #3D1A6E; color: #fff !important; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none !important; }
-        .btn:hover { background: #6B3FA0; }
-        .cta-center { text-align: center; margin: 36px 0; }
-        .section { max-width: 820px; margin: 0 auto; padding: 56px 24px; }
-        .section-dark { background: #3D1A6E; color: #fff; }
-        .section-dark .section { color: #fff; }
-        .section-lavender { background: #E8E0F5; }
         h2.sur-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.sur-h2 { color: #E8E0F5; }
-        .section-label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9B7FC7; margin-bottom: 10px; display: block; }
-        .section-dark .section-label { color: #C4ADEA; }
         .founder-block { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
         .founder-text { flex: 1; min-width: 260px; }
         .founder-text blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; font-style: italic; line-height: 1.8; color: #fff; margin-bottom: 16px; }
@@ -69,8 +58,6 @@ export default function SurrogatesPage() {
         .contact-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 28px; }
         .contact-row a { background: #fff; color: #3D1A6E !important; border: 2px solid #3D1A6E; padding: 12px 28px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; text-decoration: none !important; }
         .contact-row a:hover { background: #E8E0F5; }
-        .divider { width: 60px; height: 4px; background: #9B7FC7; margin: 16px auto 32px; border-radius: 2px; }
-        .divider-left { margin-left: 0; }
         .money-card { background: linear-gradient(145deg, #ffffff 0%, #f3eeff 100%); border: 1px solid rgba(155,127,199,0.25); border-radius: 18px; padding: 32px 30px; box-shadow: 0 8px 28px rgba(61,26,110,0.06); margin-top: 24px; }
         .money-card p { margin-bottom: 14px; }
         .money-card p:last-child { margin-bottom: 0; }
@@ -80,10 +67,6 @@ export default function SurrogatesPage() {
         .honest-note { background: #E8E0F5; border-left: 5px solid #6B3FA0; padding: 20px 26px; border-radius: 6px; margin-top: 28px; font-size: 0.98rem; color: #3D1A6E; line-height: 1.8; }
         .match-story { background: linear-gradient(145deg, #f3eeff 0%, #E8E0F5 100%); border-radius: 16px; padding: 26px 28px; margin-top: 18px; font-size: 1rem; color: #3D1A6E; line-height: 1.85; }
         .match-story strong { color: #3D1A6E; }
-        .faq-list { margin-top: 28px; }
-        .faq-item { border-bottom: 1px solid #E8E0F5; padding: 22px 0; }
-        .faq-item h3 { font-size: 1.05rem; color: #3D1A6E; margin-bottom: 8px; }
-        .faq-item p { font-size: 0.96rem; color: #4A3560; line-height: 1.8; }
         .closing-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; line-height: 1.75; max-width: 640px; margin: 0 auto 28px; }
         @media (max-width: 600px) { .sur-hero { padding: 52px 20px 44px; } .urgency { padding: 20px 20px; } }
       `}</style>

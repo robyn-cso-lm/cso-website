@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  images: {
+    // Serve portraits and photography as AVIF/WebP rather than the source PNG.
+    // /public/images/blog/finding-the-right-surrogate.png is 1.2 MB today.
+    formats: ['image/avif', 'image/webp'],
+  },
   experimental: {
     mdxRs: false,
     outputFileTracingIncludes: {

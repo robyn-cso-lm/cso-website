@@ -115,7 +115,7 @@ export default function HomePage() {
           <h2 className={styles.pathsHeading}>
             We&rsquo;re here for both sides<br />of this equation.
           </h2>
-          <div className={styles.pathsGrid}>
+          <div className={`${styles.pathsGrid} reveal-stagger`}>
             <div className={`${styles.pathCard} ${styles.pathCardFeatured}`}>
               <div className={styles.pathNum}>01</div>
               <h3 className={styles.pathTitle}>Intended Parents</h3>
@@ -148,7 +148,7 @@ export default function HomePage() {
       <section className={styles.whyCso}>
         <div className={styles.whyCsoInner}>
           <p className={styles.whyCsoEyebrow}>Why Canadian Surrogacy Options</p>
-          <div className={styles.whyCsoGrid}>
+          <div className={`${styles.whyCsoGrid} reveal-stagger`}>
             {[
               "Canada's first surrogacy agency · Founded 1992",
               "2,500+ families built",
@@ -198,7 +198,7 @@ export default function HomePage() {
       {/* Refund Feature */}
       <section className={styles.refundFeature}>
         <div className={styles.refundFeatureInner}>
-          <div className={styles.refundFeatureLeft}>
+          <div className={`${styles.refundFeatureLeft} reveal`}>
             <div className={styles.refundFeatureBadge}>
               <span className={styles.refundFeatureBadgeDot} />
               <span className={styles.refundFeatureBadgeText}>Now public</span>
@@ -216,7 +216,7 @@ export default function HomePage() {
               Read Our Full Refund Policy
             </Link>
           </div>
-          <div className={styles.refundFeatureRight}>
+          <div className={`${styles.refundFeatureRight} reveal-stagger`}>
             <div className={styles.refundPhasePill}>
               <div className={styles.pillNum}>01</div>
               <div className={styles.pillContent}>
@@ -253,10 +253,12 @@ export default function HomePage() {
 
       {/* Robyn */}
       <section className={styles.robynSection}>
-        <div className={styles.robynInner}>
+        <div className={`${styles.robynInner} reveal`}>
           <p className={styles.robynQuote}>
-            &ldquo;I grew up in this field. My mother founded Canadian Surrogacy Options in 1992.
-            I took over after she passed in 2019, and I have continued her work with everything I have.&rdquo;
+            &ldquo;I grew up in this field. My mother became Canada&rsquo;s first surrogate in 1988,
+            when I was six, and made Canadian Surrogacy Options official in 1992. She started
+            handing me the reins in 2014 and spent years teaching me everything she knew. I stepped
+            in fully in 2016, and I have carried her work with everything I have ever since.&rdquo;
           </p>
           <p className={styles.robynBody}>
             If you are here, it is because you want to be parents, or because you want to help

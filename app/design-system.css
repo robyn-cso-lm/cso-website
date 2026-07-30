@@ -1,0 +1,219 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   CSO shared design system
+
+   These primitives used to be copy-pasted into an inline <style> block on
+   every content page, which is how .btn ended up with 14px padding on /faq
+   and 16px everywhere else, and how .section drifted across four different
+   max-widths. One definition per primitive now lives here.
+
+   Page-specific styling still belongs in that page's own <style> block.
+   Anything reused on three or more pages belongs in this file.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ── Buttons ── */
+.btn {
+  display: inline-block;
+  background: var(--deep-purple);
+  color: #fff !important;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+  text-decoration: none !important;
+}
+
+.btn:hover {
+  background: var(--mid-purple);
+}
+
+.btn-white {
+  background: #fff;
+  color: var(--deep-purple) !important;
+}
+
+.btn-white:hover {
+  background: var(--lavender-light);
+}
+
+.cta-center {
+  text-align: center;
+  margin: 36px 0;
+}
+
+/* ── Section shells ── */
+.section {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.section-lavender {
+  background: var(--lavender-light);
+}
+
+.section-dark {
+  background: var(--deep-purple);
+  color: #fff;
+}
+
+.section-dark .section {
+  color: #fff;
+}
+
+.section-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.section-dark .section-label {
+  color: #C4ADEA;
+}
+
+/* ── Divider ──
+   .divider-left carries the full definition so it works standalone (as on
+   /faq) as well as combined with .divider (as everywhere else). */
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--lavender);
+  margin: 16px auto 32px;
+  border-radius: 2px;
+}
+
+.divider-left {
+  width: 60px;
+  height: 4px;
+  background: var(--lavender);
+  margin: 16px 0 32px;
+  border-radius: 2px;
+}
+
+/* ── Trust bar ──
+   Centred by default. Use .trust-bar-left inside a left-aligned hero
+   (as on /lgbtq-surrogacy) so the bar stays flush with the headline. */
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  margin-top: 32px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.trust-bar-left {
+  justify-content: flex-start;
+}
+
+.trust-bar span::before {
+  /* Literal middot + space. A "\00b7 " escape would swallow the trailing
+     space as the escape terminator and run the separator into the label. */
+  content: "· ";
+}
+
+/* ── FAQ list ── */
+.faq-list {
+  margin-top: 32px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--lavender-light);
+  padding: 22px 0;
+}
+
+.faq-item h3 {
+  font-size: 1.05rem;
+  color: var(--deep-purple);
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.faq-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── Final CTA ── */
+.final-cta {
+  background: linear-gradient(135deg, var(--deep-purple) 0%, var(--mid-purple) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 72px 24px;
+}
+
+.final-cta h2 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.final-cta p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Scroll reveal
+
+   Driven by components/Reveal.tsx. The .reveal class only takes effect once
+   JS marks the document with data-reveal="on", so with JS disabled every
+   element renders in its final visible state rather than staying invisible.
+   ───────────────────────────────────────────────────────────────────────── */
+
+[data-reveal='on'] .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: opacity, transform;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+[data-reveal='on'] .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered children, for stat strips and card grids. */
+[data-reveal='on'] .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+[data-reveal='on'] .reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal='on'] .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+[data-reveal='on'] .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+[data-reveal='on'] .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+[data-reveal='on'] .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+[data-reveal='on'] .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+[data-reveal='on'] .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 400ms; }
+[data-reveal='on'] .reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 480ms; }
+[data-reveal='on'] .reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 560ms; }
+
+/* Nobody gets motion they did not ask for. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal='on'] .reveal,
+  [data-reveal='on'] .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
