@@ -5,7 +5,11 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getPostBySlug, getAllPosts, getRelatedPosts } from '@/lib/mdx';
 import LeadCapture from '@/components/LeadCapture';
 import ContactForm from '@/components/ContactForm';
+import ReviewCards from '@/components/ReviewCards';
 import styles from './post.module.css';
+
+/** Components blog posts may use directly in their MDX. */
+const mdxComponents = { ReviewCards };
 
 interface Props {
   params: { slug: string };
@@ -130,7 +134,7 @@ export default function BlogPostPage({ params }: Props) {
       <section className={styles.contentSection}>
         <div className={styles.contentInner}>
           <article className={styles.prose}>
-            <MDXRemote source={post.content} />
+            <MDXRemote source={post.content} components={mdxComponents} />
           </article>
 
           {/* CTA Block */}
