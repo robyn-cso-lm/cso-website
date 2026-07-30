@@ -135,7 +135,7 @@ const sections = [
     questions: [
       {
         q: 'How long has CSO been operating?',
-        a: 'Since 1992. CSO was founded by Joanne Price, Canada\'s first surrogate, after her own surrogacy experience. Her daughter Robyn now leads the organization. Over 34 years, we\'ve supported more than 2,500 families.',
+        a: 'Since 1992. CSO was founded by Joanne Wright, Canada\'s first surrogate, after her own surrogacy experience. Her daughter Robyn now leads the organization. Over 34 years, we\'ve supported more than 2,500 families.',
       },
       {
         q: 'What does the CSO agency fee cover?',
