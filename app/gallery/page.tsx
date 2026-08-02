@@ -30,7 +30,7 @@ export default function GalleryPage() {
               marginBottom: '16px',
             }}
           >
-            Surrogate <span style={{ color: '#C8973A' }}>Connection</span> Gallery
+            Surrogate <span style={{ color: '#FFFCF8' }}>Connection</span> Gallery
           </h1>
           <p
             style={{
@@ -88,7 +88,7 @@ export default function GalleryPage() {
             href="https://portal.canadiansurrogacyoptions.com"
             style={{
               display: 'inline-block',
-              background: '#C8973A',
+              background: '#FFFCF8',
               color: '#3D1A6E',
               fontFamily: "'DM Sans', sans-serif",
               fontSize: '15px',
@@ -108,7 +108,7 @@ export default function GalleryPage() {
 
 const badgeStyle: React.CSSProperties = {
   display: 'inline-block',
-  background: '#C8973A',
+  background: '#FFFCF8',
   color: '#3D1A6E',
   padding: '8px 16px',
   borderRadius: '8px',
