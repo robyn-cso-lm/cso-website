@@ -65,6 +65,11 @@ export default function KnowledgeCentrePage({
             A growing library for surrogacy education, recovered historical resources, guides,
             FAQs, research, and news from Canadian Surrogacy Options.
           </p>
+          <Link href="/knowledge-centre/surrogacy-dictionary" className={styles.navCard}>
+            <span className={styles.badge}>Start here</span>
+            <h2 className={styles.cardTitle}>The Canadian Surrogacy Dictionary</h2>
+            <p className={styles.cardText}>The plain-language guide to the terms you will hear along the way.</p>
+          </Link>
         </div>
       </section>
 
