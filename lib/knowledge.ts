@@ -226,10 +226,13 @@ export function getAllKnowledgeEntries(options: { includeDrafts?: boolean } = {}
     return date ? new Date(date).getTime() : Infinity;
   };
   return visibleEntries.sort((a, b) => {
+    if (a.featuredArticle !== b.featuredArticle) {
+      return a.featuredArticle ? -1 : 1;
+    }
     const aTime = entryTime(a);
     const bTime = entryTime(b);
     if (bTime !== aTime) return bTime - aTime;
-    return Number(b.featuredArticle) - Number(a.featuredArticle);
+    return 0;
   });
 }
 

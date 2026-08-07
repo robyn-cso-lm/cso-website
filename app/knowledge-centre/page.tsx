@@ -11,6 +11,29 @@ import {
 } from '@/lib/knowledge';
 import styles from './knowledge.module.css';
 
+const START_HERE_GUIDES = [
+  {
+    href: '/knowledge-centre/starting-a-surrogacy-journey-canada',
+    title: 'What You Should Know Before Starting a Surrogacy Journey in Canada',
+    description: 'The practical first guide to the medical, legal, financial, emotional, and relationship considerations ahead.',
+  },
+  {
+    href: '/knowledge-centre/surrogacy-dictionary',
+    title: 'The Canadian Surrogacy Dictionary',
+    description: 'Plain-language definitions for the terms you will hear throughout a surrogacy journey.',
+  },
+  {
+    href: '/knowledge-centre/becoming-a-surrogate-in-canada',
+    title: 'Becoming a Surrogate in Canada',
+    description: 'An introduction for women who are exploring whether surrogacy could be right for them.',
+  },
+  {
+    href: '/knowledge-centre/egg-donation-in-canada',
+    title: 'Egg Donation in Canada',
+    description: 'An overview of the donor-egg process and the Canadian context for intended parents and donors.',
+  },
+];
+
 export const metadata: Metadata = {
   title: 'Knowledge Centre | Canadian Surrogacy Options',
   description: 'CSO resources for surrogacy, egg donation, legal questions, costs, international families, surrogates, intended parents, downloads, FAQs, news, and research.',
@@ -65,11 +88,28 @@ export default function KnowledgeCentrePage({
             A growing library for surrogacy education, recovered historical resources, guides,
             FAQs, research, and news from Canadian Surrogacy Options.
           </p>
-          <Link href="/knowledge-centre/surrogacy-dictionary" className={styles.navCard}>
-            <span className={styles.badge}>Start here</span>
-            <h2 className={styles.cardTitle}>The Canadian Surrogacy Dictionary</h2>
-            <p className={styles.cardText}>The plain-language guide to the terms you will hear along the way.</p>
+          <Link href="/knowledge-centre/starting-a-surrogacy-journey-canada" className={styles.navCard}>
+            <span className={styles.badge}>Featured guide</span>
+            <h2 className={styles.cardTitle}>What You Should Know Before Starting a Surrogacy Journey in Canada</h2>
+            <p className={styles.cardText}>A practical first guide for intended parents, surrogates, and anyone exploring surrogacy in Canada.</p>
           </Link>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.inner}>
+          <p className={styles.eyebrow}>New to surrogacy?</p>
+          <h2 className={styles.resultsTitle}>Start Here</h2>
+          <p className={styles.subtitle}>A clear learning path for your first questions about surrogacy in Canada.</p>
+          <div className={styles.cardGrid} style={{ marginTop: 20 }}>
+            {START_HERE_GUIDES.map((guide) => (
+              <Link key={guide.href} href={guide.href} className={styles.card}>
+                <span className={styles.badge}>Start here</span>
+                <h3 className={styles.cardTitle}>{guide.title}</h3>
+                <p className={styles.cardText}>{guide.description}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
