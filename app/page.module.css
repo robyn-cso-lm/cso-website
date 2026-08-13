@@ -223,14 +223,14 @@
 
 .pathsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
 .pathCard {
   border: 1px solid #E2DAF0;
   border-radius: 4px;
-  padding: 40px 36px;
+  padding: 40px 30px;
   position: relative;
   transition: box-shadow 0.25s, transform 0.25s;
 }
