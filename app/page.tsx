@@ -113,7 +113,7 @@ export default function HomePage() {
         <div className={styles.pathsInner}>
           <p className={styles.pathsEyebrow}>Where are you in your journey?</p>
           <h2 className={styles.pathsHeading}>
-            We&rsquo;re here for both sides<br />of this equation.
+            However you&rsquo;re helping build a family,<br />we&rsquo;re here for you.
           </h2>
           <div className={`${styles.pathsGrid} reveal-stagger`}>
             <div className={`${styles.pathCard} ${styles.pathCardFeatured}`}>
@@ -139,6 +139,21 @@ export default function HomePage() {
               <Link href="/surrogates" className={styles.btnPath}>
                 Learn More &rarr;
               </Link>
+            </div>
+            <div className={styles.pathCard}>
+              <div className={styles.pathNum}>03</div>
+              <h3 className={styles.pathTitle}>Become an Egg Donor</h3>
+              <p className={styles.pathBody}>
+                Little Miracles is welcoming new and returning egg donors. Start a secure
+                profile, learn what the process looks like now, or come back and finish an
+                application you already began. Our team will support you personally.
+              </p>
+              <a
+                href="https://portal.canadiansurrogacyoptions.com/donor/register"
+                className={styles.btnPath}
+              >
+                Start or Return to My Profile &rarr;
+              </a>
             </div>
           </div>
         </div>
