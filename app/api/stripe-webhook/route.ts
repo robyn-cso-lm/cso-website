@@ -192,7 +192,7 @@ export async function POST(req: NextRequest) {
           } catch (mailErr) {
             console.error('[stripe-webhook] Failed to send admin alert:', mailErr);
           }
-          continue;
+          throw new Error(`Unknown Stripe price ID: ${priceId}`);
         }
 
         const html = buildDeliveryEmail(customerName, product.name, makeSignedDownloadUrl(product.guideKey));
@@ -240,7 +240,12 @@ export async function POST(req: NextRequest) {
       }
     } catch (err: unknown) {
       console.error('[stripe-webhook] Error processing session:', err);
-      // Return 200 so Stripe doesn't retry — error logged for investigation
+      // Tell Stripe the delivery failed so it retries the webhook instead of
+      // permanently acknowledging a purchase whose guide was not delivered.
+      return NextResponse.json(
+        { error: 'Guide delivery failed. Stripe should retry this event.' },
+        { status: 500 }
+      );
     }
   }
 
