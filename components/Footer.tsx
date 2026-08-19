@@ -129,7 +129,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Canadian Surrogacy Options. All rights reserved.
           </p>
           <p className={styles.legal}>
-            Canada&rsquo;s first surrogacy agency, founded 1992.
+            <Link href="/privacy">Privacy</Link> &nbsp;·&nbsp; <Link href="/terms">Terms</Link> &nbsp;·&nbsp; <Link href="/data-deletion">Data deletion</Link>
           </p>
         </div>
       </div>
