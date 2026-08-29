@@ -13,6 +13,8 @@ interface Props {
  * Search / Discover / AI Overviews. This is a plain link we built ourselves
  * (not Google's hosted widget script), so its text, icon, colors, and
  * placement can be freely restyled — just edit this component and its CSS.
+ * Styled to match the site's standard CTA pill (lavender-light on deep
+ * purple, e.g. the blog post "Book Now" button).
  */
 export default function PreferredSourceButton({ className = '', label = 'Prefer us on Google' }: Props) {
   return (

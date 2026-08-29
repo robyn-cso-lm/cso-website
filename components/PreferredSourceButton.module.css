@@ -1,24 +1,26 @@
 /*
- * Default look: a translucent pill meant for dark/purple backgrounds
- * (footer, blog hero sections). Pass a className to override colors,
- * spacing, or layout on a per-page basis.
+ * Matches the site's standard CTA pill used on dark/purple sections
+ * (e.g. .ctaBtn in app/blog/[slug]/post.module.css, .btnCtaPrimary in
+ * app/page.module.css): lavender-light pill, deep-purple text, lifts
+ * to solid white on hover. Pass a className to override on a per-page basis.
  */
 .button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 13px;
-  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: var(--lavender-light);
+  color: var(--deep-purple);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, transform 0.15s;
   width: fit-content;
 }
 
 .button:hover {
   background: #fff;
-  color: var(--text);
+  transform: translateY(-2px);
 }
