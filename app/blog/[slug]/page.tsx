@@ -6,6 +6,7 @@ import { getPostBySlug, getAllPosts, getRelatedPosts } from '@/lib/mdx';
 import LeadCapture from '@/components/LeadCapture';
 import ContactForm from '@/components/ContactForm';
 import ReviewCards from '@/components/ReviewCards';
+import PreferredSourceButton from '@/components/PreferredSourceButton';
 import styles from './post.module.css';
 
 /** Components blog posts may use directly in their MDX. */
@@ -127,6 +128,7 @@ export default function BlogPostPage({ params }: Props) {
             <span className={styles.metaDivider}>&middot;</span>
             <time className={styles.date} dateTime={post.date}>{formatDate(post.date)}</time>
           </div>
+          <PreferredSourceButton className={styles.preferredSource} />
         </div>
       </section>
 

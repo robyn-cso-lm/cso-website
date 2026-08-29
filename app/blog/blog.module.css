@@ -35,6 +35,10 @@
   line-height: 1.75;
 }
 
+.heroPreferredSource {
+  margin: 28px auto 0;
+}
+
 /* ── Filter ── */
 .filterSection {
   background: var(--cream);

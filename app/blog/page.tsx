@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts, CATEGORIES } from '@/lib/mdx';
+import PreferredSourceButton from '@/components/PreferredSourceButton';
 import styles from './blog.module.css';
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default async function BlogPage({
             Whether you&rsquo;re just beginning to explore or deep in your journey, you&rsquo;ll find
             something here for you.
           </p>
+          <PreferredSourceButton className={styles.heroPreferredSource} />
         </div>
       </section>
 
