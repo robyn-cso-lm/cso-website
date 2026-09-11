@@ -30,3 +30,10 @@ For each completed change, append:
 - What changed: Fixed the featured guide card overlapping the Knowledge Centre introduction by making the hero card a block element and adding dedicated top spacing.
 - How it was verified: Confirmed the fix is scoped to the featured card inside the Knowledge Centre hero. Production rendering was checked at desktop width after deployment.
 - Follow-up or intentionally deferred work: None.
+
+## 2026-09-11
+
+- Scope: Knowledge Centre cross-listing
+- What changed: Added "Real Stories" as a Knowledge Centre category and cross-listed "If You've Survived Even One of These, I Need You to Hear This." The Knowledge Centre card points to the original blog article so the full story has one canonical home.
+- How it was verified: Confirmed the new category, story card, and direct blog destination on the live Knowledge Centre after deployment.
+- Follow-up or intentionally deferred work: None.
