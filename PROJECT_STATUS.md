@@ -23,3 +23,10 @@ For each completed change, append:
 - What changed: Published Robyn Price's personal resilience story, "If You've Survived Even One of These, I Need You to Hear This," in `content/blog/if-youve-survived-even-one-of-these.mdx`.
 - How it was verified: Confirmed the required MDX frontmatter, unique slug, supported "Real Stories" category, publication date, Calendly close, and absence of em dashes.
 - Follow-up or intentionally deferred work: Netlify production deployment is automatic from `main`; no custom hero image was added, so the site-wide Open Graph image is used.
+
+## 2026-09-11
+
+- Scope: Knowledge Centre hero layout
+- What changed: Fixed the featured guide card overlapping the Knowledge Centre introduction by making the hero card a block element and adding dedicated top spacing.
+- How it was verified: Confirmed the fix is scoped to the featured card inside the Knowledge Centre hero. Production rendering was checked at desktop width after deployment.
+- Follow-up or intentionally deferred work: None.
