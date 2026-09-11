@@ -93,6 +93,7 @@ export const KNOWLEDGE_CATEGORIES = [
   'International Families',
   'Surrogates',
   'Intended Parents',
+  'Real Stories',
   'Research',
   'News',
   'Downloads',
@@ -240,7 +241,8 @@ export function getKnowledgeEntryBySlug(slug: string, options: { includeDrafts?:
   return getAllKnowledgeEntries(options).find((entry) => entry.slug === slug) || null;
 }
 
-export function getKnowledgeEntryHref(entry: Pick<KnowledgeEntry, 'type' | 'slug'>) {
+export function getKnowledgeEntryHref(entry: Pick<KnowledgeEntry, 'type' | 'slug' | 'sourceUrl'>) {
+  if (entry.sourceUrl?.startsWith('/')) return entry.sourceUrl;
   if (entry.type === 'download') return '/knowledge-centre/downloads';
   if (entry.type === 'faq') return '/knowledge-centre/faqs';
   if (entry.type === 'news') return '/knowledge-centre/news';
