@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CSO cost quiz ad creative</title>
+<!-- Render: open with #feed (1080x1350) or #square (1080x1080). See docs/ads/README.md -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --deep:#3D1A6E; --mid:#6B3FA0; --lav:#9B7FC7; --lav-lt:#E8E0F5; --cream:#FDFAF7; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; background: var(--deep); }
+  body { font-family: 'DM Sans', sans-serif; }
+  .ad {
+    position: relative; width: 1080px; height: 1350px; overflow: hidden;
+    background:
+      radial-gradient(ellipse at 62% 18%, rgba(107,63,160,.55) 0%, transparent 62%),
+      radial-gradient(ellipse at 12% 95%, rgba(155,127,199,.30) 0%, transparent 58%),
+      var(--deep);
+    color: #fff; padding: 72px 84px 56px; display: flex; flex-direction: column;
+  }
+  .sq .ad { height: 1080px; padding: 64px 76px 56px; }
+
+  .eyebrow { font-size: 24px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: #C4ADEA; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 104px; line-height: 1.02; margin: 20px 0 4px; }
+  h1 em { font-style: italic; color: var(--lav); }
+  .sq h1 { font-size: 80px; margin-top: 14px; }
+
+  svg.line { width: 100%; height: auto; margin: 6px 0 26px; overflow: visible; }
+  svg.line path { stroke: #C4ADEA; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none;
+                  filter: drop-shadow(0 0 8px rgba(155,127,199,.6)); }
+  svg.line .onward { opacity: .5; }
+  .sq svg.line { margin-bottom: 14px; }
+
+  .card {
+    background: #fff; color: var(--deep); border: 3px solid var(--lav); border-radius: 30px;
+    padding: 36px 40px 30px; box-shadow: 0 30px 70px rgba(20,8,40,.45); transform: rotate(-1.1deg);
+  }
+  .sq .card { padding: 26px 34px 24px; }
+  .card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 42px; margin-bottom: 18px; }
+  .sq .card h3 { font-size: 34px; margin-bottom: 12px; }
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 28px; font-weight: 600; }
+  .sq .row { font-size: 24px; }
+  .note { font-size: 21px; color: #777; margin: 4px 0 20px; font-weight: 400; }
+  .sq .note { font-size: 18px; margin-bottom: 12px; }
+  .dots { display: inline-flex; align-items: center; }
+  .dots i { width: 26px; height: 26px; border-radius: 50%; background: var(--mid); position: relative; margin-right: 38px; }
+  .dots i:not(:last-child)::after { content: ''; position: absolute; left: 26px; top: 12px; width: 38px; height: 3px; background: var(--lav); }
+  .dots i:last-child { margin-right: 0; }
+  .bar { width: 190px; height: 18px; border-radius: 9px; background: linear-gradient(90deg, var(--lav), var(--mid)); }
+  .total { background: var(--lav-lt); border-radius: 20px; padding: 20px 26px; margin-top: 4px; }
+  .sq .total { padding: 14px 22px; }
+  .total small { display: block; font-size: 19px; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); font-weight: 700; }
+  .total strong { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 600; color: var(--deep); }
+  .sq .total strong { font-size: 36px; }
+
+  .spacer { flex: 1; }
+  .cta {
+    align-self: flex-start; background: #fff; color: var(--deep); font-weight: 600; font-size: 32px;
+    padding: 26px 50px; border-radius: 100px; box-shadow: 0 16px 44px rgba(0,0,0,.35); margin-top: 26px;
+  }
+  .sq .cta { font-size: 28px; padding: 22px 44px; margin-top: 20px; }
+  .foot { margin-top: 26px; display: flex; flex-direction: column; gap: 6px;
+          font-size: 22px; letter-spacing: .04em; color: rgba(255,255,255,.78); }
+  .foot b { font-weight: 600; color: #fff; }
+  .foot i { font-family: 'Cormorant Garamond', serif; font-size: 30px; letter-spacing: 0; color: #C4ADEA; }
+  .sq .foot { margin-top: 16px; font-size: 19px; }
+</style>
+</head>
+<body>
+<script>document.body.classList.toggle('sq', location.hash === '#square');</script>
+<div class="ad">
+  <div class="eyebrow">A clearer way to begin</div>
+  <h1>What will surrogacy <em>actually</em> cost?</h1>
+
+  <svg class="line" viewBox="0 0 640 100" aria-hidden="true">
+    <path d="M0 76 H150 L166 70 L182 76 H212 L230 36 L250 92 L268 58 L278 76 H372 V50 L420 10 L468 50 V76 H372"/>
+    <path d="M398 76 V56 H418 V76"/>
+    <path d="M436 54 H452 V66 H436 Z"/>
+    <path class="onward" d="M468 76 H640"/>
+  </svg>
+
+  <div class="card">
+    <h3>Your estimate</h3>
+    <div class="row"><span>Agency fee</span><span class="dots"><i></i><i></i><i></i></span></div>
+    <div class="note">Paid in three stages, not all upfront</div>
+    <div class="row"><span>Surrogate, clinic and legal</span><span class="bar"></span></div>
+    <div class="note">Paid to them, not to us</div>
+    <div class="total"><small>All in, estimated</small><strong>See yours in 2 minutes</strong></div>
+  </div>
+
+  <div class="spacer"></div>
+  <div class="cta">Take the 2-minute cost quiz &rarr;</div>
+  <div class="foot"><span><b>Canadian Surrogacy Options</b> &middot; Canada&rsquo;s first agency, since 1992</span><i>from hope to heartbeat to home</i></div>
+</div>
+</body>
+</html>

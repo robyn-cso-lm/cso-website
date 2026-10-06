@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Camica cost quiz ad creative</title>
+<!-- Render: open with #feed (1080x1350) or #square (1080x1080). See docs/ads/README.md -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Palette taken from camica.ca */
+  :root { --sand:#FAF6EE; --sand-alt:#F2EAD7; --deep:#1C4F58; --teal:#2D7A87; --sea:#82C4BF; --sea-lt:#D4EDEB;
+          --gold:#C9A75A; --gold-lt:#EDD99B; --blush:#E8A87C; --text:#1A2C30; --soft:#4A6870; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; background: var(--sand); }
+  body { font-family: 'Jost', sans-serif; color: var(--text); }
+  .ad {
+    position: relative; width: 1080px; height: 1350px; overflow: hidden;
+    background:
+      radial-gradient(ellipse at 88% 12%, rgba(130,196,191,.55) 0%, transparent 55%),
+      radial-gradient(ellipse at 6% 100%, rgba(237,217,155,.55) 0%, transparent 55%),
+      var(--sand);
+    padding: 64px 84px 54px; display: flex; flex-direction: column;
+  }
+  .sq .ad { height: 1080px; padding: 64px 76px 56px; }
+
+  .brand { font-family: 'Cormorant Garamond', serif; font-size: 40px; letter-spacing: .34em; color: var(--deep); font-weight: 500; }
+  .brand span { color: var(--gold); }
+  .eyebrow { font-size: 24px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--teal); margin-top: 24px; }
+  .sq .eyebrow { margin-top: 22px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 96px; line-height: 1.03; color: var(--text); margin: 18px 0 4px; }
+  h1 em { font-style: italic; color: var(--teal); }
+  .sq h1 { font-size: 74px; margin-top: 12px; }
+
+  svg.line { width: 100%; height: auto; margin: 6px 0 26px; overflow: visible; }
+  svg.line path { stroke: var(--teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+  svg.line .roof { stroke: var(--gold); }
+  svg.line .onward { opacity: .45; }
+  .sq svg.line { margin-bottom: 12px; }
+
+  .card {
+    background: #fff; border: 2px solid rgba(28,79,88,.16); border-radius: 30px;
+    padding: 36px 40px 30px; box-shadow: 0 30px 70px rgba(28,79,88,.18); transform: rotate(-1deg);
+  }
+  .sq .card { padding: 24px 34px 22px; }
+  .card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 42px; color: var(--deep); margin-bottom: 18px; }
+  .sq .card h3 { font-size: 34px; margin-bottom: 10px; }
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 28px; font-weight: 500; color: var(--deep); padding: 10px 0; border-bottom: 1px solid rgba(28,79,88,.1); }
+  .sq .row { font-size: 24px; padding: 7px 0; }
+  .row small { font-size: 20px; font-weight: 400; color: var(--soft); }
+  .sq .row small { font-size: 17px; }
+  .bar { width: 150px; height: 16px; border-radius: 8px; background: linear-gradient(90deg, var(--sea), var(--teal)); }
+  .total { background: var(--sea-lt); border-radius: 20px; padding: 20px 26px; margin-top: 22px; }
+  .sq .total { padding: 14px 22px; margin-top: 14px; }
+  .total small { display: block; font-size: 19px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+  .total strong { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 600; color: var(--deep); }
+  .sq .total strong { font-size: 36px; }
+
+  .spacer { flex: 1; }
+  .cta {
+    align-self: flex-start; background: var(--deep); color: #fff; font-weight: 500; font-size: 32px; letter-spacing: .02em;
+    padding: 26px 50px; border-radius: 100px; box-shadow: 0 16px 40px rgba(28,79,88,.35); margin-top: 24px;
+  }
+  .sq .cta { font-size: 28px; padding: 22px 44px; margin-top: 18px; }
+  .foot { margin-top: 24px; display: flex; flex-direction: column; gap: 6px; font-size: 22px; letter-spacing: .04em; color: var(--soft); }
+  .foot b { font-weight: 600; color: var(--deep); }
+  .foot i { font-family: 'Cormorant Garamond', serif; font-size: 30px; letter-spacing: 0; color: var(--teal); }
+  .sq .foot { margin-top: 14px; font-size: 19px; }
+</style>
+</head>
+<body>
+<script>document.body.classList.toggle('sq', location.hash === '#square');</script>
+<div class="ad">
+  <div class="brand">CAMI<span>C</span>A</div>
+  <div class="eyebrow">A clearer way to begin</div>
+  <h1>What does U.S. surrogacy <em>actually</em> cost?</h1>
+
+  <svg class="line" viewBox="0 0 640 100" aria-hidden="true">
+    <path d="M0 76 H150 L166 70 L182 76 H212 L230 36 L250 92 L268 58 L278 76 H372 V50"/>
+    <path class="roof" d="M372 50 L420 10 L468 50 V76 H372"/>
+    <path d="M398 76 V56 H418 V76"/>
+    <path d="M436 54 H452 V66 H436 Z"/>
+    <path class="onward" d="M468 76 H640"/>
+  </svg>
+
+  <div class="card">
+    <h3>Your estimate</h3>
+    <div class="row"><span>Agency fee</span><small>clear, up front</small></div>
+    <div class="row"><span>Surrogate compensation</span><span class="bar"></span></div>
+    <div class="row"><span>Medical, legal and escrow</span><span class="bar" style="width:110px"></span></div>
+    <div class="total"><small>All in, estimated</small><strong>See yours in 2 minutes</strong></div>
+  </div>
+
+  <div class="spacer"></div>
+  <div class="cta">Take the 2-minute cost quiz &rarr;</div>
+  <div class="foot"><span><b>Camica</b> &middot; Florida&rsquo;s boutique surrogacy agency</span><i>from hope to heartbeat to home</i></div>
+</div>
+</body>
+</html>

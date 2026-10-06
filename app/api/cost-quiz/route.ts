@@ -17,7 +17,7 @@ const esc = (v: unknown) =>
 
 export async function POST(req: NextRequest) {
   try {
-    const { firstName, email, phone, answers: rawAnswers, captchaToken, website } = await req.json();
+    const { firstName, email, phone, answers: rawAnswers, captchaToken, website, utm: rawUtm } = await req.json();
 
     if (website) return NextResponse.json({ success: true }); // honeypot
 
@@ -33,6 +33,17 @@ export async function POST(req: NextRequest) {
     if (!name || !mail) return NextResponse.json({ error: 'Name and email are required.' }, { status: 400 });
     if (!EMAIL_RE.test(mail)) return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     if (!answers) return NextResponse.json({ error: 'Please answer every question first.' }, { status: 400 });
+
+    // Ad attribution: keep only short utm_* strings.
+    const utm: Record<string, string> = {};
+    if (rawUtm && typeof rawUtm === 'object') {
+      for (const [k, v] of Object.entries(rawUtm as Record<string, unknown>).slice(0, 8)) {
+        if (k.startsWith('utm_') && k.length <= 30 && typeof v === 'string') utm[k] = v.slice(0, 100);
+      }
+    }
+    const utmQuery = new URLSearchParams(utm).toString();
+    const sourcePath = utmQuery ? `${SOURCE_PATH}?${utmQuery}` : SOURCE_PATH;
+    const utmLine = Object.keys(utm).length ? Object.entries(utm).map(([k, v]) => `${k}=${v}`).join(', ') : 'direct / organic';
 
     // Never trust numbers from the browser: rebuild the estimate from the answers.
     const estimates = buildAllEstimates(answers);
@@ -53,6 +64,7 @@ export async function POST(req: NextRequest) {
         `Cost quiz lead: ${name} (${answers.route}, ${answers.timing === 'asap' ? 'ASAP' : answers.timing})`,
         `<p><strong>${esc(name)}</strong> finished the cost quiz and was emailed their written breakdown automatically.</p>
          <ul><li>Email: ${esc(mail)}</li>${tel ? `<li>Phone: ${esc(tel)}</li>` : ''}</ul>
+         <p><strong>Where they came from:</strong> ${esc(utmLine)}</p>
          <p><strong>Their answers</strong></p><ul>${answerLines.map(l => `<li>${esc(l)}</li>`).join('')}</ul>
          <p><strong>What they were shown</strong></p><ul>${summaryLines.map(l => `<li>${esc(l)}</li>`).join('')}</ul>`,
       ),
@@ -70,7 +82,7 @@ export async function POST(req: NextRequest) {
         phone: tel,
         role: 'Intended Parent',
         message: [...answerLines, ...summaryLines].join(' | ').slice(0, 1500),
-        sourcePath: SOURCE_PATH,
+        sourcePath,
         sourceLabel: SOURCE_LABEL,
       }),
       capturePortalLead({
@@ -79,8 +91,8 @@ export async function POST(req: NextRequest) {
         firstName: name,
         phone: tel || undefined,
         source: 'website_cost_quiz',
-        sourceUrl: SOURCE_PATH,
-        rawPayload: { answers, estimates: estimates.map(e => ({ id: e.id, allIn: e.allIn })) },
+        sourceUrl: sourcePath,
+        rawPayload: { utm, answers, estimates: estimates.map(e => ({ id: e.id, allIn: e.allIn })) },
       }),
     ]);
 

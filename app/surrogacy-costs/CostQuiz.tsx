@@ -172,7 +172,8 @@ function PathwayCard({ p }: { p: PathwayEstimate }) {
 // ── Main component ───────────────────────────────────────────────────────────
 export default function CostQuiz() {
   // Ads can deep-link past question 1: /surrogacy-costs?route=us (Camica) or ?route=canada.
-  const routeParam = useSearchParams().get('route');
+  const params = useSearchParams();
+  const routeParam = params.get('route');
   const presetRoute = routeParam === 'us' || routeParam === 'canada' ? routeParam : null;
 
   const [step, setStep] = useState(presetRoute ? 1 : 0);
@@ -233,7 +234,11 @@ export default function CostQuiz() {
       const res = await fetch('/api/cost-quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, email, phone, answers: complete, captchaToken, website }),
+        body: JSON.stringify({
+          firstName, email, phone, answers: complete, captchaToken, website,
+          // Ad attribution: which campaign, ad and placement sent this person.
+          utm: Object.fromEntries(Array.from(params.keys()).filter(k => k.startsWith('utm_')).map(k => [k, params.get(k) || ''])),
+        }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
