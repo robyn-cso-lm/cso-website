@@ -53,3 +53,10 @@ export function trackQuizComplete(source?: string): void {
   window.fbq?.('trackCustom', 'CostQuizComplete', { content_name: source });
   window.gtag?.('event', 'cost_quiz_complete', { source });
 }
+
+/** Finished the full surrogate application (Jotform redirects here when it is submitted). */
+export function trackSurrogateApplication(source?: string): void {
+  if (typeof window === 'undefined') return;
+  window.fbq?.('track', 'SubmitApplication', { content_name: source });
+  window.gtag?.('event', 'surrogate_application_submitted', { source });
+}

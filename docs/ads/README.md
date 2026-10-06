@@ -93,3 +93,52 @@ Open the HTML in Edge or Chrome with `#feed` (1080x1350) or `#square` (1080x1080
 ```
 msedge --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1080,1350 --virtual-time-budget=12000 --screenshot=out.png "file:///path/creative-cso.html#feed"
 ```
+
+---
+
+# Surrogate recruitment ad (Facebook and Instagram)
+
+Creatives: `surrogate-feed-1080x1350.png` (4:5), `surrogate-square-1080x1080.png` (1:1). Source: `creative-surrogate.html`.
+
+**Link** (the screening quiz, with tracking):
+```
+https://canadiansurrogacyoptions.com/qualify?utm_source=facebook&utm_medium=paid_social&utm_campaign=surrogate_screen&utm_content=surrogate_check_a
+```
+
+**Primary text, option A (recommended)**
+> Could you help a family begin? 💜
+>
+> Take our private 2-minute check. You'll get an honest answer about whether surrogacy could be right for you, what the journey involves, and how every eligible expense is reimbursed. No call needed.
+>
+> I grew up in this field, and the women who do this are the heart of everything we do.
+
+**Primary text, option B (support angle)**
+> You would never do this alone. Every surrogate with Canadian Surrogacy Options has a support coordinator from day one, a community of women who truly get it, her own lawyer paid for by the intended parents, and a team that stays involved. Curious if it could be right for you? Take the private 2-minute check.
+
+**Primary text, option C (short)**
+> Wondering if you could be a surrogate? Two minutes, private, no pressure.
+
+**Headline:** Could you help a family begin?
+**Alternate headlines:** A private 2-minute check / You would never do this alone
+**Description:** Private. No call needed to apply.
+**Button:** Learn More (or Apply Now)
+
+## Rules for this ad (important)
+- **Never offer payment.** Canadian surrogacy is altruistic under the Assisted Human Reproduction Act. Say "reimbursed", never "earn", "get paid", "compensation" or dollar amounts for surrogates. The old Qualify page line "(most journeys: $45,000+)" is a reimbursement total, but in an ad it reads like pay, so keep dollar figures out of the ad.
+- **Don't speak to personal attributes.** Avoid "Are you a woman who...?" or anything about health, money worries or age aimed at the viewer. "Could you help a family begin?" is fine.
+- **Keep surrogate and intended-parent ads in separate ad sets and never mix the messages.**
+- Surrogate and fertility ads can get extra review. Submit a day or two before you need them live.
+
+## What the funnel does now
+1. The ad goes to `/qualify`, the 8-question check.
+2. When she leaves her email, she is emailed her result and exactly what happens next (automatically), and the team gets a heads-up marked **[GREEN]**, **[YELLOW]** or **[RED]** so you know who to call first.
+3. She starts the full application (the Jotform on `/surrogates#apply`).
+4. When she submits, Jotform sends her to `/surrogates/thank-you`, which records a completed application for ad tracking.
+
+## One setting you need to change in Jotform
+So completed applications are counted, set Jotform's thank-you page to redirect to:
+`https://canadiansurrogacyoptions.com/surrogates/thank-you`
+(Jotform: open the form, **Settings**, **Thank You Page**, choose **Redirect to an external link**, paste the address, save.)
+
+## Optimize for
+Optimize the campaign for **Lead** (the quiz) at first, and switch to **Submit Application** once you have about 50 completed applications. Judge it on completed applications and surrogates who pass screening, not on cost per click.
