@@ -41,7 +41,7 @@ export default function ProgramsPage() {
   return (
     <>
       <section className={styles.hero}>
-        <div className={styles.heroInner}>
+        <div className={`${styles.heroInner} hero-enter`}>
           <p className={styles.eyebrow}>Canadian Surrogacy Options</p>
           <h1 className={styles.heroH1}>Find the path that&apos;s right for your family</h1>
           <p className={styles.heroSub}>
@@ -51,7 +51,7 @@ export default function ProgramsPage() {
           </p>
           <div className={styles.heroActions}>
             <a href={GET_STARTED} className={styles.heroCTA}>
-              Get Started -&gt;
+              Get Started &rarr;
             </a>
             <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.heroEmailLink}>
               Not sure? Email us and let&apos;s chat
@@ -66,7 +66,7 @@ export default function ProgramsPage() {
           <p className={styles.sectionSub}>
             Full-service support for families who want an experienced partner by their side.
           </p>
-          <div className={styles.programGrid}>
+          <div className={`${styles.programGrid} reveal-stagger`}>
             <div className={styles.programCard}>
               <div className={styles.cardHeader}>
                 <h3 className={styles.cardTitle}>Foundation</h3>
@@ -81,7 +81,7 @@ export default function ProgramsPage() {
               <div className={styles.cardFooter}>
                 <p className={styles.priceNote}>From $9,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started -&gt;
+                  Get Started &rarr;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
@@ -104,7 +104,7 @@ export default function ProgramsPage() {
               <div className={styles.cardFooter}>
                 <p className={styles.priceNote}>From $19,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started -&gt;
+                  Get Started &rarr;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
@@ -128,7 +128,7 @@ export default function ProgramsPage() {
               <div className={styles.cardFooter}>
                 <p className={styles.priceNote}>From $29,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimaryWhite}>
-                  Get Started -&gt;
+                  Get Started &rarr;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnFilled}>
                   Book a Free Call
@@ -151,7 +151,7 @@ export default function ProgramsPage() {
               <div className={styles.cardFooter}>
                 <p className={styles.priceNote}>From $1,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started -&gt;
+                  Get Started &rarr;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
@@ -204,7 +204,7 @@ export default function ProgramsPage() {
             Not ready to start? Start learning. Our digital guides give you the information
             you need to move forward at your own pace.
           </p>
-          <div className={styles.productGrid}>
+          <div className={`${styles.productGrid} reveal-stagger`}>
             <div className={styles.productCard}>
               <div className={styles.productIcon}><Icon name="clipboard" /></div>
               <div className={styles.productHeader}>
@@ -335,7 +335,7 @@ export default function ProgramsPage() {
           </p>
           <div className={styles.notSureActions}>
             <a href={GET_STARTED} className={styles.notSureBtn}>
-              Get Started -&gt;
+              Get Started &rarr;
             </a>
             <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.notSureEmail}>
               Not sure? Email us and let&apos;s chat

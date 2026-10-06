@@ -225,3 +225,50 @@
 [data-reveal='on'] .reveal-stagger > :nth-child(4) { transition-delay: 0.27s; }
 [data-reveal='on'] .reveal-stagger > :nth-child(5) { transition-delay: 0.36s; }
 [data-reveal='on'] .reveal-stagger > :nth-child(6) { transition-delay: 0.45s; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Hero entrance
+
+   Each hero's children rise in one after another instead of the whole block
+   appearing at once. Pure CSS, so it plays on first paint with no JS and is
+   switched off for reduced-motion visitors.
+   ───────────────────────────────────────────────────────────────────────── */
+.hero-enter > *,
+.ip-hero > *,
+.sur-hero > *,
+.lgbtq-hero-inner > *,
+.intl-hero > *,
+.fam-hero > *,
+.faq-hero > *,
+.res-hero > *,
+.trust-hero > * {
+  animation: heroRise 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.hero-enter > :nth-child(2), .ip-hero > :nth-child(2), .sur-hero > :nth-child(2),
+.lgbtq-hero-inner > :nth-child(2), .intl-hero > :nth-child(2), .fam-hero > :nth-child(2),
+.faq-hero > :nth-child(2), .res-hero > :nth-child(2), .trust-hero > :nth-child(2) { animation-delay: 0.12s; }
+
+.hero-enter > :nth-child(3), .ip-hero > :nth-child(3), .sur-hero > :nth-child(3),
+.lgbtq-hero-inner > :nth-child(3), .intl-hero > :nth-child(3), .fam-hero > :nth-child(3),
+.faq-hero > :nth-child(3), .res-hero > :nth-child(3), .trust-hero > :nth-child(3) { animation-delay: 0.24s; }
+
+.hero-enter > :nth-child(4), .ip-hero > :nth-child(4), .sur-hero > :nth-child(4),
+.lgbtq-hero-inner > :nth-child(4), .intl-hero > :nth-child(4), .fam-hero > :nth-child(4),
+.faq-hero > :nth-child(4), .res-hero > :nth-child(4), .trust-hero > :nth-child(4) { animation-delay: 0.36s; }
+
+.hero-enter > :nth-child(n + 5), .ip-hero > :nth-child(n + 5), .sur-hero > :nth-child(n + 5),
+.lgbtq-hero-inner > :nth-child(n + 5), .intl-hero > :nth-child(n + 5), .fam-hero > :nth-child(n + 5),
+.faq-hero > :nth-child(n + 5), .res-hero > :nth-child(n + 5), .trust-hero > :nth-child(n + 5) { animation-delay: 0.48s; }
+
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter > *, .ip-hero > *, .sur-hero > *, .lgbtq-hero-inner > *,
+  .intl-hero > *, .fam-hero > *, .faq-hero > *, .res-hero > *, .trust-hero > * {
+    animation: none;
+  }
+}

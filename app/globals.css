@@ -132,3 +132,17 @@ button {
   display: block;
   margin-top: 4px;
 }
+
+/* Chat widget (external script): on phones, shrink the bubble and sit it on the
+   same baseline as the Book a Free Call pill so they read as one tidy pair and
+   cover less of the page. The widget's own CSS is injected at runtime, hence
+   !important. */
+@media (max-width: 767px) {
+  .cso-chat-bubble {
+    width: 46px !important;
+    height: 46px !important;
+    left: 14px !important;
+    bottom: 16px !important;
+    opacity: 0.94;
+  }
+}

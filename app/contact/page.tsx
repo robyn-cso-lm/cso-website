@@ -14,7 +14,7 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className={styles.hero}>
-        <div className={styles.heroInner}>
+        <div className={`${styles.heroInner} hero-enter`}>
           <p className={styles.eyebrow}>Get in Touch</p>
           <h1 className={styles.heroTitle}>We&rsquo;re real people.<br />We actually respond.</h1>
           <p className={styles.heroSub}>
