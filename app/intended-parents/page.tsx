@@ -133,13 +133,13 @@ export default function IntendedParentsPage() {
             <p style={{ maxWidth: 640, marginBottom: 8 }}>There&apos;s no single story that leads to surrogacy. Here are some of the people we serve every day.</p>
             <div className="who-grid">
               {[
-                { icon: '👨‍👩‍👧', title: 'Couples with Infertility', text: 'Years of IVF. Failed cycles. Loss. You deserve a path that actually works.' },
-                { icon: '🏳️‍🌈', title: 'Same-Sex Couples', text: 'Gay men, lesbian couples, and queer families: you are a huge part of our CSO community.' },
-                { icon: '👤', title: 'Single Parents', text: 'Single men and women choosing parenthood on their own terms. We see you and we support you.' },
-                { icon: '🌍', title: 'International Families', text: 'Canada is one of the safest and most welcoming countries in the world for international surrogacy.' },
+                { title: 'Couples with Infertility', text: 'Years of IVF. Failed cycles. Loss. You deserve a path that actually works.' },
+                { title: 'Same-Sex Couples', text: 'Gay men, lesbian couples, and queer families: you are a huge part of our CSO community.' },
+                { title: 'Single Parents', text: 'Single men and women choosing parenthood on their own terms. We see you and we support you.' },
+                { title: 'International Families', text: 'Canada is one of the safest and most welcoming countries in the world for international surrogacy.' },
               ].map(w => (
                 <div key={w.title} className="who-card">
-                  <div className="who-icon">{w.icon}</div>
+                  
                   <h3>{w.title}</h3>
                   <p>{w.text}</p>
                 </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = {
   title: 'Surrogacy Resources and Guides in Canada',
@@ -12,7 +13,7 @@ const guides = [
     price: '$27',
     desc: 'The honest, no-fluff guide for anyone at the very beginning, still weighing whether surrogacy is the right path for their family.',
     forWho: "For anyone just starting to explore surrogacy, unsure if it's for them.",
-    icon: '🌱',
+    icon: 'sprout',
     href: '/guides/is-surrogacy-right',
     cta: 'See the Guide',
   },
@@ -21,7 +22,7 @@ const guides = [
     price: '$97',
     desc: 'A complete walkthrough of the Canadian surrogacy journey from match to birth, plus a budget tracker that covers every category of cost.',
     forWho: 'For intended parents who are ready to understand what the full journey looks like.',
-    icon: '🗺️',
+    icon: 'map',
     featured: true,
     href: '/guides/canadian-surrogacy-roadmap',
     cta: 'See the Guide',
@@ -31,7 +32,7 @@ const guides = [
     price: '$87',
     desc: "Everything you need to know if you're considering doing surrogacy without an agency: the risks, the requirements, and the real checklist.",
     forWho: 'For intended parents who want to explore the independent route with open eyes.',
-    icon: '📋',
+    icon: 'clipboard',
     href: '/programs',
     cta: 'See Programs',
   },
@@ -40,7 +41,7 @@ const guides = [
     price: 'Free with code SURROGACY',
     desc: 'A practical, warm guide for women who are seriously thinking about becoming a surrogate: what to expect, what questions to ask, and how to know if the timing is right.',
     forWho: 'For women considering surrogacy who want a clear picture before they apply.',
-    icon: '💜',
+    icon: 'heart',
     href: '/guides/surrogate-readiness',
     cta: 'Get the Free Guide',
   },
@@ -49,7 +50,7 @@ const guides = [
     price: '$47',
     desc: 'A fill-in-the-blanks template for intended parents to create a profile that actually resonates with surrogates, with guidance on what surrogates are really looking for.',
     forWho: 'For intended parents who want to make the strongest possible first impression.',
-    icon: '✍️',
+    icon: 'pen',
     href: '/guides/ip-profile-template',
     cta: 'See the Guide',
   },
@@ -115,7 +116,7 @@ export default function ResourcesPage() {
             {guides.map(g => (
               <div key={g.title} className={`guide-card${g.featured ? ' featured' : ''}`} style={{ position: 'relative' }}>
                 {g.featured && <span className="guide-badge">Most Popular</span>}
-                <div className="guide-icon">{g.icon}</div>
+                <div className="guide-icon"><Icon name={g.icon} /></div>
                 <div className="guide-price">{g.price}</div>
                 <h3>{g.title}</h3>
                 <p className="desc">{g.desc}</p>

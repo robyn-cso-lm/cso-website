@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ClinicStrip from '@/components/ClinicStrip';
 import Portrait from '@/components/Portrait';
 import styles from './about.module.css';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = {
   title: 'About Canadian Surrogacy Options',
@@ -112,7 +113,7 @@ export default function AboutPage() {
           <h2 className={styles.sectionTitleCentered}>What we stand for.</h2>
           <div className={styles.valuesGrid}>
             <div className={styles.valueCard}>
-              <div className={styles.valueIcon}>🤍</div>
+              <div className={styles.valueIcon}><Icon name="heart" /></div>
               <h3 className={styles.valueTitle}>Compassion First</h3>
               <p className={styles.valueText}>
                 We know this journey is emotional and complex. We meet you exactly where you are,
@@ -120,7 +121,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className={styles.valueCard}>
-              <div className={styles.valueIcon}>🔍</div>
+              <div className={styles.valueIcon}><Icon name="search" /></div>
               <h3 className={styles.valueTitle}>Radical Transparency</h3>
               <p className={styles.valueText}>
                 No hidden fees. No vague timelines. No sugar-coating. We tell you what to
@@ -128,7 +129,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className={styles.valueCard}>
-              <div className={styles.valueIcon}>🛡️</div>
+              <div className={styles.valueIcon}><Icon name="shield" /></div>
               <h3 className={styles.valueTitle}>Unwavering Support</h3>
               <p className={styles.valueText}>
                 From your first question to the moment you bring your baby home, we&rsquo;re
@@ -136,7 +137,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className={styles.valueCard}>
-              <div className={styles.valueIcon}>🌈</div>
+              <div className={styles.valueIcon}><Icon name="sun" /></div>
               <h3 className={styles.valueTitle}>Every Family Welcome</h3>
               <p className={styles.valueText}>
                 LGBTQ+ families, single parents, couples facing infertility: we believe

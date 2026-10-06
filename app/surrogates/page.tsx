@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import SurrogateLeadForm from '@/components/SurrogateLeadForm';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = {
   title: 'Become a Surrogate in Canada',
@@ -201,15 +202,15 @@ export default function SurrogatesPage() {
             <p style={{ maxWidth: 620, marginBottom: 8 }}>We&apos;ve spent over 30 years building a program that actually takes care of surrogates. Here&apos;s what that looks like in practice.</p>
             <ul className="benefits-list">
               {[
-                { icon: '💜', title: 'Your Own Support Coordinator', desc: 'Shondra is with you from day one through the whole journey, no matter what comes up.' },
-                { icon: '👯', title: 'A Real Peer Community', desc: 'Connect with other CSO surrogates who truly get what you\'re going through.' },
-                { icon: '✅', title: 'All Expenses Fully Reimbursed', desc: 'Every pregnancy-related expense is covered. You won\'t be out of pocket.' },
-                { icon: '❤️', title: 'Browse Families Before You Commit', desc: 'Our portal lets you browse real family profiles before you even apply — get a feel for the families we work with and reach out if one resonates.' },
-                { icon: '⚖️', title: 'Legal Counsel Included', desc: 'Your legal representation is fully paid for by the intended parents.' },
-                { icon: '🏠', title: 'Judgment-Free Support', desc: 'Flexible, warm support from a team that\'s been doing this since 1992. We\'ve seen it all and we\'re here for all of it.' },
+                { icon: 'heart', title: 'Your Own Support Coordinator', desc: 'Shondra is with you from day one through the whole journey, no matter what comes up.' },
+                { icon: 'users', title: 'A Real Peer Community', desc: 'Connect with other CSO surrogates who truly get what you\'re going through.' },
+                { icon: 'check', title: 'All Expenses Fully Reimbursed', desc: 'Every pregnancy-related expense is covered. You won\'t be out of pocket.' },
+                { icon: 'heart', title: 'Browse Families Before You Commit', desc: 'Our portal lets you browse real family profiles before you even apply — get a feel for the families we work with and reach out if one resonates.' },
+                { icon: 'scale', title: 'Legal Counsel Included', desc: 'Your legal representation is fully paid for by the intended parents.' },
+                { icon: 'home', title: 'Judgment-Free Support', desc: 'Flexible, warm support from a team that\'s been doing this since 1992. We\'ve seen it all and we\'re here for all of it.' },
               ].map(b => (
                 <li key={b.title}>
-                  <span className="icon">{b.icon}</span>
+                  <span className="icon"><Icon name={b.icon} /></span>
                   <div className="text"><strong>{b.title}</strong><span>{b.desc}</span></div>
                 </li>
               ))}
@@ -405,9 +406,9 @@ export default function SurrogatesPage() {
             <div className="divider" />
             <p style={{ maxWidth: 500, margin: '0 auto 8px', opacity: 0.9 }}>We love hearing from women who are curious about surrogacy. Reach out anytime, no pressure at all.</p>
             <div className="contact-row">
-              <a href="tel:18774014175">📞 Call Us</a>
-              <a href="sms:18774014175">💬 Text Us</a>
-              <a href="mailto:info@canadiansurrogacyoptions.com">✉️ Email Us</a>
+              <a href="tel:18774014175">Call Us</a>
+              <a href="sms:18774014175">Text Us</a>
+              <a href="mailto:info@canadiansurrogacyoptions.com">Email Us</a>
             </div>
           </div>
         </div>

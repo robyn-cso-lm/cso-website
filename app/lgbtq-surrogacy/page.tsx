@@ -92,13 +92,13 @@ export default function LGBTQSurrogacyPage() {
             <p style={{ maxWidth: 660, marginBottom: 8, opacity: 0.9 }}>This isn&apos;t a niche we added on. LGBTQ+ families are at the heart of what CSO does. We see every configuration of family, and every one is treated with the same care, the same expertise, and the same commitment.</p>
             <div className="community-grid">
               {[
-                { icon: '👨‍👨‍👦', title: 'Gay Male Couples', text: 'Egg donor + surrogate coordination. We manage both sides of the process.' },
-                { icon: '👩‍👩‍👧', title: 'Lesbian Couples', text: 'Whether using one partner\'s eggs or a donor, we navigate the medical and legal steps with you.' },
-                { icon: '⚧', title: 'Non-Binary & Trans Parents', text: 'We meet you where you are. No assumptions, no extra hoops.' },
-                { icon: '👤', title: 'Single Gay Men', text: 'Among the most common journeys we facilitate. You don\'t need a partner to become a parent.' },
+                { title: 'Gay Male Couples', text: 'Egg donor + surrogate coordination. We manage both sides of the process.' },
+                { title: 'Lesbian Couples', text: 'Whether using one partner\'s eggs or a donor, we navigate the medical and legal steps with you.' },
+                { title: 'Non-Binary & Trans Parents', text: 'We meet you where you are. No assumptions, no extra hoops.' },
+                { title: 'Single Gay Men', text: 'Among the most common journeys we facilitate. You don\'t need a partner to become a parent.' },
               ].map(c => (
                 <div key={c.title} className="community-card">
-                  <div className="icon">{c.icon}</div>
+                  
                   <h3>{c.title}</h3>
                   <p>{c.text}</p>
                 </div>

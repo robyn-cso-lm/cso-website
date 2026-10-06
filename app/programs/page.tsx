@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ClinicStrip from '@/components/ClinicStrip';
 import styles from './programs.module.css';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = {
   title: 'Surrogacy Programs in Canada',
@@ -205,7 +206,7 @@ export default function ProgramsPage() {
           </p>
           <div className={styles.productGrid}>
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>📋</div>
+              <div className={styles.productIcon}><Icon name="clipboard" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Is Surrogacy Right For Me?&rdquo;</h3>
                 <p className={styles.productPrice}>$27</p>
@@ -224,7 +225,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>🗺️</div>
+              <div className={styles.productIcon}><Icon name="map" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;The Canadian Surrogacy Roadmap&rdquo;</h3>
                 <p className={styles.productPrice}>$97</p>
@@ -242,7 +243,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>🧭</div>
+              <div className={styles.productIcon}><Icon name="compass" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Independent Journey Checklist&rdquo;</h3>
                 <p className={styles.productPrice}>$87</p>
@@ -261,7 +262,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>💜</div>
+              <div className={styles.productIcon}><Icon name="heart" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Readiness Guide&rdquo;</h3>
                 <p className={styles.productPrice}>{surrogatePrice}</p>
@@ -285,7 +286,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>✨</div>
+              <div className={styles.productIcon}><Icon name="sparkles" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;IP Profile Template Pack&rdquo;</h3>
                 <p className={styles.productPrice}>$47</p>
@@ -303,7 +304,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={`${styles.productCard} ${styles.receiptCard}`}>
-              <div className={styles.productIcon}>🧾</div>
+              <div className={styles.productIcon}><Icon name="receipt" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Expense Management&rdquo;</h3>
                 <p className={styles.productPrice}>From $199/mo</p>
