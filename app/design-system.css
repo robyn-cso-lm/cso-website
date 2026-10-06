@@ -217,3 +217,11 @@
     transition: none;
   }
 }
+
+/* The stagger was missing: every child used the same timing, so they moved as
+   one block. Each child now lags the previous by 90ms. */
+[data-reveal='on'] .reveal-stagger > :nth-child(2) { transition-delay: 0.09s; }
+[data-reveal='on'] .reveal-stagger > :nth-child(3) { transition-delay: 0.18s; }
+[data-reveal='on'] .reveal-stagger > :nth-child(4) { transition-delay: 0.27s; }
+[data-reveal='on'] .reveal-stagger > :nth-child(5) { transition-delay: 0.36s; }
+[data-reveal='on'] .reveal-stagger > :nth-child(6) { transition-delay: 0.45s; }
