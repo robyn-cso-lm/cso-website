@@ -11,31 +11,31 @@ export const metadata: Metadata = {
 export default function SurrogatesPage() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .sur-body { font-family: var(--font-dm-sans), sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 400; }
         .sur-body a { color: #6B3FA0; text-decoration: none; }
         .sur-body a:hover { text-decoration: underline; }
         .sur-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px 60px; }
-        .sur-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 18px; }
+        .sur-hero h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 18px; }
         .sur-hero p { font-size: 1.2rem; max-width: 620px; margin: 0 auto 32px; opacity: 0.92; }
         .trust-clarity { max-width: 900px; margin: 42px auto 12px; padding: 0 24px; }
         .trust-clarity-card { background: linear-gradient(135deg, rgba(232,224,245,0.78) 0%, rgba(255,255,255,0.98) 100%); border: 1px solid rgba(155,127,199,0.25); border-radius: 18px; padding: 28px 26px; box-shadow: 0 8px 28px rgba(61,26,110,0.06); }
-        .trust-clarity-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #3D1A6E; margin-bottom: 10px; line-height: 1.12; }
+        .trust-clarity-card h3 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #3D1A6E; margin-bottom: 10px; line-height: 1.12; }
         .trust-clarity-card p { font-family: var(--font-dm-sans), sans-serif; font-size: 1rem; color: #4A3560; line-height: 1.85; margin-bottom: 12px; }
         .trust-clarity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 22px 0 8px; }
         .trust-clarity-pill { display: flex; align-items: center; justify-content: center; min-height: 74px; background: #fff; border: 1px solid rgba(155,127,199,0.2); border-radius: 999px; padding: 12px 18px; text-align: center; font-family: var(--font-dm-sans), sans-serif; font-size: 0.9rem; color: #3D1A6E; font-weight: 700; line-height: 1.45; box-shadow: 0 4px 14px rgba(61,26,110,0.04); }
         .trust-clarity-note { font-family: var(--font-dm-sans), sans-serif; font-size: 0.98rem; color: #6B3FA0; font-weight: 700; margin-top: 10px; margin-bottom: 0; }
         .urgency { background: #E8E0F5; border-left: 5px solid #3D1A6E; padding: 24px 32px; max-width: 780px; margin: 48px auto; border-radius: 6px; text-align: center; }
         .urgency p { font-size: 1.25rem; color: #3D1A6E; font-weight: 600; line-height: 1.5; }
-        h2.sur-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
+        h2.sur-h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.sur-h2 { color: #E8E0F5; }
         .founder-block { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
         .founder-text { flex: 1; min-width: 260px; }
-        .founder-text blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; font-style: italic; line-height: 1.8; color: #fff; margin-bottom: 16px; }
+        .founder-text blockquote { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.35rem; font-weight: 400; font-style: italic; line-height: 1.8; color: #fff; margin-bottom: 16px; }
         .founder-text cite { font-style: normal; font-size: 0.9rem; opacity: 0.8; }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 32px; }
         .testimonial-card { background: linear-gradient(145deg, #f3eeff 0%, #e8e0f5 100%); border-radius: 16px; padding: 36px 32px; border-left: 4px solid #9B7FC7; box-shadow: 0 4px 20px rgba(61,26,110,0.07); }
-        .testimonial-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: #3D1A6E; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
+        .testimonial-card p { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.2rem; font-weight: 400; color: #3D1A6E; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
         .testimonial-card cite { font-size: 0.78rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
         .benefits-list { list-style: none; margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; padding: 0; }
         .benefits-list li { background: #fff; border-radius: 10px; padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; box-shadow: 0 2px 8px rgba(61,26,110,0.07); }
@@ -68,9 +68,9 @@ export default function SurrogatesPage() {
         .honest-note { background: #E8E0F5; border-left: 5px solid #6B3FA0; padding: 20px 26px; border-radius: 6px; margin-top: 28px; font-size: 0.98rem; color: #3D1A6E; line-height: 1.8; }
         .match-story { background: linear-gradient(145deg, #f3eeff 0%, #E8E0F5 100%); border-radius: 16px; padding: 26px 28px; margin-top: 18px; font-size: 1rem; color: #3D1A6E; line-height: 1.85; }
         .match-story strong { color: #3D1A6E; }
-        .closing-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; line-height: 1.75; max-width: 640px; margin: 0 auto 28px; }
+        .closing-quote { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.4rem; font-style: italic; line-height: 1.75; max-width: 640px; margin: 0 auto 28px; }
         @media (max-width: 600px) { .sur-hero { padding: 52px 20px 44px; } .urgency { padding: 20px 20px; } }
-      `}</style>
+      ` }} />
 
       <div className="sur-body">
 

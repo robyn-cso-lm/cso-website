@@ -9,17 +9,17 @@ export const metadata: Metadata = {
 export default function LGBTQSurrogacyPage() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .lgbtq-body { font-family: 'Jost', sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 300; }
         .lgbtq-body a { color: #6B3FA0; text-decoration: none; }
         .lgbtq-body a:hover { text-decoration: underline; }
         .lgbtq-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; padding: 80px 24px 64px; }
         .lgbtq-hero-inner { max-width: 820px; margin: 0 auto; }
-        .lgbtq-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.2; margin-bottom: 20px; }
+        .lgbtq-hero h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.2; margin-bottom: 20px; }
         .lgbtq-hero p { font-size: 1.15rem; max-width: 680px; opacity: 0.92; margin-bottom: 32px; }
         .btn-outline { display: inline-block; background: transparent; color: #3D1A6E !important; border: 2px solid #3D1A6E; padding: 14px 32px; border-radius: 50px; font-size: 1rem; font-weight: 600; transition: all 0.2s; text-decoration: none !important; }
         .btn-outline:hover { background: #3D1A6E; color: #fff !important; }
-        h2.lgbtq-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.8vw, 2.7rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
+        h2.lgbtq-h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(1.9rem, 3.8vw, 2.7rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.lgbtq-h2 { color: #E8E0F5; }
         .reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 32px; }
         .reason-card { background: #fff; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(61,26,110,0.07); border-left: 4px solid #9B7FC7; }
@@ -41,10 +41,10 @@ export default function LGBTQSurrogacyPage() {
         .legal-list li .text strong { display: block; color: #3D1A6E; margin-bottom: 3px; font-size: 0.95rem; }
         .legal-list li .text span { font-size: 0.9rem; color: #555; }
         .testimonial-block { background: linear-gradient(145deg, #f3eeff 0%, #e8e0f5 100%); border-radius: 16px; padding: 48px 40px; border-left: 5px solid #6B3FA0; max-width: 700px; margin: 40px auto 0; }
-        .testimonial-block p { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin-bottom: 20px; }
+        .testimonial-block p { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.35rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin-bottom: 20px; }
         .testimonial-block cite { font-size: 0.8rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
         @media (max-width: 600px) { .lgbtq-hero { padding: 56px 20px 48px; } }
-      `}</style>
+      ` }} />
 
       <div className="lgbtq-body">
 

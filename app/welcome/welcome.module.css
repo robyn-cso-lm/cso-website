@@ -36,7 +36,7 @@
 }
 
 .heroTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(36px, 5.5vw, 60px);
   font-weight: 300;
   color: #fff;
@@ -94,7 +94,7 @@
 }
 
 .pathTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 26px;
   font-weight: 600;
   color: var(--deep-purple, #3D1A6E);
@@ -142,7 +142,7 @@
 }
 
 .trustNum {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 32px;
   font-weight: 600;
   color: #fff;
@@ -188,7 +188,7 @@
 }
 
 .formTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 300;
   color: var(--deep-purple, #3D1A6E);
@@ -332,7 +332,7 @@
 .successIcon { font-size: 40px; margin-bottom: 16px; }
 
 .successTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 28px;
   font-weight: 600;
   color: var(--deep-purple, #3D1A6E);

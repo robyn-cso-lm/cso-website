@@ -9,7 +9,7 @@
   padding: 14px 24px;
   background: var(--deep-purple);
   color: #fff;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   font-weight: 500;
   border-radius: 100px;

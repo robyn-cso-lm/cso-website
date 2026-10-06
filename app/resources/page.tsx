@@ -59,17 +59,17 @@ const guides = [
 export default function ResourcesPage() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .res-body { font-family: 'Jost', sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 300; }
         .res-body a { color: #6B3FA0; text-decoration: none; }
         .res-body a:hover { text-decoration: underline; }
         .res-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 80px 24px 64px; }
-        .res-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
+        .res-hero h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
         .res-hero p { font-size: 1.2rem; max-width: 620px; margin: 0 auto; opacity: 0.92; }
         .btn-sm { padding: 12px 28px; font-size: 0.95rem; }
-        h2.res-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
+        h2.res-h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .intro-block { background: linear-gradient(145deg, #f3eeff, #e8e0f5); border-radius: 16px; padding: 40px; max-width: 780px; margin: 0 auto; }
-        .intro-block blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin: 0 0 12px; }
+        .intro-block blockquote { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.3rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin: 0 0 12px; }
         .intro-block cite { font-size: 0.82rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
         .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin-top: 40px; }
         .guide-card { background: #fff; border-radius: 16px; padding: 36px 28px; box-shadow: 0 4px 20px rgba(61,26,110,0.09); border: 2px solid #E8E0F5; display: flex; flex-direction: column; transition: border-color 0.2s, box-shadow 0.2s; }
@@ -77,18 +77,18 @@ export default function ResourcesPage() {
         .guide-card.featured { border-color: #3D1A6E; position: relative; }
         .guide-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: #3D1A6E; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
         .guide-icon { font-size: 2.4rem; margin-bottom: 16px; }
-        .guide-price { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: #3D1A6E; margin-bottom: 4px; }
+        .guide-price { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.8rem; font-weight: 600; color: #3D1A6E; margin-bottom: 4px; }
         .guide-card h3 { font-size: 1.1rem; color: #3D1A6E; font-weight: 600; margin-bottom: 12px; line-height: 1.3; }
         .guide-card .desc { font-size: 0.92rem; color: #444; margin-bottom: 14px; flex: 1; }
         .guide-card .for-who { font-size: 0.82rem; color: #9B7FC7; font-style: italic; margin-bottom: 20px; padding: 10px 14px; background: #f3eeff; border-radius: 8px; }
         .helper-block { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); border-radius: 20px; padding: 48px 40px; text-align: center; color: #fff; margin-top: 48px; }
-        .helper-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 500; margin-bottom: 10px; }
+        .helper-block h3 { font-family: var(--font-cormorant), Georgia, serif; font-size: 2rem; font-weight: 500; margin-bottom: 10px; }
         .helper-block p { font-size: 1rem; opacity: 0.9; max-width: 560px; margin: 0 auto 20px; }
         .testimonial-block { background: linear-gradient(145deg, #f3eeff, #e8e0f5); border-radius: 16px; padding: 40px; max-width: 680px; margin: 48px auto 0; border-left: 5px solid #9B7FC7; }
-        .testimonial-block p { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin-bottom: 16px; }
+        .testimonial-block p { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.25rem; font-style: italic; color: #3D1A6E; line-height: 1.8; margin-bottom: 16px; }
         .testimonial-block cite { font-size: 0.78rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
         @media (max-width: 600px) { .res-hero { padding: 56px 20px 48px; } .helper-block { padding: 36px 24px; } }
-      `}</style>
+      ` }} />
 
       <div className="res-body">
         <section className="res-hero">

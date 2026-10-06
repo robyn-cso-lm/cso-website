@@ -98,10 +98,10 @@ export function GalleryGrid() {
             animation: 'cso-spin 0.8s linear infinite',
           }}
         />
-        <p style={{ fontFamily: "'DM Sans', sans-serif", color: '#4A3560', marginTop: '16px' }}>
+        <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", color: '#4A3560', marginTop: '16px' }}>
           Loading families…
         </p>
-        <style>{`@keyframes cso-spin { to { transform: rotate(360deg); } }`}</style>
+        <style dangerouslySetInnerHTML={{ __html: `@keyframes cso-spin { to { transform: rotate(360deg); } }` }} />
       </div>
     );
   }
@@ -117,7 +117,7 @@ export function GalleryGrid() {
             color: '#6b4e1f',
             padding: '18px 24px',
             borderRadius: '12px',
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-dm-sans), sans-serif",
             maxWidth: '440px',
           }}
         >
@@ -130,7 +130,7 @@ export function GalleryGrid() {
 
   if (profiles.length === 0) {
     return (
-      <div style={{ textAlign: 'center', padding: '64px 0', fontFamily: "'DM Sans', sans-serif" }}>
+      <div style={{ textAlign: 'center', padding: '64px 0', fontFamily: "var(--font-dm-sans), sans-serif" }}>
         <p style={{ color: '#4A3560', fontSize: '17px' }}>No families are currently featured in the gallery.</p>
         <p style={{ color: '#6b7280', marginTop: '8px' }}>
           Check back soon for more families waiting to meet their surrogate.
@@ -152,7 +152,7 @@ export function GalleryGrid() {
     <div>
       <p
         style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "var(--font-dm-sans), sans-serif",
           color: '#4A3560',
           marginBottom: '32px',
           textAlign: 'center',
@@ -168,7 +168,7 @@ export function GalleryGrid() {
           ))}
         </div>
       ) : (
-        <p style={{ textAlign: 'center', color: '#6b7280', fontFamily: "'DM Sans', sans-serif" }}>
+        <p style={{ textAlign: 'center', color: '#6b7280', fontFamily: "var(--font-dm-sans), sans-serif" }}>
           All of our featured families have been matched — check back soon for new families.
         </p>
       )}
@@ -178,7 +178,7 @@ export function GalleryGrid() {
           <div style={{ textAlign: 'center', marginBottom: '8px' }}>
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "var(--font-cormorant), Georgia, serif",
                 fontSize: 'clamp(26px, 4vw, 36px)',
                 fontWeight: 400,
                 fontStyle: 'italic',
@@ -189,7 +189,7 @@ export function GalleryGrid() {
             </h2>
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "var(--font-dm-sans), sans-serif",
                 fontSize: '15px',
                 color: '#6b5b80',
                 maxWidth: '560px',

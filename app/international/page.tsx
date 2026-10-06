@@ -37,18 +37,18 @@ const countries = [
 export default function InternationalPage() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .intl-body { font-family: 'Jost', sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 300; }
         .intl-body a { color: #6B3FA0; text-decoration: none; }
         .intl-body a:hover { text-decoration: underline; }
         .intl-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 80px 24px 64px; }
-        .intl-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
+        .intl-hero h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
         .intl-hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 32px; opacity: 0.92; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 18px; }
         .hero-note { font-size: 0.95rem; color: rgba(255,255,255,0.74); margin: 0 auto; max-width: 620px; }
         .btn-soft { background: rgba(255,255,255,0.12); color: #fff !important; border: 1px solid rgba(255,255,255,0.28); }
         .btn-soft:hover { background: rgba(255,255,255,0.18); }
-        h2.intl-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.8vw, 2.7rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
+        h2.intl-h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(1.9rem, 3.8vw, 2.7rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.intl-h2 { color: #E8E0F5; }
         .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 32px; }
         .why-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 28px 24px; border: 1px solid rgba(255,255,255,0.15); }
@@ -74,10 +74,10 @@ export default function InternationalPage() {
         .practical-list li .text strong { display: block; color: #E8E0F5; margin-bottom: 3px; font-size: 0.95rem; }
         .practical-list li .text span { font-size: 0.9rem; color: rgba(255,255,255,0.72); }
         .concierge-block { background: linear-gradient(145deg, #f3eeff, #e8e0f5); border-radius: 16px; padding: 48px 40px; border-left: 5px solid #3D1A6E; }
-        .concierge-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #3D1A6E; margin-bottom: 12px; }
+        .concierge-block h3 { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.8rem; color: #3D1A6E; margin-bottom: 12px; }
         .concierge-block p { font-size: 0.95rem; color: #444; margin-bottom: 20px; }
         @media (max-width: 600px) { .intl-hero { padding: 56px 20px 48px; } .country-item { flex-direction: column; gap: 10px; } }
-      `}</style>
+      ` }} />
 
       <div className="intl-body">
         <section className="intl-hero">

@@ -192,7 +192,7 @@ function StepWrapper({ step, total, question, sub, children }: { step: number; t
       <p style={{ fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9B7FC7', textAlign: 'center', marginBottom: 12 }}>
         Step {step} of {total}
       </p>
-      <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.7rem, 4vw, 2.4rem)', fontWeight: 500, color: '#3D1A6E', textAlign: 'center', marginBottom: sub ? 12 : 28, lineHeight: 1.2 }}>
+      <h2 style={{ fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(1.7rem, 4vw, 2.4rem)', fontWeight: 500, color: '#3D1A6E', textAlign: 'center', marginBottom: sub ? 12 : 28, lineHeight: 1.2 }}>
         {question}
       </h2>
       {sub && <p style={{ textAlign: 'center', color: '#666', marginBottom: 28, fontSize: '0.9375rem' }}>{sub}</p>}
@@ -403,7 +403,7 @@ function Results({ answers, onBack }: { answers: Answers; onBack: () => void }) 
       <p style={{ fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9B7FC7', textAlign: 'center', marginBottom: 12 }}>
         Your personalized estimate
       </p>
-      <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 500, color: '#3D1A6E', textAlign: 'center', marginBottom: 8, lineHeight: 1.2 }}>
+      <h2 style={{ fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 500, color: '#3D1A6E', textAlign: 'center', marginBottom: 8, lineHeight: 1.2 }}>
         Here's what your journey could cost
       </h2>
       <p style={{ textAlign: 'center', color: '#666', marginBottom: 40, fontSize: '0.9375rem', maxWidth: 560, margin: '0 auto 40px' }}>
@@ -457,7 +457,7 @@ function Results({ answers, onBack }: { answers: Answers; onBack: () => void }) 
 
       {/* CTA */}
       <div style={{ textAlign: 'center', background: '#3D1A6E', borderRadius: 16, padding: '40px 32px', color: '#fff' }}>
-        <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.6rem,4vw,2.2rem)', fontWeight: 500, marginBottom: 12, lineHeight: 1.2 }}>
+        <h3 style={{ fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(1.6rem,4vw,2.2rem)', fontWeight: 500, marginBottom: 12, lineHeight: 1.2 }}>
           Want a personalized breakdown?
         </h3>
         <p style={{ opacity: 0.88, marginBottom: 28, fontSize: '0.9375rem', maxWidth: 480, margin: '0 auto 28px' }}>

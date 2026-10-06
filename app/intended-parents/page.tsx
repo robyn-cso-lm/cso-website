@@ -10,16 +10,16 @@ export const metadata: Metadata = {
 export default function IntendedParentsPage() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .ip-body { font-family: 'Jost', sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 300; }
         .ip-body a { color: #6B3FA0; text-decoration: none; }
         .ip-body a:hover { text-decoration: underline; }
         .ip-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 80px 24px 64px; }
-        .ip-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
+        .ip-hero h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.15; margin-bottom: 20px; }
         .ip-hero p { font-size: 1.2rem; max-width: 640px; margin: 0 auto 36px; opacity: 0.92; }
         .btn-outline { display: inline-block; background: transparent; color: #3D1A6E !important; border: 2px solid #3D1A6E; padding: 14px 32px; border-radius: 50px; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.03em; transition: all 0.2s; text-decoration: none !important; }
         .btn-outline:hover { background: #3D1A6E; color: #fff !important; }
-        h2.ip-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
+        h2.ip-h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.ip-h2 { color: #E8E0F5; }
         .urgency { background: #3D1A6E; color: #fff; padding: 32px; max-width: 820px; margin: 48px auto; border-radius: 12px; text-align: center; }
         .urgency p { font-size: 1.3rem; font-weight: 600; line-height: 1.5; margin-bottom: 20px; }
@@ -44,7 +44,7 @@ export default function IntendedParentsPage() {
         .package-card:hover { border-color: #9B7FC7; box-shadow: 0 8px 32px rgba(61,26,110,0.14); }
         .package-card.featured { border-color: #3D1A6E; }
         .package-badge { position: absolute; top: -14px; left: 32px; background: #3D1A6E; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
-        .package-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: #3D1A6E; margin-bottom: 6px; }
+        .package-card h3 { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.75rem; color: #3D1A6E; margin-bottom: 6px; }
         .package-card .tagline { font-size: 0.88rem; color: #888; margin-bottom: 16px; }
         .package-price { font-size: 1rem; font-weight: 700; color: #3D1A6E; margin-bottom: 20px; letter-spacing: 0.01em; }
         .package-card ul { list-style: none; padding: 0; margin: 0 0 28px; flex: 1; }
@@ -63,17 +63,17 @@ export default function IntendedParentsPage() {
         @media (max-width: 720px) { .packages-grid { grid-template-columns: 1fr; } .package-concierge { grid-template-columns: 1fr; } }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 32px; }
         .testimonial-card { background: linear-gradient(145deg, #f3eeff 0%, #e8e0f5 100%); border-radius: 16px; padding: 36px 32px; border-left: 4px solid #9B7FC7; box-shadow: 0 4px 20px rgba(61,26,110,0.07); }
-        .testimonial-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: #3D1A6E; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
+        .testimonial-card p { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.2rem; font-weight: 400; color: #3D1A6E; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
         .testimonial-card cite { font-size: 0.78rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
         .refund-section { background: #111; color: #fff; padding: 80px 24px; }
         .refund-section-inner { max-width: 900px; margin: 0 auto; }
         .refund-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A84C; margin-bottom: 14px; display: block; }
-        .refund-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+        .refund-h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: #fff; line-height: 1.2; margin-bottom: 16px; }
         .refund-h2 em { font-style: italic; color: #C9A84C; }
         .refund-sub { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 640px; line-height: 1.75; margin-bottom: 48px; }
         .refund-phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; background: rgba(255,255,255,0.07); border-radius: 12px; overflow: hidden; margin-bottom: 40px; }
         .refund-phase { background: #1a1a1a; padding: 36px 28px; }
-        .refund-phase-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: rgba(201,168,76,0.25); line-height: 1; margin-bottom: 12px; }
+        .refund-phase-num { font-family: var(--font-cormorant), Georgia, serif; font-size: 2.8rem; font-weight: 300; color: rgba(201,168,76,0.25); line-height: 1; margin-bottom: 12px; }
         .refund-phase-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #C9A84C; margin-bottom: 6px; }
         .refund-phase-title { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
         .refund-phase-timing { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
@@ -82,13 +82,13 @@ export default function IntendedParentsPage() {
         .refund-phase-details li:last-child { border-bottom: none; }
         .refund-pause { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); border-radius: 12px; padding: 32px; display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
         .refund-pause-badge { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: #C9A84C; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 14px; }
-        .refund-pause h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: #fff; margin-bottom: 10px; }
+        .refund-pause h3 { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.6rem; font-weight: 400; color: #fff; margin-bottom: 10px; }
         .refund-pause p { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 440px; }
         .refund-pause-checks { display: flex; flex-direction: column; gap: 10px; min-width: 200px; }
         .refund-check { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.75); }
         .refund-check-icon { width: 20px; height: 20px; border-radius: 50%; background: rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; font-size: 11px; color: #C9A84C; flex-shrink: 0; }
         @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .ip-hero { padding: 56px 20px 44px; } .refund-pause { flex-direction: column; gap: 24px; } }
-      `}</style>
+      ` }} />
 
       <div className="ip-body">
 

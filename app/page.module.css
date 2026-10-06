@@ -85,7 +85,7 @@
 }
 
 .heroEyebrow {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -95,7 +95,7 @@
 }
 
 .heroTagline {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(20px, 2.5vw, 28px);
   font-weight: 300;
   font-style: italic;
@@ -106,9 +106,9 @@
 }
 
 .heroH1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(44px, 6vw, 80px);
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
   line-height: 1.1;
   margin-bottom: 24px;
@@ -154,7 +154,7 @@
   max-width: 580px;
   margin: 0 auto 40px;
   line-height: 1.7;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .heroCTAs {
@@ -167,7 +167,7 @@
 }
 
 .heroCTAPrimary {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   font-weight: 500;
   color: var(--deep-purple);
@@ -186,7 +186,7 @@
 }
 
 .heroCTAGhost {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.85);
@@ -219,7 +219,7 @@
 }
 
 .heroStatNum {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 40px;
   font-weight: 300;
   color: #fff;
@@ -237,7 +237,7 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.78);
   letter-spacing: 0.05em;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 /* ── Paths ── */
@@ -259,11 +259,11 @@
   color: var(--lavender);
   text-align: center;
   margin-bottom: 16px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .pathsHeading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(30px, 3.5vw, 46px);
   font-weight: 400;
   text-align: center;
@@ -303,7 +303,7 @@
 }
 
 .pathNum {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -317,7 +317,7 @@
 }
 
 .pathTitle {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 28px;
   font-weight: 500;
   color: var(--deep-purple);
@@ -335,7 +335,7 @@
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 28px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .pathCardFeatured .pathBody {
@@ -343,7 +343,7 @@
 }
 
 .btnPath {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--deep-purple);
@@ -403,7 +403,7 @@
 }
 
 .contactNudgeHeading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 24px;
   font-weight: 400;
   color: #fff;
@@ -411,7 +411,7 @@
 }
 
 .contactNudgeSub {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.78);
@@ -426,7 +426,7 @@
 }
 
 .contactNudgeLink {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.85);
@@ -442,7 +442,7 @@
 }
 
 .contactNudgeBtn {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--deep-purple);
@@ -507,11 +507,11 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--deep-purple);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .refundFeatureHeading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 50px);
   font-weight: 300;
   color: var(--deep-purple);
@@ -530,11 +530,11 @@
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 32px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .btnRefundCta {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #fff;
@@ -598,7 +598,7 @@
 }
 
 .pillNum {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 32px;
   font-weight: 300;
   color: var(--lavender);
@@ -614,7 +614,7 @@
   text-transform: uppercase;
   color: var(--mid-purple);
   margin-bottom: 4px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .pillOffer {
@@ -623,7 +623,7 @@
   color: var(--deep-purple);
   margin-bottom: 4px;
   line-height: 1.3;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .pillDetail {
@@ -631,7 +631,7 @@
   font-weight: 300;
   color: var(--text-secondary);
   line-height: 1.5;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 /* ── Robyn ── */
@@ -647,7 +647,7 @@
 }
 
 .robynQuote {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(24px, 3vw, 38px);
   font-weight: 300;
   font-style: italic;
@@ -663,11 +663,11 @@
   line-height: 1.8;
   max-width: 620px;
   margin: 0 auto 32px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .robynSig {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 22px;
   font-style: italic;
   color: var(--deep-purple);
@@ -675,7 +675,7 @@
 
 .robynSig span {
   display: block;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -693,7 +693,7 @@
 }
 
 .finalCtaH2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(36px, 4vw, 60px);
   font-weight: 300;
   line-height: 1.15;
@@ -713,7 +713,7 @@
   max-width: 480px;
   margin: 0 auto 40px;
   line-height: 1.75;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .finalCtaActions {
@@ -725,7 +725,7 @@
 }
 
 .btnCtaPrimary {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   font-weight: 500;
   color: var(--deep-purple);
@@ -743,7 +743,7 @@
 }
 
 .btnCtaSecondary {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.75);

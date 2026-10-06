@@ -12,7 +12,7 @@
 }
 
 .eyebrow {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -22,7 +22,7 @@
 }
 
 .eyebrowDark {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -32,7 +32,7 @@
 }
 
 .heroTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(40px, 6vw, 68px);
   font-weight: 300;
   color: #fff;
@@ -41,7 +41,7 @@
 }
 
 .heroSub {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: clamp(16px, 2vw, 18px);
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
@@ -57,7 +57,7 @@
 
 /* ── Shared ── */
 .sectionTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(30px, 4vw, 44px);
   font-weight: 400;
   color: var(--deep-purple);
@@ -65,7 +65,7 @@
 }
 
 .sectionTitleCentered {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(30px, 4vw, 44px);
   font-weight: 400;
   color: var(--deep-purple);
@@ -115,7 +115,7 @@
 }
 
 .foundingYear {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 64px;
   font-weight: 300;
   color: #fff;
@@ -124,7 +124,7 @@
 }
 
 .foundingLabel {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -139,7 +139,7 @@
 }
 
 .foundingNote {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.65;
@@ -187,7 +187,7 @@
 }
 
 .robynPhotoPlaceholder span {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 72px;
   color: var(--lavender);
   opacity: 0.4;
@@ -204,7 +204,7 @@
 }
 
 .robynTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 400;
   color: var(--deep-purple);
@@ -212,7 +212,7 @@
 }
 
 .robynQuote {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(18px, 2.5vw, 24px);
   font-style: italic;
   color: var(--mid-purple);
@@ -231,7 +231,7 @@
 
 .robynEmail,
 .robynPhone {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   color: var(--mid-purple);
   text-decoration: none;
@@ -289,7 +289,7 @@
 }
 
 .valueTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 22px;
   font-weight: 500;
   color: var(--deep-purple);
@@ -326,7 +326,7 @@
 }
 
 .numberNum {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 36px;
   font-weight: 400;
   color: #fff;
@@ -335,7 +335,7 @@
 }
 
 .numberLabel {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -376,7 +376,7 @@
 }
 
 .ctaTitle {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(30px, 4vw, 46px);
   font-weight: 400;
   color: var(--deep-purple);
@@ -402,7 +402,7 @@
   padding: 16px 32px;
   background: var(--deep-purple);
   color: #fff;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   font-weight: 500;
   border-radius: 100px;
@@ -420,7 +420,7 @@
   padding: 16px 32px;
   background: transparent;
   color: var(--deep-purple);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   font-weight: 500;
   border-radius: 100px;

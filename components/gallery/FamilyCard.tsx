@@ -71,7 +71,7 @@ export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
             transform: 'rotate(-45deg)',
             background: 'linear-gradient(135deg, #C8973A, #a8761f)',
             color: '#fff',
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-dm-sans), sans-serif",
             fontSize: '0.72rem',
             fontWeight: 700,
             letterSpacing: '0.06em',
@@ -136,7 +136,7 @@ export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
               borderRadius: '100px',
               fontSize: '0.75rem',
               fontWeight: 600,
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-dm-sans), sans-serif",
             }}
           >
             {profile.spotlight_badge}
@@ -148,7 +148,7 @@ export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
       <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <h3
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "var(--font-cormorant), Georgia, serif",
             fontSize: '1.5rem',
             fontWeight: 500,
             color: '#3D1A6E',
@@ -199,7 +199,7 @@ export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
             borderRadius: '100px',
             fontWeight: 600,
             fontSize: '0.875rem',
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-dm-sans), sans-serif",
             border: 'none',
             cursor: 'pointer',
           }}
@@ -213,7 +213,7 @@ export function FamilyCard({ profile, matched = false }: FamilyCardProps) {
             color: '#6b7280',
             marginTop: '14px',
             textAlign: 'center',
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-dm-sans), sans-serif",
           }}
         >
           This is an anonymized profile. Contact CSO to learn more.
