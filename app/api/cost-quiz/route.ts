@@ -9,15 +9,16 @@ import { buildEstimateEmail } from '@/lib/costQuizEmail';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ROBYN = 'robyn@canadiansurrogacyoptions.com';
-const SOURCE_PATH = '/surrogacy-costs';
-const SOURCE_LABEL = 'Cost quiz: written next step';
+const SOURCE_PATHS = { cso: '/surrogacy-costs', camica: '/camica/costs' } as const;
+const SOURCE_LABELS = { cso: 'Cost quiz: written next step', camica: 'Cost quiz (Camica): written next step' } as const;
 
 const esc = (v: unknown) =>
   String(v ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 export async function POST(req: NextRequest) {
   try {
-    const { firstName, email, phone, answers: rawAnswers, captchaToken, website, utm: rawUtm } = await req.json();
+    const { firstName, email, phone, answers: rawAnswers, captchaToken, website, utm: rawUtm, brand: rawBrand } = await req.json();
+    const brand = rawBrand === 'camica' ? 'camica' : 'cso';
 
     if (website) return NextResponse.json({ success: true }); // honeypot
 
@@ -42,7 +43,8 @@ export async function POST(req: NextRequest) {
       }
     }
     const utmQuery = new URLSearchParams(utm).toString();
-    const sourcePath = utmQuery ? `${SOURCE_PATH}?${utmQuery}` : SOURCE_PATH;
+    const basePath = SOURCE_PATHS[brand];
+    const sourcePath = utmQuery ? `${basePath}?${utmQuery}` : basePath;
     const utmLine = Object.keys(utm).length ? Object.entries(utm).map(([k, v]) => `${k}=${v}`).join(', ') : 'direct / organic';
 
     // Never trust numbers from the browser: rebuild the estimate from the answers.
@@ -51,9 +53,10 @@ export async function POST(req: NextRequest) {
     const summaryLines = estimates.map(e => `${e.title}: all in ${cad(e.allIn.low)} to ${cad(e.allIn.high)} CAD`);
 
     const tags = ['IP Lead', 'Cost Quiz', `Cost Quiz: ${answers.route}`];
+    if (brand === 'camica') tags.push('Camica');
     if (answers.donor === 'yes') tags.push('Needs Egg Donor');
 
-    const email1 = buildEstimateEmail({ firstName: name, answers, estimates });
+    const email1 = buildEstimateEmail({ firstName: name, answers, estimates, brand });
 
     const results = await Promise.allSettled([
       // 1. The written next step, straight to the lead.
@@ -61,7 +64,7 @@ export async function POST(req: NextRequest) {
       // 2. Heads-up to Robyn with the whole picture.
       sendMail(
         ROBYN,
-        `Cost quiz lead: ${name} (${answers.route}, ${answers.timing === 'asap' ? 'ASAP' : answers.timing})`,
+        `${brand === 'camica' ? 'CAMICA ' : ''}Cost quiz lead: ${name} (${answers.route}, ${answers.timing === 'asap' ? 'ASAP' : answers.timing})`,
         `<p><strong>${esc(name)}</strong> finished the cost quiz and was emailed their written breakdown automatically.</p>
          <ul><li>Email: ${esc(mail)}</li>${tel ? `<li>Phone: ${esc(tel)}</li>` : ''}</ul>
          <p><strong>Where they came from:</strong> ${esc(utmLine)}</p>
@@ -83,14 +86,14 @@ export async function POST(req: NextRequest) {
         role: 'Intended Parent',
         message: [...answerLines, ...summaryLines].join(' | ').slice(0, 1500),
         sourcePath,
-        sourceLabel: SOURCE_LABEL,
+        sourceLabel: SOURCE_LABELS[brand],
       }),
       capturePortalLead({
         type: 'ip',
         email: mail,
         firstName: name,
         phone: tel || undefined,
-        source: 'website_cost_quiz',
+        source: brand === 'camica' ? 'website_cost_quiz_camica' : 'website_cost_quiz',
         sourceUrl: sourcePath,
         rawPayload: { utm, answers, estimates: estimates.map(e => ({ id: e.id, allIn: e.allIn })) },
       }),

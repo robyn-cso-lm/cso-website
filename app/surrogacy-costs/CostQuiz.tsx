@@ -13,7 +13,7 @@ import {
   type PathwayEstimate,
   type QuizAnswers,
 } from '@/lib/costQuiz';
-import { NOT_COVERED_BY_AGENCY_FEE, PAYMENT_STAGES, PRICING_VERIFIED } from '@/lib/pricing';
+import { NOT_COVERED_BY_AGENCY_FEE, PAYMENT_STAGES, PRICING_VERIFIED, REFUND_POLICY_URL } from '@/lib/pricing';
 import { trackLead, trackQuizComplete, trackSchedule, trackStartApplication } from '@/lib/track';
 import styles from './quiz.module.css';
 
@@ -41,10 +41,11 @@ const roundK = (n: number) => Math.round(n / 1000) * 1000;
 
 // ── The agency fee is paid in three stages ──────────────────────────────────
 function ThreeStages({ fee }: { fee: number }) {
+  const each = Math.round(fee / PAYMENT_STAGES.length);
   return (
     <div className={styles.stages}>
       <p className={styles.stagesTitle}>
-        <strong>Paid in three stages</strong>, not all upfront
+        <strong>Paid in three equal stages</strong>, not all upfront
       </p>
       <ol className={styles.stageList}>
         {PAYMENT_STAGES.map(st => (
@@ -52,25 +53,53 @@ function ThreeStages({ fee }: { fee: number }) {
             <span className={styles.stageDot} aria-hidden="true" />
             <span className={styles.stageLabel}>{st.label}</span>
             <strong className={styles.stageName}>{st.name}</strong>
-            {st.share !== null && (
-              <span className={styles.stageAmt}>{'$' + Math.round(fee * st.share).toLocaleString('en-CA')}</span>
-            )}
+            <span className={styles.stageAmt}>{'$' + each.toLocaleString('en-CA')}</span>
             <span className={styles.stageNote}>{st.protects}</span>
           </li>
         ))}
       </ol>
+      <p className={styles.stagesFoot}>
+        One third each, plus HST. And yes, our <a href={REFUND_POLICY_URL}>refund policy</a> is published in writing.
+      </p>
     </div>
   );
 }
 
 // ── One pathway's full breakdown ─────────────────────────────────────────────
-function PathwayCard({ p }: { p: PathwayEstimate }) {
+function UnavailableCard({ p }: { p: PathwayEstimate }) {
+  const t = p.agencyTiers[0];
+  return (
+    <article className={`${styles.card} ${styles.cardMuted}`}>
+      <header className={styles.cardHead}>
+        <p className={styles.cardKicker}>{p.kicker}</p>
+        <h3 className={styles.cardTitle}>{p.title}</h3>
+      </header>
+      <div className={styles.cardBody}>
+        <p className={styles.cardSummary}>{p.summary}</p>
+        <div className={styles.tierTop}>
+          <strong>{t.name}</strong>
+          <div className={styles.tierPrice}>
+            <s>from {exact(t.from, t.currency)}</s>
+            <em className={styles.pill}>Currently not offered</em>
+          </div>
+        </div>
+        <p className={styles.fine}>
+          We are not taking Hybrid Pathway families right now. If speed matters most, ask us what the
+          closest alternative looks like for you.
+        </p>
+      </div>
+    </article>
+  );
+}
+
+function PathwayCard({ p, brand }: { p: PathwayEstimate; brand: 'cso' | 'camica' }) {
+  if (!p.available) return <UnavailableCard p={p} />;
   const suggested = p.agencyTiers.find(t => t.suggested)!;
 
   return (
     <article className={styles.card}>
       <header className={styles.cardHead}>
-        <p className={styles.cardKicker}>{p.kicker}</p>
+        <p className={styles.cardKicker}>{brand === 'camica' ? 'Camica' : p.kicker}</p>
         <h3 className={styles.cardTitle}>{p.title}</h3>
       </header>
 
@@ -170,11 +199,11 @@ function PathwayCard({ p }: { p: PathwayEstimate }) {
 }
 
 // ── Main component ───────────────────────────────────────────────────────────
-export default function CostQuiz() {
+export default function CostQuiz({ brand = 'cso', defaultRoute }: { brand?: 'cso' | 'camica'; defaultRoute?: 'us' | 'canada' }) {
   // Ads can deep-link past question 1: /surrogacy-costs?route=us (Camica) or ?route=canada.
   const params = useSearchParams();
   const routeParam = params.get('route');
-  const presetRoute = routeParam === 'us' || routeParam === 'canada' ? routeParam : null;
+  const presetRoute = routeParam === 'us' || routeParam === 'canada' ? routeParam : defaultRoute ?? null;
 
   const [step, setStep] = useState(presetRoute ? 1 : 0);
   const [answers, setAnswers] = useState<Partial<QuizAnswers>>(presetRoute ? { route: presetRoute } : {});
@@ -235,7 +264,7 @@ export default function CostQuiz() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName, email, phone, answers: complete, captchaToken, website,
+          firstName, email, phone, answers: complete, captchaToken, website, brand,
           // Ad attribution: which campaign, ad and placement sent this person.
           utm: Object.fromEntries(Array.from(params.keys()).filter(k => k.startsWith('utm_')).map(k => [k, params.get(k) || ''])),
         }),
@@ -245,7 +274,7 @@ export default function CostQuiz() {
         setError(data.error || 'Something went wrong. Please try again.');
         return;
       }
-      trackLead({ type: 'Intended Parent', source: 'cost_quiz' });
+      trackLead({ type: 'Intended Parent', source: brand === 'camica' ? 'cost_quiz_camica' : 'cost_quiz' });
       setSent({ emailed: data.emailed !== false });
     } catch {
       setError('We could not reach the server. Please try again.');
@@ -316,7 +345,7 @@ export default function CostQuiz() {
         )}
 
         <div className={styles.cards}>
-          {estimates.map(p => <PathwayCard key={p.id} p={p} />)}
+          {estimates.map(p => <PathwayCard key={p.id} p={p} brand={brand} />)}
         </div>
 
         <div className={styles.notCovered}>
@@ -371,18 +400,18 @@ export default function CostQuiz() {
               </p>
               <div className={styles.thanksActions}>
                 <a
-                  href="https://portal.canadiansurrogacyoptions.com/register"
+                  href={brand === 'camica' ? 'https://portal.canadiansurrogacyoptions.com/camica/register' : 'https://portal.canadiansurrogacyoptions.com/register'}
                   className={styles.submit}
-                  onClick={() => trackStartApplication('cost_quiz')}
+                  onClick={() => trackStartApplication(brand === 'camica' ? 'cost_quiz_camica' : 'cost_quiz')}
                 >
                   Begin my application
                 </a>
                 <a
-                  href="https://calendly.com/cso-robyn"
+                  href={brand === 'camica' ? 'https://calendly.com/cso-robyn/camica-consult' : 'https://calendly.com/cso-robyn'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.ghost}
-                  onClick={() => trackSchedule('cost_quiz')}
+                  onClick={() => trackSchedule(brand === 'camica' ? 'cost_quiz_camica' : 'cost_quiz')}
                 >
                   A call is optional, but I&rsquo;d love to talk
                 </a>

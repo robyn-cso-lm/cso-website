@@ -1,9 +1,9 @@
 /* ── Hero + quiz shell ── */
 .hero {
-  background: var(--deep-purple);
+  background: var(--q-deep, #3D1A6E);
   background-image:
-    radial-gradient(ellipse at 60% 20%, rgba(107, 63, 160, 0.45) 0%, transparent 65%),
-    radial-gradient(ellipse at 15% 90%, rgba(155, 127, 199, 0.2) 0%, transparent 60%);
+    radial-gradient(ellipse at 60% 20%, var(--q-glow1, rgba(107, 63, 160, 0.45)) 0%, transparent 65%),
+    radial-gradient(ellipse at 15% 90%, var(--q-glow2, rgba(155, 127, 199, 0.2)) 0%, transparent 60%);
   padding: 72px 20px 64px;
   position: relative;
 }
@@ -15,12 +15,12 @@
 }
 
 .eyebrow {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #c4adea;
+  color: var(--q-eyebrow, #c4adea);
   margin-bottom: 14px;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .sub {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 17px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
@@ -59,7 +59,7 @@
 
 .progress {
   height: 4px;
-  background: #e8e0f5;
+  background: var(--q-lav-lt, #E8E0F5);
   border-radius: 2px;
   margin-bottom: 26px;
   overflow: hidden;
@@ -67,7 +67,7 @@
 
 .progressBar {
   height: 100%;
-  background: linear-gradient(90deg, var(--lavender), var(--mid-purple));
+  background: linear-gradient(90deg, var(--q-lav, #9B7FC7), var(--q-mid, #6B3FA0));
   border-radius: 2px;
   transition: width 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -82,11 +82,11 @@
 }
 
 .stepCount {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--lavender);
+  color: var(--q-lav, #9B7FC7);
   text-align: center;
   margin-bottom: 10px;
 }
@@ -96,14 +96,14 @@
   font-size: clamp(30px, 4.6vw, 46px);
   font-weight: 500;
   line-height: 1.15;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   text-align: center;
   margin-bottom: 10px;
   outline: none;
 }
 
 .questionSub {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #666;
@@ -126,35 +126,35 @@
   text-align: left;
   padding: 20px 22px;
   min-height: 78px;
-  border: 2px solid #e8e0f5;
+  border: 2px solid var(--q-lav-lt, #E8E0F5);
   border-radius: 14px;
   background: #fff;
   cursor: pointer;
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s, background 0.18s;
 }
 
 .option:hover {
-  border-color: var(--lavender);
+  border-color: var(--q-lav, #9B7FC7);
   box-shadow: 0 8px 22px rgba(107, 63, 160, 0.14);
   transform: translateY(-2px);
 }
 
 .option:focus-visible {
-  outline: 3px solid var(--lavender);
+  outline: 3px solid var(--q-lav, #9B7FC7);
   outline-offset: 2px;
 }
 
 .optionOn {
-  border-color: var(--mid-purple);
-  background: #f4f0fb;
+  border-color: var(--q-mid, #6B3FA0);
+  background: var(--q-tint, #f4f0fb);
   transform: scale(0.99);
 }
 
 .optionLabel {
   font-weight: 600;
   font-size: 18px;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
 }
 
 .optionSub {
@@ -167,9 +167,9 @@
 .linkBtn {
   background: none;
   border: none;
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 14px;
-  color: var(--mid-purple);
+  color: var(--q-mid, #6B3FA0);
   cursor: pointer;
   padding: 10px 4px;
   margin-top: 8px;
@@ -178,7 +178,7 @@
 }
 
 .reassure {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 13px;
   color: #888;
   text-align: center;
@@ -193,7 +193,7 @@
 }
 
 .results {
-  background: #fdfaf7;
+  background: var(--q-cream, #fdfaf7);
   border-radius: 20px;
   padding: 32px 24px 28px;
   box-shadow: 0 24px 70px rgba(20, 8, 40, 0.4);
@@ -209,14 +209,14 @@
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(30px, 4.5vw, 44px);
   font-weight: 500;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   line-height: 1.15;
   margin-bottom: 10px;
   outline: none;
 }
 
 .resultsSub {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 14px;
   color: #666;
   line-height: 1.6;
@@ -225,14 +225,14 @@
 }
 
 .concern {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   background: #fff;
-  border-left: 4px solid var(--mid-purple);
+  border-left: 4px solid var(--q-mid, #6B3FA0);
   border-radius: 6px;
   padding: 14px 18px;
   font-size: 15px;
   line-height: 1.7;
-  color: #3a2a55;
+  color: var(--q-deep, #3a2a55);
   margin: 18px 0 24px;
 }
 
@@ -243,7 +243,7 @@
 
 .card {
   background: #fff;
-  border: 1px solid #e8e0f5;
+  border: 1px solid var(--q-lav-lt, #E8E0F5);
   border-radius: 16px;
   overflow: hidden;
   animation: stepIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
@@ -253,17 +253,17 @@
 .card:nth-child(3) { animation-delay: 0.24s; }
 
 .cardHead {
-  background: var(--deep-purple);
+  background: var(--q-deep, #3D1A6E);
   color: #fff;
   padding: 18px 24px;
 }
 
 .cardKicker {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #c4adea;
+  color: var(--q-eyebrow, #c4adea);
   margin-bottom: 4px;
 }
 
@@ -275,7 +275,7 @@
 
 .cardBody {
   padding: 22px 24px 24px;
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
 }
 
 .cardSummary {
@@ -287,7 +287,7 @@
 
 .block {
   padding: 18px 0;
-  border-top: 1px solid #efe9f8;
+  border-top: 1px solid var(--q-line, #efe9f8);
 }
 
 .blockTitle {
@@ -298,7 +298,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--mid-purple);
+  color: var(--q-mid, #6B3FA0);
   margin-bottom: 12px;
 }
 
@@ -309,8 +309,8 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--lavender-light);
-  color: var(--deep-purple);
+  background: var(--q-lav-lt, #E8E0F5);
+  color: var(--q-deep, #3D1A6E);
   font-size: 12px;
 }
 
@@ -323,14 +323,14 @@
 }
 
 .tier {
-  border: 1.5px solid #ece6f6;
+  border: 1.5px solid var(--q-line, #ece6f6);
   border-radius: 12px;
   padding: 12px 14px;
 }
 
 .tierSuggested {
-  border-color: var(--mid-purple);
-  background: #f8f5fd;
+  border-color: var(--q-mid, #6B3FA0);
+  background: var(--q-tint2, #f8f5fd);
 }
 
 .tierTop {
@@ -341,7 +341,7 @@
 }
 
 .tierTop strong {
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   font-size: 16px;
 }
 
@@ -350,7 +350,7 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  background: var(--mid-purple);
+  background: var(--q-mid, #6B3FA0);
   color: #fff;
   border-radius: 100px;
   padding: 2px 9px;
@@ -367,7 +367,7 @@
 .tierPrice {
   white-space: nowrap;
   font-weight: 600;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   font-size: 15px;
 }
 
@@ -392,7 +392,7 @@
 
 .more summary {
   cursor: pointer;
-  color: var(--mid-purple);
+  color: var(--q-mid, #6B3FA0);
   font-weight: 600;
   padding: 4px 0;
 }
@@ -407,13 +407,13 @@
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: 34px;
   font-weight: 500;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   line-height: 1.2;
   margin: 4px 0 6px;
 }
 
 .range span {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 15px;
   color: #888;
 }
@@ -426,7 +426,7 @@
 
 .lines td {
   padding: 8px 0;
-  border-bottom: 1px solid #f1ecf8;
+  border-bottom: 1px solid var(--q-line, #f1ecf8);
   vertical-align: top;
   color: #444;
   font-size: 14px;
@@ -437,7 +437,7 @@
   text-align: right;
   white-space: nowrap;
   padding-left: 14px;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
 }
 
 .covered {
@@ -446,7 +446,7 @@
 }
 
 .total {
-  background: var(--lavender-light);
+  background: var(--q-lav-lt, #E8E0F5);
   border-radius: 14px;
   padding: 18px 20px;
   margin-top: 6px;
@@ -457,38 +457,38 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--mid-purple);
+  color: var(--q-mid, #6B3FA0);
 }
 
 .totalNum {
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(30px, 5vw, 42px);
   font-weight: 600;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   line-height: 1.2;
   margin: 2px 0 4px;
 }
 
 .totalNum span,
 .totalNum small {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: #777;
 }
 
 .notCovered {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   margin-top: 24px;
   padding: 18px 22px;
   background: #fff;
-  border: 1px dashed #cdbfe6;
+  border: 1px dashed var(--q-dash, #cdbfe6);
   border-radius: 14px;
 }
 
 .notCovered h3 {
   font-size: 15px;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   margin-bottom: 8px;
 }
 
@@ -504,7 +504,7 @@
 /* ── Capture ── */
 .capture {
   margin-top: 28px;
-  background: var(--deep-purple);
+  background: var(--q-deep, #3D1A6E);
   border-radius: 16px;
   padding: 30px 24px;
   color: #fff;
@@ -519,7 +519,7 @@
 }
 
 .captureSub {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 15px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
@@ -537,7 +537,7 @@
 
 .field span {
   display: block;
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 13px;
   margin-bottom: 5px;
   color: rgba(255, 255, 255, 0.9);
@@ -553,7 +553,7 @@
   padding: 13px 14px;
   border-radius: 10px;
   border: 2px solid transparent;
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 16px;
   color: #2a1747;
   background: #fff;
@@ -561,7 +561,7 @@
 
 .field input:focus-visible {
   outline: none;
-  border-color: var(--lavender);
+  border-color: var(--q-lav, #9B7FC7);
 }
 
 .honey {
@@ -576,8 +576,8 @@
   display: inline-block;
   text-align: center;
   background: #fff;
-  color: var(--deep-purple);
-  font-family: var(--font-dm-sans), sans-serif;
+  color: var(--q-deep, #3D1A6E);
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-weight: 600;
   font-size: 16px;
   padding: 15px 28px;
@@ -589,7 +589,7 @@
 }
 
 .submit:hover:not(:disabled) {
-  background: var(--lavender-light);
+  background: var(--q-lav-lt, #E8E0F5);
   transform: translateY(-2px);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
 }
@@ -602,7 +602,7 @@
 .ghost {
   display: inline-block;
   color: #fff;
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 15px;
   padding: 14px 22px;
   border: 1.5px solid rgba(255, 255, 255, 0.45);
@@ -617,7 +617,7 @@
 }
 
 .consent {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 12px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
@@ -633,7 +633,7 @@
   color: #8a1f1f;
   border-radius: 8px;
   padding: 10px 12px;
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 14px;
 }
 
@@ -646,7 +646,7 @@
 
 /* ── Explainer below the quiz ── */
 .explain {
-  background: #fdfaf7;
+  background: var(--q-cream, #fdfaf7);
   padding: 72px 20px;
 }
 
@@ -662,19 +662,19 @@
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(26px, 3.5vw, 34px);
   font-weight: 500;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   margin-bottom: 12px;
 }
 
 .body {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   font-size: 16px;
   line-height: 1.8;
   color: #444;
 }
 
 .list {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--q-body, var(--font-dm-sans)), sans-serif;
   margin: 0 0 14px 18px;
   font-size: 15px;
   line-height: 1.9;
@@ -705,12 +705,12 @@
   padding: 18px 18px 16px;
   border-radius: 14px;
   background: linear-gradient(135deg, #f4effb 0%, #fff 100%);
-  border: 2px solid var(--lavender);
+  border: 2px solid var(--q-lav, #9B7FC7);
 }
 
 .stagesTitle {
   font-size: 17px;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   margin-bottom: 14px;
 }
 
@@ -738,7 +738,7 @@
   left: 7px;
   right: calc(33.3% - 7px);
   height: 2px;
-  background: linear-gradient(90deg, var(--lavender), var(--mid-purple));
+  background: linear-gradient(90deg, var(--q-lav, #9B7FC7), var(--q-mid, #6B3FA0));
   transform-origin: left;
   animation: stageLine 1.2s cubic-bezier(0.55, 0.1, 0.25, 1) 0.4s both;
 }
@@ -764,7 +764,7 @@
   height: 16px;
   border-radius: 50%;
   background: #fff;
-  border: 3px solid var(--mid-purple);
+  border: 3px solid var(--q-mid, #6B3FA0);
 }
 
 .stageLabel {
@@ -772,20 +772,51 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--mid-purple);
+  color: var(--q-mid, #6B3FA0);
 }
 
 .stageName {
   font-size: 16px;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
 }
 
 .stageAmt {
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: 26px;
   font-weight: 600;
-  color: var(--deep-purple);
+  color: var(--q-deep, #3D1A6E);
   line-height: 1.1;
+}
+
+.stagesFoot {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #555;
+}
+
+.stagesFoot a {
+  color: var(--q-mid, #6B3FA0);
+  font-weight: 600;
+}
+
+.cardMuted {
+  opacity: 0.8;
+  border-style: dashed;
+}
+
+.cardMuted .cardHead {
+  background: #7d6a9c;
+}
+
+.cardMuted s {
+  color: #888;
+  text-decoration-thickness: 2px;
+}
+
+.cardMuted .pill {
+  display: inline-block;
+  margin: 6px 0 0 0;
+  background: #8a2f2f;
 }
 
 .stageNote {
@@ -796,4 +827,92 @@
 
 @media (prefers-reduced-motion: reduce) {
   .stageList::before { animation: none; }
+}
+
+/* ── Camica skin: same quiz, Camica's palette from camica.ca ── */
+.camica {
+  --q-deep: #1C4F58;
+  --q-mid: #2D7A87;
+  --q-lav: #82C4BF;
+  --q-lav-lt: #D4EDEB;
+  --q-tint: #EAF4F3;
+  --q-tint2: #F1F8F7;
+  --q-cream: #FAF6EE;
+  --q-eyebrow: #EDD99B;
+  --q-line: #DDEBE9;
+  --q-dash: #A9D3CF;
+  --q-glow1: rgba(45, 122, 135, 0.5);
+  --q-glow2: rgba(130, 196, 191, 0.25);
+  --q-body: var(--font-jost);
+  font-family: var(--font-jost), sans-serif;
+}
+
+.camHeader {
+  background: #FAF6EE;
+  border-bottom: 1px solid #DDEBE9;
+  padding: 16px 24px;
+}
+
+.camHeaderInner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.camWordmark {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 26px;
+  letter-spacing: 0.34em;
+  color: #1C4F58;
+  text-decoration: none;
+}
+
+.camWordmark span {
+  color: #C9A75A;
+}
+
+.camLinks {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14px;
+}
+
+.camLinks a {
+  color: #4A6870;
+  text-decoration: none;
+}
+
+.camLinks a.camBtn {
+  background: #1C4F58;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.camFooter {
+  background: #1C4F58;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 36px 24px;
+  text-align: center;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.camFooter em {
+  display: block;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 22px;
+  color: #EDD99B;
+  margin-bottom: 6px;
+}
+
+.camFooter a {
+  color: #fff;
 }

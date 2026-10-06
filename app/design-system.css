@@ -272,3 +272,12 @@
     animation: none;
   }
 }
+
+/* The Camica cost quiz is a fully Camica-branded page: hide the CSO nav, footer,
+   floating button and chat bubble on it. (:has is supported by all current browsers;
+   in older ones the page still works, with the CSO chrome showing.) */
+body:has(.camica-shell) > nav,
+body:has(.camica-shell) > footer,
+body:has(.camica-shell) .cso-chat-bubble {
+  display: none !important;
+}

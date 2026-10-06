@@ -32,7 +32,7 @@ export default function StickyCTA() {
   }, [pathname]);
 
   // The cost quiz is a no-call funnel, and /private-inquiry has its own form.
-  if (pathname === '/private-inquiry' || pathname === '/surrogacy-costs') return null;
+  if (pathname === '/private-inquiry' || pathname === '/surrogacy-costs' || pathname.startsWith('/camica')) return null;
 
   const visible = pastHero && !footerInView;
 

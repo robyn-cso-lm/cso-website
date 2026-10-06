@@ -122,7 +122,7 @@ export const CAMICA_TIERS: CamicaTier[] = [
 export const CAMICA_CONCIERGE_FROM = 65000; // USD, by application only
 
 /** Florida surrogate travels to Ontario for delivery. Founding-family rate on camica.ca. */
-export const CAMICA_HYBRID = { from: 26500, deposit: 2500 }; // USD
+export const CAMICA_HYBRID = { from: 26500, deposit: 2500, available: false }; // USD. Robyn, Oct 2026: founding rate is closed, not currently offered. Set available: true to bring it back.
 
 /** Little Miracles egg donation (CAD). CONFIRM: not published on little-miracles.ca. */
 export const LM = {
@@ -144,8 +144,7 @@ export const NOT_COVERED_BY_AGENCY_FEE = [
  * The CSO agency fee is paid in three stages, not all upfront. Stage names and
  * what each protects come from the published refund policy on /intended-parents.
  *
- * TODO(Robyn): set `share` on each stage (the three must total 1). Until then
- * the quiz shows the three stages without dollar amounts rather than guessing.
+ * Robyn confirmed (Oct 2026): the fee is split in equal thirds.
  */
 export type PaymentStage = { label: string; name: string; protects: string; share: number | null };
 
@@ -154,18 +153,21 @@ export const PAYMENT_STAGES: PaymentStage[] = [
     label: 'Stage 1',
     name: 'Intake and profile',
     protects: 'Before matching starts: 85% back, or pause free for up to 12 months.',
-    share: null,
+    share: 1 / 3,
   },
   {
     label: 'Stage 2',
     name: 'Active matching',
     protects: 'Pause free any time, or a sliding-scale refund while we search.',
-    share: null,
+    share: 1 / 3,
   },
   {
     label: 'Stage 3',
     name: 'After your match',
     protects: 'Full support, with flexibility for real hardship.',
-    share: null,
+    share: 1 / 3,
   },
 ];
+
+/** Where the published refund policy lives. */
+export const REFUND_POLICY_URL = '/intended-parents#refund-policy';

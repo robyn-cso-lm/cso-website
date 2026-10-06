@@ -161,6 +161,8 @@ export interface PathwayEstimate {
   donor: { agencyFee: { low: number; high: number }; cycleTotal: { low: number; high: number } } | null;
   allIn: { low: number; high: number };
   hasConcierge: boolean;
+  /** false when the agency is not taking this pathway right now (shown struck through). */
+  available: boolean;
 }
 
 const isCanadianResident = (l: Location) => l === 'ontario' || l === 'canada_other';
@@ -201,6 +203,7 @@ export function buildEstimate(a: QuizAnswers, id: PathwayId): PathwayEstimate {
   let agencyNote: string;
   let calcPathway: 'canadian' | 'us_ontario' | 'us_us';
   let hasConcierge = false;
+  let available = true;
 
   if (id === 'canadian') {
     const pick = suggestCso(a);
@@ -233,6 +236,7 @@ export function buildEstimate(a: QuizAnswers, id: PathwayId): PathwayEstimate {
     summary = 'Compensated surrogacy through Camica. Your surrogate carries in Florida and travels to Ontario for delivery, so you stay home and your baby is born in Canada.';
     agencyNote = 'Camica fees are in USD, converted below. Founding-family rate, subject to availability.';
     calcPathway = 'us_ontario';
+    available = CAMICA_HYBRID.available;
   } else {
     const pick = suggestCamica(a);
     tiers = CAMICA_TIERS.map(t => ({ name: t.name, from: t.from, currency: 'USD' as const, forWhom: t.forWhom, includes: t.includes, suggested: t.id === pick.id }));
@@ -269,6 +273,7 @@ export function buildEstimate(a: QuizAnswers, id: PathwayId): PathwayEstimate {
       high: money(agencyCAD + total.high + donorHigh),
     },
     hasConcierge,
+    available,
   };
 }
 
