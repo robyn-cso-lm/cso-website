@@ -205,6 +205,26 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+.heroCostLink {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: -36px 0 52px;
+  animation: riseIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 2.1s both;
+}
+
+.heroCostLink a {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
+}
+
+.heroCostLink a:hover {
+  border-color: #fff;
+}
+
 .heroStatStrip {
   padding-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -836,7 +856,8 @@
   .heroTagline,
   .heroSub,
   .heroCTAs,
-  .heroStatStrip { animation: none; }
+  .heroStatStrip,
+  .heroCostLink { animation: none; }
   .pathCard,
   .pathCard:hover { transform: none; }
 }

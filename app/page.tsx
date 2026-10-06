@@ -93,6 +93,10 @@ export default function HomePage() {
               Begin Your Application
             </a>
           </div>
+          <p className={styles.heroCostLink}>
+            Wondering about money?{' '}
+            <Link href="/surrogacy-costs">See what it could cost for your family &rarr;</Link>
+          </p>
           <div className={styles.heroStatStrip}>
             <div className={styles.heroStat}>
               <div className={styles.heroStatNum}>1992</div>

@@ -56,6 +56,9 @@ export default function ProgramsPage() {
             <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.heroEmailLink}>
               Not sure? Email us and let&apos;s chat
             </a>
+            <Link href="/surrogacy-costs" className={styles.heroEmailLink}>
+              See what it could cost for your family
+            </Link>
           </div>
         </div>
       </section>
@@ -340,6 +343,9 @@ export default function ProgramsPage() {
             <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.notSureEmail}>
               Not sure? Email us and let&apos;s chat
             </a>
+            <Link href="/surrogacy-costs" className={styles.heroEmailLink}>
+              See what it could cost for your family
+            </Link>
           </div>
         </div>
       </section>

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 type CountUpProps = {
   end: number;
   suffix?: string;
+  prefix?: string;
   duration?: number;
 };
 
@@ -14,7 +15,7 @@ type CountUpProps = {
  * The final value is what renders on the server and without JS, so crawlers,
  * screen readers and reduced-motion visitors always see the real number.
  */
-export default function CountUp({ end, suffix = '', duration = 1600 }: CountUpProps) {
+export default function CountUp({ end, suffix = '', prefix = '', duration = 1600 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const [value, setValue] = useState(end);
 
@@ -51,8 +52,9 @@ export default function CountUp({ end, suffix = '', duration = 1600 }: CountUpPr
   }, [end, duration]);
 
   return (
-    <span ref={ref} aria-label={`${end.toLocaleString('en-CA')}${suffix}`}>
+    <span ref={ref} aria-label={`${prefix}${end.toLocaleString('en-CA')}${suffix}`}>
       <span aria-hidden="true">
+        {prefix}
         {value.toLocaleString('en-CA')}
         {suffix}
       </span>
