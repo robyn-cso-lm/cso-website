@@ -1,8 +1,9 @@
 /**
  * Agency fees shown on /surrogacy-costs. One place to edit.
  *
- * SOURCES (last checked 2026-10-06):
- *  - CSO tiers: live /programs and /intended-parents pages (corrected April 2026).
+ * SOURCES (last checked 2026-10-06; Robyn confirmed the live-site CSO and Camica
+ * prices are correct, and the brand file was updated to match):
+ *  - CSO tiers: live /programs and /intended-parents pages.
  *  - Camica tiers and Hybrid Pathway: live camica.ca.
  *  - Little Miracles: the master brand file only. little-miracles.ca does not
  *    publish prices, so CONFIRM these before the page goes live.
@@ -137,4 +138,34 @@ export const NOT_COVERED_BY_AGENCY_FEE = [
   'Counselling and psychological assessments',
   'Insurance, travel and any lost-wage reimbursements',
   'Egg donation, if you need it',
+];
+
+/**
+ * The CSO agency fee is paid in three stages, not all upfront. Stage names and
+ * what each protects come from the published refund policy on /intended-parents.
+ *
+ * TODO(Robyn): set `share` on each stage (the three must total 1). Until then
+ * the quiz shows the three stages without dollar amounts rather than guessing.
+ */
+export type PaymentStage = { label: string; name: string; protects: string; share: number | null };
+
+export const PAYMENT_STAGES: PaymentStage[] = [
+  {
+    label: 'Stage 1',
+    name: 'Intake and profile',
+    protects: 'Before matching starts: 85% back, or pause free for up to 12 months.',
+    share: null,
+  },
+  {
+    label: 'Stage 2',
+    name: 'Active matching',
+    protects: 'Pause free any time, or a sliding-scale refund while we search.',
+    share: null,
+  },
+  {
+    label: 'Stage 3',
+    name: 'After your match',
+    protects: 'Full support, with flexibility for real hardship.',
+    share: null,
+  },
 ];

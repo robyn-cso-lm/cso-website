@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import CostQuiz from './CostQuiz';
 import styles from './quiz.module.css';
 import { NOT_COVERED_BY_AGENCY_FEE } from '@/lib/pricing';
@@ -27,10 +28,12 @@ export default function SurrogacyCostsPage() {
           <h1 className={styles.h1}>What will surrogacy cost for your family?</h1>
           <p className={styles.sub}>
             Seven quick questions. Every cost, up front, with what you pay us kept separate
-            from what you pay everyone else. No call needed.
+            from what you pay everyone else. Our fee is paid in three stages, and no call is needed.
           </p>
         </div>
-        <CostQuiz />
+        <Suspense fallback={null}>
+          <CostQuiz />
+        </Suspense>
       </section>
 
       <section className={styles.explain}>

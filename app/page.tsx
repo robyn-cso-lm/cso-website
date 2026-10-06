@@ -78,11 +78,14 @@ export default function HomePage() {
             your baby home.
           </p>
           <div className={styles.heroCTAs}>
+            <Link href="/surrogacy-costs" className={styles.heroCTAPrimary}>
+              What will it cost for my family? &rarr;
+            </Link>
             <a
               href="https://calendly.com/cso-robyn"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.heroCTAPrimary}
+              className={styles.heroCTAGhost}
             >
               Book a Free Call with Robyn
             </a>
@@ -93,10 +96,6 @@ export default function HomePage() {
               Begin Your Application
             </a>
           </div>
-          <p className={styles.heroCostLink}>
-            Wondering about money?{' '}
-            <Link href="/surrogacy-costs">See what it could cost for your family &rarr;</Link>
-          </p>
           <div className={styles.heroStatStrip}>
             <div className={styles.heroStat}>
               <div className={styles.heroStatNum}>1992</div>
@@ -114,6 +113,44 @@ export default function HomePage() {
                 <span className={styles.heroStatUnit}> min</span>
               </div>
               <div className={styles.heroStatLabel}>To apply</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The question on every call: money */}
+      <section className={styles.costBand}>
+        <div className={`${styles.costBandInner} reveal`}>
+          <div className={styles.costBandText}>
+            <p className={styles.costBandEyebrow}>The question we hear on every call</p>
+            <h2 className={styles.costBandH2}>
+              What will it <em>actually</em> cost?
+            </h2>
+            <p className={styles.costBandP}>
+              Money is the first thing everyone asks, so we answer it first. Seven quick
+              questions and you see every cost: what you pay us, what you pay everyone else,
+              and our fee <strong>paid in three stages</strong> instead of all upfront.
+              No call needed.
+            </p>
+            <Link href="/surrogacy-costs" className={styles.costBandBtn}>
+              Find out what it could cost for your family &rarr;
+            </Link>
+          </div>
+          <div className={styles.costBandCard} aria-hidden="true">
+            <p className={styles.costCardTitle}>Your estimate</p>
+            <div className={styles.costCardRow}>
+              <span>Agency fee</span>
+              <span className={styles.costCardDots}><i /><i /><i /></span>
+            </div>
+            <p className={styles.costCardNote}>Paid in three stages</p>
+            <div className={styles.costCardRow}>
+              <span>Surrogate, clinic and legal</span>
+              <span className={styles.costCardBar} />
+            </div>
+            <p className={styles.costCardNote}>Paid to them, not to us</p>
+            <div className={styles.costCardTotal}>
+              <span>All in, estimated</span>
+              <strong>See yours in 2 minutes</strong>
             </div>
           </div>
         </div>

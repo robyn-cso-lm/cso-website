@@ -194,3 +194,38 @@
   text-align: center;
   text-decoration: none;
 }
+
+/* The cost quiz is the question on every call, so it gets a pill of its own. */
+.costLink {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--deep-purple);
+  background: var(--lavender-light);
+  border: 1.5px solid var(--lavender);
+  padding: 7px 14px;
+  border-radius: 100px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.costLink:hover,
+.costLinkActive {
+  background: var(--mid-purple);
+  border-color: var(--mid-purple);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.mobileCostLink {
+  display: block;
+  margin: 6px 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--lavender-light);
+  border: 1.5px solid var(--lavender);
+  color: var(--deep-purple);
+  font-weight: 600;
+  text-decoration: none;
+}

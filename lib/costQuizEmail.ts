@@ -5,7 +5,7 @@ import {
   type PathwayEstimate,
   type QuizAnswers,
 } from './costQuiz';
-import { NOT_COVERED_BY_AGENCY_FEE, PRICING_VERIFIED } from './pricing';
+import { NOT_COVERED_BY_AGENCY_FEE, PAYMENT_STAGES, PRICING_VERIFIED } from './pricing';
 
 const esc = (v: unknown) =>
   String(v ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -44,6 +44,7 @@ function pathwayBlock(p: PathwayEstimate): string {
       <p style="margin:0 0 6px;font-size:15px;color:${PURPLE}"><strong>${esc(suggested.name)}: from ${esc(feeText)}</strong></p>
       <p style="margin:0 0 6px;font-size:14px;color:#444">${esc(p.suggestedReason)}</p>
       <p style="margin:0 0 4px;font-size:13px;color:#666">${esc(p.agencyNote)}</p>
+      ${p.id === 'canadian' ? `<p style="margin:8px 0;padding:10px 12px;background:#F4EFFB;border-radius:8px;font-size:14px;color:${PURPLE}"><strong>Paid in three stages, not all upfront:</strong> ${PAYMENT_STAGES.map(st => esc(st.label + ', ' + st.name.toLowerCase())).join(' &middot; ')}.</p>` : ''}
       <ul style="margin:6px 0 16px;padding-left:18px;font-size:13px;color:#444">${suggested.includes.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
 
       <p style="margin:0 0 4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${MID}"><strong>2. What you pay for the journey itself</strong></p>

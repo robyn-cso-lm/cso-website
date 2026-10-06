@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import CountUp from '@/components/CountUp';
 import {
   CONCERN_NOTES,
@@ -12,7 +13,7 @@ import {
   type PathwayEstimate,
   type QuizAnswers,
 } from '@/lib/costQuiz';
-import { NOT_COVERED_BY_AGENCY_FEE, PRICING_VERIFIED } from '@/lib/pricing';
+import { NOT_COVERED_BY_AGENCY_FEE, PAYMENT_STAGES, PRICING_VERIFIED } from '@/lib/pricing';
 import { trackLead, trackQuizComplete, trackSchedule, trackStartApplication } from '@/lib/track';
 import styles from './quiz.module.css';
 
@@ -37,6 +38,30 @@ async function getToken(action: string): Promise<string | null> {
 }
 
 const roundK = (n: number) => Math.round(n / 1000) * 1000;
+
+// ── The agency fee is paid in three stages ──────────────────────────────────
+function ThreeStages({ fee }: { fee: number }) {
+  return (
+    <div className={styles.stages}>
+      <p className={styles.stagesTitle}>
+        <strong>Paid in three stages</strong>, not all upfront
+      </p>
+      <ol className={styles.stageList}>
+        {PAYMENT_STAGES.map(st => (
+          <li key={st.label} className={styles.stage}>
+            <span className={styles.stageDot} aria-hidden="true" />
+            <span className={styles.stageLabel}>{st.label}</span>
+            <strong className={styles.stageName}>{st.name}</strong>
+            {st.share !== null && (
+              <span className={styles.stageAmt}>{'$' + Math.round(fee * st.share).toLocaleString('en-CA')}</span>
+            )}
+            <span className={styles.stageNote}>{st.protects}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
 
 // ── One pathway's full breakdown ─────────────────────────────────────────────
 function PathwayCard({ p }: { p: PathwayEstimate }) {
@@ -77,6 +102,7 @@ function PathwayCard({ p }: { p: PathwayEstimate }) {
           </ul>
           {p.agencyTiers.length > 1 && <p className={styles.reason}>{p.suggestedReason}</p>}
           <p className={styles.fine}>{p.agencyNote}</p>
+          {p.id === 'canadian' && <ThreeStages fee={p.agencyCAD} />}
         </section>
 
         {/* 2. Journey */}
@@ -145,8 +171,12 @@ function PathwayCard({ p }: { p: PathwayEstimate }) {
 
 // ── Main component ───────────────────────────────────────────────────────────
 export default function CostQuiz() {
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Partial<QuizAnswers>>({});
+  // Ads can deep-link past question 1: /surrogacy-costs?route=us (Camica) or ?route=canada.
+  const routeParam = useSearchParams().get('route');
+  const presetRoute = routeParam === 'us' || routeParam === 'canada' ? routeParam : null;
+
+  const [step, setStep] = useState(presetRoute ? 1 : 0);
+  const [answers, setAnswers] = useState<Partial<QuizAnswers>>(presetRoute ? { route: presetRoute } : {});
   const [picked, setPicked] = useState<string | null>(null);
 
   const [firstName, setFirstName] = useState('');

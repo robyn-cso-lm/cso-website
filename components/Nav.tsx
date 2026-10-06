@@ -48,6 +48,14 @@ export default function Nav() {
           </li>
           <li>
             <Link
+              href="/surrogacy-costs"
+              className={`${styles.costLink} ${isActive('/surrogacy-costs') ? styles.costLinkActive : ''}`}
+            >
+              What It Costs
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/surrogates"
               className={`${styles.link} ${isActive('/surrogates') ? styles.active : ''}`}
             >
@@ -118,6 +126,7 @@ export default function Nav() {
         <Link href="/about" className={styles.mobileLink}>About</Link>
         <Link href="/intended-parents" className={styles.mobileLink}>Intended Parents</Link>
         <Link href="/programs" className={styles.mobileLink}>Programs</Link>
+        <Link href="/surrogacy-costs" className={styles.mobileCostLink}>What It Costs: see your estimate</Link>
         <Link href="/surrogates" className={styles.mobileLink}>Become a Surrogate</Link>
         <a href="https://portal.canadiansurrogacyoptions.com/profiles" className={styles.mobileLink}>Waiting Families</a>
         <Link href="/resources" className={styles.mobileLink}>Resources</Link>
