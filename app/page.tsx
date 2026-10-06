@@ -3,6 +3,8 @@ import Link from 'next/link';
 import styles from './page.module.css';
 import GuidesStrip from '@/components/GuidesStrip';
 import ClinicStrip from '@/components/ClinicStrip';
+import HeartbeatLine from '@/components/HeartbeatLine';
+import CountUp from '@/components/CountUp';
 
 export const metadata: Metadata = {
   title: 'Canadian Surrogacy Options | Canada\'s First Surrogacy Agency Since 1992',
@@ -63,8 +65,12 @@ export default function HomePage() {
         <div className={styles.heroInner}>
           <p className={styles.heroEyebrow}>Canadian Surrogacy Options</p>
           <h1 className={styles.heroH1}>
-            From hope to heartbeat<br />to home.
+            <span className={styles.beat} style={{ '--d': '0.15s' } as React.CSSProperties}>From hope</span>{' '}
+            <span className={styles.beat} style={{ '--d': '0.55s' } as React.CSSProperties}>to heartbeat</span>
+            <br />
+            <span className={styles.beat} style={{ '--d': '0.95s' } as React.CSSProperties}>to home.</span>
           </h1>
+          <HeartbeatLine />
           <p className={styles.heroTagline}>The family you&rsquo;re building is already real.</p>
           <p className={styles.heroSub}>
             We&rsquo;ve been walking families through surrogacy in Canada since 1992. Legal,
@@ -72,11 +78,14 @@ export default function HomePage() {
             your baby home.
           </p>
           <div className={styles.heroCTAs}>
+            <Link href="/surrogacy-costs" className={styles.heroCTAPrimary}>
+              What will it cost for my family? &rarr;
+            </Link>
             <a
               href="https://calendly.com/cso-robyn"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.heroCTAPrimary}
+              className={styles.heroCTAGhost}
             >
               Book a Free Call with Robyn
             </a>
@@ -90,19 +99,58 @@ export default function HomePage() {
           <div className={styles.heroStatStrip}>
             <div className={styles.heroStat}>
               <div className={styles.heroStatNum}>1992</div>
-              <div className={styles.heroStatLabel}>In operation since</div>
+              <div className={styles.heroStatLabel}>Canada&rsquo;s first agency</div>
             </div>
             <div className={styles.heroStat}>
-              <div className={styles.heroStatNum}>30+</div>
-              <div className={styles.heroStatLabel}>Years of experience</div>
-            </div>
-            <div className={styles.heroStat}>
-              <div className={styles.heroStatNum}>2,500+</div>
+              <div className={styles.heroStatNum}>
+                <CountUp end={2500} suffix="+" />
+              </div>
               <div className={styles.heroStatLabel}>Families built</div>
             </div>
             <div className={styles.heroStat}>
-              <div className={styles.heroStatNum}>#1</div>
-              <div className={styles.heroStatLabel}>Canada&rsquo;s first agency</div>
+              <div className={styles.heroStatNum}>
+                <CountUp end={10} duration={900} />
+                <span className={styles.heroStatUnit}> min</span>
+              </div>
+              <div className={styles.heroStatLabel}>To apply</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The question on every call: money */}
+      <section className={styles.costBand}>
+        <div className={`${styles.costBandInner} reveal`}>
+          <div className={styles.costBandText}>
+            <p className={styles.costBandEyebrow}>The question we hear on every call</p>
+            <h2 className={styles.costBandH2}>
+              What will it <em>actually</em> cost?
+            </h2>
+            <p className={styles.costBandP}>
+              Money is the first thing everyone asks, so we answer it first. Seven quick
+              questions and you see every cost: what you pay us, what you pay everyone else,
+              and our fee <strong>paid in three stages</strong> instead of all upfront.
+              No call needed.
+            </p>
+            <Link href="/surrogacy-costs" className={styles.costBandBtn}>
+              Find out what it could cost for your family &rarr;
+            </Link>
+          </div>
+          <div className={styles.costBandCard} aria-hidden="true">
+            <p className={styles.costCardTitle}>Your estimate</p>
+            <div className={styles.costCardRow}>
+              <span>Agency fee</span>
+              <span className={styles.costCardDots}><i /><i /><i /></span>
+            </div>
+            <p className={styles.costCardNote}>Paid in three stages</p>
+            <div className={styles.costCardRow}>
+              <span>Surrogate, clinic and legal</span>
+              <span className={styles.costCardBar} />
+            </div>
+            <p className={styles.costCardNote}>Paid to them, not to us</p>
+            <div className={styles.costCardTotal}>
+              <span>All in, estimated</span>
+              <strong>See yours in 2 minutes</strong>
             </div>
           </div>
         </div>
@@ -121,8 +169,8 @@ export default function HomePage() {
               <h3 className={styles.pathTitle}>Intended Parents</h3>
               <p className={styles.pathBody}>
                 You want to build a family through surrogacy. We match you with a screened,
-                committed surrogate, and walk with you through every medical, legal,
-                and emotional step of the journey.
+                committed surrogate and stay beside you through the medical, the legal,
+                and the emotional.
               </p>
               <Link href="/intended-parents" className={styles.btnPath}>
                 Explore Programs &rarr;
@@ -133,8 +181,7 @@ export default function HomePage() {
               <h3 className={styles.pathTitle}>Become a Surrogate</h3>
               <p className={styles.pathBody}>
                 You want to help a family that can&rsquo;t do it alone. We screen carefully,
-                support fully, and make sure you are valued at every step. This is one of the
-                most meaningful things a person can do.
+                support fully, and make sure you are valued at every step.
               </p>
               <Link href="/surrogates" className={styles.btnPath}>
                 Learn More &rarr;
@@ -145,8 +192,7 @@ export default function HomePage() {
               <h3 className={styles.pathTitle}>Become an Egg Donor</h3>
               <p className={styles.pathBody}>
                 Little Miracles is welcoming new and returning egg donors. Start a secure
-                profile, learn what the process looks like now, or come back and finish an
-                application you already began. Our team will support you personally.
+                profile, or come back and finish an application you already began.
               </p>
               <a
                 href="https://portal.canadiansurrogacyoptions.com/donor/register"
@@ -165,12 +211,9 @@ export default function HomePage() {
           <p className={styles.whyCsoEyebrow}>Why Canadian Surrogacy Options</p>
           <div className={`${styles.whyCsoGrid} reveal-stagger`}>
             {[
-              "Canada's first surrogacy agency · Founded 1992",
-              "2,500+ families built",
               "Only agency with a published refund policy",
-              "Three-stage payment — not everything upfront",
+              "Three-stage payment, not everything upfront",
               "Matches built on connection, not algorithms",
-              "30+ years of magic sparks",
             ].map(item => (
               <div key={item} className={styles.whyCsoPill}>
                 <span className={styles.whyCsoPillDot} />
@@ -195,8 +238,8 @@ export default function HomePage() {
             <p className={styles.contactNudgeSub}>Robyn or a member of the team replies personally. Usually the same day.</p>
           </div>
           <div className={styles.contactNudgeActions}>
-            <a href="tel:+18774014175" className={styles.contactNudgeLink}>📞 1-877-401-4175</a>
-            <a href="mailto:robyn@canadiansurrogacyoptions.com" className={styles.contactNudgeLink}>✉️ robyn@canadiansurrogacyoptions.com</a>
+            <a href="tel:+18774014175" className={styles.contactNudgeLink}>1-877-401-4175</a>
+            <a href="mailto:robyn@canadiansurrogacyoptions.com" className={styles.contactNudgeLink}>robyn@canadiansurrogacyoptions.com</a>
             <a
               href="https://calendly.com/cso-robyn"
               target="_blank"
@@ -291,8 +334,7 @@ export default function HomePage() {
       <section className={styles.finalCta}>
         <h2 className={styles.finalCtaH2}>Ready when <em>you</em> are.</h2>
         <p className={styles.finalCtaP}>
-          Your application takes about 10 minutes. It&rsquo;s the first step toward something
-          that could change everything.
+          Your application takes about 10 minutes. After that, you talk to Robyn.
         </p>
         <div className={styles.finalCtaActions}>
           <a

@@ -1,7 +1,7 @@
 /* ── Refund Banner ── */
 .refundBanner {
-  background: #111;
-  padding: 18px 48px;
+  background: var(--lavender-light);
+  padding: 14px 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,8 +14,8 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #111;
-  background: #C9A84C;
+  color: #fff;
+  background: var(--mid-purple);
   padding: 4px 10px;
   border-radius: 100px;
   flex-shrink: 0;
@@ -23,28 +23,28 @@
 
 .refundBannerText {
   font-size: 14px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  color: var(--text-secondary);
 }
 
 .refundBannerText strong {
   font-weight: 600;
-  color: #fff;
+  color: var(--deep-purple);
 }
 
 .refundBannerLink {
   font-size: 13px;
   font-weight: 500;
-  color: #C9A84C;
+  color: var(--deep-purple);
   text-decoration: none;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.4);
+  border-bottom: 1px solid rgba(61, 26, 110, 0.35);
   white-space: nowrap;
   flex-shrink: 0;
   transition: border-color 0.2s;
 }
 
 .refundBannerLink:hover {
-  border-color: #C9A84C;
+  border-color: var(--deep-purple);
 }
 
 /* ── Hero ── */
@@ -59,6 +59,24 @@
   overflow: hidden;
 }
 
+/* A slow, barely-there drift of light behind the headline. */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  left: 15%;
+  top: -30%;
+  background: radial-gradient(circle, rgba(155, 127, 199, 0.28) 0%, transparent 62%);
+  pointer-events: none;
+  animation: drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translate3d(-8%, 0, 0) scale(1); }
+  to { transform: translate3d(10%, 12%, 0) scale(1.15); }
+}
+
 .heroInner {
   max-width: 860px;
   margin: 0 auto;
@@ -67,7 +85,7 @@
 }
 
 .heroEyebrow {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -77,23 +95,51 @@
 }
 
 .heroTagline {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(20px, 2.5vw, 28px);
   font-weight: 300;
   font-style: italic;
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 24px;
-  margin-top: -8px;
+  margin-top: 0;
   letter-spacing: 0.01em;
 }
 
 .heroH1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(44px, 6vw, 80px);
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
   line-height: 1.1;
   margin-bottom: 24px;
+}
+
+.beat {
+  display: inline-block;
+  animation: beatIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) var(--d, 0s) both;
+}
+
+@keyframes beatIn {
+  from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+
+.heroEyebrow,
+.heroTagline,
+.heroSub,
+.heroCTAs,
+.heroStatStrip {
+  animation: riseIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.heroEyebrow { animation-delay: 0s; }
+.heroTagline { animation-delay: 1.6s; }
+.heroSub { animation-delay: 1.8s; }
+.heroCTAs { animation-delay: 2s; }
+.heroStatStrip { animation-delay: 2.2s; }
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
 }
 
 .heroH1 em {
@@ -103,12 +149,12 @@
 
 .heroSub {
   font-size: 17px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.82);
   max-width: 580px;
   margin: 0 auto 40px;
   line-height: 1.7;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .heroCTAs {
@@ -121,16 +167,17 @@
 }
 
 .heroCTAPrimary {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 17px;
+  font-weight: 600;
   color: var(--deep-purple);
   background: #fff;
-  padding: 14px 32px;
+  padding: 18px 38px;
   border-radius: 100px;
   text-decoration: none;
   transition: all 0.25s;
   display: inline-block;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28);
 }
 
 .heroCTAPrimary:hover {
@@ -140,7 +187,7 @@
 }
 
 .heroCTAGhost {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.85);
@@ -173,7 +220,7 @@
 }
 
 .heroStatNum {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 40px;
   font-weight: 300;
   color: #fff;
@@ -181,12 +228,17 @@
   margin-bottom: 6px;
 }
 
+.heroStatUnit {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .heroStatLabel {
   font-size: 12px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.78);
   letter-spacing: 0.05em;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 /* ── Paths ── */
@@ -208,11 +260,11 @@
   color: var(--lavender);
   text-align: center;
   margin-bottom: 16px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .pathsHeading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(30px, 3.5vw, 46px);
   font-weight: 400;
   text-align: center;
@@ -223,43 +275,50 @@
 
 .pathsGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1.5fr 1fr 1fr;
   gap: 24px;
 }
 
 .pathCard {
   border: 1px solid #E2DAF0;
   border-radius: 4px;
-  padding: 40px 30px;
+  padding: 36px 30px;
   position: relative;
-  transition: box-shadow 0.25s, transform 0.25s;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
 }
 
 .pathCard:hover {
-  box-shadow: 0 12px 40px rgba(61, 26, 110, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 18px 48px rgba(107, 63, 160, 0.18);
+  border-color: var(--lavender);
+  transform: translateY(-4px);
 }
 
 .pathCardFeatured {
   background: var(--deep-purple);
   border-color: var(--deep-purple);
+  padding: 56px 40px;
+}
+
+.pathCardFeatured:hover {
+  border-color: var(--lavender);
 }
 
 .pathNum {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 52px;
-  font-weight: 300;
-  color: var(--lavender-light);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--lavender);
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .pathCardFeatured .pathNum {
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .pathTitle {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 28px;
   font-weight: 500;
   color: var(--deep-purple);
@@ -268,6 +327,7 @@
 
 .pathCardFeatured .pathTitle {
   color: #fff;
+  font-size: 38px;
 }
 
 .pathBody {
@@ -276,7 +336,7 @@
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 28px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .pathCardFeatured .pathBody {
@@ -284,7 +344,7 @@
 }
 
 .btnPath {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--deep-purple);
@@ -299,6 +359,16 @@
 
 .btnPath:hover {
   background: #F4F0FB;
+  padding-right: 34px;
+  padding-left: 22px;
+}
+
+.btnPath:focus-visible,
+.heroCTAPrimary:focus-visible,
+.heroCTAGhost:focus-visible,
+.btnCtaPrimary:focus-visible {
+  outline: 2px solid var(--lavender);
+  outline-offset: 3px;
 }
 
 .pathCardFeatured .btnPath {
@@ -334,7 +404,7 @@
 }
 
 .contactNudgeHeading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 24px;
   font-weight: 400;
   color: #fff;
@@ -342,10 +412,10 @@
 }
 
 .contactNudgeSub {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.78);
   line-height: 1.6;
 }
 
@@ -357,20 +427,23 @@
 }
 
 .contactNudgeLink {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  transition: color 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .contactNudgeLink:hover {
   color: #fff;
+  border-color: #fff;
 }
 
 .contactNudgeBtn {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--deep-purple);
@@ -393,18 +466,10 @@
 
 /* ── Refund Feature ── */
 .refundFeature {
-  background: #111;
-  padding: 80px 48px;
+  background: #FDFAF7;
+  padding: 88px 48px;
   position: relative;
   overflow: hidden;
-}
-
-.refundFeature::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 80% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
-  pointer-events: none;
 }
 
 .refundFeatureInner {
@@ -422,8 +487,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(201, 168, 76, 0.15);
-  border: 1px solid rgba(201, 168, 76, 0.35);
+  background: var(--lavender-light);
+  border: 1px solid #DCCFF0;
   padding: 6px 14px;
   border-radius: 100px;
   margin-bottom: 24px;
@@ -432,7 +497,7 @@
 .refundFeatureBadgeDot {
   width: 6px;
   height: 6px;
-  background: #C9A84C;
+  background: var(--mid-purple);
   border-radius: 50%;
   display: inline-block;
 }
@@ -442,39 +507,39 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #C9A84C;
-  font-family: 'DM Sans', sans-serif;
+  color: var(--deep-purple);
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .refundFeatureHeading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 50px);
   font-weight: 300;
-  color: #fff;
+  color: var(--deep-purple);
   line-height: 1.15;
   margin-bottom: 20px;
 }
 
 .refundFeatureHeading em {
   font-style: italic;
-  color: #C9A84C;
+  color: var(--mid-purple);
 }
 
 .refundFeatureBody {
   font-size: 15px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+  color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 32px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .btnRefundCta {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #111;
-  background: #C9A84C;
+  color: #fff;
+  background: var(--deep-purple);
   padding: 14px 32px;
   border-radius: 100px;
   text-decoration: none;
@@ -483,8 +548,34 @@
 }
 
 .btnRefundCta:hover {
-  background: #D4B862;
+  background: var(--mid-purple);
   transform: translateY(-1px);
+}
+
+/* The three phases hang off a line that draws itself as you scroll to it. */
+.refundFeatureRight {
+  position: relative;
+  padding-left: 36px;
+}
+
+.refundFeatureRight::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--lavender), var(--mid-purple));
+  transform-origin: top;
+}
+
+:global([data-reveal="on"]) .refundFeatureRight::before {
+  transform: scaleY(0);
+  transition: transform 1.4s cubic-bezier(0.55, 0.1, 0.25, 1) 0.2s;
+}
+
+:global([data-reveal="on"]) .refundFeatureRight:global(.is-visible)::before {
+  transform: scaleY(1);
 }
 
 .refundPhasePill {
@@ -492,18 +583,26 @@
   align-items: flex-start;
   gap: 20px;
   padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
 }
 
-.refundPhasePill:last-child {
-  border-bottom: none;
+.refundPhasePill::before {
+  content: '';
+  position: absolute;
+  left: -41px;
+  top: 30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #FDFAF7;
+  border: 2px solid var(--mid-purple);
 }
 
 .pillNum {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 32px;
   font-weight: 300;
-  color: rgba(201, 168, 76, 0.3);
+  color: var(--lavender);
   line-height: 1;
   flex-shrink: 0;
   width: 36px;
@@ -514,26 +613,26 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #C9A84C;
+  color: var(--mid-purple);
   margin-bottom: 4px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .pillOffer {
   font-size: 16px;
   font-weight: 500;
-  color: #fff;
+  color: var(--deep-purple);
   margin-bottom: 4px;
   line-height: 1.3;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .pillDetail {
   font-size: 13px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
   line-height: 1.5;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 /* ── Robyn ── */
@@ -549,7 +648,7 @@
 }
 
 .robynQuote {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(24px, 3vw, 38px);
   font-weight: 300;
   font-style: italic;
@@ -565,11 +664,11 @@
   line-height: 1.8;
   max-width: 620px;
   margin: 0 auto 32px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .robynSig {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 22px;
   font-style: italic;
   color: var(--deep-purple);
@@ -577,7 +676,7 @@
 
 .robynSig span {
   display: block;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -595,7 +694,7 @@
 }
 
 .finalCtaH2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(36px, 4vw, 60px);
   font-weight: 300;
   line-height: 1.15;
@@ -615,7 +714,7 @@
   max-width: 480px;
   margin: 0 auto 40px;
   line-height: 1.75;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .finalCtaActions {
@@ -627,7 +726,7 @@
 }
 
 .btnCtaPrimary {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 15px;
   font-weight: 500;
   color: var(--deep-purple);
@@ -645,7 +744,7 @@
 }
 
 .btnCtaSecondary {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.75);
@@ -666,6 +765,8 @@
   .heroStatStrip { gap: 32px; }
   .paths { padding: 64px 24px; }
   .pathsGrid { grid-template-columns: 1fr; gap: 16px; }
+  .pathCardFeatured { padding: 40px 30px; }
+  .pathCardFeatured .pathTitle { font-size: 32px; }
   .refundFeature { padding: 64px 24px; }
   .refundFeatureInner { grid-template-columns: 1fr; gap: 48px; }
   .robynSection { padding: 64px 24px; }
@@ -727,4 +828,192 @@
 @media (max-width: 580px) {
   .whyCsoGrid { gap: 10px; }
   .whyCsoPill { font-size: 0.82rem; padding: 8px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before { animation: none; }
+  .beat,
+  .heroEyebrow,
+  .heroTagline,
+  .heroSub,
+  .heroCTAs,
+  .heroStatStrip { animation: none; }
+  .pathCard,
+  .pathCard:hover { transform: none; }
+}
+
+/* ── Cost band: the question on every call ── */
+.costBand {
+  background: linear-gradient(180deg, #f4f0fb 0%, #fdfaf7 100%);
+  padding: 88px 48px;
+  border-bottom: 1px solid #e8e0f5;
+}
+
+.costBandInner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.costBandEyebrow {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid-purple);
+  margin-bottom: 14px;
+}
+
+.costBandH2 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--deep-purple);
+  margin-bottom: 20px;
+}
+
+.costBandH2 em {
+  font-style: italic;
+  color: var(--mid-purple);
+}
+
+.costBandP {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  max-width: 540px;
+}
+
+.costBandP strong {
+  color: var(--deep-purple);
+}
+
+.costBandBtn {
+  display: inline-block;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--deep-purple);
+  padding: 18px 34px;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 12px 34px rgba(61, 26, 110, 0.3);
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.costBandBtn:hover {
+  background: var(--mid-purple);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(61, 26, 110, 0.38);
+}
+
+.costBandBtn:focus-visible {
+  outline: 3px solid var(--lavender);
+  outline-offset: 3px;
+}
+
+.costBandCard {
+  background: #fff;
+  border: 2px solid var(--lavender);
+  border-radius: 20px;
+  padding: 30px 30px 26px;
+  box-shadow: 0 24px 60px rgba(61, 26, 110, 0.14);
+  transform: rotate(1.2deg);
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+.costCardTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--deep-purple);
+  margin-bottom: 18px;
+}
+
+.costCardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--deep-purple);
+}
+
+.costCardDots {
+  display: inline-flex;
+  align-items: center;
+}
+
+.costCardDots i {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--mid-purple);
+  position: relative;
+  margin-right: 22px;
+}
+
+.costCardDots i:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 7px;
+  width: 22px;
+  height: 2px;
+  background: var(--lavender);
+}
+
+.costCardDots i:last-child {
+  margin-right: 0;
+}
+
+.costCardBar {
+  height: 12px;
+  width: 120px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--lavender), var(--mid-purple));
+}
+
+.costCardNote {
+  font-size: 13px;
+  color: #777;
+  margin: 4px 0 18px;
+}
+
+.costCardTotal {
+  margin-top: 6px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--lavender-light);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-purple);
+}
+
+.costCardTotal strong {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--deep-purple);
+}
+
+@media (max-width: 900px) {
+  .costBand { padding: 56px 24px; }
+  .costBandInner { grid-template-columns: 1fr; gap: 36px; }
+  .costBandCard { transform: none; }
 }

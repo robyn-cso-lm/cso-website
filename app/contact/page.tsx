@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import styles from './contact.module.css';
 import ContactForm from '../../components/ContactForm';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = {
   title: 'Contact Canadian Surrogacy Options',
@@ -13,7 +14,7 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className={styles.hero}>
-        <div className={styles.heroInner}>
+        <div className={`${styles.heroInner} hero-enter`}>
           <p className={styles.eyebrow}>Get in Touch</p>
           <h1 className={styles.heroTitle}>We&rsquo;re real people.<br />We actually respond.</h1>
           <p className={styles.heroSub}>
@@ -27,7 +28,7 @@ export default function ContactPage() {
       <section className={styles.options}>
         <div className={styles.optionsInner}>
           <div className={styles.optionCard}>
-            <div className={styles.optionIcon}>📞</div>
+            <div className={styles.optionIcon}><Icon name="phone" /></div>
             <h2 className={styles.optionTitle}>Call or Text</h2>
             <p className={styles.optionDesc}>
               Prefer to talk? Call or text us directly. Robyn picks up when she can,
@@ -42,7 +43,7 @@ export default function ContactPage() {
           </div>
 
           <div className={styles.optionCard}>
-            <div className={styles.optionIcon}>✉️</div>
+            <div className={styles.optionIcon}><Icon name="mail" /></div>
             <h2 className={styles.optionTitle}>Email Robyn</h2>
             <p className={styles.optionDesc}>
               Have questions you&rsquo;d rather put in writing? Email us and expect a
@@ -57,7 +58,7 @@ export default function ContactPage() {
           </div>
 
           <div className={styles.optionCard}>
-            <div className={styles.optionIcon}>📅</div>
+            <div className={styles.optionIcon}><Icon name="calendar" /></div>
             <h2 className={styles.optionTitle}>Book a Free Call</h2>
             <p className={styles.optionDesc}>
               Ready to talk through your situation? Book a free 30-minute consultation

@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
 <head>
   <meta charset="utf-8" />
   <style>
-    body { margin: 0; padding: 0; background: #f5f0f9; font-family: 'DM Sans', Arial, sans-serif; }
+    body { margin: 0; padding: 0; background: #f5f0f9; font-family: var(--font-dm-sans), Arial, sans-serif; }
     .wrapper { max-width: 640px; margin: 32px auto; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(61,26,110,0.1); }
     .header { background: #3D1A6E; padding: 32px 40px; }
     .header-label { color: rgba(255,255,255,0.6); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }

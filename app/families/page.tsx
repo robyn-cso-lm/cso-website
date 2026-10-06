@@ -77,34 +77,34 @@ const stories: Story[] = [
 export default function FamiliesPage() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .fam-body { font-family: 'Jost', sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 300; }
         .fam-body a { color: #6B3FA0; text-decoration: none; }
         .fam-body a:hover { text-decoration: underline; }
         .fam-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 80px 24px 64px; }
-        .fam-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.1; margin-bottom: 20px; }
+        .fam-hero h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.1; margin-bottom: 20px; }
         .fam-hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.92; }
-        h2.fam-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
+        h2.fam-h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.fam-h2 { color: #E8E0F5; }
         .intro-block { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
-        .intro-block blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; line-height: 1.8; color: #3D1A6E; flex: 1; min-width: 260px; margin: 0; }
+        .intro-block blockquote { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.3rem; font-style: italic; line-height: 1.8; color: #3D1A6E; flex: 1; min-width: 260px; margin: 0; }
         .stories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 28px; margin-top: 40px; }
         .story-card { background: #fff; border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 20px rgba(61,26,110,0.08); border-top: 4px solid #9B7FC7; }
         .story-card .story-portrait { margin-bottom: 22px; }
         .story-card .story-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
         .story-card .story-label { background: #E8E0F5; color: #6B3FA0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 12px; border-radius: 20px; }
-        .story-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #3D1A6E; margin-bottom: 4px; font-weight: 500; }
+        .story-card h3 { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.4rem; color: #3D1A6E; margin-bottom: 4px; font-weight: 500; }
         .story-card .location { font-size: 0.82rem; color: #9B7FC7; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
         .story-card p { font-size: 0.95rem; color: #444; line-height: 1.75; }
         .pull-quote { background: #3D1A6E; color: #fff; padding: 60px 24px; text-align: center; }
-        .pull-quote blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 400; font-style: italic; line-height: 1.6; max-width: 720px; margin: 0 auto 20px; }
+        .pull-quote blockquote { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 400; font-style: italic; line-height: 1.6; max-width: 720px; margin: 0 auto 20px; }
         .pull-quote cite { font-size: 0.9rem; opacity: 0.75; font-style: normal; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin-top: 36px; }
         .stat-item { text-align: center; padding: 32px 20px; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(61,26,110,0.08); }
-        .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 600; color: #3D1A6E; line-height: 1; margin-bottom: 8px; }
+        .stat-num { font-family: var(--font-cormorant), Georgia, serif; font-size: 3rem; font-weight: 600; color: #3D1A6E; line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 0.9rem; color: #666; }
         @media (max-width: 600px) { .fam-hero { padding: 56px 20px 48px; } .stories-grid { grid-template-columns: 1fr; } }
-      `}</style>
+      ` }} />
 
       <div className="fam-body">
 

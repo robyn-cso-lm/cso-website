@@ -3,6 +3,9 @@ import Link from 'next/link';
 import ClinicStrip from '@/components/ClinicStrip';
 import Portrait from '@/components/Portrait';
 import styles from './about.module.css';
+import Icon from '@/components/Icon';
+import HeartbeatLine from '@/components/HeartbeatLine';
+import CountUp from '@/components/CountUp';
 
 export const metadata: Metadata = {
   title: 'About Canadian Surrogacy Options',
@@ -15,21 +18,22 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className={styles.hero}>
-        <div className={styles.heroInner}>
+        <div className={`${styles.heroInner} hero-enter`}>
           <p className={styles.eyebrow}>Our Story</p>
           <h1 className={styles.heroTitle}>
             Built on love.<br />Running on legacy.
           </h1>
+          <HeartbeatLine />
           <p className={styles.heroSub}>
-            Canada&rsquo;s first surrogacy agency, founded 1992. Over three decades of walking
-            beside families and surrogates through one of life&rsquo;s most profound journeys.
+            The story of Canada&rsquo;s first surrogacy agency, and the family that has run it
+            from the very beginning.
           </p>
         </div>
       </section>
 
       {/* Founding Story */}
       <section className={styles.founding}>
-        <div className={styles.foundingInner}>
+        <div className={`${styles.foundingInner} reveal-stagger`}>
           <div className={styles.foundingText}>
             <h2 className={styles.sectionTitle}>Where it began.</h2>
             <p className={styles.body}>
@@ -61,7 +65,7 @@ export default function AboutPage() {
 
       {/* Robyn's Story */}
       <section className={styles.robyn}>
-        <div className={styles.robynInner}>
+        <div className={`${styles.robynInner} reveal-stagger`}>
           <div className={styles.robynPhoto}>
             {/* Drop Robyn's photograph at /public/images/team/robyn-price.jpg and
                 pass it as src. Until then this renders the lettered placeholder
@@ -110,9 +114,9 @@ export default function AboutPage() {
       <section className={styles.values}>
         <div className={styles.valuesInner}>
           <h2 className={styles.sectionTitleCentered}>What we stand for.</h2>
-          <div className={styles.valuesGrid}>
+          <div className={`${styles.valuesGrid} reveal-stagger`}>
             <div className={styles.valueCard}>
-              <div className={styles.valueIcon}>🤍</div>
+              <div className={styles.valueIcon}><Icon name="heart" /></div>
               <h3 className={styles.valueTitle}>Compassion First</h3>
               <p className={styles.valueText}>
                 We know this journey is emotional and complex. We meet you exactly where you are,
@@ -120,7 +124,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className={styles.valueCard}>
-              <div className={styles.valueIcon}>🔍</div>
+              <div className={styles.valueIcon}><Icon name="search" /></div>
               <h3 className={styles.valueTitle}>Radical Transparency</h3>
               <p className={styles.valueText}>
                 No hidden fees. No vague timelines. No sugar-coating. We tell you what to
@@ -128,7 +132,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className={styles.valueCard}>
-              <div className={styles.valueIcon}>🛡️</div>
+              <div className={styles.valueIcon}><Icon name="shield" /></div>
               <h3 className={styles.valueTitle}>Unwavering Support</h3>
               <p className={styles.valueText}>
                 From your first question to the moment you bring your baby home, we&rsquo;re
@@ -136,7 +140,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className={styles.valueCard}>
-              <div className={styles.valueIcon}>🌈</div>
+              <div className={styles.valueIcon}><Icon name="sun" /></div>
               <h3 className={styles.valueTitle}>Every Family Welcome</h3>
               <p className={styles.valueText}>
                 LGBTQ+ families, single parents, couples facing infertility: we believe
@@ -147,27 +151,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* By the numbers */}
+      {/* By the numbers: 1992 and "first agency" already live in the founding card. */}
       <section className={styles.numbers}>
         <div className={styles.numbersInner}>
           <div className={styles.numberStat}>
-            <span className={styles.numberNum}>2,500+</span>
+            <span className={styles.numberNum}>
+              <CountUp end={2500} suffix="+" />
+            </span>
             <span className={styles.numberLabel}>Families built</span>
           </div>
           <div className={styles.numberDivider} />
           <div className={styles.numberStat}>
-            <span className={styles.numberNum}>30+</span>
+            <span className={styles.numberNum}>
+              <CountUp end={30} suffix="+" duration={1200} />
+            </span>
             <span className={styles.numberLabel}>Years of experience</span>
-          </div>
-          <div className={styles.numberDivider} />
-          <div className={styles.numberStat}>
-            <span className={styles.numberNum}>#1</span>
-            <span className={styles.numberLabel}>Canada&rsquo;s first agency</span>
-          </div>
-          <div className={styles.numberDivider} />
-          <div className={styles.numberStat}>
-            <span className={styles.numberNum}>Cambridge</span>
-            <span className={styles.numberLabel}>Ontario, Canada</span>
           </div>
         </div>
       </section>

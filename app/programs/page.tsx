@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ClinicStrip from '@/components/ClinicStrip';
 import styles from './programs.module.css';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = {
   title: 'Surrogacy Programs in Canada',
@@ -40,7 +41,7 @@ export default function ProgramsPage() {
   return (
     <>
       <section className={styles.hero}>
-        <div className={styles.heroInner}>
+        <div className={`${styles.heroInner} hero-enter`}>
           <p className={styles.eyebrow}>Canadian Surrogacy Options</p>
           <h1 className={styles.heroH1}>Find the path that&apos;s right for your family</h1>
           <p className={styles.heroSub}>
@@ -50,11 +51,14 @@ export default function ProgramsPage() {
           </p>
           <div className={styles.heroActions}>
             <a href={GET_STARTED} className={styles.heroCTA}>
-              Get Started -&gt;
+              Get Started &rarr;
             </a>
             <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.heroEmailLink}>
               Not sure? Email us and let&apos;s chat
             </a>
+            <Link href="/surrogacy-costs" className={styles.heroEmailLink}>
+              See what it could cost for your family
+            </Link>
           </div>
         </div>
       </section>
@@ -65,7 +69,7 @@ export default function ProgramsPage() {
           <p className={styles.sectionSub}>
             Full-service support for families who want an experienced partner by their side.
           </p>
-          <div className={styles.programGrid}>
+          <div className={`${styles.programGrid} reveal-stagger`}>
             <div className={styles.programCard}>
               <div className={styles.cardHeader}>
                 <h3 className={styles.cardTitle}>Foundation</h3>
@@ -80,7 +84,7 @@ export default function ProgramsPage() {
               <div className={styles.cardFooter}>
                 <p className={styles.priceNote}>From $9,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started -&gt;
+                  Get Started &rarr;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
@@ -103,7 +107,7 @@ export default function ProgramsPage() {
               <div className={styles.cardFooter}>
                 <p className={styles.priceNote}>From $19,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started -&gt;
+                  Get Started &rarr;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
@@ -127,7 +131,7 @@ export default function ProgramsPage() {
               <div className={styles.cardFooter}>
                 <p className={styles.priceNote}>From $29,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimaryWhite}>
-                  Get Started -&gt;
+                  Get Started &rarr;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnFilled}>
                   Book a Free Call
@@ -150,7 +154,7 @@ export default function ProgramsPage() {
               <div className={styles.cardFooter}>
                 <p className={styles.priceNote}>From $1,500 + HST</p>
                 <a href={GET_STARTED} className={styles.btnPrimary}>
-                  Get Started -&gt;
+                  Get Started &rarr;
                 </a>
                 <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
                   Book a Free Call
@@ -203,9 +207,9 @@ export default function ProgramsPage() {
             Not ready to start? Start learning. Our digital guides give you the information
             you need to move forward at your own pace.
           </p>
-          <div className={styles.productGrid}>
+          <div className={`${styles.productGrid} reveal-stagger`}>
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>📋</div>
+              <div className={styles.productIcon}><Icon name="clipboard" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Is Surrogacy Right For Me?&rdquo;</h3>
                 <p className={styles.productPrice}>$27</p>
@@ -224,7 +228,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>🗺️</div>
+              <div className={styles.productIcon}><Icon name="map" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;The Canadian Surrogacy Roadmap&rdquo;</h3>
                 <p className={styles.productPrice}>$97</p>
@@ -242,7 +246,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>🧭</div>
+              <div className={styles.productIcon}><Icon name="compass" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Independent Journey Checklist&rdquo;</h3>
                 <p className={styles.productPrice}>$87</p>
@@ -261,7 +265,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>💜</div>
+              <div className={styles.productIcon}><Icon name="heart" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Readiness Guide&rdquo;</h3>
                 <p className={styles.productPrice}>{surrogatePrice}</p>
@@ -285,7 +289,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={styles.productCard}>
-              <div className={styles.productIcon}>✨</div>
+              <div className={styles.productIcon}><Icon name="sparkles" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;IP Profile Template Pack&rdquo;</h3>
                 <p className={styles.productPrice}>$47</p>
@@ -303,7 +307,7 @@ export default function ProgramsPage() {
             </div>
 
             <div className={`${styles.productCard} ${styles.receiptCard}`}>
-              <div className={styles.productIcon}>🧾</div>
+              <div className={styles.productIcon}><Icon name="receipt" /></div>
               <div className={styles.productHeader}>
                 <h3 className={styles.productTitle}>&ldquo;Surrogate Expense Management&rdquo;</h3>
                 <p className={styles.productPrice}>From $199/mo</p>
@@ -334,11 +338,14 @@ export default function ProgramsPage() {
           </p>
           <div className={styles.notSureActions}>
             <a href={GET_STARTED} className={styles.notSureBtn}>
-              Get Started -&gt;
+              Get Started &rarr;
             </a>
             <a href="mailto:robyn@canadiansurrogacyoptions.com?subject=Question about CSO programs" className={styles.notSureEmail}>
               Not sure? Email us and let&apos;s chat
             </a>
+            <Link href="/surrogacy-costs" className={styles.heroEmailLink}>
+              See what it could cost for your family
+            </Link>
           </div>
         </div>
       </section>

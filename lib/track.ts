@@ -46,3 +46,10 @@ export function trackSchedule(source?: string): void {
   window.fbq?.('track', 'Schedule', { content_name: source });
   window.gtag?.('event', 'schedule_call', { source });
 }
+
+/** Finished the cost quiz and saw their estimate (before leaving an email). */
+export function trackQuizComplete(source?: string): void {
+  if (typeof window === 'undefined') return;
+  window.fbq?.('trackCustom', 'CostQuizComplete', { content_name: source });
+  window.gtag?.('event', 'cost_quiz_complete', { source });
+}

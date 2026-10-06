@@ -22,7 +22,7 @@ export default function GalleryPage() {
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <h1
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
               fontSize: 'clamp(34px, 5vw, 52px)',
               fontWeight: 400,
               fontStyle: 'italic',
@@ -34,7 +34,7 @@ export default function GalleryPage() {
           </h1>
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: '17px',
               color: 'rgba(255,255,255,0.85)',
               lineHeight: 1.6,
@@ -64,7 +64,7 @@ export default function GalleryPage() {
         <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
               fontSize: 'clamp(28px, 4vw, 38px)',
               fontWeight: 400,
               marginBottom: '14px',
@@ -74,7 +74,7 @@ export default function GalleryPage() {
           </h2>
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: '16px',
               color: 'rgba(255,255,255,0.8)',
               lineHeight: 1.6,
@@ -90,7 +90,7 @@ export default function GalleryPage() {
               display: 'inline-block',
               background: '#C8973A',
               color: '#3D1A6E',
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-dm-sans), sans-serif",
               fontSize: '15px',
               fontWeight: 600,
               padding: '14px 32px',
@@ -112,7 +112,7 @@ const badgeStyle: React.CSSProperties = {
   color: '#3D1A6E',
   padding: '8px 16px',
   borderRadius: '8px',
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: "var(--font-dm-sans), sans-serif",
   fontSize: '14px',
   fontWeight: 600,
 };

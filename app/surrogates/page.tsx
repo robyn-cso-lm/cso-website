@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import SurrogateLeadForm from '@/components/SurrogateLeadForm';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = {
   title: 'Become a Surrogate in Canada',
@@ -10,31 +11,31 @@ export const metadata: Metadata = {
 export default function SurrogatesPage() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .sur-body { font-family: var(--font-dm-sans), sans-serif; color: #2d2d2d; background: #fff; line-height: 1.7; font-weight: 400; }
         .sur-body a { color: #6B3FA0; text-decoration: none; }
         .sur-body a:hover { text-decoration: underline; }
         .sur-hero { background: linear-gradient(135deg, #3D1A6E 0%, #6B3FA0 100%); color: #fff; text-align: center; padding: 72px 24px 60px; }
-        .sur-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 18px; }
+        .sur-hero h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 500; line-height: 1.15; margin-bottom: 18px; }
         .sur-hero p { font-size: 1.2rem; max-width: 620px; margin: 0 auto 32px; opacity: 0.92; }
         .trust-clarity { max-width: 900px; margin: 42px auto 12px; padding: 0 24px; }
         .trust-clarity-card { background: linear-gradient(135deg, rgba(232,224,245,0.78) 0%, rgba(255,255,255,0.98) 100%); border: 1px solid rgba(155,127,199,0.25); border-radius: 18px; padding: 28px 26px; box-shadow: 0 8px 28px rgba(61,26,110,0.06); }
-        .trust-clarity-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #3D1A6E; margin-bottom: 10px; line-height: 1.12; }
+        .trust-clarity-card h3 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #3D1A6E; margin-bottom: 10px; line-height: 1.12; }
         .trust-clarity-card p { font-family: var(--font-dm-sans), sans-serif; font-size: 1rem; color: #4A3560; line-height: 1.85; margin-bottom: 12px; }
         .trust-clarity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 22px 0 8px; }
         .trust-clarity-pill { display: flex; align-items: center; justify-content: center; min-height: 74px; background: #fff; border: 1px solid rgba(155,127,199,0.2); border-radius: 999px; padding: 12px 18px; text-align: center; font-family: var(--font-dm-sans), sans-serif; font-size: 0.9rem; color: #3D1A6E; font-weight: 700; line-height: 1.45; box-shadow: 0 4px 14px rgba(61,26,110,0.04); }
         .trust-clarity-note { font-family: var(--font-dm-sans), sans-serif; font-size: 0.98rem; color: #6B3FA0; font-weight: 700; margin-top: 10px; margin-bottom: 0; }
         .urgency { background: #E8E0F5; border-left: 5px solid #3D1A6E; padding: 24px 32px; max-width: 780px; margin: 48px auto; border-radius: 6px; text-align: center; }
         .urgency p { font-size: 1.25rem; color: #3D1A6E; font-weight: 600; line-height: 1.5; }
-        h2.sur-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
+        h2.sur-h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: #3D1A6E; margin-bottom: 8px; line-height: 1.2; }
         .section-dark h2.sur-h2 { color: #E8E0F5; }
         .founder-block { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
         .founder-text { flex: 1; min-width: 260px; }
-        .founder-text blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; font-style: italic; line-height: 1.8; color: #fff; margin-bottom: 16px; }
+        .founder-text blockquote { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.35rem; font-weight: 400; font-style: italic; line-height: 1.8; color: #fff; margin-bottom: 16px; }
         .founder-text cite { font-style: normal; font-size: 0.9rem; opacity: 0.8; }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 32px; }
         .testimonial-card { background: linear-gradient(145deg, #f3eeff 0%, #e8e0f5 100%); border-radius: 16px; padding: 36px 32px; border-left: 4px solid #9B7FC7; box-shadow: 0 4px 20px rgba(61,26,110,0.07); }
-        .testimonial-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: #3D1A6E; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
+        .testimonial-card p { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.2rem; font-weight: 400; color: #3D1A6E; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
         .testimonial-card cite { font-size: 0.78rem; color: #9B7FC7; font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
         .benefits-list { list-style: none; margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; padding: 0; }
         .benefits-list li { background: #fff; border-radius: 10px; padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; box-shadow: 0 2px 8px rgba(61,26,110,0.07); }
@@ -67,9 +68,9 @@ export default function SurrogatesPage() {
         .honest-note { background: #E8E0F5; border-left: 5px solid #6B3FA0; padding: 20px 26px; border-radius: 6px; margin-top: 28px; font-size: 0.98rem; color: #3D1A6E; line-height: 1.8; }
         .match-story { background: linear-gradient(145deg, #f3eeff 0%, #E8E0F5 100%); border-radius: 16px; padding: 26px 28px; margin-top: 18px; font-size: 1rem; color: #3D1A6E; line-height: 1.85; }
         .match-story strong { color: #3D1A6E; }
-        .closing-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; line-height: 1.75; max-width: 640px; margin: 0 auto 28px; }
+        .closing-quote { font-family: var(--font-cormorant), Georgia, serif; font-size: 1.4rem; font-style: italic; line-height: 1.75; max-width: 640px; margin: 0 auto 28px; }
         @media (max-width: 600px) { .sur-hero { padding: 52px 20px 44px; } .urgency { padding: 20px 20px; } }
-      `}</style>
+      ` }} />
 
       <div className="sur-body">
 
@@ -201,15 +202,15 @@ export default function SurrogatesPage() {
             <p style={{ maxWidth: 620, marginBottom: 8 }}>We&apos;ve spent over 30 years building a program that actually takes care of surrogates. Here&apos;s what that looks like in practice.</p>
             <ul className="benefits-list">
               {[
-                { icon: '💜', title: 'Your Own Support Coordinator', desc: 'Shondra is with you from day one through the whole journey, no matter what comes up.' },
-                { icon: '👯', title: 'A Real Peer Community', desc: 'Connect with other CSO surrogates who truly get what you\'re going through.' },
-                { icon: '✅', title: 'All Expenses Fully Reimbursed', desc: 'Every pregnancy-related expense is covered. You won\'t be out of pocket.' },
-                { icon: '❤️', title: 'Browse Families Before You Commit', desc: 'Our portal lets you browse real family profiles before you even apply — get a feel for the families we work with and reach out if one resonates.' },
-                { icon: '⚖️', title: 'Legal Counsel Included', desc: 'Your legal representation is fully paid for by the intended parents.' },
-                { icon: '🏠', title: 'Judgment-Free Support', desc: 'Flexible, warm support from a team that\'s been doing this since 1992. We\'ve seen it all and we\'re here for all of it.' },
+                { icon: 'heart', title: 'Your Own Support Coordinator', desc: 'Shondra is with you from day one through the whole journey, no matter what comes up.' },
+                { icon: 'users', title: 'A Real Peer Community', desc: 'Connect with other CSO surrogates who truly get what you\'re going through.' },
+                { icon: 'check', title: 'All Expenses Fully Reimbursed', desc: 'Every pregnancy-related expense is covered. You won\'t be out of pocket.' },
+                { icon: 'heart', title: 'Browse Families Before You Commit', desc: 'Our portal lets you browse real family profiles before you even apply — get a feel for the families we work with and reach out if one resonates.' },
+                { icon: 'scale', title: 'Legal Counsel Included', desc: 'Your legal representation is fully paid for by the intended parents.' },
+                { icon: 'home', title: 'Judgment-Free Support', desc: 'Flexible, warm support from a team that\'s been doing this since 1992. We\'ve seen it all and we\'re here for all of it.' },
               ].map(b => (
                 <li key={b.title}>
-                  <span className="icon">{b.icon}</span>
+                  <span className="icon"><Icon name={b.icon} /></span>
                   <div className="text"><strong>{b.title}</strong><span>{b.desc}</span></div>
                 </li>
               ))}
@@ -405,9 +406,9 @@ export default function SurrogatesPage() {
             <div className="divider" />
             <p style={{ maxWidth: 500, margin: '0 auto 8px', opacity: 0.9 }}>We love hearing from women who are curious about surrogacy. Reach out anytime, no pressure at all.</p>
             <div className="contact-row">
-              <a href="tel:18774014175">📞 Call Us</a>
-              <a href="sms:18774014175">💬 Text Us</a>
-              <a href="mailto:info@canadiansurrogacyoptions.com">✉️ Email Us</a>
+              <a href="tel:18774014175">Call Us</a>
+              <a href="sms:18774014175">Text Us</a>
+              <a href="mailto:info@canadiansurrogacyoptions.com">Email Us</a>
             </div>
           </div>
         </div>

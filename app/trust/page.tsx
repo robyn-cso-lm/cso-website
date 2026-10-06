@@ -58,7 +58,7 @@ const trustSteps = [
 export default function TrustPage() {
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .trust-page {
           color: var(--text);
           background:
@@ -421,7 +421,7 @@ export default function TrustPage() {
             padding-top: 50px;
           }
         }
-      `}</style>
+      ` }} />
 
       <div className="trust-page">
         <section className="trust-hero">

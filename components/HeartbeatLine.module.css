@@ -1,0 +1,38 @@
+.line {
+  display: block;
+  width: min(600px, 90%);
+  height: auto;
+  margin: 4px auto 24px;
+  overflow: visible;
+}
+
+.stroke {
+  stroke: #c4adea;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 6px rgba(155, 127, 199, 0.55));
+  animation: draw var(--dur, 1s) cubic-bezier(0.55, 0.1, 0.25, 1) var(--delay, 0s) forwards;
+}
+
+/* One continuous take: heartbeat, then the house, then the line carries on. */
+.lead { --dur: 3.2s; --delay: 1.1s; }
+.floor { --dur: 0.5s; --delay: 4.3s; }
+.detail { --dur: 0.5s; --delay: 4.8s; }
+.detail2 { --dur: 0.4s; --delay: 5.2s; stroke-width: 2; }
+.onward { --dur: 1.1s; --delay: 4.3s; opacity: 0.55; }
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stroke {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
