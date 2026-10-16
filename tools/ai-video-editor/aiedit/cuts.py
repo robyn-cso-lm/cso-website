@@ -30,6 +30,16 @@ def norm(text: str) -> str:
     return re.sub(r"[^a-z0-9']", "", text.lower())
 
 
+def clamp_words(words, base=0.35, per_char=0.09):
+    """Whisper often stretches a word across the silence after it, which hides pauses
+    inside words and makes captions linger. Trim each word to a believable length."""
+    out = []
+    for w in words:
+        limit = base + per_char * len(norm(w.text))
+        out.append(Word(w.text, w.start, min(w.end, w.start + limit)))
+    return out
+
+
 def mark_keep(words, restart_gap=0.7, drop_restarts=True, drop_fillers=True):
     """Return a list of booleans, one per word: True means keep."""
     n = len(words)

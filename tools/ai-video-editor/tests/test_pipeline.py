@@ -58,6 +58,15 @@ class Cuts(unittest.TestCase):
         for (s1, e1), (s2, e2) in zip(ranges, ranges[1:]):
             self.assertLessEqual(e1, s2)
 
+    def test_stretched_word_exposes_the_pause(self):
+        from aiedit.cuts import clamp_words
+        words = [Word("crying", 1.0, 3.0), Word("and", 3.1, 3.3)]  # whisper stretched "crying" over silence
+        c = clamp_words(words)
+        self.assertLess(c[0].end - c[0].start, 1.0)
+        ranges = keep_ranges(c, mark_keep(c), 5.0)
+        self.assertGreaterEqual(len(ranges), 1)
+        self.assertLess(sum(e - s for s, e in ranges), 1.5)
+
     def test_timeline_map(self):
         tl = Timeline([(1.0, 2.0), (5.0, 6.0)])
         self.assertAlmostEqual(tl.map(1.5), 0.5)

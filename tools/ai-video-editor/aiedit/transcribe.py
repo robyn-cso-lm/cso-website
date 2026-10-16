@@ -72,9 +72,16 @@ def transcribe(video, model="small", language=None):
     with tempfile.TemporaryDirectory() as tmp:
         wav = Path(tmp) / "audio.wav"
         extract_audio(video, wav)
+        # Load the WAV ourselves: skips faster-whisper's PyAV decoder, whose version often clashes.
+        import wave
+
+        import numpy as np
+
+        with wave.open(str(wav), "rb") as wf:
+            audio = np.frombuffer(wf.readframes(wf.getnframes()), dtype=np.int16).astype(np.float32) / 32768.0
         m = WhisperModel(model, device="auto", compute_type="int8")
         segments, info = m.transcribe(
-            str(wav), word_timestamps=True, language=language, vad_filter=False,
+            audio, word_timestamps=True, language=language, vad_filter=False,
             condition_on_previous_text=False,
         )
         words = []

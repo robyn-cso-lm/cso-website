@@ -9,12 +9,13 @@ import json
 from pathlib import Path
 
 from .captions import auto_hook, build_captions
-from .cuts import Timeline, keep_ranges, mark_keep
+from .cuts import Timeline, clamp_words, keep_ranges, mark_keep
 
 
 def make_plan(info, words, template_name, template, hook=None, emphasis=(), cut_opts=None, broll=()):
     o = {"restart_gap": 0.7, "max_gap": 0.4, "pad": 0.07, "drop_restarts": True, "drop_fillers": True}
     o.update(cut_opts or {})
+    words = clamp_words(words)
     keep = mark_keep(words, o["restart_gap"], o["drop_restarts"], o["drop_fillers"])
     ranges = keep_ranges(words, keep, info.duration, o["pad"], o["max_gap"])
     tl = Timeline(ranges)
