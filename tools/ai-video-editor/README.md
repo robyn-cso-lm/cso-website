@@ -19,7 +19,7 @@ Runs on your computer (Windows or Mac). Claude Code is the editor; this folder i
 
 ## Setup (one sitting)
 
-You need: **CapCut desktop** (free plan is fine), **Python 3.10 to 3.13**, **ffmpeg**, and **Claude Code**.
+You need: **CapCut desktop** (free plan is fine), **Python 3.10+**, **ffmpeg**, and **Claude Code**.
 
 ```bash
 # Windows
@@ -36,7 +36,9 @@ python editor.py doctor
 
 Open CapCut once so it creates its drafts folder. `doctor` tells you what is still missing.
 
-Python 3.14 is too new for the transcription library right now. If `pip install` fails on it, use 3.12 or 3.13, or skip transcribing and pass `--transcript` with an `.srt`, `.vtt` or `.json` (CapCut's own auto-captions export works).
+Tested on Python 3.14 with faster-whisper 1.2.1. No GPU needed. The first run downloads the speech model (about 460 MB for `small`).
+
+No transcription library? Pass `--transcript` with an `.srt`, `.vtt` or `.json` (CapCut's own caption export works).
 
 ## Use it
 
