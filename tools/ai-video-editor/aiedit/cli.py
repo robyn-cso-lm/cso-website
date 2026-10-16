@@ -141,6 +141,21 @@ def cmd_batch(a):
     return 1 if failed else 0
 
 
+def cmd_register(a):
+    import json
+    from .draft import _capcut_running, _register
+    folder = Path(a.draft)
+    if not folder.is_absolute():
+        folder = config.capcut_drafts_dir() / a.draft
+    meta = json.loads((folder / "draft_meta_info.json").read_text(encoding="utf-8"))
+    if _capcut_running():
+        raise SystemExit("CapCut is still running (check the system tray / Task Manager). Quit it fully, then retry.")
+    if _register(folder.parent, folder, meta):
+        print(f"Registered '{folder.name}'. Open CapCut.")
+    else:
+        raise SystemExit("Could not register (no root_meta_info.json?).")
+
+
 def cmd_frames(a):
     out = Path(a.out or Path(a.video).with_suffix("")).resolve()
     paths = media.extract_frames(a.video, out, a.count)
@@ -182,6 +197,8 @@ def main(argv=None):
     add_edit_opts(sp); sp.set_defaults(fn=cmd_edit)
     sp = sub.add_parser("batch", help="edit every video in a folder"); sp.add_argument("folder")
     add_edit_opts(sp); sp.set_defaults(fn=cmd_batch, name=None)
+    sp = sub.add_parser("register", help="add an already-written draft to CapCut's project list (CapCut must be quit)")
+    sp.add_argument("draft", help="draft folder name or full path"); sp.set_defaults(fn=cmd_register)
     sp = sub.add_parser("frames", help="pull stills from a reference video so Claude can match its look")
     sp.add_argument("video"); sp.add_argument("--count", type=int, default=8); sp.add_argument("--out")
     sp.set_defaults(fn=cmd_frames)
