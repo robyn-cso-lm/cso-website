@@ -1,0 +1,38 @@
+{
+  "name": "soft",
+  "label": "Soft Serif",
+  "best_for": "Skincare, beauty, wellness, lifestyle",
+  "caption": {
+    "font": [
+      "Georgia Italic",
+      "georgiai"
+    ],
+    "size": 10,
+    "color": "#FFFFFF",
+    "highlight": "#FFD9E8",
+    "stroke": "#000000",
+    "stroke_width": 0.0,
+    "uppercase": false,
+    "words": 4,
+    "y": -0.55,
+    "pop": false,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "Georgia Italic",
+      "georgiai"
+    ],
+    "size": 14,
+    "color": "#FFFFFF",
+    "highlight": "#FFD9E8",
+    "stroke": "#000000",
+    "stroke_width": 0.0,
+    "uppercase": false,
+    "y": 0.62,
+    "seconds": 3.0,
+    "italic": false,
+    "box": null,
+    "line_width": 0.8
+  }
+}
