@@ -95,13 +95,14 @@ Fonts are system fonts (Impact, Arial, Georgia and friends) so they exist on eve
 
 ## Brand templates
 
-`cso`, `camica` and `lm` use your real brand palettes and ignore the global `brand` setting, so each company always looks like itself.
+`cso`, `camica`, `lm` and `robyn` use your real brand palettes and ignore the global `brand` setting, so each company always looks like itself.
 
 | Template | Captions | Hook | Accent |
 |---|---|---|---|
 | `cso` | Instrument Sans Bold, cream | Playfair Display Bold Italic on a deep purple box | Gold `#C8973A` |
 | `camica` | Montserrat SemiBold, ivory | Cinzel Bold caps | Champagne gold `#C8A66A`, teal outline |
 | `lm` | Instrument Sans Bold, white | Gloock | Blush `#F4A7B9`, burgundy outline |
+| `robyn` | Instrument Sans Bold, cream, no pop (raw) | Playfair Display Bold Italic | Gold `#C8973A` |
 
 **Fonts that always stay:** the tool looks in its own `fonts/` folder first, then the computer's fonts. Drop the font files there and every draft uses them, on any machine, whatever is installed. Use static files (Bold, SemiBold, BoldItalic), not variable `[wght]` files, because CapCut draws a variable font at its default weight. Run `python editor.py doctor` to see which brand fonts are present.
 

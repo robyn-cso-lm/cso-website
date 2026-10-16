@@ -28,6 +28,12 @@ def cmd_doctor(a):
         print("OK      faster-whisper")
     except ImportError:
         print("MISSING faster-whisper  (pip install faster-whisper)  [optional if you pass --transcript]")
+    from . import fonts
+    for name in ("PlayfairDisplay-BoldItalic", "InstrumentSans-Bold", "Montserrat-SemiBold", "Cinzel-Bold", "Gloock-Regular"):
+        path = fonts.resolve(name)
+        bundled = path.startswith(str(fonts.BUNDLED).replace("\\", "/"))
+        print(f"{'OK     ' if bundled else 'MISSING'} brand font {name}" + ("" if bundled else "  (put the .ttf in fonts/)"))
+        ok &= bundled
     d = config.capcut_drafts_dir()
     print(f"{'OK     ' if d.exists() else 'MISSING'} CapCut drafts folder: {d}")
     ok &= d.exists()
