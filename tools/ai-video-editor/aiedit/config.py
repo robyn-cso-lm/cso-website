@@ -41,6 +41,8 @@ def save_brand(brand):
 def apply_brand(template, brand):
     """Your fonts and colours win over the template's. Load them once, every video uses them."""
     t = json.loads(json.dumps(template))
+    if t.get("brand_locked"):  # cso / camica / lm already ARE a brand
+        return t
     for part, fkey in (("caption", "caption_font"), ("hook", "hook_font")):
         if brand.get(fkey):
             t[part]["font"] = [brand[fkey]]

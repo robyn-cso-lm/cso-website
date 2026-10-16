@@ -7,7 +7,15 @@ import sys
 from pathlib import Path
 
 
+BUNDLED = Path(__file__).resolve().parent.parent / "fonts"
+
+
 def font_dirs():
+    """Fonts shipped with the tool come first, so a draft looks the same on any machine."""
+    return [BUNDLED] + _system_dirs()
+
+
+def _system_dirs():
     if sys.platform == "win32":
         dirs = [Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts"]
         local = os.environ.get("LOCALAPPDATA")

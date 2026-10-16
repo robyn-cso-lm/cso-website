@@ -93,6 +93,18 @@ Then ask Claude to build a custom template from the stills (see EDITOR.md). It s
 
 Fonts are system fonts (Impact, Arial, Georgia and friends) so they exist on every Mac and PC. If one is missing, CapCut falls back to its default. Your own fonts via `brand` always win.
 
+## Brand templates
+
+`cso`, `camica` and `lm` use your real brand palettes and ignore the global `brand` setting, so each company always looks like itself.
+
+| Template | Captions | Hook | Accent |
+|---|---|---|---|
+| `cso` | Instrument Sans Bold, cream | Playfair Display Bold Italic on a deep purple box | Gold `#C8973A` |
+| `camica` | Montserrat SemiBold, ivory | Cinzel Bold caps | Champagne gold `#C8A66A`, teal outline |
+| `lm` | Instrument Sans Bold, white | Gloock | Blush `#F4A7B9`, burgundy outline |
+
+**Fonts that always stay:** the tool looks in its own `fonts/` folder first, then the computer's fonts. Drop the font files there and every draft uses them, on any machine, whatever is installed. Use static files (Bold, SemiBold, BoldItalic), not variable `[wght]` files, because CapCut draws a variable font at its default weight. Run `python editor.py doctor` to see which brand fonts are present.
+
 ## Tuning the cuts
 
 | Flag | Default | Meaning |

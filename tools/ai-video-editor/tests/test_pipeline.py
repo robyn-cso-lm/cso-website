@@ -137,6 +137,14 @@ class Draft(unittest.TestCase):
                 names = [d["draft_name"] for d in root["all_draft_store"]]
                 self.assertEqual(names, ["raw take (2)", "raw take"])
 
+    def test_brand_templates_ignore_global_brand_and_prefer_bundled_fonts(self):
+        brand = {"color": "#123456", "highlight": "#654321", "caption_font": "X.ttf"}
+        for name in ("cso", "camica", "lm"):
+            t = config.apply_brand(config.load_template(name), brand)
+            self.assertNotEqual(t["caption"]["color"], "#123456", name)
+        from aiedit import fonts
+        self.assertEqual(fonts.font_dirs()[0], fonts.BUNDLED)
+
     def test_plan_roundtrip(self):
         plan, _ = self.build("pop")
         with tempfile.TemporaryDirectory() as tmp:
