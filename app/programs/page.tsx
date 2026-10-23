@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ClinicStrip from '@/components/ClinicStrip';
 import styles from './programs.module.css';
 import Icon from '@/components/Icon';
+import IPLeadForm from '@/components/IPLeadForm';
 
 export const metadata: Metadata = {
   title: 'Surrogacy Programs in Canada',
@@ -60,6 +61,12 @@ export default function ProgramsPage() {
               See what it could cost for your family
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.costGuideSection} id="cost-guide">
+        <div className={styles.costGuideInner}>
+          <IPLeadForm />
         </div>
       </section>
 
