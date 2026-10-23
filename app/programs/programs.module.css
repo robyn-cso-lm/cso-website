@@ -634,3 +634,20 @@
   color: rgba(255, 255, 255, 0.9);
   border-color: rgba(255, 255, 255, 0.6);
 }
+
+/* ── Intended-parent cost guide ── */
+.costGuideSection {
+  background: var(--lavender-light);
+  padding: 72px 40px;
+}
+
+.costGuideInner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .costGuideSection {
+    padding: 56px 20px;
+  }
+}
