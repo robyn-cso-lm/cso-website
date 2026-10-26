@@ -141,6 +141,52 @@ def cmd_batch(a):
     return 1 if failed else 0
 
 
+def _draft_dirs():
+    root = config.capcut_drafts_dir()
+    return sorted((d for d in root.iterdir() if (d / "draft_content.json").exists()),
+                  key=lambda d: (d / "draft_content.json").stat().st_mtime, reverse=True) if root.exists() else []
+
+
+def main_video_of(draft_dir):
+    """The source file that fills most of the draft's first video track."""
+    import json
+    c = json.loads((draft_dir / "draft_content.json").read_text(encoding="utf-8"))
+    paths = {m["id"]: m["path"] for m in c["materials"].get("videos", []) if m.get("type") == "video"}
+    used = {}
+    for tr in c["tracks"]:
+        if tr["type"] != "video":
+            continue
+        for seg in tr["segments"]:
+            if seg["material_id"] in paths:
+                used[seg["material_id"]] = used.get(seg["material_id"], 0) + seg["target_timerange"]["duration"]
+        if used:
+            break
+    if not used:
+        raise SystemExit(f"'{draft_dir.name}' has no video clips on its main track (photos only, or empty).")
+    return paths[max(used, key=used.get)]
+
+
+def cmd_drafts(a):
+    for d in _draft_dirs():
+        try:
+            print(f"{d.name:40} {main_video_of(d)}")
+        except SystemExit:
+            print(f"{d.name:40} (no video)")
+
+
+def cmd_from_draft(a):
+    dirs = {d.name: d for d in _draft_dirs()}
+    if a.draft not in dirs:
+        raise SystemExit(f"No draft called '{a.draft}'. Run `python editor.py drafts` to see them.")
+    src = main_video_of(dirs[a.draft])
+    if not Path(src).exists():
+        raise SystemExit(f"The draft's video is not on this PC: {src}\nExport it from CapCut or copy the original here, then use `edit`.")
+    print(f"Using the original file from '{a.draft}': {src}")
+    a.video = src
+    a.name = a.name or f"{a.draft} - AI edit"
+    build_one(analyze_one(src, a), a)
+
+
 def cmd_register(a):
     import json
     from .draft import _capcut_running, _register
@@ -197,6 +243,9 @@ def main(argv=None):
     add_edit_opts(sp); sp.set_defaults(fn=cmd_edit)
     sp = sub.add_parser("batch", help="edit every video in a folder"); sp.add_argument("folder")
     add_edit_opts(sp); sp.set_defaults(fn=cmd_batch, name=None)
+    sp = sub.add_parser("drafts", help="list your CapCut projects and the video each one uses"); sp.set_defaults(fn=cmd_drafts)
+    sp = sub.add_parser("from-draft", help="re-edit the original video behind an existing CapCut project")
+    sp.add_argument("draft", help="project name, see `drafts`"); add_edit_opts(sp); sp.set_defaults(fn=cmd_from_draft)
     sp = sub.add_parser("register", help="add an already-written draft to CapCut's project list (CapCut must be quit)")
     sp.add_argument("draft", help="draft folder name or full path"); sp.set_defaults(fn=cmd_register)
     sp = sub.add_parser("frames", help="pull stills from a reference video so Claude can match its look")
