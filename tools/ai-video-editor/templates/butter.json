@@ -1,0 +1,39 @@
+{
+  "name": "butter",
+  "label": "Butter Yellow",
+  "best_for": "Recipes, cosy storytelling, personal updates",
+  "caption": {
+    "font": [
+      "Segoe Script",
+      "Bradley Hand",
+      "Georgia Italic"
+    ],
+    "size": 9.5,
+    "color": "#FFF4C2",
+    "highlight": "#FFE27A",
+    "stroke": "#3B2A10",
+    "stroke_width": 0.05,
+    "uppercase": false,
+    "words": 4,
+    "y": -0.55,
+    "pop": true,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "Georgia Italic",
+      "georgiai"
+    ],
+    "size": 15,
+    "color": "#FFE27A",
+    "highlight": "#FFE27A",
+    "stroke": "#3B2A10",
+    "stroke_width": 0.04,
+    "uppercase": false,
+    "y": 0.62,
+    "seconds": 3.0,
+    "italic": false,
+    "box": null,
+    "line_width": 0.8
+  }
+}
