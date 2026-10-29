@@ -1,3 +1,4 @@
+import KnowledgeLinks from '@/components/KnowledgeLinks';
 import type { Metadata } from 'next';
 import SurrogateLeadForm from '@/components/SurrogateLeadForm';
 import Icon from '@/components/Icon';
@@ -397,6 +398,20 @@ export default function SurrogatesPage() {
             allowFullScreen
           />
         </div>
+
+        <KnowledgeLinks
+          heading="Thinking about becoming a surrogate?"
+          sub="Honest answers about pay, health requirements, screening and what to expect."
+          links={[
+          { href: '/knowledge-centre/can-i-be-a-surrogate-self-check-canada', label: 'Can I be a surrogate? A self-check' },
+          { href: '/knowledge-centre/how-much-do-surrogates-get-paid-in-canada', label: 'How much do surrogates get paid?' },
+          { href: '/knowledge-centre/surrogacy-requirements-canada', label: 'Surrogacy requirements in Canada' },
+          { href: '/knowledge-centre/surrogacy-screening-appointment-canada', label: 'What happens at a screening appointment' },
+          { href: '/knowledge-centre/surrogacy-reimbursements-canada-guide', label: 'Reimbursements, receipts and escrow' },
+          { href: '/knowledge-centre/faqs/is-surrogacy-safe-for-the-surrogate', label: 'Is surrogacy safe for the surrogate?' },
+          { href: '/knowledge-centre/faqs', label: 'All FAQs' },
+        ]}
+        />
 
         {/* CONTACT */}
         <div className="section-dark">

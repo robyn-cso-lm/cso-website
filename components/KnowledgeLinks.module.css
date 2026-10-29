@@ -1,0 +1,57 @@
+.wrap {
+  background: var(--cream, #FDFAF7);
+  padding: 72px 24px;
+}
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid-purple, #6B3FA0);
+  margin-bottom: 8px;
+}
+.heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--deep-purple, #3D1A6E);
+  margin: 0 0 12px;
+}
+.sub {
+  color: var(--text-secondary, #4A3560);
+  max-width: 640px;
+  margin: 0 0 28px;
+}
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.card {
+  display: block;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--lavender-light, #E8E0F5);
+  border-radius: 12px;
+  color: var(--deep-purple, #3D1A6E);
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.card:hover,
+.card:focus-visible {
+  border-color: var(--lavender, #9B7FC7);
+  box-shadow: 0 4px 16px rgba(61, 26, 110, 0.08);
+}
+.more {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--mid-purple, #6B3FA0);
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .wrap { padding: 56px 16px; }
+}
