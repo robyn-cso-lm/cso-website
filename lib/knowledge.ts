@@ -27,6 +27,7 @@ export interface KnowledgeFrontmatter {
   title: string;
   slug: string;
   type: KnowledgeType;
+  lang?: string;
   status: KnowledgeStatus;
   date: string;
   description: string;
@@ -159,6 +160,7 @@ function readEntryFile(fullPath: string, fallbackType: KnowledgeType): Knowledge
     title: data.title || '',
     slug: data.slug || filename,
     type,
+    lang: data.lang ? String(data.lang) : undefined,
     // Missing status means the file came from a quick-publish flow that only
     // writes title/description; explicit drafts always say status: "draft".
     status: data.status || 'published',
@@ -244,7 +246,7 @@ export function getKnowledgeEntryBySlug(slug: string, options: { includeDrafts?:
 export function getKnowledgeEntryHref(entry: Pick<KnowledgeEntry, 'type' | 'slug' | 'sourceUrl'>) {
   if (entry.sourceUrl?.startsWith('/')) return entry.sourceUrl;
   if (entry.type === 'download') return '/knowledge-centre/downloads';
-  if (entry.type === 'faq') return '/knowledge-centre/faqs';
+  if (entry.type === 'faq') return `/knowledge-centre/faqs/${entry.slug}`;
   if (entry.type === 'news') return '/knowledge-centre/news';
   return `/knowledge-centre/${entry.slug}`;
 }

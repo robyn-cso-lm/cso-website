@@ -52,6 +52,7 @@ export default function KnowledgeArticlePage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: entry.title,
+    inLanguage: entry.lang || 'en',
     description: entry.description,
     datePublished: entry.originallyPublished || entry.date,
     dateModified: entry.lastReviewed || entry.date,
@@ -67,9 +68,20 @@ export default function KnowledgeArticlePage({ params }: Props) {
     },
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://canadiansurrogacyoptions.com' },
+      { '@type': 'ListItem', position: 2, name: 'Knowledge Centre', item: 'https://canadiansurrogacyoptions.com/knowledge-centre' },
+      { '@type': 'ListItem', position: 3, name: entry.title, item: `https://canadiansurrogacyoptions.com/knowledge-centre/${entry.slug}` },
+    ],
+  };
+
   return (
     <div className={styles.shell}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className={styles.hero}>
         <div className={styles.inner}>
           <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
@@ -100,7 +112,7 @@ export default function KnowledgeArticlePage({ params }: Props) {
 
       <section className={styles.section}>
         <div className={`${styles.inner} ${styles.layout}`}>
-          <article className={styles.article}>
+          <article className={styles.article} lang={entry.lang}>
             <div className={styles.prose}>
               <MDXRemote source={entry.content} />
             </div>

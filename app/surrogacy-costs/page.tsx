@@ -7,7 +7,7 @@ import { NOT_COVERED_BY_AGENCY_FEE } from '@/lib/pricing';
 const URL = 'https://canadiansurrogacyoptions.com/surrogacy-costs';
 
 export const metadata: Metadata = {
-  title: 'What Does Surrogacy Cost? Honest Costs for Your Family',
+  title: 'Surrogacy Cost Calculator for Canada: Honest Costs for Your Family',
   description:
     'Answer seven quick questions and see what surrogacy could cost for your family in Canada or the U.S., with agency fees separated from everything else. No call needed.',
   alternates: { canonical: URL },

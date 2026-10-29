@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  FUTURE_CONTENT_TYPES,
   KNOWLEDGE_CATEGORIES,
   KnowledgeType,
   filterKnowledgeEntries,
@@ -85,8 +84,8 @@ export default function KnowledgeCentrePage({
           <p className={styles.eyebrow}>CSO Digital Library</p>
           <h1 className={styles.title}>Knowledge Centre</h1>
           <p className={styles.subtitle}>
-            A growing library for surrogacy education, recovered historical resources, guides,
-            FAQs, research, and news from Canadian Surrogacy Options.
+            Honest answers about surrogacy and egg donation in Canada: guides, costs, legal
+            basics, FAQs, and real stories from the team that has been doing this since 1992.
           </p>
           <Link href="/knowledge-centre/starting-a-surrogacy-journey-canada" className={styles.navCard}>
             <span className={styles.badge}>Featured guide</span>
@@ -215,15 +214,6 @@ export default function KnowledgeCentrePage({
             )}
           </div>
 
-          <div className={styles.cardGrid} style={{ marginTop: 28 }}>
-            {FUTURE_CONTENT_TYPES.map((type) => (
-              <div key={type} className={`${styles.card} ${styles.placeholder}`}>
-                <span className={styles.badge}>Placeholder</span>
-                <h2 className={styles.cardTitle}>{type}</h2>
-                <p className={styles.cardText}>Reserved for the next phase of the CSO digital library.</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </div>
