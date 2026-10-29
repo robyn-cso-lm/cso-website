@@ -52,6 +52,7 @@ export default function KnowledgeArticlePage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: entry.title,
+    inLanguage: entry.lang || 'en',
     description: entry.description,
     datePublished: entry.originallyPublished || entry.date,
     dateModified: entry.lastReviewed || entry.date,
@@ -111,7 +112,7 @@ export default function KnowledgeArticlePage({ params }: Props) {
 
       <section className={styles.section}>
         <div className={`${styles.inner} ${styles.layout}`}>
-          <article className={styles.article}>
+          <article className={styles.article} lang={entry.lang}>
             <div className={styles.prose}>
               <MDXRemote source={entry.content} />
             </div>
