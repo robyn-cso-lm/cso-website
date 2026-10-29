@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import IPLeadForm from '../../components/IPLeadForm';
+import KnowledgeLinks from '../../components/KnowledgeLinks';
 
 export const metadata: Metadata = {
   title: 'Surrogacy for Intended Parents in Canada',
@@ -397,6 +398,21 @@ export default function IntendedParentsPage() {
             </div>
           </div>
         </div>
+
+        <KnowledgeLinks
+          heading="Questions people ask before they call"
+          sub="Plain answers on cost, timelines, law and how to find a surrogate."
+          links={[
+          { href: '/knowledge-centre/surrogacy-cost-canada-2026', label: 'How much does surrogacy cost in Canada?' },
+          { href: '/surrogacy-costs', label: 'Get your personal cost estimate' },
+          { href: '/knowledge-centre/how-to-find-a-surrogate-in-canada', label: 'How to find a surrogate in Canada' },
+          { href: '/knowledge-centre/surrogacy-timeline-canada', label: 'How long does surrogacy take?' },
+          { href: '/knowledge-centre/legal-framework-canada', label: 'The legal framework, province by province' },
+          { href: '/knowledge-centre/questions-to-ask-a-surrogacy-agency-canada', label: '15 questions to ask any agency' },
+          { href: '/knowledge-centre/surrogacy-for-international-intended-parents-canada', label: 'Surrogacy for international parents' },
+          { href: '/knowledge-centre/faqs', label: 'Answers to the most common questions' },
+        ]}
+        />
 
         {/* FINAL CTA */}
         <section className="final-cta">
