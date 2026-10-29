@@ -18,6 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Use the most recent blog post date for the blog index; stable dates for static pages
   const latestPostDate = posts.length > 0 ? validDate(posts[0].date) : new Date('2026-05-01');
 
+  const latestKnowledgeDate = knowledgeEntries.reduce((latest, entry) => {
+    const d = validDate(entry.lastReviewed || entry.date);
+    return d > latest ? d : latest;
+  }, DEFAULT_CONTENT_DATE);
+
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: latestPostDate, changeFrequency: 'weekly', priority: 1 },
     { url: `${BASE_URL}/intended-parents`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.95 },
@@ -32,10 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/surrogacy-costs`, lastModified: new Date('2026-10-06'), changeFrequency: 'monthly', priority: 0.92 },
     { url: `${BASE_URL}/cost-calculator`, lastModified: new Date('2026-06-14'), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/resources`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${BASE_URL}/knowledge-centre`, lastModified: new Date('2026-07-09'), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE_URL}/knowledge-centre/downloads`, lastModified: new Date('2026-07-09'), changeFrequency: 'monthly', priority: 0.82 },
-    { url: `${BASE_URL}/knowledge-centre/faqs`, lastModified: new Date('2026-07-09'), changeFrequency: 'monthly', priority: 0.82 },
-    { url: `${BASE_URL}/knowledge-centre/news`, lastModified: new Date('2026-07-09'), changeFrequency: 'monthly', priority: 0.78 },
+    { url: `${BASE_URL}/knowledge-centre`, lastModified: latestKnowledgeDate, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE_URL}/knowledge-centre/downloads`, lastModified: latestKnowledgeDate, changeFrequency: 'monthly', priority: 0.82 },
+    { url: `${BASE_URL}/knowledge-centre/faqs`, lastModified: latestKnowledgeDate, changeFrequency: 'monthly', priority: 0.82 },
+    { url: `${BASE_URL}/knowledge-centre/news`, lastModified: latestKnowledgeDate, changeFrequency: 'monthly', priority: 0.78 },
     { url: `${BASE_URL}/knowledge-centre/authors/robyn-price`, lastModified: new Date('2026-07-09'), changeFrequency: 'monthly', priority: 0.78 },
     { url: `${BASE_URL}/knowledge-centre/authors/joanne-wright`, lastModified: new Date('2026-07-15'), changeFrequency: 'monthly', priority: 0.78 },
     { url: `${BASE_URL}/faq`, lastModified: new Date('2026-05-01'), changeFrequency: 'monthly', priority: 0.85 },
@@ -56,9 +61,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const knowledgeRoutes: MetadataRoute.Sitemap = knowledgeEntries
-    .filter((entry) => entry.type === 'article')
+    .filter((entry) => entry.type === 'article' || entry.type === 'faq')
     .map((entry) => ({
-      url: `${BASE_URL}/knowledge-centre/${entry.slug}`,
+      url: `${BASE_URL}${entry.type === 'faq' ? '/knowledge-centre/faqs' : '/knowledge-centre'}/${entry.slug}`,
       lastModified: validDate(entry.lastReviewed || entry.date),
       changeFrequency: 'monthly' as const,
       priority: 0.68,

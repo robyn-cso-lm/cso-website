@@ -67,9 +67,20 @@ export default function KnowledgeArticlePage({ params }: Props) {
     },
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://canadiansurrogacyoptions.com' },
+      { '@type': 'ListItem', position: 2, name: 'Knowledge Centre', item: 'https://canadiansurrogacyoptions.com/knowledge-centre' },
+      { '@type': 'ListItem', position: 3, name: entry.title, item: `https://canadiansurrogacyoptions.com/knowledge-centre/${entry.slug}` },
+    ],
+  };
+
   return (
     <div className={styles.shell}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className={styles.hero}>
         <div className={styles.inner}>
           <nav className={styles.breadcrumbs} aria-label="Breadcrumb">

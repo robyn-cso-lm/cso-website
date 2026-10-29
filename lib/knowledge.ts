@@ -244,7 +244,7 @@ export function getKnowledgeEntryBySlug(slug: string, options: { includeDrafts?:
 export function getKnowledgeEntryHref(entry: Pick<KnowledgeEntry, 'type' | 'slug' | 'sourceUrl'>) {
   if (entry.sourceUrl?.startsWith('/')) return entry.sourceUrl;
   if (entry.type === 'download') return '/knowledge-centre/downloads';
-  if (entry.type === 'faq') return '/knowledge-centre/faqs';
+  if (entry.type === 'faq') return `/knowledge-centre/faqs/${entry.slug}`;
   if (entry.type === 'news') return '/knowledge-centre/news';
   return `/knowledge-centre/${entry.slug}`;
 }

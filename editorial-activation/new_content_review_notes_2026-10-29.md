@@ -1,6 +1,6 @@
 # New Knowledge Centre content, 29 Oct 2026
 
-All new items are `status: draft` and `reviewStatus: "Ready for Robyn Review"`. Nothing is live until the status is flipped to `published`.
+UPDATE: Robyn asked to publish everything, so all 62 new items are now `status: published` (the 60 below plus How to Find a Surrogate in Canada and Is Canadian Surrogacy Options Legit?). The checks below still apply and should be done soon.
 
 ## What was added
 
@@ -40,12 +40,6 @@ Facts I could not confirm from the repo, brand file or pricing.ts:
 11. I did **not** name any lawyers.
 12. **Not written yet:** a Quebec article. Quebec's surrogacy law changed recently and I did not want to guess. Needs a lawyer's input.
 
-## To publish (after review)
+## To unpublish an item
 
-Publish everything new in one go, from the repo root, in Git Bash:
-
-```bash
-grep -l 'reviewStatus: "Ready for Robyn Review"' content/knowledge/faqs/*.mdx content/knowledge/articles/*.mdx | xargs sed -i 's/^status: draft$/status: published/'
-```
-
-Publish a single item by changing its `status: draft` to `status: published`.
+Change its `status: published` back to `status: draft`.
