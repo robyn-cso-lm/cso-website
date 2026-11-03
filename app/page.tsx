@@ -5,6 +5,7 @@ import GuidesStrip from '@/components/GuidesStrip';
 import ClinicStrip from '@/components/ClinicStrip';
 import HeartbeatLine from '@/components/HeartbeatLine';
 import CountUp from '@/components/CountUp';
+import KnowledgeLinks from '@/components/KnowledgeLinks';
 
 export const metadata: Metadata = {
   title: 'Canadian Surrogacy Options | Canada\'s First Surrogacy Agency Since 1992',
@@ -331,6 +332,19 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
+      <KnowledgeLinks
+        heading="Start with honest answers"
+        sub="Our Knowledge Centre explains surrogacy and egg donation in Canada in plain language."
+        links={[
+        { href: '/knowledge-centre/surrogacy-canada-guide', label: 'Surrogacy in Canada: the complete guide' },
+        { href: '/knowledge-centre/surrogacy-cost-canada-2026', label: 'What surrogacy costs in Canada' },
+        { href: '/knowledge-centre/how-much-do-surrogates-get-paid-in-canada', label: 'Are surrogates paid in Canada?' },
+        { href: '/knowledge-centre/is-canadian-surrogacy-options-legit', label: 'Is CSO legit? Fees, history and refund policy' },
+        { href: '/knowledge-centre/egg-donation-in-canada', label: 'Egg donation in Canada' },
+        { href: '/knowledge-centre/faqs', label: 'Frequently asked questions' },
+        ]}
+      />
+
       <section className={styles.finalCta}>
         <h2 className={styles.finalCtaH2}>Ready when <em>you</em> are.</h2>
         <p className={styles.finalCtaP}>
