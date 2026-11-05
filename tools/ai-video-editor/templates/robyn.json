@@ -1,0 +1,39 @@
+{
+  "name": "robyn",
+  "label": "Robyn Personal",
+  "best_for": "Personal TikTok and Facebook: raw, honest, survivor tone",
+  "brand_locked": true,
+  "caption": {
+    "font": [
+      "InstrumentSans-Bold",
+      "Arial Bold"
+    ],
+    "size": 10,
+    "color": "#FFFCF8",
+    "highlight": "#C8973A",
+    "stroke": "#1C0D30",
+    "stroke_width": 0.06,
+    "uppercase": false,
+    "words": 4,
+    "y": -0.45,
+    "pop": false,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "PlayfairDisplay-BoldItalic",
+      "Georgia Italic"
+    ],
+    "size": 14,
+    "color": "#FFFCF8",
+    "highlight": "#C8973A",
+    "stroke": "#1C0D30",
+    "stroke_width": 0.06,
+    "uppercase": false,
+    "y": 0.55,
+    "seconds": 3.0,
+    "italic": false,
+    "box": null,
+    "line_width": 0.8
+  }
+}

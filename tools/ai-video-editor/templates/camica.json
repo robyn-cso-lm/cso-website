@@ -1,0 +1,45 @@
+{
+  "name": "camica",
+  "label": "Camica Brand",
+  "best_for": "Camica: US-facing surrogacy, concierge feel",
+  "brand_locked": true,
+  "caption": {
+    "font": [
+      "Montserrat-SemiBold",
+      "Montserrat SemiBold",
+      "Segoe UI Semibold",
+      "seguisb",
+      "Arial Bold"
+    ],
+    "size": 9.5,
+    "color": "#F7F4EF",
+    "highlight": "#C8A66A",
+    "stroke": "#0F4D4D",
+    "stroke_width": 0.08,
+    "uppercase": false,
+    "words": 3,
+    "y": -0.5,
+    "pop": true,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "Cinzel-Bold",
+      "Cinzel Bold",
+      "Palatino Linotype",
+      "pala",
+      "Georgia"
+    ],
+    "size": 13,
+    "color": "#F7F4EF",
+    "highlight": "#C8A66A",
+    "stroke": "#0F4D4D",
+    "stroke_width": 0.08,
+    "uppercase": true,
+    "y": 0.6,
+    "seconds": 3.0,
+    "italic": false,
+    "box": null,
+    "line_width": 0.8
+  }
+}

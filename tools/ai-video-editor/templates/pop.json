@@ -1,0 +1,40 @@
+{
+  "name": "pop",
+  "label": "Playful Pop",
+  "best_for": "Small shops, product sellers, crafts",
+  "caption": {
+    "font": [
+      "Trebuchet MS Bold",
+      "Arial Rounded MT Bold",
+      "Arial Black"
+    ],
+    "size": 11,
+    "color": "#FFFFFF",
+    "highlight": "#FF5FA2",
+    "stroke": "#2B2D6E",
+    "stroke_width": 0.1,
+    "uppercase": false,
+    "words": 3,
+    "y": -0.55,
+    "pop": true,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "Trebuchet MS Bold",
+      "Arial Rounded MT Bold",
+      "Arial Black"
+    ],
+    "size": 16,
+    "color": "#FFE14D",
+    "highlight": "#4DB6FF",
+    "stroke": "#2B2D6E",
+    "stroke_width": 0.1,
+    "uppercase": false,
+    "y": 0.62,
+    "seconds": 3.0,
+    "italic": false,
+    "box": null,
+    "line_width": 0.8
+  }
+}

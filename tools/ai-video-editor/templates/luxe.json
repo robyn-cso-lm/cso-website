@@ -1,0 +1,40 @@
+{
+  "name": "luxe",
+  "label": "Quiet Luxury",
+  "best_for": "Interiors, real estate, premium offers",
+  "caption": {
+    "font": [
+      "Gill Sans",
+      "Century Gothic",
+      "Arial"
+    ],
+    "size": 8.5,
+    "color": "#F2E8D5",
+    "highlight": "#D8B56A",
+    "stroke": "#000000",
+    "stroke_width": 0.0,
+    "uppercase": true,
+    "words": 4,
+    "y": -0.55,
+    "pop": false,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "Gill Sans",
+      "Century Gothic",
+      "Arial"
+    ],
+    "size": 12,
+    "color": "#F2E8D5",
+    "highlight": "#D8B56A",
+    "stroke": "#000000",
+    "stroke_width": 0.0,
+    "uppercase": true,
+    "y": 0.62,
+    "seconds": 3.0,
+    "italic": false,
+    "box": null,
+    "line_width": 0.8
+  }
+}
