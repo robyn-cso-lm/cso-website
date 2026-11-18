@@ -8,6 +8,7 @@ import {
   getAllTags,
   getKnowledgeEntryHref,
 } from '@/lib/knowledge';
+import AskKnowledge from '@/components/AskKnowledge';
 import styles from './knowledge.module.css';
 
 const START_HERE_GUIDES = [
@@ -87,6 +88,7 @@ export default function KnowledgeCentrePage({
             Honest answers about surrogacy and egg donation in Canada: guides, costs, legal
             basics, FAQs, and real stories from the team that has been doing this since 1992.
           </p>
+          <AskKnowledge />
           <Link href="/knowledge-centre/starting-a-surrogacy-journey-canada" className={styles.navCard}>
             <span className={styles.badge}>Featured guide</span>
             <h2 className={styles.cardTitle}>What You Should Know Before Starting a Surrogacy Journey in Canada</h2>
