@@ -19,6 +19,16 @@ export const metadata: Metadata = {
 
 const GUIDES = [
   {
+    href: '/guides/surrogacy-for-partners',
+    price: 'Free',
+    badge: 'New',
+    title: 'A Surrogacy Guide for Partners',
+    description:
+      'What screening, agreements, appointments and life at home can look like when your partner becomes a surrogate, plus the conversations worth having before you say yes together.',
+    audience: 'For: Partners and surrogate households',
+    featured: false,
+  },
+  {
     href: '/guides/canadian-surrogacy-roadmap',
     price: '$97',
     badge: 'Most comprehensive',
