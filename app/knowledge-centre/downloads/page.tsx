@@ -5,7 +5,8 @@ import styles from '../knowledge.module.css';
 
 export const metadata: Metadata = {
   title: 'Downloads | CSO Knowledge Centre',
-  description: 'CSO guides, PDFs, and downloadable resources.',
+  description: 'CSO guides, PDFs, and downloadable resources on surrogacy costs, programs and payment stages.',
+  alternates: { canonical: 'https://canadiansurrogacyoptions.com/knowledge-centre/downloads' },
 };
 
 export default function DownloadsPage() {
