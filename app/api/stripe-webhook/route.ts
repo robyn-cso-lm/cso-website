@@ -35,6 +35,12 @@ function getProductInfo(priceId: string): {
     string,
     { name: string; guideKey: string; slug: string; price: number }
   > = {
+    [process.env.STRIPE_PRICE_AGENCY_TEAM || 'price_1Uf177D0BJDDRA5nvlFYGyGW']: {
+      name: 'From Surrogate to Agency Team',
+      guideKey: 'agency-team',
+      slug: 'from-surrogate-to-agency-team',
+      price: 37,
+    },
     [process.env.STRIPE_PRICE_STARTER || '__missing__']: {
       name: 'Is Surrogacy Right For Me?',
       guideKey: 'is-surrogacy-right',
@@ -195,6 +201,7 @@ export async function POST(req: NextRequest) {
           throw new Error(`Unknown Stripe price ID: ${priceId}`);
         }
 
+        if (product.guideKey === 'agency-team' && fullSession.payment_status !== 'paid') continue;
         const html = buildDeliveryEmail(customerName, product.name, makeSignedDownloadUrl(product.guideKey));
 
         await sendMail(

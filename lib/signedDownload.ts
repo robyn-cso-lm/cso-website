@@ -3,6 +3,7 @@ import crypto from 'crypto';
 // Paid guide files live in private/guides/ (NOT public/) and are only served
 // through /api/download with a valid, unexpired signature.
 export const GUIDE_FILES: Record<string, { filename: string; displayName: string }> = {
+  'agency-team': { filename: 'agency-team.pdf', displayName: 'From Surrogate to Agency Team' },
   'is-surrogacy-right': { filename: 'is-surrogacy-right-for-me.pdf', displayName: 'Is Surrogacy Right For Me?' },
   'roadmap': { filename: 'roadmap.pdf', displayName: 'The Canadian Surrogacy Roadmap' },
   'indie-checklist': { filename: 'indie-checklist.pdf', displayName: 'Independent Journey Checklist' },
