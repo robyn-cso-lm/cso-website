@@ -48,22 +48,31 @@ export default function LandingPage() {
     </aside>
     <section id="options">
     <h2>Choose your level of support.</h2>
+    <p>Both options include 12 months of access to eight modules, companion workbooks, templates and scripts. Each also includes three 60-minute group Q&amp;A calls with Robyn, one per month during the first 90 days.</p>
     <div className="rows">
     <div>
     <h3>Self-paced · CAD $997</h3>
-    <p>For founders who want to work independently through the modules, templates and scripts, with a monthly group call.</p>
+    <p className="label">10 self-paced spots in the first round</p>
+    <p>Work through the curriculum on your own schedule. Use the checklists to review your intake workflow and launch plan, then bring your questions to the monthly calls. Support in this tier is delivered in the group.</p>
     </div>
     <div>
     <h3>Done With You · CAD $3,997</h3>
-    <p>For founders looking for live cohort calls, one-to-one time and feedback on their documents as they prepare a launch plan.</p>
+    <p className="label">4 coached spots in the first round</p>
+    <p>Build your operating plan with Robyn over eight weeks. Alongside the shared curriculum and monthly Q&amp;As, you receive:</p>
+    <ul style={{ listStyle: 'disc', paddingLeft: '1.4em' }}>
+      <li><strong>Four 75-minute founder workshops</strong> in weeks 1, 3, 5 and 7.</li>
+      <li><strong>Two private 45-minute calls</strong> with Robyn: a week-one kickoff and a week-eight launch-readiness review.</li>
+      <li><strong>Two written document reviews.</strong> Submit your intake and follow-up workflow by week 3 and your 90-day operating plan by week 6. Each review covers one submission of up to five pages, with comments within five business days.</li>
+      <li><strong>Private email support</strong> for short implementation questions during the eight weeks, with replies within two business days.</li>
+    </ul>
     </div>
     </div>
-    <p>Ask about availability, dates and exactly what support is included before choosing a program.</p>
+    <p>Enrollment is currently waitlist only. Email Robyn to hear when the first round opens. You can mention which option interests you; joining the list is free and does not reserve a spot.</p>
     <Waitlist />
     </section>
     </main>
     <footer>
-    <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="/contact">Purchase support</a>
+    <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>
     </footer>
   </div>;
 }
