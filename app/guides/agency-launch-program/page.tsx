@@ -1,4 +1,5 @@
 import '../editorial.css';
+import Waitlist from './Waitlist';
 
 export const metadata = { title: 'Agency Launch Program | Founder Training', description: 'Explore the curriculum and compare two program options.' };
 
@@ -58,7 +59,7 @@ export default function LandingPage() {
     </div>
     </div>
     <p>Ask about availability, dates and exactly what support is included before choosing a program.</p>
-    <a className="buy" href="https://canadiansurrogacyoptions.com/contact">Ask about the program</a>
+    <Waitlist />
     </section>
     </main>
     <footer>
