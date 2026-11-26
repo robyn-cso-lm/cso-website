@@ -1,0 +1,42 @@
+{
+  "name": "lm",
+  "label": "Little Miracles Brand",
+  "best_for": "Little Miracles: egg donors, warm and story-led",
+  "brand_locked": true,
+  "caption": {
+    "font": [
+      "InstrumentSans-Bold",
+      "Instrument Sans Bold",
+      "Arial Bold",
+      "arialbd"
+    ],
+    "size": 10,
+    "color": "#FFFFFF",
+    "highlight": "#F4A7B9",
+    "stroke": "#5C1A2E",
+    "stroke_width": 0.08,
+    "uppercase": false,
+    "words": 3,
+    "y": -0.5,
+    "pop": true,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "Gloock-Regular",
+      "Gloock",
+      "Georgia"
+    ],
+    "size": 15,
+    "color": "#FFFFFF",
+    "highlight": "#F4A7B9",
+    "stroke": "#5C1A2E",
+    "stroke_width": 0.08,
+    "uppercase": false,
+    "y": 0.6,
+    "seconds": 3.0,
+    "italic": false,
+    "box": null,
+    "line_width": 0.8
+  }
+}

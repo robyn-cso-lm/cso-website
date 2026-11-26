@@ -1,0 +1,49 @@
+{
+  "name": "clean",
+  "label": "Clean Professional",
+  "best_for": "Careers, finance, service providers, how-to",
+  "caption": {
+    "font": [
+      "Arial Bold",
+      "arialbd",
+      "Helvetica Bold",
+      "Arial"
+    ],
+    "size": 10,
+    "color": "#FFFFFF",
+    "highlight": "#4C8DFF",
+    "stroke": "#000000",
+    "stroke_width": 0.0,
+    "uppercase": false,
+    "words": 3,
+    "y": -0.55,
+    "pop": true,
+    "italic": false,
+    "box": {
+      "color": "#1F5FE0",
+      "alpha": 1.0
+    }
+  },
+  "hook": {
+    "font": [
+      "Arial Bold",
+      "arialbd",
+      "Helvetica Bold",
+      "Arial"
+    ],
+    "size": 13,
+    "color": "#101828",
+    "highlight": "#1F5FE0",
+    "stroke": "#000000",
+    "stroke_width": 0.0,
+    "uppercase": false,
+    "y": 0.62,
+    "seconds": 3.0,
+    "italic": false,
+    "box": {
+      "color": "#FFFFFF",
+      "alpha": 1.0
+    },
+    "line_width": 0.8
+  }
+}

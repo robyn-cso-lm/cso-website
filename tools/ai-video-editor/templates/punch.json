@@ -1,0 +1,36 @@
+{
+  "name": "punch",
+  "label": "Bold Punch",
+  "best_for": "Fitness, myth-busting, hard truths",
+  "caption": {
+    "font": [
+      "Impact"
+    ],
+    "size": 13,
+    "color": "#FFFFFF",
+    "highlight": "#FFD60A",
+    "stroke": "#000000",
+    "stroke_width": 0.08,
+    "uppercase": true,
+    "words": 2,
+    "y": -0.55,
+    "pop": true,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "Impact"
+    ],
+    "size": 19,
+    "color": "#FFFFFF",
+    "highlight": "#FFD60A",
+    "stroke": "#000000",
+    "stroke_width": 0.1,
+    "uppercase": true,
+    "y": 0.62,
+    "seconds": 3.0,
+    "italic": false,
+    "box": null,
+    "line_width": 0.8
+  }
+}

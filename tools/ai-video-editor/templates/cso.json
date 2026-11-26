@@ -1,0 +1,46 @@
+{
+  "name": "cso",
+  "label": "CSO Brand",
+  "best_for": "Canadian Surrogacy Options: Robyn, surrogate and IP education",
+  "brand_locked": true,
+  "caption": {
+    "font": [
+      "InstrumentSans-Bold",
+      "Instrument Sans Bold",
+      "Arial Bold",
+      "arialbd"
+    ],
+    "size": 10,
+    "color": "#FFFCF8",
+    "highlight": "#C8973A",
+    "stroke": "#1C0D30",
+    "stroke_width": 0.07,
+    "uppercase": false,
+    "words": 3,
+    "y": -0.5,
+    "pop": true,
+    "italic": false
+  },
+  "hook": {
+    "font": [
+      "PlayfairDisplay-BoldItalic",
+      "Playfair Display Bold Italic",
+      "Georgia Italic",
+      "georgiai"
+    ],
+    "size": 14,
+    "color": "#FFFCF8",
+    "highlight": "#C8973A",
+    "stroke": "#1C0D30",
+    "stroke_width": 0.0,
+    "uppercase": false,
+    "y": 0.6,
+    "seconds": 3.0,
+    "italic": false,
+    "box": {
+      "color": "#3D1A6E",
+      "alpha": 0.92
+    },
+    "line_width": 0.8
+  }
+}
